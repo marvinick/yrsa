@@ -18,7 +18,7 @@ var AllProjects = React.createClass({
     });
 
     return (
-      <div>
+      <div className="container">
         <h1>{projects}</h1>
       </div>
     )

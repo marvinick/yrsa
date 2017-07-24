@@ -17,7 +17,7 @@ var NewProject = React.createClass({
       <div>
         <input ref="title" placeholder="Enter the title" />
         <input ref="description" placeholder="Description" />
-        <button onClick={this.handleClick}>Submit</button>
+        <button onClick={this.handleClick} className="btn right">Submit</button>
       </div>
     )
   }

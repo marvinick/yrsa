@@ -19,12 +19,14 @@ var Project = React.createClass({
     var description = this.state.editable ? <input type='text' ref='description' defaultValue={this.props.project.description} /> : <p>{this.props.project.description}</p>;
 
     return (
-      <div>
-        <h4>{title}</h4>
-        <h5>{description}</h5>
-        <button onClick={this.props.handleDelete} >Delete</button>
-        <button onClick={this.handleEdit}>{this.state.editable ? 'Submit' : 'Edit' }</button>
-      </div>
+
+        <div className="row">
+          <h4>{title}</h4>
+          <h5>{description}</h5>
+          <button onClick={this.props.handleDelete} className="btn right">Delete</button>
+          <button onClick={this.handleEdit} className="btn left">{this.state.editable ? 'Submit' : 'Edit' }</button>
+        </div>
+      
     )
   }
 })
