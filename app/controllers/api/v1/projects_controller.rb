@@ -1,4 +1,6 @@
 class Api::V1::ProjectsController < Api::V1::BaseController
+  before_filter :authenticate_user!
+
   def index
     render json: Project.all
   end
@@ -6,7 +8,7 @@ class Api::V1::ProjectsController < Api::V1::BaseController
   def create
     project = Project.create(project_params)
     project.author = current_user
-    render json: project
+    respond_with :api, :v1, project
   end
 
   def destroy
@@ -21,6 +23,6 @@ class Api::V1::ProjectsController < Api::V1::BaseController
 
   private
   def project_params
-    params.require(:project).permit(:title, :description)
+    params.require(:project).permit(:title, :description, :author_id)
   end
 end
