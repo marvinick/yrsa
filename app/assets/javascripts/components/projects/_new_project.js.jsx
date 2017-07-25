@@ -1,5 +1,6 @@
 var NewProject = React.createClass({
   handleClick() {
+    event.preventDefault;
     var title = this.refs.title.value;
     var description = this.refs.description.value;
     $.ajax({
@@ -10,6 +11,8 @@ var NewProject = React.createClass({
         this.props.handleSubmit(project);
       }
     });
+    this.refs.title.value='';
+    this.refs.description.value='';
   },
 
   render () {

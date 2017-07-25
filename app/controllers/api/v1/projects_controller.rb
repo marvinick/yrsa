@@ -4,7 +4,9 @@ class Api::V1::ProjectsController < Api::V1::BaseController
   end
 
   def create
-    respond_with :api, :v1, Project.create(project_params)
+    project = Project.create(project_params)
+    project.author = current_user
+    render json: project
   end
 
   def destroy
@@ -15,7 +17,7 @@ class Api::V1::ProjectsController < Api::V1::BaseController
     project = Project.find(params["id"])
     project.update_attributes(project_params)
     respond_with project, json: project
-  end 
+  end
 
   private
   def project_params

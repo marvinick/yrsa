@@ -19,6 +19,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'react-rails'
 gem 'responders'
 
+#authentication
+gem "devise"
+
 group :development, :test do
   gem 'byebug', platform: :mri
 end
