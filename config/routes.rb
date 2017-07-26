@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  post "/accounts", to: "accounts#create", as: :accounts
+  
   namespace :api do
     namespace :v1 do
       resources :projects
@@ -9,4 +11,3 @@ Rails.application.routes.draw do
 
   resources :projects
 end
- 
