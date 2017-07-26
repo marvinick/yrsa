@@ -1,13 +1,14 @@
 class Api::V1::ProjectsController < Api::V1::BaseController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   def index
-    render json: Project.all
+    render json: Project.includes(:author).all
   end
 
   def create
-    project = Project.create(project_params)
+    project = Project.new(project_params)
     project.author = current_user
+    project.save
     respond_with :api, :v1, project
   end
 
