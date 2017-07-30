@@ -16,3 +16,4 @@ class AccountsController < ApplicationController
     params.require(:account).permit(:name, { owner_attributes: [ :email, :password, :password_confirmation ]} )
   end
 end
+ 

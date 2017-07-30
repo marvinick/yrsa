@@ -1,4 +1,4 @@
 class Invitation < ApplicationRecord
   belongs_to :account
-  validates :email, presences: true
+  validates :email, presence: true
 end
