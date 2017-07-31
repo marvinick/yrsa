@@ -28,6 +28,8 @@ gem "devise"
 group :development, :test do
   gem 'byebug', platform: :mri
   gem "rspec-rails"
+  gem "email_spec"
+  gem "letter_opener"
 end
 
 group :development do
@@ -40,6 +42,7 @@ end
 group :test do
   gem 'capybara'
   gem "factory_girl_rails"
+  gem 'database_cleaner'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
