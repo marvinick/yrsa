@@ -3,7 +3,7 @@ module Accounts
     skip_before_action :authenticate_user!, only: [:accept, :accepted]
     skip_before_action :authorize_user!, only: [:accept, :accepted]
     before_action :authorize_owner!, except: [:accept, :accepted]
- 
+
     def new
       @invitation = Invitation.new
     end
@@ -17,11 +17,11 @@ module Accounts
     end
 
     def accept
-      @invitation = Invitation.find(params[:id])
+      @invitation = Invitation.find_by!(token: params[:id])
     end
 
     def accepted
-      @invitation = Invitation.find(params[:id])
+      @invitation = Invitation.find_by!(token: params[:id])
       user_params = params[:user].permit(
         :email,
         :password,
