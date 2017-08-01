@@ -4,7 +4,7 @@ module Accounts
     before_action :authorize_user!
 
     def current_account
-      Account.find(params[:id])
+      @current_account ||= Account.find_by(params[:name])
     end
     helper_method :current_account
 
