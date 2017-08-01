@@ -1,6 +1,9 @@
 module Accounts
   class Accounts::InvitationsController < Accounts::BaseController
-    before_action :authorize_owner!
+    skip_before_action :authenticate_user!, only: [:accept, :accepted]
+    skip_before_action :authorize_user!, only: [:accept, :accepted]
+    before_action :authorize_owner!, except: [:accept, :accepted]
+
 
     def new
       @invitation = Invitation.new
@@ -9,19 +12,31 @@ module Accounts
     def create
       @invitation = current_account.invitations.new(invitation_params)
       @invitation.save
-      InvitationMailer.invite(@invitation).deliver_later
+      InvitationMailer.invite(@invitation).deliver_now
       flash[:notice] = "#{@invitation.email} has been invited."
       redirect_to root_path
     end
 
-    def create
-      @invitation = current_account.invitations.new(invitation_params)
-      @invitation.save
-      InvitationMailer.invite(@invitation).deliver_later
-      flash[:notice] = "#{@invitation.email} has been invited."
-      redirect_to root_path
+    def accept
+      @invitation = Invitation.find(params[:id])
     end
-    
+
+    def accepted
+      @invitation = Invitation.find(params[:id])
+      user_params = params[:user].permit(
+        :email,
+        :password,
+        :password_confirmation
+      )
+
+      user = User.create!(user_params)
+      current_account.users << user
+      sign_in(user)
+
+      flash[:notice] = "You have joined the #{current_account.name} account."
+      redirect_to root_url
+    end
+
     private
 
     def invitation_params

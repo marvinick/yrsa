@@ -64,14 +64,5 @@ RSpec.configure do |config|
     ActionMailer::Base.deliveries.clear
   end
 
-  config.before(:suite) do
-    DatabaseCleaner.strategy = :truncation
-    DatabaseCleaner.clean_with(:truncation)
-  end
-
-  config.around(:each) do |example|
-    DatabaseCleaner.cleaning do
-      example.run
-    end
-  end
+  Capybara.default_host = 'localhost:3000'
 end
