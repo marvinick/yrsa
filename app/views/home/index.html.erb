@@ -1,0 +1,7 @@
+<% if user_signed_in? %>
+  <h2>Pick an account</h2>
+  <% current_user.accounts.each do |account| %>
+    <%= link_to account.name, root_url %>
+  <% end %>
+<% end %>
+<%= link_to "Projects", projects_path %>

@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 
   scope module: "accounts" do
     resources :projects
-    root to: "projects#index"
 
     namespace :api do
       namespace :v1 do
@@ -21,5 +20,8 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  get 'home/index'
+  root to: "home#index"
 
 end
