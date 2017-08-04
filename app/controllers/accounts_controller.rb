@@ -5,8 +5,8 @@ class AccountsController < ApplicationController
   end
 
   def create
-    account = Account.create(account_params)
-    sign_in(account.owner)
+    @account = Account.create(account_params)
+    sign_in(@account.owner)
     flash[:notice] = "Your account has been created."
     redirect_to root_url
   end

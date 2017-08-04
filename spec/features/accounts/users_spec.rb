@@ -36,7 +36,9 @@ feature "Users" do
 
     scenario "cannot go to the users page" do
       visit users_path
-      expect(page).to have_content("Only an owner of an account can do that.")
+      within(".flash_alert") do
+        expect(page).to have_content("Only an owner of an account can do that.")
+      end
     end
   end
 end
