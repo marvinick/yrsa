@@ -4,9 +4,9 @@ class Invitation < ApplicationRecord
 
   before_create :generate_token
 
-  def to_param
+  def to_param  
     token
-  end 
+  end
 
   private
 

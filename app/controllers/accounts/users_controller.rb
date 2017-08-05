@@ -1,5 +1,5 @@
 class Accounts::UsersController < Accounts::BaseController
-  skip_before_action :authorize_user!
+  before_action :authorize_owner!
 
   def destroy
     user = User.find(params[:id])

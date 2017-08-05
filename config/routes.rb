@@ -2,12 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
 
   get 'home/index'
-  root to: "home#index"
+  root to: "accounts#index"
 
   get "/accounts/new", to: "accounts#new", as: :new_account
   post "/accounts", to: "accounts#create", as: :accounts
 
-  scope module: "accounts" do
+  resources :accounts do
     resources :projects
 
     namespace :api do

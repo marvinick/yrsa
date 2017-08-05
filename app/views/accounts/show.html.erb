@@ -1,0 +1,5 @@
+<h4><%= @account.name %></h4>
+<% @account.projects.each do |project| %>
+  <%= project.name %>
+<% end %>
+<%= react_component "Main" %>

@@ -25,7 +25,7 @@ module Accounts
 
     private
     def project_params
-      params.require(:project).permit(:title, :description, :author_id)
+      params.require(:project).permit(:title, :description, :author_id, :account_id)
     end
   end
 end

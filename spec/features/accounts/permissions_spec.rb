@@ -20,7 +20,7 @@ feature "Account permissions" do
       expect(page.current_url).to eq(root_url)
     end
   end
-
+  #
   context "a user of the account" do
     let(:user) { FactoryGirl.create(:user) }
     before do
