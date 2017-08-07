@@ -3,6 +3,7 @@ var NewProject = React.createClass({
     event.preventDefault;
     var title = this.refs.title.value;
     var description = this.refs.description.value;
+
     $.ajax({
       url: `/api/v1/projects`,
       type: `POST`,

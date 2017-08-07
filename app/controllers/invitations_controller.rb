@@ -1,4 +1,4 @@
-module Accounts
+
   class Accounts::InvitationsController < Accounts::BaseController
     skip_before_action :authenticate_user!, only: [:accept, :accepted]
     skip_before_action :authorize_user!, only: [:accept, :accepted]
@@ -49,4 +49,3 @@ module Accounts
       params.require(:invitation).permit(:email)
     end
   end
-end

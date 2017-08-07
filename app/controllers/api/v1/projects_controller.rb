@@ -1,4 +1,4 @@
-module Accounts
+
   class Api::V1::ProjectsController < Api::V1::BaseController
     before_action :authenticate_user!
 
@@ -28,4 +28,3 @@ module Accounts
       params.require(:project).permit(:title, :description, :author_id, :account_id)
     end
   end
-end

@@ -1,5 +1,5 @@
 <h4><%= @account.name %></h4>
 <% @account.projects.each do |project| %>
-  <%= project.name %>
+  <%= link_to project.name, project_path %>
 <% end %>
 <%= react_component "Main" %>
