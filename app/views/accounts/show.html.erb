@@ -3,3 +3,5 @@
   <%= link_to project.name, project_path %>
 <% end %>
 <%= react_component "Main" %>
+<li><%= link_to "Users", account_users_path(@account, @users) %></li>
+<h1><%= link_to "Invite user", account_invitations_path(@account, @invitations) %></h1>

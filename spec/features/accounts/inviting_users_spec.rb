@@ -9,11 +9,10 @@ feature "Inviting users" do
   before do
     login_as(account.owner)
     visit root_url
-    visit projects_path
+    visit account_path(account)
   end
 
   scenario "invites a user successfully" do
-    click_link "Users"
     click_link "Invite user"
     fill_in "Email", with: "text@example.com"
     click_button "Invite User"

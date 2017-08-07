@@ -7,3 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Project.create(title: "Test", description: "examples of react json api")
+
+Project.create(title: "dom", description: "examples of react json")

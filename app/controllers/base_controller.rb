@@ -1,4 +1,4 @@
-module Accounts
+
   class BaseController < ApplicationController
     before_action :authenticate_user!
     before_action :authorize_user!
@@ -32,4 +32,3 @@ module Accounts
       end
     end
   end
-end
