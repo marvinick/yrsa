@@ -1,5 +1,5 @@
 <p>
 You have been invited to join the <%= @invitation.account.name %> account on Yrsa.
 </p>
-<% accept_url = accept_invitation_url(@invitation) %>
+<% accept_url = accept_account_invitation_url(@account, @invitation) %>
 <%= link_to "Accept Invitation", accept_url %> </p>

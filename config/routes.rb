@@ -14,14 +14,14 @@ Rails.application.routes.draw do
   end
 
   resources :accounts do
-    resources :projects
-
     resources :invitations do
       member do
         get :accept
         patch :accepted
       end
     end
+
+    resources :projects
 
     resources :users, only: [:index, :destroy]
   end

@@ -13,14 +13,14 @@ feature "Inviting users" do
   end
 
   scenario "invites a user successfully" do
-    click_link "Invite user"
+    click_link "Invitations"
     fill_in "Email", with: "text@example.com"
     click_button "Invite User"
     expect(page).to have_content("text@example.com has been invited.")
     expect(page.current_url).to eq(root_url)
 
     email = find_email("test@example.com")
-    # expect(email).to be_present
-    # expect(email.subject).to eq("Invitation to join #{account.name} on Yrsa")
+    expect(email).to be_present
+    expect(email.subject).to eq("Invitation to join #{account.name} on Yrsa")
   end
 end

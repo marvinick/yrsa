@@ -1,14 +1,15 @@
 class InvitationsController < BaseController
+  before_action :set_account, except: [:accept, :accepted]
   skip_before_action :authenticate_user!, only: [:accept, :accepted]
   skip_before_action :authorize_user!, only: [:accept, :accepted]
   before_action :authorize_owner!, except: [:accept, :accepted]
-  
+
   def index
     @invitations = current_account.invitations.all
   end
 
   def new
-    @invitation = Invitation.new
+    @invitation = @account.invitations.build
   end
 
   def create
@@ -47,6 +48,10 @@ class InvitationsController < BaseController
   end
 
   private
+
+  def set_account
+    @account = Account.find(params[:account_id])
+  end
 
   def invitation_params
     params.require(:invitation).permit(:email, :account_id)
