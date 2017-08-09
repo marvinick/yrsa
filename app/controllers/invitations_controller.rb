@@ -9,13 +9,14 @@ class InvitationsController < BaseController
   end
 
   def new
-    @invitation = @account.invitations.build
+    @invitation = current_account.invitations.build
   end
 
   def create
     @invitation = current_account.invitations.new(invitation_params)
+    @invitation.account_id = current_account.id
     @invitation.save
-    InvitationMailer.invite(@invitation).deliver_now
+    InvitationMailer.invite(@invitation, @account).deliver_now
     flash[:notice] = "#{@invitation.email} has been invited."
     redirect_to root_path
   end

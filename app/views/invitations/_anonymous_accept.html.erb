@@ -4,9 +4,9 @@
 <p>
   <h3>Sign up as a new user</h3>
 </p>
-<%= simple_form_for [:accepted, @invitation], as: :user do |f| %>
+  <%= simple_form_for accepted_account_invitation_path, as: :user do |f| %>
   <%= f.input :email, value: @invitation.email %>
   <%= f.input :password %>
   <%= f.input :password_confirmation %>
-  <%= f.submit "Accept Invitation", class: "btn btn-primary" %> 
+  <%= f.submit "Accept Invitation", class: "btn btn-primary" %>
 <%end%>

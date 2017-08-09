@@ -1,5 +1,6 @@
 class InvitationMailer < ApplicationMailer
-  def invite(invitation)
+  def invite(invitation, account)
+    @account = account
     @invitation = invitation
     mail(
       to: invitation.email,

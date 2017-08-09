@@ -13,7 +13,7 @@ feature "Accepting invitations" do
   end
 
   before do
-     InvitationMailer.invite(invitation).deliver_now
+     InvitationMailer.invite(invitation, account).deliver_now
   end
 
   scenario "accepts as invitation" do
@@ -40,7 +40,7 @@ feature "Accepting invitations" do
     fill_in "Password", with: "password"
     click_button "Log in"
 
-    invitation_url = accept_invitation_url(invitation)
+    invitation_url = accept_account_invitation_url(account, invitation)
     expect(page.current_url).to eq(invitation_url)
     expect(page).to_not have_content("Sign in as an existing user")
     click_button "Accept Invitation"
