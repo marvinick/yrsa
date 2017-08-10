@@ -1,5 +1,5 @@
 class InvitationsController < BaseController
-  before_action :set_account, except: [:accept, :accepted]
+  before_action :set_account
   skip_before_action :authenticate_user!, only: [:accept, :accepted]
   skip_before_action :authorize_user!, only: [:accept, :accepted]
   before_action :authorize_owner!, except: [:accept, :accepted]
@@ -45,7 +45,7 @@ class InvitationsController < BaseController
     current_account.users << user
 
     flash[:notice] = "You have joined the #{current_account.name} account."
-    redirect_to root_url
+    redirect_to account_path(@account)
   end
 
   private

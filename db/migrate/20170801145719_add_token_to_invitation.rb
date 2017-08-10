@@ -4,3 +4,4 @@ class AddTokenToInvitation < ActiveRecord::Migration[5.0]
     add_index :invitations, :token
   end
 end
+ 
