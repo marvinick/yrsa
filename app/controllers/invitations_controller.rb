@@ -45,7 +45,7 @@ class InvitationsController < BaseController
     current_account.users << user
 
     flash[:notice] = "You have joined the #{current_account.name} account."
-    redirect_to account_path(@account)
+    redirect_to root_url
   end
 
   private
