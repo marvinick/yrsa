@@ -1,6 +1,6 @@
-<%= react_component "Main" %>
 <div class="container">
-
-  <li><%= link_to "Users", users_path %></li>
-
+  <% @account.projects.each do |project| %>
+    <%= link_to project.title, account_project_path(project) %>
+  <% end %>
 </div>
+<%= link_to "New Project", new_account_project_path(@account) %>

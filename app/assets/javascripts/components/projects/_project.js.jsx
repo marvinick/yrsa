@@ -21,7 +21,6 @@ var Project = React.createClass({
     var email = this.props.project.email;
 
     return (
-
         <div className="row">
           <h4>{title}</h4>
           <h5>{description}</h5>

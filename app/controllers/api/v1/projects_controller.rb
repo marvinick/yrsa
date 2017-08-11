@@ -25,6 +25,6 @@
 
     private
     def project_params
-      params.require(:project).permit(:title, :description, :author_id, :account_id)
+      params.require(:project).permit(:title, :description, :author_id, :account_id, user_ids: [])
     end
   end

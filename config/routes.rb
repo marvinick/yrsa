@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :accounts do
+    resources :projects
     resources :invitations do
       member do
         get :accept
@@ -21,7 +22,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :projects
+
 
     resources :users, only: [:index, :destroy]
   end
