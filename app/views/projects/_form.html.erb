@@ -1,0 +1,11 @@
+<%= simple_form_for([@account, @project]) do |f| %>
+<%= f.hidden_field :account_id %>
+
+    <%= f.input :title, placeholder: 'name', label: false %>
+    <br>
+    <%= f.input :description, placeholder: 'description', label: false  %>
+    <br>
+    <%= f.button :submit %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), account_projects_path(@account, @projects) %>
+
+<% end %>

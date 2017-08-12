@@ -2,6 +2,7 @@
 <% @account.projects.each do |project| %>
   <%= link_to project.name, project_path %>
 <% end %>
-<%= react_component "Main" %>
+
 <li><%= link_to "Users", account_users_path(@account, @users) %></li>
-<h1><%= link_to "Invitations", account_invitations_path(@account, @invitations) %></h1>
+<li><%= link_to "Invitations", account_invitations_path(@account, @invitations) %></li>
+<h5><%= link_to "Projects", account_projects_path(@account, @projects) %>

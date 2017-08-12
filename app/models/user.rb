@@ -4,8 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :projects
-
   has_many :memberships
   has_many :accounts, through: :memberships
 
@@ -15,5 +13,5 @@ class User < ApplicationRecord
 
   def all_accounts
     owned_accounts + accounts
-  end 
+  end
 end

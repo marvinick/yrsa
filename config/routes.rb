@@ -7,22 +7,15 @@ Rails.application.routes.draw do
   get "/accounts/new", to: "accounts#new", as: :new_account
   post "/accounts", to: "accounts#create", as: :accounts
 
-  namespace :api do
-    namespace :v1 do
-      resources :projects
-    end
-  end
-
   resources :accounts do
     resources :projects
+
     resources :invitations do
       member do
         get :accept
         patch :accepted
       end
     end
-
-
 
     resources :users, only: [:index, :destroy]
   end
