@@ -1,4 +1,4 @@
-class ProjectsController < ApplicationController
+class ProjectsController < BaseController
   before_action :set_account
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
@@ -25,9 +25,9 @@ class ProjectsController < ApplicationController
   def edit; end
 
   def update
-    if @account.project.update(project_params)
+    if @project.update(project_params)
       flash[:notice] = "The project is updated."
-      redirect_to account_project_path(@account, @project)
+      redirect_to account_projects_path(@account)
     else
       flash.now[:alert] = "Something is misssing."
       render "edit"
@@ -35,12 +35,18 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-  end 
+    if @project.destroy
+      flash[:notice] = "The project has been removed."
+      redirect_to account_projects_path(@account)
+    else
+      flash.now[:alert] = "Unable to remove the project."
+    end
+  end
 
   private
 
   def project_params
-    params.require(:project).permit(:title, :description, :account_id)
+    params.require(:project).permit(:title, :description, :account_id, user_ids: [])
   end
 
   def set_account
