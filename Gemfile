@@ -25,6 +25,9 @@ gem 'responders'
 #authentication
 gem "devise"
 
+#paymentsubscription
+gem 'stripe'
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem "rspec-rails"
