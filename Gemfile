@@ -27,6 +27,7 @@ gem "devise"
 
 #paymentsubscription
 gem 'stripe'
+gem 'money'
 
 group :development, :test do
   gem 'byebug', platform: :mri

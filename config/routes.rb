@@ -8,6 +8,12 @@ Rails.application.routes.draw do
   post "/accounts", to: "accounts#create", as: :accounts
 
   resources :accounts do
+    get "/choose_plan",
+      to: "plans#choose",
+      as: :choose_plan
+    patch "/choose_plan",
+      to: "plans#chosen"
+
     resources :projects
 
     resources :invitations do

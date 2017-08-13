@@ -117,6 +117,8 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.2.0)
     minitest (5.10.3)
+    money (6.9.0)
+      i18n (>= 0.6.4, < 0.9)
     multi_json (1.12.1)
     netrc (0.11.0)
     nio4r (2.1.0)
@@ -255,6 +257,7 @@ DEPENDENCIES
   jquery-rails
   letter_opener
   listen (~> 3.0.5)
+  money
   pg (~> 0.18)
   puma (~> 3.0)
   rails (~> 5.0.4)
