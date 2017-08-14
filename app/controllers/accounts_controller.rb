@@ -1,5 +1,4 @@
 class AccountsController < ApplicationController
-  before_action :set_account, only: [:edit, :update, :show, :destroy]
 
   def index
     @accounts = Account.all
@@ -19,28 +18,28 @@ class AccountsController < ApplicationController
       )
       @account.update_column(:stripe_customer_id, customer.id)
       sign_in(@account.owner)
-      redirect_to account_choose_plan_url(@account, plan)
+      redirect_to account_choose_plan_url(@account)
     else
       flash.now[:alert] = "Sorry, your account could not be created."
       render :new
     end
   end
 
-  def edit; end
-
-  def update
-    if @account.update(account_params)
-      customer = Stripe::Customer.create(
-        description: @account.name,
-        email: @account.owner.email
-      )
-      @account.update_column(:stripe_customer_id, customer.id)
-      redirect_to account_choose_plan_url
-    else
-      flash.now[:alert] = "Something's wrong."
-      render "edit"
-    end
-  end
+  # def edit; end
+  #
+  # def update
+  #   if @account.update(account_params)
+  #     customer = Stripe::Customer.create(
+  #       description: @account.name,
+  #       email: @account.owner.email
+  #     )
+  #     @account.update_column(:stripe_customer_id, customer.id)
+  #     redirect_to account_choose_plan_url(@account)
+  #   else
+  #     flash.now[:alert] = "Something's wrong."
+  #     render "edit"
+  #   end
+  # end
 
   def show
     @account = Account.find(params[:id])
