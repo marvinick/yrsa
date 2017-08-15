@@ -5,7 +5,7 @@ $(document).ready(function () {
     key: 'pk_test_tAEnFwxD4zPf5HKhTHfb17dC',
     locale: 'auto',
     token: function(token) {
-      $('form').append("<input type="hidden" name="token" value='" + token.id + "' /\>")
+      $('form').append("<input type='hidden' name='token' value='" + token.id + "' /\ >")
       $('form').submit();
     }
   });
