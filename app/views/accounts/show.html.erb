@@ -1,6 +1,6 @@
 <h4><%= @account.name %></h4>
 <% @account.projects.each do |project| %>
-  <%= link_to project.name, project_path %>
+  <%= link_to project.title, account_project_path(@account, project) %>
 <% end %>
 
 <li><%= link_to "Users", account_users_path(@account, @users) %></li>

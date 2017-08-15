@@ -2,6 +2,7 @@ class BaseController < ApplicationController
   before_action :authenticate_user!
   before_action :authorize_user!
   before_action :authorize_owner!
+  before_action :subscription_required!
 
   def current_account
     @current_account ||= Account.find(params[:account_id])
@@ -14,6 +15,15 @@ class BaseController < ApplicationController
   helper_method :owner?
 
   private
+
+  def subscription_required!
+    return unless owner?
+    if current_account.stripe_customer_id.blank?
+      message = "You need to subscribe to a plan before using the account."
+      flash[:alert] = message
+      redirect_to account_choose_plan_url
+    end
+  end
 
   def authorize_owner!
     unless owner?

@@ -1,6 +1,7 @@
 class ProjectsController < BaseController
   before_action :set_account
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  skip_before_action :subscription_required!
 
   def index
     @projects = Project.all

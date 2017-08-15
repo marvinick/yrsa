@@ -1,4 +1,5 @@
 class PlansController < BaseController
+  skip_before_action :subscription_required!
 
   def choose
     @plans = Plan.order(:amount)
