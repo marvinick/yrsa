@@ -13,6 +13,9 @@ Rails.application.routes.draw do
       as: :choose_plan
     patch "/choose_plan",
       to: "plans#chosen"
+    delete "/cancel",
+      to: "plans#cancel",
+      as: :cancel_subscription
 
     resources :projects
 

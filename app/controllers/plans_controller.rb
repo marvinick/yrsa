@@ -19,4 +19,14 @@ class PlansController < BaseController
     flash[:notice] = "Your account has been created."
     redirect_to root_url
   end
+
+  def cancel
+    customer = Stripe::Customer.retrieve(current_account.stripe_customer_id)
+    subscription = customer.subscriptions.retrieve(current_account.stripe_subscription_id).delete
+    if subscription.status == "canceled"
+      current_account.update_column(:stripe_subscription_id, nil)
+      flash[:notice] = "Your subscription has been cancelled."
+      redirect_to root_url
+    end
+  end
 end

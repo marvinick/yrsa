@@ -33,10 +33,12 @@ feature "Subscriptions" do
     click_link "Change Plan"
     click_link "Cancel your subscription"
     expect(page).to have_content("Your subscription has been cancelled.")
+
+    account.reload
+    expect(account.stripe_subscription_id).to be_blank
+    active_subscriptions = customer.subscriptions.all
+    expect(active_subscriptions.count).to eq(0)
   end
 
-  account.reload
-  expect(account.stripe_subscription_id).to be_blank
-  active_subscriptions = customer.subscriptions.all
-  expect(active_subscriptions.count).to eq(0)
+
 end
