@@ -16,7 +16,10 @@ Rails.application.routes.draw do
     delete "/cancel",
       to: "plans#cancel",
       as: :cancel_subscription
-
+    put "/switch_plan",
+      to: "plans#switch",
+      as: :switch_plan
+      
     resources :projects
 
     resources :invitations do

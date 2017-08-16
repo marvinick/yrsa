@@ -8,4 +8,8 @@ class Account < ApplicationRecord
   has_many :users, through: :memberships
 
   has_many :projects
+
+  def subscribed?
+    stripe_subscription_id.present?
+  end
 end

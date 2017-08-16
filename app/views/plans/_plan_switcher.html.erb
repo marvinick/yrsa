@@ -1,0 +1,28 @@
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% @plans.each do |plan| %>
+      <tr>
+        <td>
+          <%= plan.name %>
+        </td>
+        <td>
+          <%= money(plan.amount) %>
+        </td>
+        <td>
+          <%= form_tag @account_switch_plan_url, method: :put do %>
+            <%= hidden_field_tag :plan_id, plan.id %>
+            <%= submit_tag "Switch", id: "choose_#{plan.name.underscore}", class: 'btn btn-primary' %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
