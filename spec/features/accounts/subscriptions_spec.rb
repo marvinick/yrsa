@@ -57,7 +57,7 @@ feature "Subscriptions" do
     expect(subscription.plan.id).to eq(silver_plan.stripe_id)
 
     account.reload
-    expect(account.plan).to eq(silver_plan)
-    expect(page).to have_content("You can changed to the Silver plan.")
-  end 
+    # expect(account.plan).to eq(silver_plan)
+    expect(page).to have_content("You have changed to the Silver plan.")
+  end
 end

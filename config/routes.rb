@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     put "/switch_plan",
       to: "plans#switch",
       as: :switch_plan
-      
+
     resources :projects
 
     resources :invitations do
