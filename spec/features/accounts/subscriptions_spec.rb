@@ -44,6 +44,7 @@ feature "Subscriptions" do
     silver_plan = Plan.create(
       name: "Silver",
       stripe_id: "silver",
+      projects_allowed: 20,
       amount: 1500
     )
 
@@ -91,6 +92,6 @@ feature "Subscriptions" do
     click_button "choose_silver"
 
     expect(page).to have_content("You have changed to the Silver plan.")
-    # expect(page.current_url).to eq(new_account_project_url) 
+    # expect(page.current_url).to eq(new_account_project_url)
   end
 end

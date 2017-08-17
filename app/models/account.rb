@@ -14,4 +14,8 @@ class Account < ApplicationRecord
   def subscribed?
     stripe_subscription_id.present?
   end
+
+  def over_limit_for?(plan)
+    projects.count > plan.projects_allowed
+  end
 end

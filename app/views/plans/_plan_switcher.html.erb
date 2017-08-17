@@ -2,6 +2,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Projects Allowed</th>
       <th>Price</th>
       <th></th>
     </tr>
@@ -12,6 +13,9 @@
       <tr>
         <td>
           <%= plan.name %>
+        </td>
+        <td>
+          <%= plan.projects_allowed %>
         </td>
         <td>
           <%= money(plan.amount) %>
