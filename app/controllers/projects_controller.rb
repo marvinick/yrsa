@@ -2,6 +2,7 @@ class ProjectsController < BaseController
   before_action :set_account
   before_action :set_project, only: [:show, :edit, :update, :destroy]
   skip_before_action :subscription_required!
+  before_action :check_plan_limit, only: [:new, :create]
 
   def index
     @projects = Project.all
@@ -45,6 +46,16 @@ class ProjectsController < BaseController
   end
 
   private
+
+  def check_plan_limit
+    if current_account.plan.projects_allowed == current_account.projects.count
+      session[:return_to] = request.fullpath
+      message = "You have reached your plan's limit."
+      message += "You need to upgrade your plan to add more projects."
+      flash[:alert] = message
+      redirect_to account_choose_plan_path
+    end
+  end
 
   def project_params
     params.require(:project).permit(:title, :description, :account_id, user_ids: [])

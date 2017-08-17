@@ -1,5 +1,5 @@
 class Project < ApplicationRecord
-  belongs_to :account
+  belongs_to :account, optional: true
 
   has_many :user_projects
   has_many :users, through: :user_projects

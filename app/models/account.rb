@@ -9,6 +9,8 @@ class Account < ApplicationRecord
 
   has_many :projects
 
+  belongs_to :plan, optional: true
+
   def subscribed?
     stripe_subscription_id.present?
   end
