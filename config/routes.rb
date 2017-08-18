@@ -30,7 +30,6 @@ Rails.application.routes.draw do
     end
 
     resources :users, only: [:index, :destroy]
-
-    post "/stripe/webhook", to: "stripe_webhooks#receive"
   end
+  post "/stripe/webhook", to: "stripe_webhooks#receive"
 end
