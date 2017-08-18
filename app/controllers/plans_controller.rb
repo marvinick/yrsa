@@ -39,7 +39,7 @@ class PlansController < BaseController
       return
     end
 
-    plan = Plan.find(params[:id])
+    plan = Plan.find(params[:plan_id])
     customer = Stripe::Customer.retrieve(current_account.stripe_customer_id)
     subscription = customer.subscriptions.retrieve(current_account.stripe_subscription_id)
     subscription.plan = plan.stripe_id
