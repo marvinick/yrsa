@@ -38,6 +38,21 @@ feature "Admin account dashboard" do
 
       expect(page).to have_content("customer.subscription.created")
     end
+
+    scenario "looks at unpaid accounts" do
+      unpaid_account = FactoryGirl.create(
+        :account, :subscribed,
+        stripe_subscription_status: "unpaid",
+        plan:starter_plan
+      )
+
+      visit admin_root_path
+      click_link "Unpaid accounts"
+      expect(page).not_to have_content(account.name)
+
+      click_link unpaid_account.name
+      expect(page.current_url).to eq(admin_member_url(unpaid_account))
+    end
   end
 
   context "as a user" do
