@@ -31,5 +31,16 @@ Rails.application.routes.draw do
 
     resources :users, only: [:index, :destroy]
   end
+
+  namespace :admin do
+    root to: "members#index"
+
+    resources :members, only: [:index, :show] do
+      collection do
+        post :search
+      end
+    end
+  end
+
   post "/stripe/webhook", to: "stripe_webhooks#receive"
 end
