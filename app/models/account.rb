@@ -8,6 +8,7 @@ class Account < ApplicationRecord
   has_many :users, through: :memberships
 
   has_many :projects
+  has_many :subscription_events
 
   belongs_to :plan, optional: true
 
