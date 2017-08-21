@@ -20,7 +20,9 @@ Rails.application.routes.draw do
       to: "plans#switch",
       as: :switch_plan
 
-    resources :projects
+    resources :projects do
+      resources :items
+    end
 
     resources :invitations do
       member do
