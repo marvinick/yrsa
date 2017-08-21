@@ -7,7 +7,7 @@ class InvitationsController < BaseController
   def index
     @invitations = current_account.invitations.all
   end
-
+ 
   def new
     @invitation = current_account.invitations.build
   end
