@@ -1,8 +1,8 @@
 class ProjectsController < BaseController
   before_action :set_account
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-  skip_before_action :subscription_required!
   before_action :check_plan_limit, only: [:new, :create]
+  skip_before_action :active_subscription_required!, only: [:index]
 
   def index
     @projects = Project.all
