@@ -1,5 +1,6 @@
 class ItemsController < BaseController
   before_action :set_project
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
     @items = current_account.project.items.all
@@ -21,7 +22,13 @@ class ItemsController < BaseController
     end
   end
 
+  def show; end
+
   private
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
   def item_params
     params.require(:item).permit(:name, :content, :project_id, :account_id)
