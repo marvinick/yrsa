@@ -1,2 +1,5 @@
 <h4><%= @project.title %></h4>
+<% @project.items.each do |item| %>
+  <h1><%= item.name %></h1>
+<% end %>
 <%= link_to "New Item", new_account_project_item_path(@account, @project) %>

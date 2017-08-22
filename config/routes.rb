@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  get 'home/index'
   root to: "accounts#index"
 
   get "/accounts/new", to: "accounts#new", as: :new_account
@@ -33,6 +32,7 @@ Rails.application.routes.draw do
 
     resources :users, only: [:index, :destroy]
   end
+
 
   namespace :admin do
     root to: "members#index"
