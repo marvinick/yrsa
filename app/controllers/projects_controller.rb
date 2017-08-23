@@ -23,7 +23,6 @@ class ProjectsController < BaseController
   end
 
   def show
-    @item = @project.items.find_by!(params[:item_id])
   end
 
   def edit; end

@@ -15,7 +15,7 @@ class ItemsController < BaseController
     @item = Item.new(item_params)
     if @item.save
       flash[:notice] = "An item is created."
-      redirect_to root_path
+      redirect_to [current_account, set_project]
     else
       flash.now[:alert] = "Something is wrong."
       render "new"
@@ -23,6 +23,24 @@ class ItemsController < BaseController
   end
 
   def show; end
+
+  def edit; end
+
+  def update
+    if @item.update_attributes(item_params)
+      flash[:notice] = "You have updated the item."
+      redirect_to root_path
+    else
+      flash.now[:alert] = "Something's wrong."
+      render "edit"
+    end
+  end
+
+  def destroy
+    @item.delete
+    flash[:notice] = "You have deleted your item."
+    redirect_to account_project_item_path(current_account, @project)
+  end
 
   private
 
@@ -37,4 +55,5 @@ class ItemsController < BaseController
   def set_project
     project = Project.find(params[:project_id])
   end
+  helper_method :set_project
 end
