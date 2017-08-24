@@ -17,6 +17,7 @@ gem 'jbuilder', '~> 2.5'
 
 #form
 gem "simple_form"
+gem "cocoon"
 
 #frontend
 gem 'react-rails'
