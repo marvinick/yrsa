@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170824154936) do
+ActiveRecord::Schema.define(version: 20170825030123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 20170824154936) do
     t.string   "stripe_subscription_id"
     t.string   "stripe_subscription_status"
     t.index ["plan_id"], name: "index_accounts_on_plan_id", using: :btree
+  end
+
+  create_table "details", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "value"
+    t.integer  "item_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["item_id"], name: "index_details_on_item_id", using: :btree
   end
 
   create_table "invitations", force: :cascade do |t|
@@ -115,6 +125,7 @@ ActiveRecord::Schema.define(version: 20170824154936) do
   end
 
   add_foreign_key "accounts", "plans"
+  add_foreign_key "details", "items"
   add_foreign_key "invitations", "accounts"
   add_foreign_key "memberships", "accounts"
   add_foreign_key "memberships", "users"
