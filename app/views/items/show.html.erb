@@ -1,4 +1,10 @@
-<li><%= @item.name %></li>
-<li><%= @item.content %></li>
+<h3><%= @item.name %></h3>
+<h5><%= @item.content %></h5>
+  <hr>
+<% @item.details.each do |detail| %>
+  <p><%= detail.name %></p>
+  <p><%= detail.description %></p>
+  <br>
+<% end %>
 <li><%= link_to "Edit", edit_account_project_item_path(current_account, set_project, @item) %>
 <%= link_to "Delete", [current_account, set_project, @item], method: :delete, data: { confirm: "Are you sure you want to remove this?"} %>

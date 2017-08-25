@@ -37,7 +37,7 @@ class ItemsController < BaseController
   end
 
   def destroy
-    @item.delete
+    @item.destroy
     flash[:notice] = "You have deleted your item."
     redirect_to root_path
   end
