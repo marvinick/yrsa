@@ -2,7 +2,7 @@
 <h5><%= @item.content %></h5>
   <hr>
 <% @item.details.each do |detail| %>
-  <p><%= detail.name %></p>
+  <p><%= link_to detail.name, account_project_item_detail_path(current_account, set_project, @item, detail) %></p>
   <p><%= detail.description %></p>
   <br>
 <% end %>

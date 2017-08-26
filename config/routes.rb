@@ -20,7 +20,11 @@ Rails.application.routes.draw do
       as: :switch_plan
 
     resources :projects do
-      resources :items
+      resources :items do
+        resources :details do
+          resources :reviews
+        end
+      end
     end
 
     resources :invitations do

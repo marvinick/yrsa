@@ -10,7 +10,7 @@ class ItemsController < BaseController
     @project = current_account.projects.find(params[:project_id])
     @item = @project.items.build
   end
-
+ 
   def create
     @item = Item.new(item_params)
     if @item.save

@@ -1,0 +1,5 @@
+<%= @detail.name %>
+<% @detail.reviews.each do |review| %>
+  <%= review.value %>
+<% end %>
+<%= link_to "Rate this", new_account_project_item_detail_review_path(current_account, set_project, @item, @detail) %>
