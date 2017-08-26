@@ -1,5 +1,5 @@
-<%= simple_form_for new_account_project_item_detail_review_path(current_account, set_project, @item, @detail, @review) do |f| %>
-
+<%= simple_form_for([current_account, set_project, set_item, @detail, @review]) do |f| %>
+  <%= f.hidden_field :detail_id %>
   <%= f.input :description, placeholder: 'name', label: false %>
   <br>
   <%= f.input :value, placeholder: 'value', label: false  %>

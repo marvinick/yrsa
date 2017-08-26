@@ -1,5 +1,7 @@
-<%= @detail.name %>
+<h5><%= @detail.name %></h5>
+<%= @detail.description %>
 <% @detail.reviews.each do |review| %>
-  <%= review.value %>
+  <p><%= review.description %></p>
+  <p><%= review.value %></p>
 <% end %>
-<%= link_to "Rate this", new_account_project_item_detail_review_path(current_account, set_project, @item, @detail) %>
+<p><%= link_to "Rate this", new_account_project_item_detail_review_path(current_account, set_project, @item, @detail) %></p>
