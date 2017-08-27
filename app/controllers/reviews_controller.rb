@@ -12,17 +12,27 @@ class ReviewsController < BaseController
     @review = Review.new(review_params)
     if @review.save
       flash[:notice] = "You've submitted a review."
-      redirect_to root_url
+      redirect_to account_project_item_detail_path(current_account, set_project, set_item, set_detail)
     else
       render 'new'
     end
-    @review.errors.messages 
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
+    if @review.update_attributes(review_params)
+      flash[:notice] = "You've updated the review."
+      redirect_to account_project_item_detail_path(current_account, set_project, set_item, set_detail)
+    else
+      render "edit"
+    end
+  end
+
+  def destroy
+    @review.destroy
+    flash[:notice] = "You have deleted your review."
+    redirect_to account_project_item_detail_path(current_account, set_project, set_item, set_detail)
   end
 
   private
