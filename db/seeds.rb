@@ -6,6 +6,5 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Project.create(title: "Test", description: "examples of react json api")
 
-Project.create(title: "dom", description: "examples of react json")
+User.create(email: "admin@yrsa.in", password: "alpha8214", admin: true)
