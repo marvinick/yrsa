@@ -6,7 +6,7 @@ class BaseController < ApplicationController
   before_action :active_subscription_required!
 
   def current_account
-    @current_account ||= Account.find(params[:account_id])
+    @current_account ||= Account.find(params[:account_id]) 
   end
   helper_method :current_account
 
