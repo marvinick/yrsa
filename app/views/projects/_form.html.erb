@@ -1,4 +1,4 @@
-<%= simple_form_for([@account, @project]) do |f| %>
+<%= simple_form_for([current_account, @project]) do |f| %>
 <%= f.hidden_field :account_id %>
 
     <%= f.input :title, placeholder: 'name', label: false %>
@@ -9,6 +9,6 @@
        <% cb.label {cb.check_box(class: "checkbox") + cb.text} %>
     <% end %>
     <%= f.button :submit %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), account_projects_path(@account, @projects) %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), account_projects_path(current_account, @projects) %>
 
 <% end %>

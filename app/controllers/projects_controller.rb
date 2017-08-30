@@ -1,12 +1,8 @@
 class ProjectsController < BaseController
-  before_action :set_account
   before_action :set_project, only: [:show, :edit, :update, :destroy]
   before_action :check_plan_limit, only: [:new, :create]
   skip_before_action :active_subscription_required!, only: [:index]
-
-  def index
-    @projects = Project.all
-  end
+  skip_before_action :authorize_owner!, only: [:show]
 
   def new
     @project = @account.projects.build
@@ -22,8 +18,7 @@ class ProjectsController < BaseController
     end
   end
 
-  def show
-  end
+  def show; end
 
   def edit; end
 
@@ -63,10 +58,13 @@ class ProjectsController < BaseController
   end
 
   def set_account
-    @account = Account.find(params[:account_id])
+    @account = Project.find(params[:account_id])
   end
 
   def set_project
-    @project = @account.projects.find(params[:id])
+    @project = current_account.projects.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      flash[:alert] = "Project not found."
+      redirect_to root_url
   end
 end
