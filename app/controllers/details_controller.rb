@@ -1,5 +1,6 @@
 class DetailsController < BaseController
   before_action :set_detail
+  skip_before_action :authorize_owner!, only: [:show]
 
   def show
   end

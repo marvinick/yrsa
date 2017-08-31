@@ -2,7 +2,7 @@ class ProjectsController < BaseController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
   before_action :check_plan_limit, only: [:new, :create]
   skip_before_action :active_subscription_required!, only: [:index]
-  skip_before_action :authorize_owner!, only: [:show]
+  skip_before_action :authorize_owner!, only: [:index, :show]
 
   def new
     @project = @account.projects.build

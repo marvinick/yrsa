@@ -1,6 +1,7 @@
 class ItemsController < BaseController
   before_action :set_project
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authorize_owner!, only: [:index, :show]
 
   def index
     @items = current_account.project.items.all
@@ -10,7 +11,7 @@ class ItemsController < BaseController
     @project = current_account.projects.find(params[:project_id])
     @item = @project.items.build
   end
- 
+
   def create
     @item = Item.new(item_params)
     if @item.save

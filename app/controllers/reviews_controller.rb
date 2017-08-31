@@ -1,5 +1,6 @@
 class ReviewsController < BaseController
   before_action :set_review, except: [:new, :create]
+  skip_before_action :authorize_owner!, only: [:new, :create, :edit, :update, :destroy]
 
   def new
     @project = Project.find(params[:project_id])
@@ -28,7 +29,7 @@ class ReviewsController < BaseController
       render "edit"
     end
   end
-
+  
   def destroy
     @review.destroy
     flash[:notice] = "You have deleted your review."
