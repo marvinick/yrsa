@@ -5,14 +5,14 @@ class ProjectsController < BaseController
   skip_before_action :authorize_owner!, only: [:index, :show]
 
   def new
-    @project = @account.projects.build
+    @project = current_account.projects.build
   end
 
   def create
-    @project = @account.projects.new(project_params)
+    @project = current_account.projects.new(project_params)
     if @project.save
       flash[:notice] = "You have created a project."
-      redirect_to account_projects_path(@account)
+      redirect_to account_projects_path(current_account, @project)
     else
       render "new"
     end

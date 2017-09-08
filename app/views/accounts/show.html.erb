@@ -1,32 +1,41 @@
-<h2><%= @account.name %></h2>
-
+<h1><%= @account.name %></h1>
+<br>
+<div class="columns">
 <% @account.projects.each do |project| %>
-  <div class="card">
-    <div class="card-content">
-      <p class="title">
-        <%= link_to project.title, account_project_path(@account, project) %>
+  <div class="column">
+    <div class="card">
+      <div class="card-content">
+        <p class="title">
+          <%= link_to project.title, account_project_path(@account, project) %>
 
-      </p>
-      <p class="subtitle">
-        <%= project.description %>
-      </p>
+        </p>
+        <p class="subtitle">
+          <%= project.description %>
+        </p>
+      </div>
+      <footer class="card-footer">
+        <p class="card-footer-item">
+          <span>
+            View on <a href="#"><%= link_to "Users", account_users_path(@account, @users) %></a>
+          </span>
+        </p>
+        <p class="card-footer-item">
+          <span>
+            <a href="#"></a>
+          </span>
+        </p>
+        <p class="card-footer-item">
+          <span>
+            <a href="#"><%= link_to "New Project", new_account_project_path(@account) %></a>
+          </span>
+        </p>
+      </footer>
     </div>
-    <footer class="card-footer">
-      <p class="card-footer-item">
-        <span>
-          View on <a href="#"><%= link_to "Users", account_users_path(@account, @users) %></a>
-        </span>
-      </p>
-      <p class="card-footer-item">
-        <span>
-          <a href="#"><%= link_to "Invitations", account_invitations_path(@account, @invitations) %></a>
-        </span>
-      </p>
-      <p class="card-footer-item">
-        <span>
-          <a href="#"><%= link_to "New Project", new_account_project_path(@account) %></a>
-        </span>
-      </p>
-    </footer>
   </div>
+  <br>
 <% end %>
+</div>
+
+<%= link_to "Users", account_users_path(@account, @users), class: "button is-primary is-outlined" %>
+<%= link_to "New Project", new_account_project_path(@account), class: "button is-outlined" %>
+<%= link_to "Invitations", account_invitations_path(@account, @invitations), class: "button is-primary" %>
