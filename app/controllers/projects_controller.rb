@@ -1,4 +1,5 @@
 class ProjectsController < BaseController
+  before_action :set_account
   before_action :set_project, only: [:show, :edit, :update, :destroy]
   before_action :check_plan_limit, only: [:new, :create]
   skip_before_action :active_subscription_required!, only: [:index]
@@ -58,7 +59,7 @@ class ProjectsController < BaseController
   end
 
   def set_account
-    @account = Project.find(params[:account_id])
+    @account = Account.find(params[:account_id])
   end
 
   def set_project
