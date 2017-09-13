@@ -1,5 +1,4 @@
 <div class="container">
-  
   <% @account.projects.each do |project| %>
     <h4><%= link_to project.title, account_project_path(@account, project) %></h4>
     <h5><%= project.description %></h5>

@@ -1,14 +1,26 @@
 <p class="title"><%= @project.title %></p>
-<div class="tile is-ancestor">
-<% @project.items.each do |item| %>
- <div class="tile is-parent">
-   <article class="tile is-child box">
-     <p class="title"><%= link_to item.name, account_project_item_path(current_account, @project, item) %></p>
-     <p class="subtitle"><%= link_to "Edit", edit_account_project_item_path(current_account, @project, item) %></p>
-     <p class="subtitle"><%= link_to "Delete", account_project_item_path(current_account, @project, item), method: :delete, data: { confirm: "Are you sure you want to remove this?"} %></p>
-   </article>
- </div>
-<% end %>
-</div>
+<div class="columns">
+    <% @project.items.each do |item| %>
+      <div class="column is-4">
+         <div class="card">
+           <div class="card-content">
+             <p class="title"><%= link_to item.name, account_project_item_path(current_account, @project, item) %></p>
+           </div>
+           <footer class="card-footer">
+             <p class="card-footer-item">
+               <span>
+                 <%= link_to "Edit", edit_account_project_item_path(current_account, @project, item) %>
+               </span>
+             </p>
+             <p class="card-footer-item">
+               <span>
+                 <a href="#"><%= link_to "Delete", account_project_item_path(current_account, @project, item), method: :delete, data: { confirm: "Are you sure you want to remove this?"} %></a>
+               </span>
+             </p>
+           </footer>
+         </div>
+      </div>
+    <% end %>
 
-<%= link_to "New Item", new_account_project_item_path(current_account, @project), class: "" %>
+</div>
+<%= link_to "New Item", new_account_project_item_path(current_account, @project), class: "button is-primary" %>

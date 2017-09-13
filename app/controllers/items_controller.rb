@@ -11,7 +11,7 @@ class ItemsController < BaseController
     @project = current_account.projects.find(params[:project_id])
     @item = @project.items.build
   end
- 
+
   def create
     @item = Item.new(item_params)
     if @item.save
@@ -40,7 +40,7 @@ class ItemsController < BaseController
   def destroy
     @item.destroy
     flash[:notice] = "You have deleted your item."
-    redirect_to root_path
+    redirect_to account_project_path(current_account, set_project)
   end
 
   private

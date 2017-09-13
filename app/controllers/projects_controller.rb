@@ -36,7 +36,7 @@ class ProjectsController < BaseController
   def destroy
     if @project.destroy
       flash[:notice] = "The project has been removed."
-      redirect_to account_projects_path(@account)
+      redirect_to account_path(@account)
     else
       flash.now[:alert] = "Unable to remove the project."
     end

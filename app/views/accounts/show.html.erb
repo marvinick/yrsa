@@ -16,17 +16,12 @@
       <footer class="card-footer">
         <p class="card-footer-item">
           <span>
-            View on <a href="#"><%= link_to "Users", account_users_path(@account, @users) %></a>
+            <a href="#"><%= link_to "Edit", edit_account_project_path(@account, project) %></a>
           </span>
         </p>
         <p class="card-footer-item">
           <span>
-            <a href="#"></a>
-          </span>
-        </p>
-        <p class="card-footer-item">
-          <span>
-            <a href="#"><%= link_to "New Project", new_account_project_path(@account) %></a>
+            <a href="#"><%= link_to "Delete", [@account, project], method: :delete, data: { confirm: "Are you sure you want to remove this?"} %></a>
           </span>
         </p>
       </footer>

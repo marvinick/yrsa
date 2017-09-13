@@ -2,15 +2,14 @@
   <%= form_for([current_account, @project, @item]) do |f| %>
     <%= f.hidden_field :project_id %>
     <div class="control">
-      <%= f.text_field :name, placeholder: 'name', label: false, class:"input" %>
+      <%= f.text_field :name, placeholder: 'name', label: false, class:"input is-medium" %>
     </div>
     <br>
-    <%= f.text_field :content, placeholder: 'content', label: false, class:"input" %>
+    <div class="control">
+      <%= f.text_field :content, placeholder: 'content', label: false, class:"input is-medium" %>
+    </div>
     <br>
-
     <div>
-      <p><strong>Details</strong></p>
-
       <div id="details">
         <%= f.fields_for :details do |detail| %>
           <%= render "detail_fields", f: detail %>

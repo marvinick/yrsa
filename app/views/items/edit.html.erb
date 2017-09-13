@@ -1,10 +1,14 @@
-<%= simple_form_for([current_account, set_project, @item]) do |f| %>
+<%= form_for([current_account, set_project, @item]) do |f| %>
   <%= f.hidden_field :project_id %>
-  <%= f.input :name, placeholder: 'name', label: false %>
+  <div class="control">
+    <%= f.text_field :name, placeholder: 'name', label: false, class: "input is-medium" %>
+  </div>
   <br>
-  <%= f.input :content, placeholder: 'content', label: false  %>
+  <div class="control">
+    <%= f.text_field :content, placeholder: 'content', label: false, class: "input is-medium"  %>
+  </div>
   <br>
 
-  <%= f.button :submit %>
+  <%= f.button :submit, class: "button is-primary" %>
 
 <% end %>

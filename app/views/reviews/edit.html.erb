@@ -1,8 +1,12 @@
-<%= simple_form_for([current_account, set_project, set_item, @detail, @review]) do |f| %>
+<%= form_for([current_account, set_project, set_item, @detail, @review]) do |f| %>
   <%= f.hidden_field :detail_id %>
-  <%= f.input :description, placeholder: 'name', label: false %>
+  <div class="control">
+    <%= f.text_field :description, placeholder: 'name', label: false, class: "input is-medium" %>
+  </div>
   <br>
-  <%= f.input :value, placeholder: 'value', label: false  %>
+  <div class="control">
+    <%= f.text_field :value, placeholder: 'value', label: false, class: "input is-medium"  %>
+  </div>
   <br>
-  <%= f.button :submit %>
+  <%= f.button :submit, class: "button is-primary" %>
 <% end %>
