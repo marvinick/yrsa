@@ -1,23 +1,26 @@
-<%= simple_form_for([current_account, @project, @item]) do |f| %>
-  <%= f.hidden_field :project_id %> 
-  <%= f.input :name, placeholder: 'name', label: false %>
-  <br>
-  <%= f.input :content, placeholder: 'content', label: false  %>
-  <br>
+<div class="field">
+  <%= form_for([current_account, @project, @item]) do |f| %>
+    <%= f.hidden_field :project_id %>
+    <div class="control">
+      <%= f.text_field :name, placeholder: 'name', label: false, class:"input" %>
+    </div>
+    <br>
+    <%= f.text_field :content, placeholder: 'content', label: false, class:"input" %>
+    <br>
 
-  <div>
-    <p><strong>Details</strong></p>
+    <div>
+      <p><strong>Details</strong></p>
 
-    <div id="details">
-      <%= f.fields_for :details do |detail| %>
-        <%= render "detail_fields", f: detail %>
-      <% end %>
+      <div id="details">
+        <%= f.fields_for :details do |detail| %>
+          <%= render "detail_fields", f: detail %>
+        <% end %>
 
-      <div class="links">
-        <%= link_to_add_association 'add detail', f, :details %>
+        <div class="links">
+          <%= link_to_add_association 'add detail', f, :details %>
+        </div>
       </div>
     </div>
-  </div>
 
-  <%= f.button :submit %>
-<% end %>
+    <%= f.button :submit, class:"button is-primary" %>
+  <% end %>
