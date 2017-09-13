@@ -1,13 +1,26 @@
-
+<div class="field">
   <%= simple_form_for([current_account, @project]) do |f| %>
     <%= f.hidden_field :account_id %>
-    <%= f.input :title, placeholder: 'name', label: false, :input_html => { 'rows' => 5} %>
 
+    <div class="control">
+        <%= f.input :title, placeholder: 'name', label: false, class:"input" %>
+    </div>
     <br>
     <%= f.input :description, placeholder: 'description', label: false  %>
     <%= f.collection_check_boxes :user_ids, current_account.users.all, :id, :email, :item_wrapper_class => 'checkbox_container' do |cb| %>
        <% cb.label {cb.check_box(class: "checkbox") + cb.text} %>
     <% end %>
-    <%= f.button :submit, class: "button button-large is-primary" %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), account_path(@account) %>
+    <br>
+    <br>
+    <%= f.button :submit, class: "button is-primary" %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), account_path(@account), class: "button is-warning" %>
   <% end %>
+</div>
+
+<div class="field">
+  <label class="label">Label</label>
+  <div class="control">
+    <input class="input" type="text" placeholder="Text input">
+  </div>
+  <p class="help">This is a help text</p>
+</div>
