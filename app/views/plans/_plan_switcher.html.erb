@@ -26,12 +26,12 @@
             <% if current_account.over_limit_for?(plan) %>
               <%= form_tag account_switch_plan_path(account_id: current_account.id, plan_id: plan.id), method: :put do %>
                 <%= hidden_field_tag :plan_id, plan.id %>
-                <%= submit_tag "Switch", id: "choose_#{plan.name.underscore}", class: 'btn btn-primary', disabled: true %>
+                <%= submit_tag "Switch", id: "choose_#{plan.name.underscore}", class: 'button is-primary', disabled: true %>
               <% end %>
             <% else %>
               <%= form_tag account_switch_plan_path(account_id: current_account.id, plan_id: plan.id), method: :put do %>
                 <%= hidden_field_tag :plan_id, plan.id %>
-                <%= submit_tag "Switch", id: "choose_#{plan.name.underscore}", class: 'btn btn-primary' %>
+                <%= submit_tag "Switch", id: "choose_#{plan.name.underscore}", class: 'button is-primary' %>
               <% end %>
             <% end %>
           <% end %>

@@ -9,12 +9,12 @@
          <footer class="card-footer">
            <p class="card-footer-item">
              <span>
-               <%= link_to "Edit", edit_account_project_item_path(current_account, @project, item) %>
+               <%= link_to "Edit", edit_account_project_item_path(current_account, @project, item), class: "button is-primary" %>
              </span>
            </p>
            <p class="card-footer-item">
              <span>
-               <a href="#"><%= link_to "Delete", account_project_item_path(current_account, @project, item), method: :delete, data: { confirm: "Are you sure you want to remove this?"} %></a>
+               <a href="#"><%= link_to "Delete", account_project_item_path(current_account, @project, item), method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "button is-warning" %></a>
              </span>
            </p>
          </footer>

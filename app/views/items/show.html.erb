@@ -1,31 +1,17 @@
-<div class="tile is-ancestor">
-  <div class="tile is-parent is-vertical">
-    <article class="tile is-child box">
-      <p class="title"><%= @item.name %></p>
-      <p class="subtitle"><%= @item.content %></p>
-      <li><%= link_to "Edit", edit_account_project_item_path(current_account, set_project, @item) %>
-      <li><%= link_to "Delete", [current_account, set_project, @item], method: :delete, data: { confirm: "Are you sure you want to remove this?"} %></li>
-    </article>
-    <article class="tile is-child box">
-
-    </article>
+<div class="columns">
+  <div class="column is-3">
+    <p class="title"><%= link_to set_project.title, account_project_path(current_account, set_project) %></p>
+    <p class="title"><%= @item.name %></p>
+    <p class="subtitle"><%= @item.content %></p>
+    <%= link_to "Edit", edit_account_project_item_path(current_account, set_project, @item), class: "button is-success" %>
+    <%= link_to "Delete", [current_account, set_project, @item], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "button is-warning" %>
   </div>
-  <div class="tile is-vertical is-6">
-    <div class="tile">
-      <div class="tile is-parent">
-        <article class="tile is-child box">
-          <% @item.details.each do |detail| %>
-            <p><%= link_to detail.name, account_project_item_detail_path(current_account, set_project, @item, detail) %></p>
-            <p><%= detail.description %></p>
-            <br>
-          <% end %>
-        </article>
-      </div>
-    </div>
-  </div>
-  <div class="tile is-parent">
-    <article class="tile is-child box">
-      <!-- Put any content you want -->
-    </article>
+  <div class="column is-9">
+    <% @item.details.each do |detail| %>
+      <p class="title is-6"><%= detail.name %></p>
+      <p class="subtitle is-6"><%= detail.description %></p>
+      <%= link_to "Rate it", new_account_project_item_detail_review_path(current_account, set_project, @item, detail), class: "button is-primary" %>
+      <hr>
+    <% end %>
   </div>
 </div>

@@ -4,5 +4,5 @@
     <%= account.label "plan_id_#{plan.id}", plan.name %> (<%= money(plan.amount) %>) <br>
   <% end %>
   <div id="payment-form"></div>
-  <%= account.submit "Pay", class: "btn btn-primary", id: "checkout-btn" %>
+  <%= account.submit "Pay", class: "button is-primary is-medium", id: "checkout-btn" %>
 <% end %>

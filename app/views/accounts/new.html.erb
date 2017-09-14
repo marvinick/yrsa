@@ -1,15 +1,27 @@
 <div class="container">
   <div class='col-md-offset-4 col-md-4 content'>
     <h2>Create a new account</h2>
-    <%= simple_form_for(@account) do |account| %>
-      <%= account.input :name %>
+    <%= form_for(@account) do |account| %>
+      <div class="control">
+        <%= account.text_field :name, placeholder: "enter account's name", class: "input is-medium" %>
+      </div>
+      <br>
       <%= account.fields_for :owner do |owner| %>
-        <%= owner.input :email %>
-        <%= owner.input :password %>
-        <%= owner.input :password_confirmation %>
+        <div class="control">
+          <%= owner.text_field :email, class: "input is-medium is-primary", placeholder: "email" %>
+        </div>
+        <br>
+        <div class="control">
+          <%= owner.text_field :password, class: "input is-medium", placeholder: "password" %>
+        </div>
+        <br>
+        <div class="control">
+          <%= owner.text_field :password_confirmation, class: "input is-medium", placeholder: "confirm password" %>
+        </div>
+        <br>
       <% end %>
 
-      <%= account.submit "Next", class: "btn btn-primary" %>
+      <%= account.button "Next", class: "button is-primary is-medium" %>
     <% end %>
   </div>
 </div>
