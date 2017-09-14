@@ -1,8 +1,8 @@
 <h1 class="title"><%= @account.name %></h1>
 <br>
-<div class="columns">
+<div class="row">
 <% @account.projects.each do |project| %>
-  <div class="column">
+  <div class="col-md-4">
     <div class="card">
       <div class="card-content">
         <p class="title">
