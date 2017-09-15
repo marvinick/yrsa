@@ -11,9 +11,8 @@
     <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/minty/bulmaswatch.min.css">
   </head>
   <body>
-    <%= render "layouts/navbar" %>
-    <br>
     <div class="container">
+      <%= render "layouts/navbar" %>
       <% flash.each do |key, value| %>
         <div class="notification is-primary">
           <button class="delete"></button>

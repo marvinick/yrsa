@@ -1,10 +1,13 @@
 <div class='row'>
   <div class='col-md-offset-4 col-md-4 content'>
     <h2>New Invitation</h2>
-    <%= simple_form_for ([@account, @invitation]) do |f| %>
+    <%= form_for ([@account, @invitation]) do |f| %>
       <%= f.hidden_field :account_id %>
-      <%= f.input :email %>
-      <%= f.submit "Invite User", class: "btn btn-primary" %>
+      <div>
+        <%= f.text_field :email, class: "input is-primary", placeholder: "enter email" %>
+      </div>
+      <br>
+      <%= f.submit "Invite User", class: "button is-primary" %>
     <% end %> </div>
   </div>
 </div>
