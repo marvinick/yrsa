@@ -13,7 +13,7 @@ class ProjectsController < BaseController
     @project = current_account.projects.new(project_params)
     if @project.save
       flash[:notice] = "You have created a project."
-      redirect_to account_projects_path(current_account, @project)
+      redirect_to account_path(current_account)
     else
       render "new"
     end
