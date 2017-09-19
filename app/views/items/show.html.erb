@@ -1,17 +1,52 @@
-<div class="columns">
-  <div class="column is-3">
-    <p class="title"><%= link_to set_project.title, account_project_path(current_account, set_project) %></p>
-    <p class="title"><%= @item.name %></p>
-    <p class="subtitle"><%= @item.content %></p>
-    <%= link_to "Edit", edit_account_project_item_path(current_account, set_project, @item), class: "button is-success" %>
-    <%= link_to "Delete", [current_account, set_project, @item], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "button is-warning" %>
+<nav class="breadcrumb has-arrow-separator" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="#"><%= link_to "Home", root_url %></a></li>
+    <li><a href="#"><%= link_to current_account.name, account_url(current_account) %></a></li>
+    <li><a href="#"><%= link_to set_project.title, account_project_path(current_account, set_project) %></a></li>
+  </ul>
+</nav>
+
+<nav class="level">
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">item</p>
+      <p class="level-item has-text-centered title">
+        <%= @item.name %>
+      </p>
+    </div>
   </div>
-  <div class="column is-9">
-    <% @item.details.each do |detail| %>
-      <p class="title is-6"><%= detail.name %></p>
-      <p class="subtitle is-6"><%= detail.description %></p>
-      <%= link_to "Rate it", new_account_project_item_detail_review_path(current_account, set_project, @item, detail), class: "button is-primary" %>
-      <hr>
-    <% end %>
+</nav>
+<nav class="level">
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">description</p>
+      <p class="level-item has-text-centered title is-6">
+        <%= @item.content %>
+      </p>
+    </div>
   </div>
+</nav>
+
+<nav class="level is-mobile">
+  <div class="level-item has-text-centered">
+    <div>
+
+      <p class="title"><%= link_to "Edit", edit_account_project_item_path(current_account, set_project, @item), class: "button is-small is-info" %>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="title">  <%= link_to "Delete", [current_account, set_project, @item], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "button is-small is-danger" %></p>
+    </div>
+  </div>
+</nav>
+<hr>
+
+<div class="column is-12">
+  <% @item.details.each do |detail| %>
+    <p class="title is-6"><%= link_to detail.name, account_project_item_detail_path(current_account, set_project, @item, detail) %></p>
+    <p class="subtitle is-6"><%= detail.description %></p>
+    <%= link_to "Rate it", new_account_project_item_detail_review_path(current_account, set_project, @item, detail), class: "button is-primary" %>
+    <hr>
+  <% end %>
 </div>

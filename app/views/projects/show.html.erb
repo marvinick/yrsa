@@ -1,3 +1,10 @@
+<nav class="breadcrumb has-arrow-separator" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="#"><%= link_to "Home", root_url %></a></li>
+    <li><a href="#"><%= link_to current_account.name, account_url(current_account) %></a></li>
+  </ul>
+</nav>
+
 <nav class="level">
   <div class="level-item has-text-centered">
     <div>
@@ -18,7 +25,6 @@
   </div>
   <div class="level-item has-text-centered">
     <div>
-
       <p class="title"><%= link_to "Edit", edit_account_project_path(current_account, @project), class: "button is-small is-info" %>
     </div>
   </div>
@@ -53,17 +59,8 @@
         <div class="media-content">
           <div class="content">
             <p>
-              <strong><%= link_to item.name, account_project_item_path(current_account, @project, item) %></strong> <small>@johnsmith</small> <small>31m</small>
+              <strong><%= link_to item.name, account_project_item_path(current_account, @project, item) %></strong> <small><%= item.content %></small>
               <br>
-              <%= item.content %>
-              <hr>
-              <% item.details.each do |detail| %>
-                <p class="title is-5"><%= detail.name %></p>
-                <p class="title is-6"><%= detail.description %></p>
-                <% detail.reviews.each do |review| %>
-                  <li><%= review.description %> : <%= review.value %></li>
-                <% end %>
-              <% end %>
             </p>
           </div>
           <nav class="level is-mobile">

@@ -1,13 +1,27 @@
-<% if user_signed_in? %>
-<h2 class="title">Pick an account</h2>
-<div class="tile is-ancestor">
-  <% current_user.all_accounts.each do |account| %>
-    <div class="tile is-parent">
-      <article class="tile is-child box">
-        <p class="title"><%= link_to account.name, account_path(account) %></p>
-        <p class="subtitle">Make it count</p>
-      </article>
+<nav class="level">
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">pick an account</p>
+      <p class="level-item has-text-centered title">
+        all accounts
+      </p>
     </div>
-  <% end %>
+  </div>
+</nav>
+
+
+<% if user_signed_in? %>
+<div class="tile is-ancestor">
+  <div class="tile is-vertical is-12">
+    <div class="tile">
+      <% current_user.all_accounts.each do |account| %>
+        <div class="tile is-parent is-vertical">
+          <article class="tile is-child notification is-primary is-4">
+            <p class="title"><%= link_to account.name, account_path(account) %></p>
+          </article>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 <% end %>
