@@ -15,11 +15,12 @@
         <article class="tile is-child notification is-primary">
           <p class="title"><%= @account.name %></p>
           <p class="subtitle is-6">account</p>
-        </article>
-        <article class="tile is-child notification is-warning">
           <p class="subtitle is-6"><%= current_user.email %></p>
         </article>
         <article class="tile is-child notification is-warning">
+
+        </article>
+        <article class="tile is-child notification is-success">
           <p class="subtitle is-6"><%= link_to "Users", account_users_path(@account, @users), class: "button is-danger" %></p>
           <p class="subtitle is-6"><%= link_to "New Project", new_account_project_path(@account), class: "button is-primary" %></p>
         </article>
@@ -35,7 +36,7 @@
         <article class="tile is-child notification is-info">
           <div class="content">
             <p class="title"><%= link_to project.title, account_project_path(@account, project) %></p>
-            <p class="subtitle">With even more content</p>
+            <p class="subtitle"></p>
             <div class="content">
               <!-- Content -->
             </div>
@@ -47,14 +48,5 @@
     </div>
   </div>
 
-  <div class="tile is-vertical is-3">
-    <div class="tile">
-      <div class="tile is-parent is-vertical">
-        <article class="tile is-child notification is-danger">
-          <p class="title">Tall tile</p>
-          <p class="subtitle">With even more content</p>
-        </article>
-      </div>
-    </div>
-  </div>
+
 </div>
