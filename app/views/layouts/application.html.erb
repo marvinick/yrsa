@@ -12,7 +12,9 @@
   </head>
   <body>
     <div class="container">
-      <%= render "layouts/navbar" %>
+      <% unless controller_name == "home" %>
+          <%= render "layouts/navbar" %>
+      <% end %>
       <% flash.each do |key, value| %>
         <div class="notification is-primary">
           <button class="delete"></button>
