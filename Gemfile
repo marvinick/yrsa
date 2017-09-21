@@ -22,7 +22,7 @@ gem "cocoon"
 #frontend
 gem 'react-rails'
 gem 'responders'
-gem "bulma-rails"
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 #authentication
 gem "devise"
