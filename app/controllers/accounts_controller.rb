@@ -45,6 +45,7 @@ class AccountsController < ApplicationController
   def show
     @account = Account.find(params[:id])
     @projects = Project.all
+    @project = @account.projects.build
   end
 
   private

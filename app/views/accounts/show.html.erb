@@ -17,7 +17,7 @@
 <nav class="level is-mobile">
   <div class="level-item has-text-centered">
     <div>
-      <%= link_to "New Project", new_account_project_path(@account), class: "button is-small is-primary" %>
+      <a class="button is-primary is-small", id="myBtn">New Project</a>
     </div>
   </div>
   <div class="level-item has-text-centered">
@@ -50,7 +50,8 @@
           <div class="media-content">
             <div class="content">
               <p>
-                <strong><%= link_to project.title, account_project_path(@account, project) %></strong> <small><%= project.description %></small>
+                <strong><%= link_to project.title %></strong>
+                <small><%= project.description %></small>
               </p>
             </div>
           </div>
@@ -60,26 +61,32 @@
   <% end %>
 </div>
 
-<button id="myBtn">Open Modal</button>
 
-<div class="container">
-  <div class="modal" id="myModal">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">Man</p>
-        <button class="delete" aria-label="close"></button>
-      </header>
-      <section class="modal-card-body">
-        <!-- Content ... -->
-      </section>
-      <footer class="modal-card-foot">
-        <button class="button is-success">Save changes</button>
-        <button class="button">Cancel</button>
-      </footer>
-    </div>
+<%= form_for([@account, @project]) do |f| %>
+<div class="modal" id="myModal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">New Project</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <%= f.hidden_field :account_id %>
+
+      <div class="control">
+          <%= f.text_field :title, placeholder: 'title', label: false, class:"input is-medium" %>
+      </div>
+      <br>
+      <%= f.text_field :description, placeholder: 'description', label: false, class:"input is-medium" %>
+    </section>
+    <footer class="modal-card-foot">
+      <%= f.button :submit, class: "button is-primary" %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")), account_path(@account), class: "button is-warning" %>
+    </footer>
   </div>
 </div>
+<% end %>
+
 
 <script>
   // Get the modal
@@ -99,6 +106,7 @@
   // When the user clicks on <span> (x), close the modal
   span.onclick = function() {
       modal.style.display = "none";
+      event.preventDefault()
   }
 
   // When the user clicks anywhere outside of the modal, close it
@@ -107,5 +115,6 @@
           modal.style.display = "none";
       }
   }
+
 
 </script>
