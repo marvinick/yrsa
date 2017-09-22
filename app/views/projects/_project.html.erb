@@ -1,0 +1,21 @@
+<% @account.projects.each do |project| %>
+  <div class="col-md-4">
+    <div class="box">
+      <article class="media">
+        <div class="media-left">
+          <figure class="image is-64x64">
+            <img src="http://bulma.io/images/placeholders/128x128.png" alt="Image">
+          </figure>
+        </div>
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong><%= link_to project.title %></strong>
+              <small><%= project.description %></small>
+            </p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+<% end %>

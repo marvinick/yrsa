@@ -36,7 +36,10 @@
   </div>
 </nav>
 
-
+<div>
+  <%= link_to "Projects", account_projects_path(@account, @projects) %>
+</div>
+<br>
 <div class="row">
   <% @account.projects.each do |project| %>
     <div class="col-md-4">
