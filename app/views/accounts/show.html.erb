@@ -14,10 +14,11 @@
     </div>
   </div>
 </nav>
+
 <nav class="level is-mobile">
   <div class="level-item has-text-centered">
     <div>
-      <a class="button is-primary is-small", id="myBtn">New Project</a>
+      <%= link_to "New Project", new_account_project_path(@account), class: "button is-small is-primary" %>
     </div>
   </div>
   <div class="level-item has-text-centered">
@@ -36,10 +37,6 @@
   </div>
 </nav>
 
-<div>
-  <%= link_to "Projects", account_projects_path(@account, @projects) %>
-</div>
-<br>
 <div class="row">
   <% @account.projects.each do |project| %>
     <div class="col-md-4">
@@ -53,7 +50,7 @@
           <div class="media-content">
             <div class="content">
               <p>
-                <strong><%= link_to project.title %></strong>
+                <strong><%= link_to project.title, account_project_path(@account, project) %></strong>
                 <small><%= project.description %></small>
               </p>
             </div>
@@ -63,32 +60,6 @@
     </div>
   <% end %>
 </div>
-
-
-<%= form_for([@account, @project]) do |f| %>
-<div class="modal" id="myModal">
-  <div class="modal-background"></div>
-  <div class="modal-card">
-    <header class="modal-card-head">
-      <p class="modal-card-title">New Project</p>
-      <button class="delete" aria-label="close"></button>
-    </header>
-    <section class="modal-card-body">
-      <%= f.hidden_field :account_id %>
-
-      <div class="control">
-          <%= f.text_field :title, placeholder: 'title', label: false, class:"input is-medium" %>
-      </div>
-      <br>
-      <%= f.text_field :description, placeholder: 'description', label: false, class:"input is-medium" %>
-    </section>
-    <footer class="modal-card-foot">
-      <%= f.button :submit, class: "button is-primary" %>
-      <%= link_to t('.cancel', :default => t("helpers.links.cancel")), account_path(@account), class: "button is-warning" %>
-    </footer>
-  </div>
-</div>
-<% end %>
 
 
 <script>

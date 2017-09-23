@@ -44,8 +44,6 @@ class AccountsController < ApplicationController
 
   def show
     @account = Account.find(params[:id])
-    @projects = @account.projects.all
-    @project = @account.projects.build
   end
 
   private
@@ -59,4 +57,9 @@ class AccountsController < ApplicationController
       ]}
     )
   end
+
+  def set_project
+    @account.projects.find_by(params[:project_id])
+  end
+  helper_method :set_project
 end

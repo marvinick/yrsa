@@ -1,1 +1,42 @@
-<%= render "form" %>
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="#"><span class="icon is-small"><i class="fa fa-home"></i></span><span><%= link_to "Home", root_url %></span></a></li>
+    <li><a href="#"><%= link_to current_account.name, account_url(current_account) %></a></li>
+  </ul>
+</nav>
+
+<nav class="level">
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">account</p>
+      <p class="level-item has-text-centered title">
+        <%= @account.name %>
+      </p>
+    </div>
+  </div>
+</nav>
+
+<div class="columns">
+  <div class="column is-4"></div>
+  <div class="column is-4">
+    <div class="field">
+      <%= form_for([current_account, @project]) do |f| %>
+        <%= f.hidden_field :account_id %>
+
+        <div class="control">
+            <%= f.text_field :title, placeholder: 'title', label: false, class:"input is-medium" %>
+        </div>
+        <br>
+        <%= f.text_field :description, placeholder: 'description', label: false, class:"input is-medium" %>
+        <%= f.collection_check_boxes :user_ids, current_account.users.all, :id, :email, :item_wrapper_class => 'checkbox_container' do |cb| %>
+           <% cb.label {cb.check_box(class: "checkbox") + cb.text} %>
+        <% end %>
+        <br>
+        <br>
+        <%= f.button :submit, class: "button is-primary" %>
+        <%= link_to t('.cancel', :default => t("helpers.links.cancel")), account_project_path(current_account, @project), class: "button is-warning" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="column is-4"></div>
+</div>

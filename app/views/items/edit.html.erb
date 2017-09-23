@@ -1,25 +1,50 @@
-<%= form_for([current_account, set_project, @item]) do |f| %>
-  <%= f.hidden_field :project_id %>
-  <div class="control">
-    <%= f.text_field :name, placeholder: 'name', label: false, class: "input is-medium" %>
-  </div>
-  <br>
-  <div class="control">
-    <%= f.text_field :content, placeholder: 'content', label: false, class: "input is-medium"  %>
-  </div>
-  <br>
-  <div>
-    <div id="details">
-      <%= f.fields_for :details do |detail| %>
-        <%= render "detail_fields", f: detail %>
-      <% end %>
+<nav class="breadcrumb has-arrow-separator" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="#"><%= link_to "Home", root_url %></a></li>
+    <li><a href="#"><%= link_to current_account.name, account_url(current_account) %></a></li>
+    <li><a href="#"><%= link_to set_project.title, account_project_path(current_account, set_project) %></a></li>
+  </ul>
+</nav>
 
-      <div class="links">
-        <%= link_to_add_association 'add detail', f, :details %>
-      </div>
+<nav class="level">
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">item</p>
+      <p class="level-item has-text-centered title">
+        <%= @item.name %>
+      </p>
     </div>
   </div>
-  <br>
-  <%= f.button :submit, class: "button is-primary is-medium" %>
-  <%= link_to "Back", :back, class: "button is-warning is-medium" %>
-<% end %>
+</nav>
+
+<div class="columns">
+  <div class="column is-4"></div>
+  <div class="column is-4">
+    <%= form_for([current_account, set_project, @item]) do |f| %>
+      <%= f.hidden_field :project_id %>
+      <div class="control">
+        <%= f.text_field :name, placeholder: 'name', label: false, class: "input is-medium" %>
+      </div>
+      <br>
+      <div class="control">
+        <%= f.text_field :content, placeholder: 'content', label: false, class: "input is-medium"  %>
+      </div>
+      <br>
+      <div>
+        <div id="details">
+          <%= f.fields_for :details do |detail| %>
+            <%= render "detail_fields", f: detail %>
+          <% end %>
+
+          <div class="links">
+            <%= link_to_add_association 'add detail', f, :details %>
+          </div>
+        </div>
+      </div>
+      <br>
+      <%= f.button :submit, class: "button is-primary is-medium" %>
+      <%= link_to "Back", :back, class: "button is-warning is-medium" %>
+    <% end %>
+  </div>
+  <div class="column is-4"></div>
+</div>

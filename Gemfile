@@ -22,6 +22,7 @@ gem "cocoon"
 #frontend
 gem 'react-rails'
 gem 'responders'
+gem 'growlyflash'
 
 #authentication
 gem "devise"

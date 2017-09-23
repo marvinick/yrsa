@@ -1,3 +1,21 @@
+<nav class="breadcrumb has-arrow-separator" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="#"><%= link_to "Home", root_url %></a></li>
+    <li><a href="#"><%= link_to current_account.name, account_url(current_account) %></a></li>
+  </ul>
+</nav>
+
+<nav class="level">
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">project</p>
+      <p class="level-item has-text-centered title">
+        <%= @project.title %>
+      </p>
+    </div>
+  </div>
+</nav>
+
 <div class="field">
   <%= form_for([current_account, @project, @item]) do |f| %>
     <%= f.hidden_field :project_id %>
@@ -24,3 +42,4 @@
     <%= f.button :submit, class:"button is-primary is-medium" %>
     <%= link_to "Back", :back, class: "button is-warning is-medium" %>
   <% end %>
+</div>

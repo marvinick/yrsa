@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  use_growlyflash
   protect_from_forgery with: :null_session
 
   def current_account

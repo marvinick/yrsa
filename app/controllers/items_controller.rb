@@ -30,7 +30,7 @@ class ItemsController < BaseController
   def update
     if @item.update_attributes(item_params)
       flash[:notice] = "You have updated the item."
-      redirect_to root_path
+      redirect_to [current_account, set_project, @item]
     else
       flash.now[:alert] = "Something's wrong."
       render "edit"
@@ -54,7 +54,7 @@ class ItemsController < BaseController
   end
 
   def set_project
-    project = Project.find(params[:project_id])
+    Project.find(params[:project_id])
   end
   helper_method :set_project
 end
