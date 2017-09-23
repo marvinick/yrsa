@@ -14,6 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require growlyflash
-//= require components
 //= require cocoon
 //= require_tree .
