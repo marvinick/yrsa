@@ -18,7 +18,11 @@
 
  @media only screen and (min-width: 500px) {
   .container {
-    max-width:65%!important;
+    max-width:60%!important;
+  }
+
+  .formly {
+    margin-top: 50px!important;
   }
 }
 
@@ -52,4 +56,16 @@ a:link, a:hover{
 
 .navbar {
   background: #66615b!important;
+}
+
+.input, select, textarea {
+  background-color: #efedea!important;
+}
+
+.formly {
+  background-color: white!important;
+}
+
+.box {
+  height: 175px;
 }

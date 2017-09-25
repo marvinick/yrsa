@@ -1,25 +1,17 @@
-<nav class="breadcrumb has-arrow-separator" aria-label="breadcrumbs">
-  <ul>
-    <li><a href="#"><%= link_to "Home", root_url %></a></li>
-    <li><a href="#"><%= link_to current_account.name, account_url(current_account) %></a></li>
-    <li><a href="#"><%= link_to set_project.title, account_project_path(current_account, set_project) %></a></li>
-  </ul>
-</nav>
-
 <nav class="level">
   <div class="level-item has-text-centered">
     <div>
       <p class="heading">item</p>
       <p class="level-item has-text-centered title">
-        <%= @item.name %>
+        <%= link_to @item.name, account_project_item_path(current_account, set_project, @item) %>
       </p>
     </div>
   </div>
 </nav>
 
 <div class="columns">
-  <div class="column is-4"></div>
-  <div class="column is-4">
+  <div class="column is-3"></div>
+  <div class="formly column is-6">
     <%= form_for([current_account, set_project, @item]) do |f| %>
       <%= f.hidden_field :project_id %>
       <div class="control">
@@ -46,5 +38,5 @@
       <%= link_to "Back", :back, class: "button is-warning is-medium" %>
     <% end %>
   </div>
-  <div class="column is-4"></div>
+  <div class="column is-3"></div>
 </div>

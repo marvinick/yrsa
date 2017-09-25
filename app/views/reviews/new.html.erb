@@ -1,5 +1,17 @@
+<nav class="level">
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">item</p>
+      <p class="level-item has-text-centered title">
+        <%= @item.name %>
+      </p>
+    </div>
+  </div>
+</nav>
+
 <div class="columns">
-  <div class="column is-6">
+  <div class="column is-3"></div>
+  <div class="formly column is-6">
     <%= form_for([current_account, set_project, set_item, @detail, @review]) do |f| %>
       <%= f.hidden_field :detail_id %>
       <div class="control">
@@ -14,4 +26,5 @@
       <%= link_to "Back", account_project_item_path(current_account, set_project, set_item), class: "button is-warning is-medium" %>
     <% end %>
   </div>
+  <div class="column is-3"></div>
 </div>

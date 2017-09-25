@@ -1,6 +1,6 @@
-<nav class="breadcrumb is-hidden-desktop is-fluid" aria-label="breadcrumbs">
+<nav class="breadcrumb is-hidden-desktop" aria-label="breadcrumbs">
   <ul>
-    <li><a href="#"><span class="icon is-small"><i class="fa fa-home"></i></span><span><%= link_to "Home", root_url %></span></a></li>
+    <li><a href="#"><span class="icon is-medium"><i class="fa fa-home"></i></span><span><%= link_to "Home", root_url %></span></a></li>
   </ul>
 </nav>
 
@@ -18,17 +18,17 @@
 <nav class="level is-mobile">
   <div class="level-item has-text-centered">
     <div>
-      <%= link_to "New Project", new_account_project_path(@account), class: "button is-small is-primary" %>
-    </div>
-  </div>
-  <div class="level-item has-text-centered">
-    <div>
-
       <p class="title"><%= link_to "Users", account_users_path(@account, @users), class: "button is-small is-info" %>
     </div>
   </div>
 </nav>
+
 <hr>
+
+<div>
+  <%= link_to "New Project", new_account_project_path(@account), class: "button is-small is-primary" %>
+</div>
+
 <nav class="level">
   <div class="level-item has-text-centered">
     <div>
@@ -60,4 +60,62 @@
       </div>
     </div>
   <% end %>
+</div>
+
+<div class="dropdown">
+  <div class="dropdown-trigger">
+    <button class="button is-primary" aria-haspopup="true" aria-controls="dropdown-menu3">
+      <span>Click me</span>
+      <span class="icon is-small">
+        <i class="fa fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </button>
+  </div>
+  <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+    <div class="dropdown-content">
+      <a href="#" class="dropdown-item">
+        Overview
+      </a>
+      <a href="#" class="dropdown-item">
+        Modifiers
+      </a>
+      <a href="#" class="dropdown-item">
+        Grid
+      </a>
+      <a href="#" class="dropdown-item">
+        Form
+      </a>
+      <a href="#" class="dropdown-item">
+        Elements
+      </a>
+      <a href="#" class="dropdown-item">
+        Components
+      </a>
+      <a href="#" class="dropdown-item">
+        Layout
+      </a>
+      <hr class="dropdown-divider">
+      <a href="#" class="dropdown-item">
+        More
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="dropdown is-hoverable">
+  <div class="dropdown-trigger">
+    <button class="button is-info" aria-haspopup="true" aria-controls="dropdown-menu4">
+      <span>Hover me</span>
+      <span class="icon is-small">
+        <i class="fa fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </button>
+  </div>
+  <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+    <div class="dropdown-content">
+      <div class="dropdown-item">
+        <p>You can insert <strong>any type of content</strong> within the dropdown menu.</p>
+      </div>
+    </div>
+  </div>
 </div>

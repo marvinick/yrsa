@@ -1,10 +1,3 @@
-<nav class="breadcrumb has-arrow-separator" aria-label="breadcrumbs">
-  <ul>
-    <li><a href="#"><%= link_to "Home", root_url %></a></li>
-    <li><a href="#"><%= link_to current_account.name, account_url(current_account) %></a></li>
-  </ul>
-</nav>
-
 <nav class="level">
   <div class="level-item has-text-centered">
     <div>
@@ -16,13 +9,9 @@
   </div>
 </nav>
 
-<nav class="level is-mobile">
-  <div class="level-item has-text-centered">
-    <div>
 
-      <%= link_to "New Item", new_account_project_item_path(current_account, @project), class: "button is-small is-primary" %>
-    </div>
-  </div>
+<nav class="level is-mobile">
+
   <div class="level-item has-text-centered">
     <div>
       <p class="title"><%= link_to "Edit", edit_account_project_path(current_account, @project), class: "button is-small is-info" %>
@@ -36,6 +25,11 @@
   </div>
 </nav>
 <hr>
+
+<div>
+  <%= link_to "New Item", new_account_project_item_path(current_account, @project), class: "button is-primary" %>
+</div>
+
 <nav class="level">
   <div class="level-item has-text-centered">
     <div>
