@@ -16,12 +16,18 @@
 
  @import "growlyflash";
 
+ @media only screen and (min-width: 500px) {
+  .container {
+    max-width:65%!important;
+  }
+}
+
  html {
-   background-color: #f7f0e8!important;
+   background-color: #efedea!important;
  }
 
  body {
-   background-color: #f7f0e8!important;
+   background-color: #efedea!important;
  }
 
 .col-md-4 {
@@ -42,4 +48,8 @@ a:link, a:hover{
 
 .modal-card {
   width: auto!important;
+}
+
+.navbar {
+  background: #66615b!important;
 }

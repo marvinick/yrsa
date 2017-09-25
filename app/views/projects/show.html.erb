@@ -47,41 +47,42 @@
   </div>
 </nav>
 <div class="row">
-  <div class="tile">
+
   <% @project.items.each do |item| %>
     <div class="col-md-4">
       <div class="box is-primary">
-      <article class="media">
-        <div class="media-left">
-          <figure class="image is-64x64">
-            <img src="http://bulma.io/images/placeholders/128x128.png" alt="Image">
-          </figure>
-        </div>
-        <div class="media-content">
-          <div class="content">
-            <p>
-              <strong><%= link_to item.name, account_project_item_path(current_account, @project, item) %></strong> <small><%= item.content %></small>
-              <br>
-            </p>
+        <article class="media">
+          <div class="media-left">
+            <figure class="image is-64x64">
+              <img src="http://bulma.io/images/placeholders/128x128.png" alt="Image">
+            </figure>
           </div>
-          <nav class="level is-mobile">
-            <div class="level-left">
-              <a class="level-item">
-                <%= link_to edit_account_project_item_path(current_account, @project, item) do %>
-                  <span class="icon is-small"><i class="fa fa-cogs"></i></span>
-                <% end %>
-              </a>
-              <a class="level-item">
-                <%= link_to account_project_item_path(current_account, @project, item), method: :delete, data: { confirm: "Are you sure you want to remove this?"} do %>
-                  <span class="icon is-small"><i class="fa fa-trash"></i></span>
-                <% end %>
-              </a>
-
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong><%= link_to item.name, account_project_item_path(current_account, @project, item) %></strong> <small><%= item.content %></small>
+                <br>
+              </p>
             </div>
-          </nav>
-        </div>
-      </article>
+            <nav class="level is-mobile">
+              <div class="level-left">
+                <a class="level-item">
+                  <%= link_to edit_account_project_item_path(current_account, @project, item) do %>
+                    <span class="icon is-small"><i class="fa fa-cogs"></i></span>
+                  <% end %>
+                </a>
+                <a class="level-item">
+                  <%= link_to account_project_item_path(current_account, @project, item), method: :delete, data: { confirm: "Are you sure you want to remove this?"} do %>
+                    <span class="icon is-small"><i class="fa fa-trash"></i></span>
+                  <% end %>
+                </a>
+
+              </div>
+            </nav>
+          </div>
+        </article>
+      </div>
     </div>
   <% end %>
-  </div>
+
 </div>
