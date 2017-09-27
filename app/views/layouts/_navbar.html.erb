@@ -1,4 +1,4 @@
-<nav class="navbar is-light is-hidden-touch">
+<nav class="navbar is-light">
   <div class="navbar-brand">
     <%= link_to root_url do %>
     <a class="navbar-item">
@@ -23,45 +23,56 @@
         <i class="fa fa-twitter"></i>
       </span>
     </a>
+    <a class="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
+      <span class="icon" style="color: #55acee;">
+        <i class="fa fa-twitter"></i>
+      </span>
+    </a>
+    <a class="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
+      <span class="icon" style="color: #55acee;">
+        <i class="fa fa-twitter"></i>
+      </span>
+    </a>
+    <a class="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
+      <span class="icon" style="color: #55acee;">
+        <i class="fa fa-twitter"></i>
+      </span>
+    </a>
   </div>
 
   <div id="navMenubd-example" class="navbar-menu">
     <div class="navbar-start">
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link  is-active" href="">
-          Accounts
-        </a>
-        <div class="navbar-dropdown">
-          <%= link_to root_url do %>
-            <%= content_tag :span, "Yrsa", :class => "navbar-item is-active" %>
-          <% end %>
+      
+    </div>
+    <div class="navbar-item has-dropdown is-hoverable">
+      <a class="navbar-link  is-active" href="">
+        Home
+      </a>
+      <div class="navbar-dropdown">
+        <%= link_to root_url do %>
+          <%= content_tag :span, "Accounts", :class => "navbar-item is-active" %>
+        <% end %>
 
-          <hr class="navbar-divider">
-          <div class="navbar-item">
+        <hr class="navbar-divider">
+        <div class="navbar-item">
+          <small>
+            <%= link_to "Welcome", home_path %>
+          </small>
+        </div>
+        <div class="navbar-item">
+          <div>
             <small>
-              <%= link_to "Front page", home_path %>
+
             </small>
-          </div>
-          <div class="navbar-item">
-            <div>
-
-                <small>
-                  <%= link_to destroy_user_session_path, method: :delete do %>
-                    <%= content_tag :span, "Sign out" %>
-                  <% end %>
-                </small>
-
-            </div>
           </div>
         </div>
       </div>
     </div>
-
     <% if user_signed_in? %>
     <div class="navbar-end">
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link is-active is-center" href="">
-          Access
+          . . .
         </a>
         <div class="navbar-dropdown is-right">
           <% if current_user.admin? %>
