@@ -1,7 +1,7 @@
 <nav class="level">
   <div class="level-item has-text-centered">
     <div>
-      <p class="heading">item</p>
+      <p class="heading"><%= link_to set_project.title, account_project_path(current_account, set_project) %></p>
       <p class="level-item has-text-centered title">
         <%= @item.name %>
       </p>
@@ -11,7 +11,6 @@
 <nav class="level">
   <div class="level-item has-text-centered">
     <div>
-      <p class="heading">description</p>
       <p class="level-item has-text-centered title is-6">
         <%= @item.content %>
       </p>
@@ -22,8 +21,12 @@
 <nav class="level is-mobile">
   <div class="level-item has-text-centered">
     <div>
-
       <p class="title"><%= link_to "Edit", edit_account_project_item_path(current_account, set_project, @item), class: "button is-small is-info" %>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="title">. . .</p>
     </div>
   </div>
   <div class="level-item has-text-centered">

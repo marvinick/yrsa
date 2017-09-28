@@ -20,7 +20,7 @@ gem "simple_form"
 gem "cocoon"
 
 #frontend
-
+gem "chartkick"
 gem 'growlyflash'
 
 #authentication

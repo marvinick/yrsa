@@ -1,15 +1,33 @@
-
 <nav class="level">
   <div class="level-item has-text-centered">
     <div>
-      <p class="heading">project</p>
+      <p class="heading"><%= link_to @account.name, account_path(@account) %></p>
       <p class="level-item has-text-centered title">
         <%= @project.title %>
       </p>
     </div>
   </div>
 </nav>
-
+<div class="container-fluid">
+  <div class="columns">
+    <div class="column is-3">
+      <p class="title is-6">was cretead <%= time_ago_in_words(@project.created_at) %> ago</p>
+      <p class="title is-5"><%= @project.items.count %></p>
+      <% @project.items.each do |item| %>
+        <% item.details.each do |detail| %>
+          <% total_reviews = [] %>
+          <%  total_reviews << detail.reviews.count %>
+          <%= total_reviews.sum %>
+         <% end %>
+      <% end %>
+    </div>
+    <div class="column is-3">
+      <p class><%= @project.users.count %></li>
+    </div>
+    <div class="column is-6">
+    </div>
+  </div>
+</div>
 
 <nav class="level is-mobile">
 
@@ -27,58 +45,60 @@
 </nav>
 <hr>
 
-<div>
-  <%= link_to "+ Item", new_account_project_item_path(current_account, @project), class: "button is-primary is-medium" %>
-</div>
-
-<nav class="level">
-  <div class="level-item has-text-centered">
-    <div>
-      <p class="heading"></p>
-      <p class="level-item has-text-centered heading">
-        all items
-      </p>
-    </div>
+<div class="container">
+  <div>
+    <%= link_to "+ Item", new_account_project_item_path(current_account, @project), class: "button is-primary is-medium" %>
   </div>
-</nav>
 
-<div class="row">
-
-  <% @project.items.each do |item| %>
-    <div class="col-md-4">
-      <div class="box is-primary">
-        <article class="media">
-          <div class="media-left">
-            <figure class="image is-64x64">
-              <img src="http://bulma.io/images/placeholders/128x128.png" alt="Image">
-            </figure>
-          </div>
-          <div class="media-content">
-            <div class="content">
-              <p>
-                <li><strong><%= link_to item.name, account_project_item_path(current_account, @project, item) %></strong> </li>
-                <li><small><%= item.content %></small></li>
-                <br>
-              </p>
-            </div>
-            <nav class="level is-mobile">
-              <div class="level-left">
-                <a class="level-item">
-                  <%= link_to edit_account_project_item_path(current_account, @project, item) do %>
-                    <span class="icon is-small"><i class="fa fa-cogs"></i></span>
-                  <% end %>
-                </a>
-                <a class="level-item">
-                  <%= link_to account_project_item_path(current_account, @project, item), method: :delete, data: { confirm: "Are you sure you want to remove this?"} do %>
-                    <span class="icon is-small"><i class="fa fa-trash"></i></span>
-                  <% end %>
-                </a>
-              </div>
-            </nav>
-          </div>
-        </article>
+  <nav class="level">
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading"></p>
+        <p class="level-item has-text-centered heading">
+          all items
+        </p>
       </div>
     </div>
-  <% end %>
+  </nav>
 
+  <div class="row">
+
+    <% @project.items.each do |item| %>
+      <div class="col-md-4">
+        <div class="box is-primary">
+          <article class="media">
+            <div class="media-left">
+              <figure class="image is-64x64">
+                <img src="http://bulma.io/images/placeholders/128x128.png" alt="Image">
+              </figure>
+            </div>
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <li><strong><%= link_to item.name, account_project_item_path(current_account, @project, item) %></strong> </li>
+                  <li><small><%= item.content %></small></li>
+                  <br>
+                </p>
+              </div>
+              <nav class="level is-mobile">
+                <div class="level-left">
+                  <a class="level-item">
+                    <%= link_to edit_account_project_item_path(current_account, @project, item) do %>
+                      <span class="icon is-small"><i class="fa fa-cogs"></i></span>
+                    <% end %>
+                  </a>
+                  <a class="level-item">
+                    <%= link_to account_project_item_path(current_account, @project, item), method: :delete, data: { confirm: "Are you sure you want to remove this?"} do %>
+                      <span class="icon is-small"><i class="fa fa-trash"></i></span>
+                    <% end %>
+                  </a>
+                </div>
+              </nav>
+            </div>
+          </article>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
 </div>
