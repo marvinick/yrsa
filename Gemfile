@@ -19,8 +19,12 @@ gem 'jbuilder', '~> 2.5'
 gem "simple_form"
 gem "cocoon"
 
-#frontend
+#charts
 gem "chartkick"
+gem 'groupdate', '~> 2.1.1'
+gem 'active_median', '~> 0.1.0'
+
+#notification
 gem 'growlyflash'
 
 #authentication

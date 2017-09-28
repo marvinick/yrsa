@@ -1,18 +1,17 @@
-<nav class="level">
-  <div class="level-item has-text-centered">
-    <div>
-      <p class="heading"><%= link_to @account.name, account_path(@account) %></p>
-      <p class="level-item has-text-centered title">
-        <%= @project.title %>
-      </p>
-    </div>
+<div class="columns">
+  <div class="column is-12">
+    <p class="title is-4">
+      project <%= @project.title %>
+    </p>
+    <p class="subtitle is-6">account <%= link_to @account.name, account_path(@account) %></p>
   </div>
-</nav>
-<div class="container-fluid">
-  <div class="columns">
-    <div class="column is-3">
-      <p class="title is-6">was cretead <%= time_ago_in_words(@project.created_at) %> ago</p>
-      <p class="title is-5"><%= @project.items.count %></p>
+</div>
+
+<div class="columns">
+  <div class="column is-6">
+    <p class="subtitle is-6">was cretead <%= time_ago_in_words(@project.created_at) %> ago</p>
+    <p class="subtitle is-6"><%= @project.items.count %></p>
+    <p class="subtitle is-6">
       <% @project.items.each do |item| %>
         <% item.details.each do |detail| %>
           <% total_reviews = [] %>
@@ -20,17 +19,19 @@
           <%= total_reviews.sum %>
          <% end %>
       <% end %>
-    </div>
-    <div class="column is-3">
-      <p class><%= @project.users.count %></li>
-    </div>
-    <div class="column is-6">
-    </div>
+    </p>
+  </div>
+  <div class="column is-6">
+    <p class="title is-5">Users</p>
+    <p class="subtitle is-6"><%= @project.users.count %></li>
   </div>
 </div>
+<br>
 
+<div class="row">
+  <%= pie_chart @project.items.group(:name).count %>
+</div>
 <nav class="level is-mobile">
-
   <div class="level-item has-text-centered">
     <div>
       <p class="title"><%= link_to "Edit", edit_account_project_path(current_account, @project), class: "button is-small is-info" %>
@@ -45,7 +46,7 @@
 </nav>
 <hr>
 
-<div class="container">
+
   <div>
     <%= link_to "+ Item", new_account_project_item_path(current_account, @project), class: "button is-primary is-medium" %>
   </div>
@@ -101,4 +102,3 @@
     <% end %>
 
   </div>
-</div>

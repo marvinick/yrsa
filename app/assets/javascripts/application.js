@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require growlyflash
+//= require chartkick
 //= require cocoon
 //= require_tree .
