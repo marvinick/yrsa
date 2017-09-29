@@ -11,26 +11,16 @@
   <div class="column is-6">
     <p class="subtitle is-6">was cretead <%= time_ago_in_words(@project.created_at) %> ago</p>
     <p class="subtitle is-6"><%= @project.items.count %></p>
-    <p class="subtitle is-6">
-      <% @project.items.each do |item| %>
-        <% item.details.each do |detail| %>
-          <% total_reviews = [] %>
-          <%  total_reviews << detail.reviews.count %>
-          <%= total_reviews.sum %>
-         <% end %>
-      <% end %>
-    </p>
+    
   </div>
   <div class="column is-6">
     <p class="title is-5">Users</p>
     <p class="subtitle is-6"><%= @project.users.count %></li>
   </div>
 </div>
-<br>
 
-<div class="row">
-  <%= pie_chart @project.items.group(:name).count %>
-</div>
+<%= area_chart @project.items.group_by_day(:created_at).count, library: {backgroundColor: "#efedea", height: 300} %>
+
 <nav class="level is-mobile">
   <div class="level-item has-text-centered">
     <div>
