@@ -1,3 +1,9 @@
+<ul class="breadcrumbs">
+  <li><a href="#"><%= link_to "Home", account_path(current_account) %></a></li>
+  <li><a href="#"><%= link_to "Rooot", root_url %></a></li>
+  <li><a href="#">Summer 15</a></li>
+  <li>Italy</li>
+</ul>
 <div class="columns">
   <div class="column is-12">
     <p class="title is-4">
@@ -6,19 +12,19 @@
     <p class="subtitle is-6">account <%= link_to @account.name, account_path(@account) %></p>
   </div>
 </div>
-
+<hr>
 <div class="columns">
   <div class="column is-6">
     <p class="subtitle is-6">was cretead <%= time_ago_in_words(@project.created_at) %> ago</p>
     <p class="subtitle is-6"><%= @project.items.count %></p>
-    
+
   </div>
   <div class="column is-6">
     <p class="title is-5">Users</p>
     <p class="subtitle is-6"><%= @project.users.count %></li>
   </div>
 </div>
-
+<hr>
 <%= area_chart @project.items.group_by_day(:created_at).count, library: {backgroundColor: "#efedea", height: 300} %>
 
 <nav class="level is-mobile">
