@@ -1,6 +1,6 @@
 <p class="title is-2 has-text-centered"><%= link_to set_project.title, account_project_path(current_account, set_project) %> -> <%= @item.name %></p>
 <div class="item">
-  
+
   <nav class="level">
     <div class="level-item has-text-centered">
       <div>
@@ -40,10 +40,21 @@
       </div>
       <div class="column is-6">
         <% detail.reviews.each do |review| %>
-          <li><p class="subtitle is-6"><%= review.value %> <%= review.description %></p></li>
+          <div class="star-rating" data-score= <%= review.value %> ></div>
+          <li><p class="subtitle is-6"><%= review.description %></p></li>
         <% end %>
       </div>
     </div>
     <hr>
   <% end %>
 </div>
+
+<script>
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+</script>

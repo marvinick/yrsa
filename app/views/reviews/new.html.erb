@@ -19,7 +19,8 @@
       </div>
       <br>
       <div class="control">
-        <%= f.text_field :value, placeholder: 'value', class: "input is-medium"  %>
+        <div id="star-rating"></div>
+      
       </div>
       <br>
       <%= f.button :submit, class: "button is-primary is-medium" %>
@@ -28,3 +29,10 @@
   </div>
   <div class="column is-3"></div>
 </div>
+
+<script>
+  $('#star-rating').raty({
+    path: '/assets/',
+    scoreName: 'review[value]'
+  });
+</script>
