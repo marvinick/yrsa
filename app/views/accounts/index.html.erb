@@ -16,8 +16,11 @@
     <div class="tile">
       <% current_user.all_accounts.each do |account| %>
         <div class="tile is-parent is-vertical">
-          <article class="tile is-child notification is-primary is-4">
-            <p class="title"><%= link_to account.name, account_path(account) %></p>
+          <article class="tile is-child notification is-4">
+            <p class="title is-3"><%= link_to content_tag(:span, account.name), account_path(account) %></p>
+            <br>
+            <p class="subtitle is-6">Projects <%= account.projects.count %></p>
+            <p class="subtitle is-6">Members <%= account.users.count %></p>
           </article>
         </div>
       <% end %>

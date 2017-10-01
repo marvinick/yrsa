@@ -73,7 +73,8 @@
             <div class="media-content">
               <div class="content">
                 <p>
-                  <li><strong><%= link_to item.name, account_project_item_path(current_account, @project, item) %></strong> </li>
+                  <li><strong><%= link_to content_tag(:span, item.name), account_project_item_path(current_account, @project, item) %></strong> </li>
+                  <br>
                   <li><small><%= item.content %></small></li>
                   <br>
                 </p>

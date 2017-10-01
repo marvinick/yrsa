@@ -44,7 +44,8 @@
           </div>
           <div class="media-content">
             <div class="content">
-              <p class="title is-5"><%= link_to project.title, account_project_path(@account, project) %></p>
+              <p class="title is-5"><%= link_to content_tag(:span, project.title), account_project_path(@account, project) %></p>
+              <br>
               <p class="subtitle is-6"><%= project.description %></p>
             </div>
           </div>
