@@ -1,8 +1,9 @@
+<p class="header has-text-centered">account <%= link_to @account.name, account_path(@account) %> </p>
 <nav class="level">
   <div class="level-item has-text-centered">
     <div>
       <p class="level-item has-text-centered title is-2"><%= @project.title %></p>
-      <p class="heading"><%= @project.description %></p>
+      <p class="heading">"<%= @project.description %> . . ."</p>
     </div>
   </div>
 </nav>
@@ -43,9 +44,7 @@
   </nav>
 
   <div class="row">
-
     <% @project.items.each do |item| %>
-
       <div class="project col-md-4">
         <div class="box is-primary">
           <article class="media">
@@ -64,5 +63,4 @@
         </div>
       </div>
     <% end %>
-
   </div>
