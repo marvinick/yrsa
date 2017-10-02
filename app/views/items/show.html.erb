@@ -36,13 +36,19 @@
         <strong><%= link_to content_tag(:span, detail.name), account_project_item_detail_path(current_account, set_project, @item, detail) %></strong>
         <br>
         <p class="subtitle is-6 "><%= detail.description %></p>
-        <%= link_to "Rate it", new_account_project_item_detail_review_path(current_account, set_project, @item, detail), class: "button is-primary is-small" %>
+        <p class='heading'>open the card to see more</p>
         <hr>
-        <% detail.reviews.last(3).each do |review| %>
+        <% detail.reviews.last(1).each do |review| %>
+          <p class="heading">latest rating</p>
           <div class="star-rating" data-score= <%= review.value %> ></div>
-          <li><p class="subtitle is-6"><%= review.description.first(30) %></p></li>
-          <br>
         <% end %>
+        <br>
+        <% total_rv = [] %>
+        <% detail.reviews.each do |review| %>
+          <% total_rv << review.value %>
+        <% end %>
+        <p class="heading">Average ratings</p>
+        <div class="star-rating" data-score= <%= total_rv.sum / total_rv.count %> ></div>
       </div>
     </div>
   <% end %>
