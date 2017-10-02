@@ -1,23 +1,26 @@
-<div class="tile is-ancestor">
-  <div class="tile is-4 is-vertical is-parent">
-    <div class="tile is-child box">
-      <p class="title"><%= @detail.name %></p>
-      <p><%= @detail.description %></p>
-      <p class="subtitle"><%= link_to "Rate this", new_account_project_item_detail_review_path(current_account, set_project, @item, @detail) %></p>
-    </div>
-    <div class="tile is-child box">
-      <% @detail.reviews.each do |review| %>
-        <p class="subtitle"><%= link_to "Edit", edit_account_project_item_detail_review_path(current_account, set_project, @item, @detail, review) %></p>
-        <p class="subtitle"><%= link_to "Delete", [current_account, set_project, @item, @detail, review], method: :delete, data: { confirm: "Are you sure you want to remove this?"} %></p>
-      <% end %>
-    </div>
-  </div>
-  <div class="tile is-parent">
-    <% @detail.reviews.each do |review| %>
-      <div class="tile is-child box">
-        <p class="title"><%= review.description %></p>
-        <p class="subtitle"><%= review.value %></p>
-      </div>
-    <% end %>
-  </div>
+<p class="heading has-text-centered">Back to item <%= link_to @item.name, account_project_item_path(current_account, set_project, @item) %></p>
+
+<div class="item has-text-centered">
+  <p class="title "><%= @detail.name %></p>
+  <p class="heading"><%= @detail.description %></p>
+  <p class="heading"><%= link_to "Rate this", new_account_project_item_detail_review_path(current_account, set_project, @item, @detail) %></p>
+
+  <hr>
+  <% @detail.reviews.each do |review| %>
+    <p class="title"><%= review.description %></p>
+    <div class="star-rating" data-score= <%= review.value %> ></div>
+    <%= link_to "Edit", edit_account_project_item_detail_review_path(current_account, set_project, @item, @detail, review) %>
+    <%= link_to "Delete", [current_account, set_project, @item, @detail, review], method: :delete, data: { confirm: "Are you sure you want to remove this?"} %>
+    <hr>
+  <% end %>
 </div>
+
+<script>
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+</script>

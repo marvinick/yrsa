@@ -12,21 +12,25 @@
 <nav class="level is-mobile">
   <div class="level-item has-text-centered">
     <div>
-      <p class="title"><%= link_to "Users", account_users_path(@account, @users), class: "button is-medium is-warning" %>
+      <p class="title"><%= link_to "Manage Users", account_users_path(@account, @users), class: "button is-warning" %>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <%= link_to "+ New Project", new_account_project_path(@account), class: "button is-primary" %>
     </div>
   </div>
 </nav>
 
 <hr>
 
-<div>
-  <%= link_to "+ New", new_account_project_path(@account), class: "button is-medium is-primary" %>
-</div>
 <br>
 <nav class="level">
   <div class="level-item has-text-centered">
     <div>
-      <p class="heading">all projects</p>
+      <p class="title">all projects</p>
+      <br>
+      <p class="heading">create a new project for each rating activity </p>
     </div>
   </div>
 </nav>
@@ -37,11 +41,6 @@
     <div class="col-md-4">
       <div class="box">
         <article class="media">
-          <div class="media-left">
-            <figure class="image is-64x64">
-              <img src="http://bulma.io/images/placeholders/128x128.png" alt="Image">
-            </figure>
-          </div>
           <div class="media-content">
             <div class="content">
               <p class="title is-5"><%= link_to content_tag(:span, project.title), account_project_path(@account, project) %></p>

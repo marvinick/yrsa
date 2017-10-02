@@ -1,4 +1,5 @@
-<%= link_to "Invitations", account_invitations_path(current_account, @invitations), class: "button is-primary" %>
+<%= link_to "Invite new user", new_account_invitation_path(current_account), class: "button is-primary" %>
+<hr>
 
 <table class='table table-striped' id='users'>
   <thead>

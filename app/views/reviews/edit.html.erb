@@ -9,22 +9,31 @@
   </div>
 </nav>
 
-<div class="columns">
+<<div class="columns">
   <div class="column is-3"></div>
   <div class="formly column is-6">
     <%= form_for([current_account, set_project, set_item, @detail, @review]) do |f| %>
       <%= f.hidden_field :detail_id %>
       <div class="control">
-        <%= f.text_field :description, placeholder: 'name', label: false, class: "input is-medium" %>
+        <p class"heading">from 1 as being really bad to 5 as being great</p>
+        <div id="star-rating"></div>
       </div>
       <br>
       <div class="control">
-        <%= f.text_field :value, placeholder: 'value', label: false, class: "input is-medium"  %>
+        <p class="heading">this is optional, but it'll definitely more flesh out rating</p>
+        <%= f.text_area :description, class: "input is-medium" %>
       </div>
       <br>
       <%= f.button :submit, class: "button is-primary is-medium" %>
-      <%= link_to "Back", account_project_item_path(current_account, set_project, set_item), class: "button is-warning is-medium" %>
-
+      <%= link_to "Back", account_project_item_detail_path(current_account, set_project, set_item, @detail), class: "button is-warning is-medium" %>
     <% end %>
   </div>
+  <div class="column is-3"></div>
 </div>
+
+<script>
+  $('#star-rating').raty({
+    path: '/assets/',
+    scoreName: 'review[value]'
+  });
+</script>
