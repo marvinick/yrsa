@@ -12,6 +12,21 @@
   </div>
 </nav>
 
+<% tar = [] %>
+<% total_average_ratings = [] %>
+<% @item.details.each do |detail| %>
+  <% total_rv = [] %>
+  <% detail.reviews.each do |review| %>
+    <% total_rv << review.value %>
+    <% total_average_ratings = total_rv.sum / total_rv.count %>
+  <% end %>
+  <% tar << total_average_ratings %>
+<% end %>
+
+<p class="heading has-text-centered"> Item's rating </p>
+<div class="star-rating has-text-centered" data-score= <%= tar.sum / @item.details.count %> ></div>
+<br>
+
 <nav class="level is-mobile">
   <div class="level-item has-text-centered">
     <div>
@@ -36,11 +51,12 @@
         <strong><%= link_to content_tag(:span, detail.name), account_project_item_detail_path(current_account, set_project, @item, detail) %></strong>
         <br>
         <p class="subtitle is-6 "><%= detail.description %></p>
-        <p class='heading'>open the card to see more</p>
         <hr>
         <% detail.reviews.last(1).each do |review| %>
           <p class="heading">latest rating</p>
           <div class="star-rating" data-score= <%= review.value %> ></div>
+          <p class='heading'><%= time_ago_in_words(review.created_at) %> ago</p>
+
         <% end %>
         <br>
         <% total_rv = [] %>
@@ -48,7 +64,11 @@
           <% total_rv << review.value %>
         <% end %>
         <p class="heading">Average ratings</p>
-        <div class="star-rating" data-score= <%= total_rv.sum / total_rv.count %> ></div>
+        <% if total_rv.any? %>
+          <div class="star-rating" data-score= <%= total_rv.sum / total_rv.count %> ></div>
+        <% else %>
+          <p class="heading">Nothing yet</p>
+        <% end %>
       </div>
     </div>
   <% end %>

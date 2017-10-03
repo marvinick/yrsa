@@ -51,6 +51,7 @@
 
 .col-md-4 {
   padding-bottom: 30px;
+  background-color: #efedea!important;
 }
 
 ul, li {
@@ -83,44 +84,26 @@ a:link, a:hover{
 
 .box {
   height: 175px;
+  background-color: #efedea!important;
+  border-width: thick!important;
+  border-style: solid!important;
 }
 
-/* Style the list */
-ul.breadcrumbs {
-    padding: 10px 16px;
-    list-style: none;
-    background-color: #eee;
-}
-
-/* Display list items side by side */
-ul.breadcrumbs li {
-    display: inline;
-    font-size: 18px;
-}
-
-/* Add a slash symbol (/) before/behind each list item */
-ul.breadcrumbs li+li:before {
-    padding: 8px;
-    color: black;
-    content: "/\00a0";
-}
-
-/* Add a color to all links inside the list */
-ul.breadcrumbs li a {
-    color: #0275d8;
-    text-decoration: none;
-}
-
-/* Add a color on mouse-over */
-ul.breadcrumbs li a:hover {
-    color: #01447e;
-    text-decoration: underline;
+.box:hover {
+  background-color: #c9c4bd!important;
 }
 
 .item {
   background-color: white!important;
   padding: 20px!important;
   margin: 20px!important;
+  background-color: #efedea!important;
+  border-width: thick!important;
+  border-style: solid!important;
+}
+
+.item:hover {
+  background-color: #c9c4bd!important;
 }
 
 .tile span {
