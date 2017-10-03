@@ -23,8 +23,8 @@
   <% tar << total_average_ratings %>
 <% end %>
 
-<p class="heading has-text-centered"> Item's rating </p>
-<div class="star-rating has-text-centered" data-score= <%= tar.sum / @item.details.count %> ></div>
+
+  <p class="heading has-text-centered"> Item's rating </p><div class="star-rating has-text-centered" data-score= <%= tar.sum / @item.details.count %> ></div>
 <br>
 
 <nav class="level is-mobile">

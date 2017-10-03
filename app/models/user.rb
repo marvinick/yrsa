@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :memberships
   has_many :accounts, through: :memberships
 
+  has_many :reviews
+
   def owned_accounts
     Account.where(owner: self)
   end
