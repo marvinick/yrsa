@@ -23,15 +23,19 @@
   <% tar << total_average_ratings %>
 <% end %>
 
-
-  <p class="heading has-text-centered"> Item's rating </p><div class="star-rating has-text-centered" data-score= <%= tar.sum / @item.details.count %> ></div>
+<% if total_average_ratings.nil? %>
+  <p class="heading has-text-centered">No reviews yet</p>
+<% else %>
+  <p class="heading has-text-centered"> Item's rating </p>
+  <div class="star-rating has-text-centered" data-score= <%= tar.sum / @item.details.count %> ></div>
+<% end %>
 <br>
 
 <nav class="level is-mobile">
   <div class="level-item has-text-centered">
     <div>
       <p class="title"><%= link_to "Edit", edit_account_project_item_path(current_account, set_project, @item), class: "button is-small is-info" %>
-    </div>
+    </div>   
   </div>
 
   <div class="level-item has-text-centered">

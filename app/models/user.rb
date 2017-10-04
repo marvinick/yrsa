@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :memberships
   has_many :accounts, through: :memberships
 
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   def owned_accounts
     Account.where(owner: self)

@@ -11,6 +11,7 @@ class ReviewsController < BaseController
 
   def create
     @review = Review.new(review_params)
+    @review.user_id = current_user.id
     if @review.save
       flash[:notice] = "You've submitted a review."
       redirect_to account_project_item_path(current_account, set_project, set_item)
@@ -66,4 +67,5 @@ class ReviewsController < BaseController
     @detail = @item.details.find(params[:detail_id])
   end
   helper_method :set_detail
+
 end
