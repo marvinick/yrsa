@@ -33,3 +33,9 @@
   </div>
   <div class="column is-3"></div>
 </div>
+<hr>
+<div class="level-item has-text-centered">
+  <div>
+    <p class="title">  <%= link_to "Delete", [current_account, @project], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "button is-danger" %></p>
+  </div>
+</div>

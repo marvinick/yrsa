@@ -11,20 +11,23 @@
 <nav class="level is-mobile">
   <div class="level-item has-text-centered">
     <div>
-      <p class="title"><%= link_to "Edit", edit_account_project_path(current_account, @project), class: "button is-small is-info" %>
+      <div class="dropdown">
+        <button class="button is-primary dropdown-toggle" type="button" data-toggle="dropdown">Settings
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <br>
+          <p class="heading has-text-centered">Here you can edit the content of the title and description of your project. Or remove it altogether!</p>
+          <li class="has-text-centered"><a href="#"><%= link_to "Go", edit_account_project_path(current_account, @project), class: "button is-primary is-small" %></a></li>
+          
+        </ul>
+      </div>
     </div>
   </div>
   <div class="level-item has-text-centered">
     <div>
-   <%= link_to "Add new item", new_account_project_item_path(current_account, @project), class: "button is-small is-primary" %>
+      <%= link_to "Add new item", new_account_project_item_path(current_account, @project), class: "button is-small is-primary" %>
     </div>
   </div>
-  <div class="level-item has-text-centered">
-    <div>
-      <p class="title">  <%= link_to "Delete", [current_account, @project], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "button is-small is-warning" %></p>
-    </div>
-  </div>
-
 </nav>
 <hr>
 
@@ -32,35 +35,40 @@
 
 </div>
 
-  <nav class="level">
-    <div class="level-item has-text-centered">
-      <div>
-        <p class="heading"></p>
-        <p class="level-item has-text-centered heading">
-          all items
-        </p>
+<nav class="level">
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading"></p>
+      <p class="level-item has-text-centered heading">
+        all items
+      </p>
+    </div>
+  </div>
+</nav>
+
+<div class="row">
+  <% @project.items.each do |item| %>
+    <div class="project col-md-4">
+      <div class="box is-primary">
+        <article class="media">
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <li><strong><%= link_to content_tag(:span, item.name), account_project_item_path(current_account, @project, item) %></strong> </li>
+                <br>
+                <li><small><%= item.content.first(100) %> ...</small></li>
+                <li><small>Details to rate <%= item.details.count %></small></li>
+                <br>
+              </p>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
-  </nav>
+  <% end %>
+</div>
 
-  <div class="row">
-    <% @project.items.each do |item| %>
-      <div class="project col-md-4">
-        <div class="box is-primary">
-          <article class="media">
-            <div class="media-content">
-              <div class="content">
-                <p>
-                  <li><strong><%= link_to content_tag(:span, item.name), account_project_item_path(current_account, @project, item) %></strong> </li>
-                  <br>
-                  <li><small><%= item.content.first(100) %> ...</small></li>
-                  <li><small>Details to rate <%= item.details.count %></small></li>
-                  <br>
-                </p>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    <% end %>
-  </div>
+
+
+
+

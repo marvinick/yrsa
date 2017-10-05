@@ -17,7 +17,7 @@ class ReviewsController < BaseController
       redirect_to account_project_item_path(current_account, set_project, set_item)
     else
       render 'new'
-    end
+    end 
   end
 
   def edit; end
