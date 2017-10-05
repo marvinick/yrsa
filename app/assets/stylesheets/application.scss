@@ -126,3 +126,12 @@ a:link, a:hover{
   position:absolute;
   z-index:2;
 }
+
+.navbar-item a {
+  color: red!important;
+  font-size: 15px!important;
+}
+
+.navbar-item a:hover {
+  color: green!important;
+}
