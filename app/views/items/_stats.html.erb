@@ -1,3 +1,13 @@
-<% each_review_value.each do |k,v| %>
-  <li><%= k %> appears <%= v %></li>
+<% each_review_value.sort.each do |k,v| %>
+  <li> <%= k %> <span class="fa fa-star"></span> appears <%= v %> </li>
 <% end %>
+
+<script>
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+</script>
