@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/minty/bulmaswatch.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <%= stylesheet_link_tag "jquery.barCharts" %>
+    <%= javascript_include_tag "jquery.barChart.js", "data-turbolinks-track" => false %>
     <%= javascript_include_tag 'jquery.raty.js', "data-turbolinks-track": false %>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
@@ -20,5 +22,17 @@
     <div class="container">
       <%= yield %>
     </div>
+
+    <script>
+
+      $('.barChart').barChart({
+        type: 'horizontal',
+        easing: 'swing',
+        animationSpeed: 2000,
+        rowClass: 'barChart__row',
+        fillClass: 'barChart__barFill'
+      });
+
+    </script>
   </body>
 </html>
