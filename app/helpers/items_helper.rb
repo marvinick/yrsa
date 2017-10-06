@@ -14,7 +14,6 @@ module ItemsHelper
     tar.sum
   end
 
-
   def total_reviews
     reviews = []
     @item.details.each do |detail|
