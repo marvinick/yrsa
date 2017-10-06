@@ -85,7 +85,7 @@ a:link, a:hover{
 .box {
   height: 175px;
   background-color: #efedea!important;
-  border-width: thick!important;
+  border-width: thin!important;
   border-style: solid!important;
 }
 
@@ -98,7 +98,7 @@ a:link, a:hover{
   padding: 20px!important;
   margin: 20px!important;
   background-color: #efedea!important;
-  border-width: thick!important;
+  border-width: thin!important;
   border-style: solid!important;
 }
 
@@ -128,10 +128,11 @@ a:link, a:hover{
 }
 
 .navbar-item a {
-  color: red!important;
-  font-size: 15px!important;
+  color: white!important;
+  font-size: 18px!important;
+  font-weight: bold!important;
 }
 
 .navbar-item a:hover {
-  color: green!important;
+  color: grey!important;
 }

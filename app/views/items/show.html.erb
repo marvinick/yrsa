@@ -14,8 +14,8 @@
 
 <% tar = [] %>
 <% total_average_ratings = [] %>
+<% total_rv = [] %>
 <% @item.details.each do |detail| %>
-  <% total_rv = [] %>
   <% detail.reviews.each do |review| %>
     <% total_rv << review.value %>
     <% total_average_ratings = total_rv.sum / total_rv.count %>
@@ -23,11 +23,11 @@
   <% tar << total_average_ratings %>
 <% end %>
 
-<% if total_average_ratings.nil? %>
-  <p class="heading has-text-centered">No reviews yet</p>
-<% else %>
+<% if tar.present? %>
   <p class="heading has-text-centered"> Item's rating </p>
-  <div class="star-rating has-text-centered" data-score= <%= tar.sum / @item.details.count %> ></div>
+  <div class="star-rating has-text-centered" data-score= <%= tar.sum / @item.details.count rescue 0 %> ></div>
+<% else %>
+  <p class="heading has-text-centered">No reviews yet</p>
 <% end %>
 <br>
 
