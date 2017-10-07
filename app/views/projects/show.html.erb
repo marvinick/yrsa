@@ -18,7 +18,7 @@
           <br>
           <p class="heading has-text-centered">Here you can edit the content of the title and description of your project. Or remove it altogether!</p>
           <li class="has-text-centered"><a href="#"><%= link_to "Go", edit_account_project_path(current_account, @project), class: "button is-primary is-small" %></a></li>
-          
+
         </ul>
       </div>
     </div>
@@ -38,10 +38,11 @@
 <nav class="level">
   <div class="level-item has-text-centered">
     <div>
-      <p class="heading"></p>
-      <p class="level-item has-text-centered heading">
-        all items
-      </p>
+      <% if @project.items.count < 2 %>
+        <p class="title has-text-centered"><%= @project.items.count %></p><p class="has-text-centered heading">item</p>
+      <% else %>
+        <p class="title has-text-centered"><%= @project.items.count %></p><p class="has-text-centered heading">items</p>
+      <% end %>
     </div>
   </div>
 </nav>
@@ -67,8 +68,3 @@
     </div>
   <% end %>
 </div>
-
-
-
-
-

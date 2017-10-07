@@ -1,24 +1,9 @@
-<nav class="level">
-  <div class="level-item has-text-centered">
-    <div>
-      <p class="heading">item</p>
-      <p class="level-item has-text-centered title">
-        <%= @item.name %>
-      </p>
-    </div>
-  </div>
-</nav>
-<nav class="level">
-  <div class="level-item has-text-centered">
-    <div>
-      <p class="level-item has-text-centered header">
-        "<%= @item.content.first(50) %> ..."
-      </p>
-    </div>
-  </div>
-</nav>
-<hr>
-<p class="title heading has-text-centered"><%= @detail.name %></p>
+<p class="heading has-text-centered">Back to item <%= link_to @item.name, account_project_item_path(current_account, set_project, @item) %></p>
+
+<div class="item has-text-centered">
+  <p class="title "><%= @detail.name %></p>
+  <p class="heading"><%= @detail.description %></p>
+</div>
 <div class="columns">
   <div class="column is-3"></div>
   <div class="formly column is-6">
@@ -36,7 +21,7 @@
       </div>
       <br>
       <%= f.button :submit, class: "button is-primary is-medium" %>
-      <%= link_to "Back", account_project_item_path(current_account, set_project, set_item), class: "button is-warning is-medium" %>
+      <%= link_to "Back", account_project_item_detail_path(current_account, set_project, set_item, @detail), class: "button is-warning is-medium" %>
     <% end %>
   </div>
   <div class="column is-3"></div>

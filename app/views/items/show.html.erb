@@ -14,6 +14,12 @@
       </div>
     </nav>
 
+    <% if @item.details.count > 1 %>
+      <p class="header has-text-centered ">categories </p><p class="title has-text-centered"><%= @item.details.count %></p>
+    <% else %>
+      <p class="header has-text-centered ">category </p><p class="title has-text-centered"><%= @item.details.count %></p>
+    <% end %>
+
     <% if item_rating.present? %>
       <p class="heading has-text-centered"> Item's rating </p>
       <div class="star-rating has-text-centered" data-score= <%= item_rating / @item.details.count rescue 0 %> ></div>
@@ -29,9 +35,15 @@
         </div>
       </div>
     </nav>
+
   </div>
+
   <div class="column is-6">
-    <p class="header has-text-centered">Total reviews: <%= total_reviews %></p>
+    <% if total_reviews > 1 %>
+      <p class="header has-text-centered"><%= total_reviews %> reviews</p>
+    <% else %>
+      <p class="header has-text-centered"><%= total_reviews %> review</p>
+    <% end %>
     <br>
     <%= render "stats" %>
   </div>
@@ -42,7 +54,7 @@
 <div class="row">
   <% @item.details.each do |detail| %>
     <div class="col-md-4">
-      <div class="item">
+      <div class="box">
         <strong><%= link_to content_tag(:span, detail.name), account_project_item_detail_path(current_account, set_project, @item, detail) %></strong>
         <br>
         <p class="subtitle is-6 "><%= detail.description %></p>
