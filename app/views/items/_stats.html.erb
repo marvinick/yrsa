@@ -1,26 +1,13 @@
 <% each_review_value.sort.each do |k,v| %>
-  <li> <%= k %> <span class="fa fa-star"></span> appears <%= v %> </li>
-
 
   <div class="barChart">
-    <div class="barChart__row" data-value="100">
-      <div class="barChart__row" data-value= "100">
-        <span class="barChart__label"><%= k %> <span class="glyphicon glyphicon-star"></span>
-        <span class="barChart__value">100 %</span>
-        <span class="barChart__bar" ><span class="barChart__barFill" ></span></span>
-      </div>
+  <div class="barChart__row" data-value="100">
+    <div class="barChart__row" data-value= <%= ((v.to_f / total_reviews.to_f) * 100).to_i %> >
+      <span class="barChart__label"><%= k %> <span class="fa fa-star"></span></span>
+      <span class="barChart__value"><p class="heading"><%= ((v.to_f / total_reviews.to_f) * 100).to_i %>%</p></span>
+      <span class="barChart__bar"><span class="barChart__barFill"></span></span>
     </div>
   </div>
+</div>
+
 <% end %>
-
-<script>
-
-  $('.barChart').barChart({
-    type: 'horizontal',
-    easing: 'swing',
-    animationSpeed: 2000,
-    rowClass: 'barChart__row',
-    fillClass: 'barChart__barFill'
-  });
-
-</script>

@@ -1,40 +1,44 @@
 <p class="heading has-text-centered">Back to project <%= link_to set_project.title, account_project_path(current_account, set_project) %></p>
-
 <p class="title is-2 has-text-centered"><%= @item.name %></p>
+<hr>
+<div class="columns">
+  <div class="column is-6">
 
-<nav class="level">
-  <div class="level-item has-text-centered">
-    <div>
-      <p class="level-item has-text-centered header">
-        "<%= @item.content.first(50) %> ..."
-      </p>
-    </div>
+    <nav class="level">
+      <div class="level-item">
+        <div>
+          <p class="level-item has-text-centered header">
+            "<%= @item.content.first(50) %> ..."
+          </p>
+        </div>
+      </div>
+    </nav>
+
+    <% if item_rating.present? %>
+      <p class="heading has-text-centered"> Item's rating </p>
+      <div class="star-rating has-text-centered" data-score= <%= item_rating / @item.details.count rescue 0 %> ></div>
+    <% else %>
+      <p class="heading has-text-centered">No reviews yet</p>
+    <% end %>
+    <br>
+
+    <nav class="level is-mobile">
+      <div class="level-item has-text-centered">
+        <div>
+          <p class="title"><%= link_to "settings", edit_account_project_item_path(current_account, set_project, @item), class: "button is-small is-info" %>
+        </div>
+      </div>
+    </nav>
   </div>
-</nav>
-
-<% if item_rating.present? %>
-  <p class="heading has-text-centered"> Item's rating </p>
-  <div class="star-rating has-text-centered" data-score= <%= item_rating / @item.details.count rescue 0 %> ></div>
-<% else %>
-  <p class="heading has-text-centered">No reviews yet</p>
-<% end %>
-<br>
-
-<nav class="level is-mobile">
-  <div class="level-item has-text-centered">
-    <div>
-      <p class="title"><%= link_to "settings", edit_account_project_item_path(current_account, set_project, @item), class: "button is-small is-info" %>
-    </div>
+  <div class="column is-6">
+    <p class="header has-text-centered">Total reviews: <%= total_reviews %></p>
+    <br>
+    <%= render "stats" %>
   </div>
-</nav>
-
-<p class="header has-text-centered">Total reviews: <%= total_reviews %></p>
-
-<%= render "stats" %>
-
+</div>
 <hr>
 
-<p class="header has-text-centered">all details</p>
+<p class="header has-text-centered">categories</p>
 <div class="row">
   <% @item.details.each do |detail| %>
     <div class="col-md-4">
