@@ -53,7 +53,7 @@
 <p class="header has-text-centered">categories</p>
 <div class="row">
   <% @item.details.each do |detail| %>
-    <div class="col-md-4">
+    <div class="col-xs-6 col-md-4 padding0">
       <div class="box">
         <strong><%= link_to content_tag(:span, detail.name), account_project_item_detail_path(current_account, set_project, @item, detail) %></strong>
         <br>
