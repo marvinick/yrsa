@@ -1,25 +1,27 @@
+<nav class="level">
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">account</p>
+      <p class="level-item has-text-centered title">
+        <%= link_to current_account.name, account_path(current_account) %>
+      </p>
+    </div>
+  </div>
+</nav>
+
 <%= link_to "Invite new user", new_account_invitation_path(current_account), class: "button is-primary" %>
-<hr>
+<%= current_account.owner.email %>
+<br>
 
-<table class='table table-striped' id='users'>
-  <thead>
-    <th>User</th>
-    <th></th>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td><%= current_account.owner.email %></td>
-      <td></td>
-    </tr>
-    <% current_account.users.each do |user| %>
-      <tr>
-        <td><%= user.email %></td>
-        <td>
-          <%= link_to "Remove", account_user_path(current_account, user),method: :delete, data: { confirm: "Are you sure you want to remove this user?" }, class: "btn btn-danger" %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
- 
+<div class="row formly">
+<% current_account.users.each do |user| %>
+  <div class="col-md-6">
+    <li><%= user.email %></li>
+  </div>
+  <div class="col-md-6">
+    <li><%= link_to "Remove", account_user_path(current_account, user), method: :delete, data: { confirm: "Are you sure you want to remove this user?" }, class: "button is-danger" %></li>
+  </div>
+  <br>
+  <br>
+<% end %>
+</div>

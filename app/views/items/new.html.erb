@@ -9,36 +9,37 @@
   </div>
 </nav>
 
-<div class="columns">
-  <div class="column is-3"></div>
-  <div class="formly column is-6">
+<%= form_for([current_account, @project, @item]) do |f| %>
+<div class="columns formly">
+  <div class="column is-2"></div>
+  <div class="column is-8">
     <div class="field">
-      <%= form_for([current_account, @project, @item]) do |f| %>
-        <%= f.hidden_field :project_id %>
-        <div class="control">
-          <%= f.text_field :name, placeholder: 'name', label: false, class:"input is-medium" %>
-        </div>
-        <br>
-        <div class="control">
-          <%= f.text_area :content, placeholder: 'content', label: false, class:"input is-medium" %>
-        </div>
-        <br>
-        <div>
-          <div id="details">
-            <%= f.fields_for :details do |detail| %>
-              <%= render "detail_fields", f: detail %>
-            <% end %>
-
-            <div class="links">
-              <%= link_to_add_association 'add detail', f, :details %>
-            </div>
-          </div>
-        </div>
-        <br>
-        <%= f.button :submit, class:"button is-primary is-medium" %>
-        <%= link_to "Back", :back, class: "button is-warning is-medium" %>
-      <% end %>
+      <%= f.hidden_field :project_id %>
+      <div class="control">
+        <%= f.text_field :name, placeholder: 'name', label: false, class:"input is-medium" %>
+      </div>
+      <br>
+      <div class="control">
+        <%= f.text_area :content, placeholder: 'content', label: false, class:"input is-medium" %>
+      </div>
     </div>
   </div>
-  <div class="column is-3"></div>
+  <div class="column is-2"></div>
 </div>
+
+<%= f.fields_for :details do |detail| %>
+<div class="row">
+  <div class="col-xs-6 col-md-4">
+    <%= render "detail_fields", f: detail %>
+  </div>
+</div>
+<% end %>
+<div class="links">
+  <p class="subtitle has-text-centered"><%= link_to_add_association '+ add detail', f, :details %></p>
+</div>
+<br>
+<div class="has-text-centered">
+  <%= f.submit "make new item", class:"button is-primary" %>
+  <%= link_to "never mind", :back, class: "button is-warning" %>
+</div>
+<% end %>

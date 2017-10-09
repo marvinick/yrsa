@@ -30,6 +30,11 @@
   .formly {
     margin-top: 50px!important;
   }
+
+  .field {
+    margin: 20px!important;
+    padding-bottom: 50px!important;
+  }
 }
 
  html {
@@ -57,20 +62,15 @@ a:link, a:hover{
   text-decoration: none!important;
 }
 
-.modal {
-  padding-top: 100px; /* Location of the box */
-}
-
-.modal-card {
-  width: auto!important;
-}
-
 .navbar {
   background: #cec9c4!important;
 }
 
 .input, select, textarea {
-  background-color: #efedea!important;
+  border-top: none!important;
+  border-left: none!important;
+  border-right: none!important;
+  height: auto!important;
 }
 
 .formly {
@@ -135,4 +135,9 @@ a:link, a:hover{
 .padding0 {
   padding-right:2px!important;
   padding-left:2px!important;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    grey;
+    font-size: 28px;
 }

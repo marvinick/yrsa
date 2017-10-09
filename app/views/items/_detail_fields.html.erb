@@ -1,4 +1,4 @@
-<div class="nested-fields">
+<div class="nested-fields formly">
   <%= f.label :name %>
   <%= f.text_field :name, class: "input" %>
   <%= f.label :description %>
@@ -6,6 +6,6 @@
 
   <%= f.check_box :_destroy %>
 
-  <%= link_to_remove_association "", f, class: "delete is-medium" %>
+  <%= link_to_remove_association "remove this", f, class: "delete is-medium" %>
   <hr />
 </div>

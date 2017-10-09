@@ -12,25 +12,22 @@
 <nav class="level is-mobile">
   <div class="level-item has-text-centered">
     <div>
-      <p class="title"><%= link_to "Manage users", account_users_path(@account, @users) %>
+      <p class="title"><%= link_to "manage users", account_users_path(@account, @users), class: "button is-info" %>
     </div>
   </div>
-  <div class="level-item has-text-centered">
+  <div class="level-item pull-right">
     <div>
-      <p class="title"><%= link_to "Add new project", new_account_project_path(@account) %></p>
+      <p class="title"><%= link_to "add project", new_account_project_path(@account), class: "button is-success" %></p>
     </div>
   </div>
 </nav>
-
-<hr>
-
 <br>
 <nav class="level">
   <div class="level-item has-text-centered">
     <div>
-      <p class="title">all projects</p>
+      <p class="title is-4">all projects</p>
       <br>
-      <p class="heading">create a new project for each rating activity </p>
+      <p class="subtitle is-5">create a new project for each rating activity </p>
     </div>
   </div>
 </nav>
@@ -45,7 +42,7 @@
             <div class="content">
               <p class="title is-5"><%= link_to content_tag(:span, project.title), account_project_path(@account, project) %></p>
               <br>
-              <p class="subtitle is-6"><%= project.description %></p>
+              <p class="title is-6"><%= project.description %></p>
             </div>
           </div>
         </article>
