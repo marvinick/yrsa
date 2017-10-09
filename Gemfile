@@ -14,7 +14,10 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+
+#frontend
 gem "twitter-bootstrap-rails"
+gem 'font-awesome-sass'
 
 #form
 gem "simple_form"

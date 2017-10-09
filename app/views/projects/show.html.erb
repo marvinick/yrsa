@@ -10,30 +10,19 @@
 
 <nav class="level is-mobile">
   <div class="level-item has-text-centered">
-    <div>
-      <div class="dropdown">
-        <button class="button is-primary dropdown-toggle" type="button" data-toggle="dropdown">Settings
-        <span class="caret"></span></button>
-        <ul class="dropdown-menu">
-          <br>
-          <p class="heading has-text-centered">Here you can edit the content of the title and description of your project. Or remove it altogether!</p>
-          <li class="has-text-centered"><a href="#"><%= link_to "Go", edit_account_project_path(current_account, @project), class: "button is-primary " %></a></li>
-
-        </ul>
-      </div>
-    </div>
+    <%= link_to edit_account_project_path(current_account, @project) do %>
+      <span class="fa fa-pencil fa-2x"></span>
+    <% end %>
   </div>
+
   <div class="level-item has-text-centered">
     <div>
-      <%= link_to "Add new item", new_account_project_item_path(current_account, @project), class: "button is-primary" %>
+      <%= link_to "Add new item", new_account_project_item_path(current_account, @project), class: "button" %>
     </div>
   </div>
 </nav>
+
 <hr>
-
-<div>
-
-</div>
 
 <nav class="level">
   <div class="level-item has-text-centered">

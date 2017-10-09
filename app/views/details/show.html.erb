@@ -5,7 +5,7 @@
   <p class="heading"><%= @detail.description %></p>
   <p class="heading"><%= link_to "Rate this", new_account_project_item_detail_review_path(current_account, set_project, @item, @detail), class:"button is-primary" %></p>
 </div>
-
+<br>
 <div class="row has-text-centered">
   <% @detail.reviews.each do |review| %>
     <div class="col-md-4">
@@ -14,8 +14,14 @@
       <p class="heading"><%= review.user.email %></p>
 
       <p class='heading'><%= time_ago_in_words(review.created_at) %> ago</p>
-      <%= link_to "Edit", edit_account_project_item_detail_review_path(current_account, set_project, @item, @detail, review) %>
-      <%= link_to "Delete", [current_account, set_project, @item, @detail, review], method: :delete, data: { confirm: "Are you sure you want to remove this?"} %>
+
+      <%= link_to edit_account_project_item_detail_review_path(current_account, set_project, @item, @detail, review) do %>
+        <span class="fa fa-pencil"></span>
+      <% end %>
+
+      <%= link_to [current_account, set_project, @item, @detail, review], method: :delete, data: { confirm: "Are you sure you want to remove this?"} do %>
+        <span class="fa fa-trash"></span>
+      <% end %>
     </div>
   <% end %>
 </div>

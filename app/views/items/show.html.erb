@@ -31,7 +31,9 @@
     <nav class="level is-mobile">
       <div class="level-item has-text-centered">
         <div>
-          <p class="title"><%= link_to "settings", edit_account_project_item_path(current_account, set_project, @item), class: "button is-small is-info" %>
+          <%= link_to edit_account_project_item_path(current_account, set_project, @item) do %>
+            <span class="fa fa-pencil fa-2x"></span>
+          <% end %>
         </div>
       </div>
     </nav>
