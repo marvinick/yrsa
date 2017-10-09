@@ -30,6 +30,20 @@
         rowClass: 'barChart__row',
         fillClass: 'barChart__barFill'
       });
+
+      $('#star-rating').raty({
+        path: '/assets/',
+        scoreName: 'review[value]'
+      });
+
+      $('.star-rating').raty({
+        path: '/assets/',
+        readOnly: true,
+        score: function() {
+          return $(this).attr('data-score');
+        }
+      });
+
     </script>
   </body>
 </html>

@@ -13,14 +13,15 @@
   <div class="columns formly">
     <div class="column is-2"></div>
     <div class="column is-8">
-
-      <%= f.hidden_field :project_id %>
-      <div class="control">
-        <%= f.text_field :name, placeholder: 'name', label: false, class: "input is-medium" %>
-      </div>
-      <br>
-      <div class="control">
-        <%= f.text_field :content, placeholder: 'content', label: false, class: "input is-medium"  %>
+      <div class="field">
+        <%= f.hidden_field :project_id %>
+        <div class="control">
+          <%= f.text_field :name, placeholder: 'name', label: false, class: "input is-medium" %>
+        </div>
+        <br>
+        <div class="control">
+          <%= f.text_field :content, placeholder: 'content', label: false, class: "input is-medium"  %>
+        </div>
       </div>
     </div>
     <div class="column is-2"></div>

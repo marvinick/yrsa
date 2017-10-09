@@ -24,16 +24,9 @@
         <%= f.text_area :description, class: "input is-medium" %>
       </div>
       <br>
-      <%= f.button :submit, class: "button is-primary is-medium" %>
-      <%= link_to "never mind", account_project_item_detail_path(current_account, set_project, set_item, @detail), class: "button is-warning is-medium" %>
+      <%= f.submit "change away", class: "button is-primary" %>
+      <%= link_to "never mind", account_project_item_detail_path(current_account, set_project, set_item, @detail), class: "button is-warning" %>
     <% end %>
   </div>
   <div class="column is-3"></div>
 </div>
-
-<script>
-  $('#star-rating').raty({
-    path: '/assets/',
-    scoreName: 'review[value]'
-  });
-</script>

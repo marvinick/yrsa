@@ -4,7 +4,7 @@
   <p class="title "><%= @detail.name %></p>
   <p class="heading"><%= @detail.description %></p>
   <p class="heading"><%= link_to "Rate this", new_account_project_item_detail_review_path(current_account, set_project, @item, @detail), class:"button is-primary" %></p>
-</div>  
+</div>
 
 <div class="row has-text-centered">
   <% @detail.reviews.each do |review| %>
@@ -19,13 +19,3 @@
     </div>
   <% end %>
 </div>
-
-<script>
-  $('.star-rating').raty({
-    path: '/assets/',
-    readOnly: true,
-    score: function() {
-      return $(this).attr('data-score');
-    }
-  });
-</script>

@@ -20,7 +20,7 @@ module ItemsHelper
       reviews << detail.reviews.count
     end
     reviews.sum
-  end 
+  end
 
   def all_review_value
     stars = []

@@ -20,11 +20,7 @@
 
  @media only screen and (min-width: 500px) {
   .container {
-    max-width:60%!important;
-  }
-
-  .container-fluid {
-    max-width: 80%!important;
+    max-width:70%!important;
   }
 
   .formly {
@@ -35,14 +31,23 @@
     margin: 20px!important;
     padding-bottom: 50px!important;
   }
+
+  .col-md-4 {
+    height: 400px!important;
+    box-shadow: 1px!important;
+  }
+
+  .box {
+    height: 400px!important;
+  }
 }
 
  html {
-   background-color: #efedea!important;
+   background-color: #fcf7ef!important;
  }
 
  body {
-   background-color: #efedea!important;
+   background-color: #fcf7ef!important;
  }
 
  .chart {
@@ -51,7 +56,7 @@
 
 .col-md-4 {
   padding-bottom: 30px;
-  background-color: #efedea!important;
+  background-color: #fcf7ef!important;
 }
 
 ul, li {
@@ -63,7 +68,7 @@ a:link, a:hover{
 }
 
 .navbar {
-  background: #cec9c4!important;
+  background: #efe9e3!important;
 }
 
 .input, select, textarea {
@@ -75,29 +80,16 @@ a:link, a:hover{
 
 .formly {
   background-color: white!important;
+  box-shadow: 1px!important;
 }
 
 .box {
   height: auto!important;
   background-color: white!important;
-  border-width: thin!important;
-  border-style: solid!important;
+  box-shadow: 1px!important;
 }
 
 .box:hover {
-  background-color: #c9c4bd!important;
-}
-
-.item {
-  background-color: white!important;
-  padding: 20px!important;
-  margin: 20px!important;
-  background-color: #efedea!important;
-  border-width: thin!important;
-  border-style: solid!important;
-}
-
-.item:hover {
   background-color: #c9c4bd!important;
 }
 
@@ -138,6 +130,6 @@ a:link, a:hover{
 }
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:    grey;
-    font-size: 28px;
+  color:    grey;
+  font-size: 28px;
 }
