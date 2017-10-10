@@ -20,9 +20,9 @@
       <p class="header has-text-centered ">category </p><p class="title has-text-centered"><%= @item.details.count %></p>
     <% end %>
 
-    <% if item_rating.present? %>
+    <% if item_average_rating.present? %>
       <p class="heading has-text-centered"> Item's rating </p>
-      <div class="star-rating has-text-centered" data-score= <%= item_rating / @item.details.count rescue 0 %> ></div>
+      <div class="star-rating has-text-centered" data-score= <%= item_average_rating %> ></div>
     <% else %>
       <p class="heading has-text-centered">No reviews yet</p>
     <% end %>

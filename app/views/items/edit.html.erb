@@ -28,26 +28,24 @@
   </div>
 
   <div class="row">
-  <%= f.fields_for :details do |detail| %>
-
-      <div class="col-xs-6 col-md-4">
-        <%= render "detail_fields", f: detail %>
-      </div>
-
-  <% end %>
+    <%= f.fields_for :details do |detail| %>
+      <%= render "detail_fields", f: detail %>
+    <% end %>
   </div>
 
-  <p class="subtitle has-text-centered"><%= link_to_add_association 'add detail', f, :details %></p>
+  <hr>
+  <div class="row">
+    <p class="subtitle has-text-centered"><%= link_to_add_association 'add detail', f, :details %></p>
 
-  <div class="has-text-centered">
-    <%= f.submit "change it", class: "button is-primary" %>
-    <%= link_to "never mind", :back, class: "button is-warning" %>
+    <div class="has-text-centered">
+      <%= f.submit "change it", class: "button is-primary" %>
+      <%= link_to "never mind", :back, class: "button is-warning" %>
+    </div>
   </div>
 <% end %>
-<br>
+
 
 <div class="has-text-centered">
   <p class="subtitle">or, you can make this go away:</p>
   <li><%= link_to "yes, yes just remove it", [current_account, set_project, @item], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "button is-danger" %></li>
 </div>
-<br>

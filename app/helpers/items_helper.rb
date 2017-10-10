@@ -1,5 +1,9 @@
 module ItemsHelper
 
+  def item_average_rating
+    item_rating / @item.details.count rescue 0
+  end
+
   def item_rating
     tar = []
     total_average_ratings = []
@@ -39,5 +43,4 @@ module ItemsHelper
     end
     b
   end
-
 end

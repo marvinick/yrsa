@@ -23,10 +23,12 @@
  @media only screen and (min-width: 500px) {
   .container {
     max-width:70%!important;
+    padding-bottom: 80px!important;
   }
 
   .formly {
     margin-top: 50px!important;
+    margin-bottom: 50px!important;
   }
 
   .field {
@@ -45,20 +47,20 @@
 }
 
  html {
-   background-color: #fcf7ef!important;
+   background-color: #f2efea!important;
  }
 
  body {
-   background-color: #fcf7ef!important;
+   background-color: #f2efea!important;
  }
 
  .chart {
-   background-color: #efedea!important;
+   background-color: #f2efea!important;
  }
 
 .col-md-4 {
   padding-bottom: 30px;
-  background-color: #fcf7ef!important;
+  background-color: #f2efea!important;
 }
 
 ul, li {
@@ -70,7 +72,7 @@ a:link, a:hover{
 }
 
 .navbar {
-  background: #efe9e3!important;
+  background: #66615b!important;
 }
 
 .input, select, textarea {
@@ -118,12 +120,12 @@ a:link, a:hover{
 
 .navbar-item a {
   color: white!important;
-  font-size: 18px!important;
-  font-weight: bold!important;
+  font-size: 15px!important;
+
 }
 
 .navbar-item a:hover {
-  color: grey!important;
+  color: #ff885e!important;
 }
 
 .padding0 {

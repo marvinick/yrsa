@@ -1,8 +1,6 @@
-<p class="heading has-text-centered">Back to item <%= link_to @item.name, account_project_item_path(current_account, set_project, @item) %></p>
-
 <div class="item has-text-centered">
+  <p class="heading">Back to item <%= link_to @item.name, account_project_item_path(current_account, set_project, @item) %></p>
   <p class="title "><%= @detail.name %></p>
-  <p class="heading"><%= @detail.description %></p>
 </div>
 
 <%= form_for([current_account, set_project, set_item, @detail, @review]) do |f| %>
