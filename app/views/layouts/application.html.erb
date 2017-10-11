@@ -7,14 +7,13 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag "http://www.google.com/jsapi", "chartkick" %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/minty/bulmaswatch.min.css">
     <%= stylesheet_link_tag "jquery.barCharts" %>
     <%= javascript_include_tag "jquery.barChart.js", "data-turbolinks-track" => false %>
     <%= javascript_include_tag 'jquery.raty.js', "data-turbolinks-track": false %>
   </head>
   <body>
     <% unless controller_name == "home" %>
-        <%= render "layouts/navbar" %>
+        <%= render "layouts/navbar2" %>
     <% end %>
     <div class="container">
       <%= yield %>

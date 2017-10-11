@@ -1,59 +1,31 @@
-<p class="header has-text-centered">account <%= link_to @account.name, account_path(@account) %> </p>
-<nav class="level">
-  <div class="level-item has-text-centered">
-    <div>
-      <p class="level-item title"><%= @project.title %></p>
-      <p class="title is-6">"<%= @project.description %> . . ."</p>
-    </div>
-  </div>
-</nav>
-
-<nav class="level is-mobile">
-  <div class="level-item has-text-centered">
-    <%= link_to edit_account_project_path(current_account, @project) do %>
-      <span class="fa fa-pencil fa-2x"></span>
-    <% end %>
-  </div>
-
-  <div class="level-item has-text-centered">
-    <div>
-      <%= link_to "Add new item", new_account_project_item_path(current_account, @project), class: "button" %>
-    </div>
-  </div>
-</nav>
-
-<hr>
-
-<nav class="level">
-  <div class="level-item has-text-centered">
-    <div>
-      <% if @project.items.count < 2 %>
-        <p class="title has-text-centered"><%= @project.items.count %></p><p class="has-text-centered title is-6">item</p>
-      <% else %>
-        <p class="title has-text-centered"><%= @project.items.count %></p><p class="has-text-centered title is-6">items</p>
-      <% end %>
-    </div>
-  </div>
-</nav>
+<div class="row text-center">
+  <h5>account <%= link_to @account.name, account_path(@account) %> </h5>
+  <h2><%= @project.title %></h2>
+  <h4><%= @project.description %></h4>
+  <%= link_to edit_account_project_path(current_account, @project) do %>
+    <span class="fa fa-pencil fa-2x"></span>
+  <% end %>
+  <%= link_to "Add new item", new_account_project_item_path(current_account, @project), class: "btn btn-success" %>
+</div>
+<br>
+<br>
+<div class="row text-center">
+  <% if @project.items.count < 2 %>
+    <h2><%= @project.items.count %><small> item</small></h2>
+  <% else %>
+    <h2><%= @project.items.count %><small> items</small></h2>
+  <% end %>
+</div>
 
 <div class="row">
-  <% @project.items.each do |item| %>
-    <div class="col-xs-6 col-md-4 padding0">
-      <div class="box">
-        <article class="media">
-          <div class="media-content">
-            <div class="content">
-              <p>
-                <li><p class="title is-5"><%= link_to content_tag(:span, item.name), account_project_item_path(current_account, @project, item) %></p> </li>
-                <br>
-                <li><p class="title is-6"><%= item.content.first(100) %> ...</p></li>
-                <li><small>Details to rate <%= item.details.count %></small></li>
-                <br>
-              </p>
-            </div>
-          </div>
-        </article>
-      </div>
+<% @project.items.each do |item| %>
+  <div class="col-md-4">
+    <div class="box">
+      <h3><%= link_to content_tag(:span, item.name), account_project_item_path(current_account, @project, item) %></h3>
+      <br>
+      <h5><%= item.content.first(100) %> </h5>
+      <small>Details to rate <%= item.details.count %></small>
     </div>
-  <% end %>
+  </div>
+<% end %>
 </div>
