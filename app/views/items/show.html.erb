@@ -1,19 +1,12 @@
-<p class="heading has-text-centered">Back to project <%= link_to set_project.title, account_project_path(current_account, set_project) %></p>
-<p class="title is-2 has-text-centered"><%= @item.name %></p>
-<hr>
-<div class="columns">
-  <div class="column is-6">
+<div class="row text-center">
+  <h4><small>Back to project </small><%= link_to set_project.title, account_project_path(current_account, set_project) %></h4>
+  <h3><%= @item.name %></h3>
+</div>
+<br>
 
-    <nav class="level">
-      <div class="level-item">
-        <div>
-          <p class="level-item has-text-centered header">
-            "<%= @item.content.first(50) %> ..."
-          </p>
-        </div>
-      </div>
-    </nav>
-
+<div class="row">
+  <div class="col-md-6 text-center">
+    <h4><%= @item.content.first(50) %></h4>
     <% if @item.details.count > 1 %>
       <p class="header has-text-centered ">categories </p><p class="title has-text-centered"><%= @item.details.count %></p>
     <% else %>
@@ -28,19 +21,12 @@
     <% end %>
     <br>
 
-    <nav class="level is-mobile">
-      <div class="level-item has-text-centered">
-        <div>
-          <%= link_to edit_account_project_item_path(current_account, set_project, @item) do %>
-            <span class="fa fa-pencil fa-2x"></span>
-          <% end %>
-        </div>
-      </div>
-    </nav>
-
+    <%= link_to edit_account_project_item_path(current_account, set_project, @item) do %>
+      <span class="fa fa-pencil fa-2x"></span>
+    <% end %>
   </div>
 
-  <div class="column is-6">
+  <div class="col-md-6 text-center">
     <% if total_reviews > 1 %>
       <p class="header has-text-centered"><%= total_reviews %> reviews</p>
     <% else %>
@@ -50,21 +36,20 @@
     <%= render "stats" %>
   </div>
 </div>
-
-<p class="title is-5 has-text-centered">categories</p>
-<br>
+<hr>
 <div class="row">
+  <h3 class="text-center">categories</h3>
   <% @item.details.each do |detail| %>
     <div class="col-xs-6 col-md-4 padding0">
-      <div class="box">
-        <strong><%= link_to content_tag(:span, detail.name), account_project_item_detail_path(current_account, set_project, @item, detail) %></strong>
+      <div class="boxy">
+        <h3><%= link_to content_tag(:span, detail.name), account_project_item_detail_path(current_account, set_project, @item, detail) %></h3>
         <br>
-        <p class="subtitle is-6 "><%= detail.description %></p>
+        <h4><%= detail.description %></h4>
         <hr>
         <% detail.reviews.last(1).each do |review| %>
-          <p class="heading">latest rating</p>
+          <small>latest rating</small>
           <div class="star-rating" data-score= <%= review.value %> ></div>
-          <p class='heading'><%= time_ago_in_words(review.created_at) %> ago</p>
+          <small><%= time_ago_in_words(review.created_at) %> ago</small>
         <% end %>
         <br>
 
@@ -72,11 +57,11 @@
         <% detail.reviews.each do |review| %>
           <% total_rv << review.value %>
         <% end %>
-        <p class="heading">Average ratings</p>
+        <small>Average ratings</small>
         <% if total_rv.any? %>
           <div class="star-rating" data-score= <%= total_rv.sum / total_rv.count %> ></div>
         <% else %>
-          <p class="heading">Nothing yet</p>
+          <small>Nothing yet</small>
         <% end %>
       </div>
     </div>
