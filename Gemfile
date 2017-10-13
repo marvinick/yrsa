@@ -38,6 +38,11 @@ gem "devise"
 gem 'stripe'
 gem 'money'
 
+#upload images
+gem 'paperclip'
+gem 'aws-sdk'
+gem 'dotenv-rails', groups: [:development]
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem "rspec-rails"
