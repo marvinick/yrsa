@@ -20,16 +20,20 @@
  @import "font-awesome";
 
  html {
-   background-color: #e5e0da;
+   background-color: white;
  }
 
  body {
-   background-color: #e5e0da;
+   background-color: white;
  }
 
  body, html {
    overflow-x:hidden!important;
  }
+
+ h1, h2, h3 {
+  color: #5b8751;
+}
 
 //mobile
  @media only screen and (max-width: 400px) {
@@ -38,8 +42,15 @@
    }
 
    .box {
-      height: auto!important;
-   }
+      height: auto;
+      background-color: white!important;
+      box-shadow: 1px!important;
+      margin-right: 2px!important;
+      margin-left: 2px!important;
+      margin-top: 50px!important;
+
+      border-radius: 10px;
+    }
  }
 
 //desktop
@@ -57,9 +68,14 @@
     margin-right: 2px!important;
     margin-left: 2px!important;
     margin-top: 50px!important;
+    padding-top: 10px;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: thin;
   }
 
   .boxy {
+    border-radius: 10px;
     height: auto;
     background-color: white!important;
     box-shadow: 1px!important;
@@ -69,6 +85,7 @@
   }
 
   .tile {
+    border-radius: 10px;
     margin-right: 20px;
     margin-left: 20px;
     margin-top: 50px;
@@ -89,7 +106,7 @@
   }
 
   .row {
-    padding-bottom: 50px;
+    padding-bottom: 20px;
   }
 
 }
@@ -164,7 +181,14 @@ a:link, a:hover{
   color: #ff885e!important;
 }
 
-.padding0 {
-  padding-right:2px!important;
-  padding-left:2px!important;
+.dropdown-container {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* Bottom of button */
+  right: 0;
+  margin: auto;
+  width: 250px!important;
 }

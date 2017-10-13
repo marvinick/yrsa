@@ -1,14 +1,24 @@
+<div class="text-center dropdown-container">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+    <h2><%= @project.title %></h2>
+  </a>
+    <ul class="dropdown-menu">
+      <li><a href="#"><%= link_to @account.name, account_path(@account), class: "btn" %></a></li>
+      <li role="separator" class="divider"></li>
+
+    </ul>
+</div>
+
 <div class="row text-center">
   <h5>account <%= link_to @account.name, account_path(@account) %> </h5>
-  <h2><%= @project.title %></h2>
+
   <h4><%= @project.description %></h4>
   <%= link_to edit_account_project_path(current_account, @project) do %>
     <span class="fa fa-pencil fa-2x"></span>
   <% end %>
   <%= link_to "Add new item", new_account_project_item_path(current_account, @project), class: "btn btn-success" %>
 </div>
-<br>
-<br>
+
 <div class="row text-center">
   <% if @project.items.count < 2 %>
     <h2><%= @project.items.count %><small> item</small></h2>
@@ -19,13 +29,14 @@
 
 <div class="row">
 <% @project.items.each do |item| %>
-  <div class="col-md-4">
-    <div class="box">
-      <h3><%= link_to content_tag(:span, item.name), account_project_item_path(current_account, @project, item) %></h3>
-      <br>
-      <h5><%= item.content.first(100) %> </h5>
-      <small>Details to rate <%= item.details.count %></small>
+  <div class="col-md-4 col-xs-6">
+    <div class="box text-center">
+      <%= link_to content_tag(:span), account_project_item_path(current_account, @project, item) %>
     </div>
+    <h3><%= item.name %></h3>
+    <h5><%= item.content.first(100) %> </h5>
+    <small>Details to rate <%= item.details.count %></small>
   </div>
+
 <% end %>
 </div>
