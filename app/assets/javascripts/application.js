@@ -17,4 +17,5 @@
 //= require growlyflash
 //= require chartkick
 //= require cocoon
+//= require dropzone
 //= require_tree .
