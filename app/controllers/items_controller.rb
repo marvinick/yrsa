@@ -15,9 +15,11 @@ class ItemsController < BaseController
   def create
     @item = Item.new(item_params)
     if @item.save
+      render json: { message: "success" }, :status => 200
       flash[:notice] = "An item is created."
       redirect_to [current_account, set_project]
     else
+      render json: { error: @item.errors.full_messages.join(',')}, :status => 400
       flash.now[:alert] = "Something is wrong."
       render "new"
     end

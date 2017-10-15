@@ -1,33 +1,28 @@
-<nav class="level">
-  <div class="level-item has-text-centered">
-    <div>
-      <p class="heading">project</p>
-      <p class="level-item has-text-centered title">
-        <%= link_to @project.title, account_project_path(current_account, @project) %>
-      </p>
-    </div>
-  </div>
-</nav>
+<div class="row text-center">
+  <h1><%= link_to @project.title, account_project_path(current_account, @project) %></h1>
+  <h4><%= @project.description %></h4>
+</div>
+<br>
 
-<%= form_for([current_account, @project, @item]) do |f| %>
-<div class="columns formly">
-  <div class="column is-2"></div>
-  <div class="column is-8">
+<%= form_for([current_account, @project, @item], html: { multipart: true, class: "dropzone"}) do |f| %>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
     <div class="field">
       <%= f.hidden_field :project_id %>
       <div class="control">
-        <%= f.text_field :name, placeholder: 'name', label: false, class:"input is-medium" %>
+        <%= f.text_field :name, placeholder: 'name', label: false %>
       </div>
       <br>
       <div class="control">
-        <%= f.text_area :content, placeholder: 'content', label: false, class:"input is-medium" %>
+        <%= f.text_area :content, placeholder: 'content', label: false %>
       </div>
       <div class="control">
         <%= f.file_field :image %>
       </div>
     </div>
   </div>
-  <div class="column is-2"></div>
+  <div class="col-md-2"></div>
 </div>
 
 <%= f.fields_for :details do |detail| %>

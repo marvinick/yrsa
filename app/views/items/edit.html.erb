@@ -9,7 +9,7 @@
   </div>
 </nav>
 
-<%= form_for([current_account, set_project, @item]) do |f| %>
+<%= form_for([current_account, set_project, @item], html: { multipart: true, class: "dropzone"}) do |f| %>
   <div class="columns formly">
     <div class="column is-2"></div>
     <div class="column is-8">
