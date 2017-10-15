@@ -1,6 +1,8 @@
+
 <div class="row text-center">
   <h4><small>Back to project </small><%= link_to set_project.title, account_project_path(current_account, set_project) %></h4>
   <h3><%= @item.name %></h3>
+  <%= image_tag(@item.image.url(:small), class: "img-responsive img-circle") %>
 </div>
 <br>
 
