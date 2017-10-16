@@ -25,12 +25,37 @@
  @media only screen and (max-width: 400px) {
 
    .box {
-      height: auto;
-      background-color: white!important;
-      box-shadow: 1px!important;
-      margin-right: 2px!important;
-      margin-left: 2px!important;
+      height: 75px;
+      width: auto;
+      background-color: white;
+      margin-top: 15px;
       border-radius: 10px;
+      border-style: solid;
+      border-width: thin;
+      padding-left: 10px;
+      padding-top: 15px;
+      padding-right: 10px;
+    }
+
+    .boxy {
+      height: 170px;
+      background-color: white;
+      width: auto;
+      margin-top: 30px!important;
+      border-radius: 10px;
+      border-style: solid;
+      border-width: thin;
+      padding-top: 15px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    h4, strong, small, h3 {
+      font-size: 90%;
+    }
+
+    .star-rating {
+      zoom: 50%;
     }
  }
 
@@ -43,26 +68,33 @@
   }
 
   .box {
-    height: 150px!important;
-    background-color: white!important;
+    height: 150px;
+    width: 300px;
+    background-color: white;
     box-shadow: 1px!important;
     margin-right: 2px!important;
     margin-left: 2px!important;
-    margin-top: 50px!important;
-    padding-top: 10px;
+    margin-top: 30px!important;
+    padding-top: 20px;
+    padding-left: 15px;
+
     border-radius: 10px;
     border-style: solid;
     border-width: thin;
   }
 
   .boxy {
-    border-radius: 10px;
-    height: auto;
-    background-color: white!important;
+    height: 200px;
+    background-color: white;
     box-shadow: 1px!important;
     margin-right: 2px!important;
     margin-left: 2px!important;
-    margin-top: 50px!important;
+    margin-top: 30px!important;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: thin;
+    padding-top: 15px;
+    padding-left: 15px;
   }
 
   .tile {
@@ -103,6 +135,10 @@ ul, li {
   list-style-type: none;
 }
 
+.box a:link {
+  text-decoration: none!important;
+}
+
 a:link, a:hover{
   text-decoration: none!important;
 }
@@ -121,14 +157,6 @@ a:link, a:hover{
   box-shadow: 1px!important;
   border-style: none;
   border-width: thin;
-}
-
-.box:hover {
-  background-color: #c9c4bd!important;
-}
-
-.tile:hover {
-  background-color: #b0d1a3;
 }
 
 .tile span {
@@ -152,18 +180,6 @@ a:link, a:hover{
   z-index:2;
 }
 
-.boxy:hover {
-  background-color: #b0d1a3;
-}
-
-.navbar-item a {
-  color: white!important;
-  font-size: 15px!important;
-}
-
-.navbar-item a:hover {
-  color: #ff885e!important;
-}
 
 .dropdown-container {
   position: relative;
@@ -191,7 +207,12 @@ hr {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Raleway', sans-serif;
-  font-weight: lighter;
+  font-family: "Arial Bold", sans-serif;
+  font-weight: bold;
   margin: 0;
+}
+
+.padding0 {
+  padding-right: 0!important;
+  margin: 0!important;
 }

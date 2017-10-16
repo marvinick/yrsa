@@ -1,13 +1,10 @@
-<nav class="level">
-  <div class="level-item has-text-centered">
-    <div>
-      <p class="heading">account</p>
-      <p class="level-item has-text-centered title">
-        <%= link_to @account.name, account_path(@account) %>
-      </p>
-    </div>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <h1 class="text-center "><%= link_to @account.name, account_path(@account) %></h1>
   </div>
-</nav>
+  <div class="col-md-2"></div>
+</div>
 
 <%= form_for([current_account, @project]) do |f| %>
 <div class="columns formly">

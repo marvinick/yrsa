@@ -1,28 +1,31 @@
-<div class="row text-center">
-  <h3><small>account</small></h3>
-  <h2><%= @account.name %></h2>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <h1 class="text-center "><%= @account.name %></h1>
+  </div>
+  <div class="col-md-2"></div>
 </div>
 
 <div class="row">
   <div class="col-md-3"> </div>
-  <div class="col-md-2 tile">
-    <h4><%= link_to content_tag(:span, "manage users"), account_users_path(@account, @users) %></h4>
-  </div>
-  <div class="col-md-2 tile">
-    <h4><%= link_to content_tag(:span, "add project"), new_account_project_path(@account)%></h4>
+  <div class="col-md-6 text-center">
+    <%= link_to "manage users", account_users_path(@account, @users), class: "btn btn-default pull-left" %>
+    <%= link_to "add project", new_account_project_path(@account), class: "btn btn-default pull-right" %>
   </div>
   <div class="col-md-3"> </div>
 </div>
-<hr>
+<br>
+<div class="row text-center">
+  <h2>projects</h2>
+</div>
 <div class="row">
-  <h2 class="text-center">projects</h2>
   <% @account.projects.each do |project| %>
-    <div class="col-md-4">
-      <div class="box">
-        <h3><%= link_to content_tag(:span, project.title), account_project_path(@account, project) %></h3>
-        <br>
-        <h4><%= project.description %></h4>
-      </div>
+    <div class="col-md-4 col-xs-6">
+      <%= link_to account_project_path(@account, project) do %>
+        <div class="box">
+          <h4><%= project.title %></h4>
+        </div>
+      <% end %>
     </div>
   <% end %>
 </div>

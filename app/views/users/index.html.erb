@@ -1,13 +1,10 @@
-<nav class="level">
-  <div class="level-item has-text-centered">
-    <div>
-      <p class="heading">account</p>
-      <p class="level-item has-text-centered title">
-        <%= link_to current_account.name, account_path(current_account) %>
-      </p>
-    </div>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <h1 class="text-center "><%= link_to current_account.name, account_path(current_account) %></h1>
   </div>
-</nav>
+  <div class="col-md-2"></div>
+</div>
 
 <%= link_to "Invite new user", new_account_invitation_path(current_account), class: "button is-primary" %>
 <%= current_account.owner.email %>

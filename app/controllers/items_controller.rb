@@ -15,7 +15,7 @@ class ItemsController < BaseController
   def create
     @item = Item.new(item_params)
     if @item.save
-      render json: { message: "success" }, :status => 200
+      
       flash[:notice] = "An item is created."
       redirect_to [current_account, set_project]
     else
