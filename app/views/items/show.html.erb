@@ -3,8 +3,8 @@
     <%= link_to account_project_path(current_account, set_project) do %>
       <span class="fa fa-arrow-left fa-2x"></span>
     <% end %>
-
     <h1><%= @item.name %> <%= link_to "edit", edit_account_project_item_path(current_account, set_project, @item), class: "btn btn-default pull-right" %></h1>
+    <hr>
     <h3><small><%= @item.content %></small></h3>
     <br>
     <% if item_average_rating.present? %>

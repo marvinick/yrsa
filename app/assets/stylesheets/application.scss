@@ -30,8 +30,6 @@
       background-color: white;
       margin-top: 15px;
       border-radius: 10px;
-      border-style: solid;
-      border-width: thin;
       padding-left: 10px;
       padding-top: 15px;
       padding-right: 10px;
@@ -43,8 +41,6 @@
       width: auto;
       margin-top: 30px!important;
       border-radius: 10px;
-      border-style: solid;
-      border-width: thin;
       padding-top: 15px;
       padding-left: 10px;
       padding-right: 10px;
@@ -70,17 +66,14 @@
   .box {
     height: 150px;
     width: 300px;
-    background-color: white;
     box-shadow: 1px!important;
     margin-right: 2px!important;
     margin-left: 2px!important;
     margin-top: 30px!important;
     padding-top: 20px;
     padding-left: 15px;
-
     border-radius: 10px;
-    border-style: solid;
-    border-width: thin;
+
   }
 
   .boxy {
@@ -91,8 +84,6 @@
     margin-left: 2px!important;
     margin-top: 30px!important;
     border-radius: 10px;
-    border-style: solid;
-    border-width: thin;
     padding-top: 15px;
     padding-left: 15px;
   }
@@ -134,6 +125,21 @@ body, html {
 ul, li {
   list-style-type: none;
 }
+
+.box {
+  border-style: none;
+  background-color: #edf1f2;
+}
+
+.box h1, h2, h3, h4, h5 {
+  color: #ff8228;
+}
+
+.boxy {
+  border-style: none;
+  background-color: #edf1f2;
+}
+
 
 .box a:link {
   text-decoration: none!important;
@@ -207,12 +213,7 @@ hr {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Arial Bold", sans-serif;
+  font-family: "Lucida Console", Monaco, monospace;
   font-weight: bold;
   margin: 0;
-}
-
-.padding0 {
-  padding-right: 0!important;
-  margin: 0!important;
 }
