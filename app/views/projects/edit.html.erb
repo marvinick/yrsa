@@ -2,20 +2,26 @@
   <div class="col-md-2"></div>
   <div class="col-md-8">
     <h1 class="text-center "> <%= link_to @project.title, account_project_path(current_account, @project) %></h1>
-    <h4><small><%= @project.description %></small></h4>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <h1 class="text-center "><%= link_to @account.name, account_path(@account) %></h1>
   </div>
   <div class="col-md-2"></div>
 </div>
 
 <%= form_for([current_account, @project]) do |f| %>
-<div class="columns formly">
-  <div class="column is-2"></div>
-  <div class="column is-8">
-    <div class="field">
-      <p class="title is-4 has-text-centered">edit project</p>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div class="formly text-center">
+      <h2>new project</h2>
 
-        <%= f.hidden_field :account_id %>
-
+        <br>
         <div class="control">
             <%= f.text_field :title, placeholder: 'title', label: false, class:"input is-medium" %>
         </div>
@@ -26,8 +32,8 @@
         <br>
         <div class="row">
           <div class="col-md-3"></div>
-          <div class="col-md-6 has-text-centered">
-            <p class="title is-6">Add your team members here:</p>
+          <div class="col-md-6 text-center">
+            <h5>Add your team members here:</h5>
             <%= f.collection_check_boxes :user_ids, current_account.users.all, :id, :email, :item_wrapper_class => 'checkbox_container' do |cb| %>
               <% cb.label {cb.check_box(class: "checkbox") + cb.text} %>
             <% end %>
@@ -36,17 +42,19 @@
         </div>
     </div>
   </div>
-  <div class="column is-2"></div>
+  <div class="col-md-2"></div>
 </div>
-<br>
 
-<div class="has-text-centered">
-  <%= f.submit "change it", class: "button is-primary is-medium" %>
-  <%= link_to "never mind", :back, {:class=>"button is-warning is-medium"} %>
+<div class="text-center">
+  <%= f.submit "yes please", class: "btn btn-default btn-lg" %>
+  <%= link_to "never mind", :back, {:class=>"btn btn-lg btn-default"} %>
 </div>
 <% end %>
 <br>
-<div class="has-text-centered">
-  <p class="subtitle is-4">or, you can remove it</p>
-  <%= link_to "be gone !!", [current_account, @project], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "button is-danger is-medium" %>
+
+<br>
+<div class="text-center">
+  <h4>or, you can remove it</h4>
+  <br>
+  <%= link_to "be gone !!", [current_account, @project], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "btn btn-default btn-lg" %>
 </div>
