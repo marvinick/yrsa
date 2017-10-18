@@ -15,11 +15,32 @@
   </div>
   <div class="col-md-3"> </div>
 </div>
+
 <br>
-<div class="row text-center">
-  <h2>projects</h2>
-  <h2><%= project_count %></h2>
+<br>
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-2 col-xs-3">
+    <ul>
+      <li><h1><%= projects_in_account %></h1></li>
+      <li><h5><small>projects</small></h5></li>
+    </ul>
+  </div>
+  <div class="col-md-2 col-xs-3">
+    <ul>
+      <li><h1><%= items_in_project %> </h1></li>
+      <li><h5><small>items</small></h5></li>
+    </ul>
+  </div>
+  <div class="col-md-2 col-xs-3">
+    <ul>
+      <li><h1><%= reviews_in_project %></h1></li>
+      <li><h5><small>reviews</small></h5></li>
+    </ul>
+  </div>
+  <div class="col-md-3"></div>
 </div>
+<br>
 <div class="row ">
   <div class="col-md-2"></div>
   <% @account.projects.each do |project| %>

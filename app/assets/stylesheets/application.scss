@@ -90,7 +90,6 @@
     padding-top: 20px;
     padding-left: 15px;
     border-radius: 10px;
-
   }
 
   .boxy {
@@ -132,8 +131,9 @@
 
 }
 
+
 html, body {
-  background-color: #f9fcfc;
+  background-color: white;
 }
 
 body, html {
@@ -144,15 +144,15 @@ ul, li {
   list-style-type: none;
 }
 
-.input, select, textarea {
-  border-top: none;
-  border-left: none;
-  border-right: none;
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace;
+  font-weight: bold;
+  margin: 0;
 }
 
 .box {
   border-style: none;
-  background-color: #edf1f2;
+  background-color: #f7f8f9;
 }
 
 .box h1, h2, h3, h4, h5 {
@@ -161,7 +161,7 @@ ul, li {
 
 .boxy {
   border-style: none;
-  background-color: #edf1f2;
+  background-color: #f7f8f9;
 }
 
 
@@ -194,7 +194,6 @@ a:link, a:hover{
   z-index:2;
 }
 
-
 .dropdown-container {
   position: relative;
 }
@@ -212,18 +211,10 @@ a:link, a:hover{
   padding: 0;
 }
 
-hr {
-    border: none;
-    height: 1px;
-    /* Set the hr color */
-    color: #333; /* old IE */
-    background-color: #333; /* Modern Browsers */
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Lucida Console", Monaco, monospace;
-  font-weight: bold;
-  margin: 0;
+.input, select, textarea {
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
 
 textarea:focus, input:focus{
