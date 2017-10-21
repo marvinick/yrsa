@@ -82,7 +82,7 @@
 
   .box {
     height: 150px;
-    width: 300px;
+    width: 100%;
     box-shadow: 1px!important;
     margin-right: 2px!important;
     margin-left: 2px!important;
@@ -131,9 +131,8 @@
 
 }
 
-
 html, body {
-  background-color: white;
+  background-color: #f2ebe6;
 }
 
 body, html {
@@ -145,14 +144,14 @@ ul, li {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace;
+  font-family: "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
   font-weight: bold;
   margin: 0;
 }
 
 .box {
   border-style: none;
-  background-color: #f7f8f9;
+  background-color: white;
 }
 
 .box h1, h2, h3, h4, h5 {
@@ -161,7 +160,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .boxy {
   border-style: none;
-  background-color: #f7f8f9;
+  background-color: white;
 }
 
 
@@ -219,4 +218,13 @@ a:link, a:hover{
 
 textarea:focus, input:focus{
   outline: none;
+}
+
+.btn-success {
+  background-color: #8cff8e;
+  border-color: none;
+}
+
+.btn-danger {
+  background-color: #23af93;
 }

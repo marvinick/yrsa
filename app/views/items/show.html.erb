@@ -1,19 +1,18 @@
 <div class="row">
+  <%= link_to "edit", edit_account_project_item_path(current_account, set_project, @item), class: "btn btn-danger pull-right" %></h1>
+  <h1 class="text-center"><%= @item.name %></h1>
+  <% if item_average_rating.present? %>
+    <div class="star-rating text-center" data-score= <%= item_average_rating %> ></div>
+  <% else %>
+    <p class="heading text-center">No reviews yet</p>
+  <% end %>
+  <hr>
+</div>
+
+<div class="row">
   <div class="col-md-5">
-    <%= link_to account_project_path(current_account, set_project) do %>
-      <span class="fa fa-arrow-left fa-2x"></span>
-    <% end %>
-    <h1><%= @item.name %> <%= link_to "edit", edit_account_project_item_path(current_account, set_project, @item), class: "btn btn-default pull-right" %></h1>
-    <hr>
     <h3><small><%= @item.content %></small></h3>
-    <br>
-    <% if item_average_rating.present? %>
-      <h5><strong> Item's rating</strong> </h5>
-      <div class="star-rating has-text-centered" data-score= <%= item_average_rating %> ></div>
-    <% else %>
-      <p class="heading has-text-centered">No reviews yet</p>
-    <% end %>
-    <br>
+    <hr>
     <% if total_reviews > 1 %>
       <h5><strong><%= total_reviews %> reviews</strong></h5>
     <% else %>
@@ -21,7 +20,6 @@
     <% end %>
     <br>
     <%= render "stats" %>
-
   </div>
   <div class="col-md-1"></div>
   <div class="col-md-6">
@@ -29,7 +27,7 @@
   </div>
 </div>
 
-<br>
+<hr>
 
 <div class="row">
   <h4 class="text-center">
@@ -67,3 +65,6 @@
     </div>
   <% end %>
 </div>
+<%= link_to account_project_path(current_account, set_project) do %>
+  <span class="fa fa-arrow-left fa-2x"></span>
+<% end %>

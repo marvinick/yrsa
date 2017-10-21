@@ -1,14 +1,12 @@
-
-<nav class="level">
-  <div class="level-item has-text-centered">
-    <div>
-      <p class="heading">item</p>
-      <p class="level-item has-text-centered title">
-        <%= link_to @item.name, account_project_item_path(current_account, set_project, @item) %>
-      </p>
-    </div>
-  </div>
-</nav>
+<div class="row text-center">
+  <h1><%= link_to @item.name, account_project_item_path(current_account, set_project, @item) %></h1>
+  <% if item_average_rating.present? %>
+    <div class="star-rating" data-score= <%= item_average_rating %> ></div>
+  <% else %>
+    <p class="heading text-center">No reviews yet</p>
+  <% end %>
+  <hr>
+</div>
 
 <%= form_for([current_account, set_project, @item], html: { multipart: true, class: "dropzone"}) do |f| %>
   <div class="columns formly">

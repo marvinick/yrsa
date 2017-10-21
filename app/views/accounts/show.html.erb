@@ -10,14 +10,15 @@
 <div class="row">
   <div class="col-md-3"> </div>
   <div class="col-md-6 text-center">
-    <%= link_to "manage users", account_users_path(@account, @users), class: "btn btn-default pull-left" %>
-    <%= link_to "add project", new_account_project_path(@account), class: "btn btn-default pull-right" %>
+    <%= link_to "manage users", account_users_path(@account, @users), class: "btn btn-success pull-left" %>
+    <%= link_to "add project", new_account_project_path(@account), class: "btn btn-danger pull-right" %>
   </div>
   <div class="col-md-3"> </div>
 </div>
 
 <br>
 <br>
+
 <div class="row">
   <div class="col-md-3"></div>
   <div class="col-md-2 col-xs-3">
@@ -40,7 +41,9 @@
   </div>
   <div class="col-md-3"></div>
 </div>
+
 <br>
+
 <div class="row ">
   <div class="col-md-2"></div>
   <% @account.projects.each do |project| %>
