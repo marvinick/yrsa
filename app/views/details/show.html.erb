@@ -1,28 +1,41 @@
-<div class="row text-center">
-  <h5>Back to item <%= link_to @item.name, account_project_item_path(current_account, set_project, @item) %></h5>
-  <h3><%= @detail.name %></h3>
-  <h4><%= @detail.description %></h4>
-  <%= link_to "Rate this", new_account_project_item_detail_review_path(current_account, set_project, @item, @detail), class:"btn btn-info" %>
+<div class="dropdown-container">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+    <h1 class="text-center"><%= @detail.name %></h1>
+    <h4 class="text-center"><small><%= @detail.description %></small></h4>
+  </a>
+  <ul class="dropdown-menu">
+    <li><a href="#"> <%= link_to @item.name, account_project_item_path(current_account, set_project, @item) %></a></li>
+  </ul>
 </div>
 
 <br>
-
+<div class="row text-center">
+  <%= link_to "Rate the detail", new_account_project_item_detail_review_path(current_account, set_project, @item, @detail), class:"btn btn-info btn-lg" %>
+</div>
+<br>
 <div class="row">
 <% @detail.reviews.each do |review| %>
   <div class="col-md-4 col-xs-6">
-    <p class="heading">"<%= review.description %>"</p>
-    <div class="star-rating" data-score= <%= review.value %> ></div>
-    <p class="heading"><%= review.user.email %></p>
+    <div class="formy text-center">
+      <h4><%= review.description %></h4>
+      <br>
+      <div class="star-rating" data-score= <%= review.value %> ></div>
+      <br>
+      <h5><small><%= review.user.email %></small></h5>
+      <h5><small><%= time_ago_in_words(review.created_at) %> ago</small></h5>
+      <br>
+      <%= link_to edit_account_project_item_detail_review_path(current_account, set_project, @item, @detail, review) do %>
+        <span class="fa fa-pencil fa-2x"></span>
+      <% end %>
 
-    <p class='heading'><%= time_ago_in_words(review.created_at) %> ago</p>
-
-    <%= link_to edit_account_project_item_detail_review_path(current_account, set_project, @item, @detail, review) do %>
-      <span class="fa fa-pencil"></span>
-    <% end %>
-
-    <%= link_to [current_account, set_project, @item, @detail, review], method: :delete, data: { confirm: "Are you sure you want to remove this?"} do %>
-      <span class="fa fa-trash"></span>
-    <% end %>
+      <%= link_to [current_account, set_project, @item, @detail, review], method: :delete, data: { confirm: "Are you sure you want to remove this?"} do %>
+        <span class="fa fa-trash fa-2x"></span>
+      <% end %>
+    </div>
   </div>
 <% end %>
 </div>
+
+<!-- <%= link_to account_project_item_path(current_account, set_project, @item) do %>
+  <span class="fa fa-arrow-left fa-2x"></span>
+<% end %> -->

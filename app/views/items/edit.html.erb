@@ -1,53 +1,52 @@
 <div class="row text-center">
   <h1><%= link_to @item.name, account_project_item_path(current_account, set_project, @item) %></h1>
-  <% if item_average_rating.present? %>
-    <div class="star-rating" data-score= <%= item_average_rating %> ></div>
-  <% else %>
-    <p class="heading text-center">No reviews yet</p>
-  <% end %>
-  <hr>
 </div>
 
-<%= form_for([current_account, set_project, @item], html: { multipart: true, class: "dropzone"}) do |f| %>
-  <div class="columns formly">
-    <div class="column is-2"></div>
-    <div class="column is-8">
-      <div class="field">
+<br>
+
+<%= form_for([current_account, set_project, @item]) do |f| %>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+
+      <div class="formly text-center">
+        <h2>edit item</h2>
+        <br>
         <%= f.hidden_field :project_id %>
         <div class="control">
-          <%= f.text_field :name, placeholder: 'name', label: false, class: "input is-medium" %>
+          <%= f.text_field :name, placeholder: 'name', label: false, class: "input " %>
         </div>
         <br>
         <div class="control">
-          <%= f.text_field :content, placeholder: 'content', label: false, class: "input is-medium"  %>
+          <%= f.text_field :content, placeholder: 'content', label: false, class: "input"  %>
         </div>
         <div class="control">
           <%= f.file_field :image %>
         </div>
       </div>
     </div>
-    <div class="column is-2"></div>
+    <div class="col-md-2"></div>
   </div>
 
-  <div class="row">
+  <div class="row text-center">
+    <h3><%= link_to_add_association '+ add detail', f, :details %></h3>
+  </div>
+
+  <div class="row text-center">
     <%= f.fields_for :details do |detail| %>
       <%= render "detail_fields", f: detail %>
     <% end %>
   </div>
 
-  <hr>
-  <div class="row">
-    <p class="subtitle has-text-centered"><%= link_to_add_association 'add detail', f, :details %></p>
+  <br>
 
-    <div class="has-text-centered">
-      <%= f.submit "change it", class: "button is-primary" %>
-      <%= link_to "never mind", :back, class: "button is-warning" %>
-    </div>
+  <div class="row text-center">
+    <%= f.submit "change it", class: "btn btn-success btn-lg" %>
+    <%= link_to "never mind", :back, class: "btn btn-warning btn-lg" %>
+    <hr>
+    <h4>or, you can make this go away:</h4>
+    <br>
+    <li><%= link_to "remove it", [current_account, set_project, @item], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "btn btn-warning btn-lg" %></li>
   </div>
+
 <% end %>
-
-
-<div class="has-text-centered">
-  <p class="subtitle">or, you can make this go away:</p>
-  <li><%= link_to "yes, yes just remove it", [current_account, set_project, @item], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "button is-danger" %></li>
-</div>

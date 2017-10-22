@@ -1,28 +1,31 @@
-<div class="item has-text-centered">
-  <p class="heading">Back to item <%= link_to @item.name, account_project_item_path(current_account, set_project, @item) %></p>
-  <p class="title "><%= @detail.name %></p>
+<div class="row text-center">
+  <h2><%= link_to @detail.name, account_project_item_detail_path(current_account, set_project, set_item, @detail) %></h2>
 </div>
 
-<%= form_for([current_account, set_project, set_item, @detail, @review]) do |f| %>
-<div class="columns">
-  <div class="column is-1"></div>
-  <div class="formly column is-10">
-    <%= f.hidden_field :detail_id %>
-    <div class="control has-text-centered">
-      <p class"heading">from 1 as being really bad to 5 as being great</p>
-      <div id="star-rating"></div>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div class="formly text-center">
+      <h3>new review</h3>
+      <br>
+      <%= form_for([current_account, set_project, set_item, @detail, @review]) do |f| %>
+        <%= f.hidden_field :detail_id %>
+        <div class="control">
+          <h5><small>from 1 as being really bad to 5 as being great</small></h5>
+          <br>
+          <div id="star-rating"></div>
+        </div>
+        <br>
+        <div class="control">
+          <h5><small>this is optional, but it'll definitely more flesh out rating</small></h5>
+          <br>
+          <%= f.text_area :description, class: "input", placeholder: "write away" %>
+        </div>
+        <br>
+        <%= f.submit "change away", class: "btn btn-primary btn-lg" %>
+        <%= link_to "never mind", account_project_item_detail_path(current_account, set_project, set_item, @detail), class: "btn btn-danger btn-lg" %>
+      <% end %>
     </div>
-    <br>
-    <div class="control">
-      <p class="heading">this is optional, but it'll definitely be more flesh out rating</p>
-      <%= f.text_area :description, class: "input is-medium" %>
-    </div>
-    <br>
   </div>
-  <div class="column is-1"></div>
+  <div class="col-md-2"></div>
 </div>
-<div class="has-text-centered">
-  <%= f.submit "rate it", class: "button is-primary is-medium" %>
-  <%= link_to "never mind", account_project_item_detail_path(current_account, set_project, set_item, @detail), class: "button is-warning is-medium" %>
-</div>
-<% end %>
