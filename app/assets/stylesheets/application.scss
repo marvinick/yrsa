@@ -274,5 +274,15 @@ textarea:focus, input:focus{
 }
 
 .dropdown-menu {
-  background-color: #ff5e5e;
+  background-color: #b3d6b5;
+}
+
+.activity {
+  border-bottom: solid 1px #CCC;
+  padding: 16px 0;
+  em {
+    color: #777;
+    font-size: 12px;
+    padding-left: 5px;
+  }
 }

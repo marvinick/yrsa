@@ -1,4 +1,6 @@
   Rails.application.routes.draw do
+  get 'activities/index'
+
   devise_for :users
 
   get "/home", to: "home#home", as: :home
@@ -39,7 +41,6 @@
     resources :users, only: [:index, :destroy]
   end
 
-
   namespace :admin do
     root to: "members#index"
 
@@ -52,4 +53,6 @@
   end
 
   post "/stripe/webhook", to: "stripe_webhooks#receive"
+
+  resources :activities
 end
