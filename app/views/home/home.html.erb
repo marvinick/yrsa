@@ -1,110 +1,29 @@
+
+<div class="row text-center">
+  <h1>yrsa</h1>
+</div>
 <br>
-<nav class="level">
-  <p class="level-item has-text-centered">
-    <img src="http://bulma.io/images/bulma-type.png" alt="" style="height: 30px;">
-  </p>
-</nav>
-
-<nav class="level is-mobile">
-  <div class="level-item has-text-centered">
-    <div>
-      <p class="heading"><%= link_to "Login", new_user_session_path %></p>
-    </div>
+<div class="row">
+  <div class="col-md-6">
+    <%= image_tag 'cartoon.png', class: "img-responsive img-rounded" %>
   </div>
-  <div class="level-item has-text-centered">
-    <div>
-      <p class="heading"><%= link_to "Sign up", new_account_path %></p>
-    </div>
-  </div>
-  <div class="level-item has-text-centered">
-    <div>
-      <p class="heading"><%= link_to "Accounts", root_url %></p>
-    </div>
-  </div>
-</nav>
 
-
-<section class="hero is-medium is-bold">
-  <div class="hero-body">
-    <div class="container">
-      <div class="columns">
-        <div class="column is-6">
-          <h1 class="title">
-            Make sense of the ratings and the reviews you get
-          </h1>
-          <h2 class="subtitle">
-            By being detailed, yet keeping them simple
-          </h2>
-        </div>
-
-        <div class="column is-5">
-          <figure class="image is-2by1">
-            <img src="http://bulma.io/images/placeholders/256x256.png">
-          </figure>
-        </div>
-      </div>
-    </div>
+  <div class="col-md-6">
+    <h3><small>Corned beef shoulder filet mignon leberkas. Turducken porchetta kielbasa bacon tenderloin tongue ham venison short loin ground round pig boudin sirloin. Beef ribs ball tip turkey, venison chicken shankle picanha tail shank kielbasa. Ball tip chuck jowl fatback landjaeger brisket tongue corned beef kevin. Chicken rump sirloin, ham porchetta shank shoulder jerky swine salami spare ribs jowl. T-bone hamburger shank short loin, boudin rump pork ribeye cow.</small></h3>
   </div>
-</section>
+</div>
 
-<section class="hero is-medium is-warning is-bold">
-  <div class="hero-body">
-    <div class="container">
-      <div class="columns">
-        <div class="column is-5">
-          <figure class="image is-2by1">
-            <img src="http://bulma.io/images/placeholders/256x256.png">
-          </figure>
-        </div>
-        <div class="column is-1"></div>
-        <div class="column is-6">
-          <h1 class="title">
-            Make sense of the ratings and the reviews you get
-          </h1>
-          <h2 class="subtitle">
-            By being detailed, yet keeping them simple
-          </h2>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<br>
+<br>
 
-<section class="hero is-medium is-bold">
-  <div class="hero-body">
-    <div class="container">
-      <div class="columns">
-        <div class="column is-6">
-          <h1 class="title">
-            Make sense of the ratings and the reviews you get
-          </h1>
-          <h2 class="subtitle">
-            By being detailed, yet keeping them simple
-          </h2>
-        </div>
-
-        <div class="column is-5">
-          <figure class="image is-2by1">
-            <img src="http://bulma.io/images/placeholders/256x256.png">
-          </figure>
-        </div>
-      </div>
-    </div>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-3 col-xs-6 text-center">
+    <%= link_to "signup", new_account_path, class:"btn btn-lg btn-default" %>
   </div>
-</section>
-<footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <p>
-        <strong>Bulma</strong> by <a href="http://jgthms.com">Jeremy Thomas</a>. The source code is licensed
-        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-        is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
-      </p>
-      <p>
-        <a class="icon" href="https://github.com/jgthms/bulma">
-          <i class="fa fa-github"></i>
-        </a>
-      </p>
-    </div>
+  <div class="col-md-2"></div>
+  <div class="col-md-3 col-xs-6 text-center">
+    <%= link_to "signin", new_user_session_path, class: "btn btn-lg btn-default" %>
   </div>
-</footer>
+  <div class="col-md-2"></div>
+</div>
