@@ -12,27 +12,67 @@
       </li>
     </ul>
   </div>
-
-  <% if item_average_rating.present? %>
-    <div class="star-rating text-center" data-score= <%= item_average_rating %> ></div>
-  <% else %>
-    <p class="heading text-center">No reviews yet</p>
-  <% end %>
-  <hr>
 </div>
+
+<br>
+
+<div class="row">
+  <div class="col-md-6"><%= render "stats" %></div>
+  <div class="col-md-1"></div>
+  <div class="col-md-5">
+    <ul>
+      <li>
+        <h5>
+          Rating: <% if item_average_rating.present? %>
+            <div class="star-rating" data-score= <%= item_average_rating %> ></div>
+          <% else %>
+            <h5>No reviews yet</h5>
+          <% end %>
+        </h5>
+
+      </li>
+      <br>
+      <li>
+        <h5> Reviewers: <%= all_reviewers %></h5>
+      </li>
+      <br>
+      <li>
+        <% if total_reviews > 1 %>
+          <h5>reviews: <strong><%= total_reviews %> </strong></h5>
+        <% else %>
+            <h5>review: <strong><%= total_reviews %> </strong></h5>
+        <% end %>
+      </li>
+      <br>
+      <li>
+        <h5>
+          <% if @item.details.count > 1 %>
+            categories: <%= @item.details.count %>
+          <% else %>
+            category: <%= @item.details.count %>
+          <% end %>
+        </h5>
+      </li>
+      <br>
+      <li>
+        <h5>added <%= time_ago_in_words(@item.created_at) %> ago </h5>
+      </li>
+      <br>
+      <li>
+        <h5>last update <%= time_ago_in_words(@item.updated_at) %> ago </h5>
+      </li>
+      <br>
+    </ul>
+  </div>
+</div>
+
+<hr>
 
 <div class="row">
   <div class="col-md-5">
     <h3><small><%= @item.content %></small></h3>
-    <hr>
-    <% if total_reviews > 1 %>
-      <h5><strong><%= total_reviews %> reviews</strong></h5>
-    <% else %>
-        <h5><strong><%= total_reviews %> review</strong></h5>
-    <% end %>
-    <br>
-    <%= render "stats" %>
   </div>
+  <br>
   <div class="col-md-1"></div>
   <div class="col-md-6">
     <%= image_tag(@item.image.url(:xlarge), class: "img-responsive img-rounded") %>
@@ -44,9 +84,9 @@
 <div class="row">
   <h4 class="text-center">
     <% if @item.details.count > 1 %>
-      <%= @item.details.count %> categories
+      categories
     <% else %>
-      <%= @item.details.count %> category
+      category
     <% end %>
   </h4>
   <% @item.details.each do |detail| %>

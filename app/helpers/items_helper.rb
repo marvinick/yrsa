@@ -43,4 +43,16 @@ module ItemsHelper
     end
     b
   end
+
+  def all_reviewers
+    reviewers = []
+    total_reviewers = []
+    @item.details.each do |detail|
+      detail.reviews.each do |review|
+        reviewers << review.user.email
+      end
+    end
+    total_reviewers << reviewers.uniq.count
+    total_reviewers.sum
+  end
 end

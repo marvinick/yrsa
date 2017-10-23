@@ -96,6 +96,11 @@
 //desktop
  @media only screen and (min-width: 400px) {
 
+   .row {
+     padding-top: 20px;
+     padding-bottom: 20px;
+   }
+
   .container {
     max-width:70%!important;
     padding-bottom: 150px!important;
@@ -285,4 +290,14 @@ textarea:focus, input:focus{
     font-size: 12px;
     padding-left: 5px;
   }
+}
+
+hr {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
 }

@@ -15,6 +15,10 @@
     </div>
 
     <h4><small><%= @project.description %></small></h4>
+    <br>
+    <h1><small>items</small> <%= all_items %></h1>
+    <h1><small>reviewers </small> <%= project_reviewers %></h1>
+    <h1><small>rating </small> <%= project_rating %></h1>
 
     <br>
 
@@ -23,14 +27,8 @@
   <div class="col-md-2"></div>
 </div>
 
-<div class="row">
-  <div class="col-md-2 pull-right">
-
-  </div>
-  <div class="col-md-10">
-  </div>
-</div>
 <br>
+
 <div>
   <% @project.items.each do |item| %>
     <div class="col-md-4 col-xs-6">
