@@ -1,28 +1,39 @@
-<div class="row text-center">
-  <h1>yrsa</h1>
+<div class="wrap">
+  <div class="row text-center">
+    <h1>yrsa</h1>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-6">
+      <%= image_tag 'cartoon.png', class: "img-responsive img-rounded" %>
+    </div>
+
+    <div class="col-md-6">
+      <h3><small>Corned beef shoulder filet mignon leberkas. Turducken porchetta kielbasa bacon tenderloin tongue ham venison short loin ground round pig boudin sirloin. Beef ribs ball tip turkey, venison chicken shankle picanha tail shank kielbasa. Ball tip chuck jowl fatback landjaeger brisket tongue corned beef kevin. Chicken rump sirloin, ham porchetta shank shoulder jerky swine salami spare ribs jowl. T-bone hamburger shank short loin, boudin rump pork ribeye cow.</small></h3>
+    </div>
+  </div>
+
+  <br>
+  <br>
+
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-3 col-xs-6 text-center">
+      <%= link_to "signup", new_account_path, class:"btn btn-lg btn-default" %>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-3 col-xs-6 text-center">
+      <%= link_to "signin", new_user_session_path, class: "btn btn-lg btn-default" %>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+
+  <div id="push"></div>
 </div>
-<br>
-<div class="row">
-  <div class="col-md-6">
-    <%= image_tag 'cartoon.png', class: "img-responsive img-rounded" %>
-  </div>
 
-  <div class="col-md-6">
-    <h3><small>Corned beef shoulder filet mignon leberkas. Turducken porchetta kielbasa bacon tenderloin tongue ham venison short loin ground round pig boudin sirloin. Beef ribs ball tip turkey, venison chicken shankle picanha tail shank kielbasa. Ball tip chuck jowl fatback landjaeger brisket tongue corned beef kevin. Chicken rump sirloin, ham porchetta shank shoulder jerky swine salami spare ribs jowl. T-bone hamburger shank short loin, boudin rump pork ribeye cow.</small></h3>
-  </div>
-</div>
 
-<br>
-<br>
-
-<div class="row">
-  <div class="col-md-2"></div>
-  <div class="col-md-3 col-xs-6 text-center">
-    <%= link_to "signup", new_account_path, class:"btn btn-lg btn-default" %>
+<div id="footer">
+  <div class="container">
+    <p class="muted credit">Example courtesy <a href="https://martinbean.co.uk">Martin Bean</a> and <a href="http://ryanfait.com/sticky-footer/">Ryan Fait</a>.</p>
   </div>
-  <div class="col-md-2"></div>
-  <div class="col-md-3 col-xs-6 text-center">
-    <%= link_to "signin", new_user_session_path, class: "btn btn-lg btn-default" %>
-  </div>
-  <div class="col-md-2"></div>
 </div>
