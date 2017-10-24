@@ -20,7 +20,7 @@ class ProjectsController < BaseController
   end
 
   def show
-
+    
   end
 
   def edit; end
