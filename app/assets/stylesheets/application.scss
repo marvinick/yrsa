@@ -22,6 +22,7 @@
  @import "mobile";
  @import "desktop";
 
+
 html, body {
   background-color: #efebe6;
 }
@@ -40,9 +41,12 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
+.star-rating {
+  zoom: 70%;
+}
+
 .navbar {
   background-color: #b7b0a8;
-
   font-size: 18px;
 }
 

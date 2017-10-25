@@ -1,12 +1,10 @@
 <div class="row">
   <div class="col-md-3"></div>
-  <div class="col-md-6">
-    
+  <div class="col-md-6 text-center">
+    <h1><%= link_to set_project.title, account_project_path(current_account, set_project) %></h1>
   </div>
   <div class="col-md-2"></div>
 </div>
-
-<br>
 
 <%= form_for([current_account, set_project, @item]) do |f| %>
 <div class="row">

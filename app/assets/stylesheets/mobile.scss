@@ -1,7 +1,13 @@
 //mobile
  @media only screen and (max-width: 400px) {
 
-   #footer { display: block; }
+   #footer {
+     display: block;
+   }
+
+   .navbar {
+     display: none;
+   }
 
    .container {
      padding-bottom: 50px;
@@ -19,7 +25,7 @@
     }
 
     .boxy {
-      height: 170px;
+      height: auto;
       background-color: white;
       width: auto;
       margin-top: 30px!important;
@@ -34,7 +40,7 @@
     }
 
     .star-rating {
-      zoom: 50%;
+      zoom: 60%;
     }
 
     .input, select{
