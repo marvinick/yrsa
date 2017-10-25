@@ -19,187 +19,11 @@
  @import "jquery.barCharts";
  @import "font-awesome-sprockets";
  @import "font-awesome";
-
-//mobile
- @media only screen and (max-width: 400px) {
-
-  #footer { display: block; }
-
-   .container {
-     padding-bottom: 50px;
-   }
-
-   .box {
-      height: 75px;
-      width: auto;
-      background-color: white;
-      margin-top: 15px;
-      border-radius: 10px;
-      padding-left: 10px;
-      padding-top: 15px;
-      padding-right: 10px;
-    }
-
-    .boxy {
-      height: 170px;
-      background-color: white;
-      width: auto;
-      margin-top: 30px!important;
-      border-radius: 10px;
-      padding-top: 15px;
-      padding-left: 10px;
-      padding-right: 10px;
-    }
-
-    h4, strong, small, h3 {
-      font-size: 90%;
-    }
-
-    .star-rating {
-      zoom: 50%;
-    }
-
-    .input, select{
-      width: 95%;
-      height: 100%;
-      font-size:15px;
-    }
-
-    textarea {
-      width: 100%;
-      height: auto;
-      font-size: 15px;
-      box-sizing: border-box;
-      border: 2px solid #ccc;
-      border-radius: 4px;
-
-      resize: none;
-    }
-
-    .formly {
-      padding-top: 10px;
-      padding-bottom: 10px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      background-color: white;
-    }
-
-    .formy {
-      border-radius: 10px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      background-color: #ccc6c1;
-    }
-
-    .btn-default {
-      width: 80%;
-
-      text-align: center;
-      line-height: 60px;
-      background-color: #ff8e56;
-    }
- }
-
-//desktop
- @media only screen and (min-width: 400px) {
-
-   #footer { display: none; }
-
-   .row {
-     padding-top: 20px;
-     padding-bottom: 20px;
-   }
-
-  .container {
-    max-width:70%!important;
-    padding-bottom: 150px!important;
-  }
-
-  .box {
-    height: 150px;
-    width: 100%;
-    box-shadow: 1px!important;
-    margin-right: 2px!important;
-    margin-left: 2px!important;
-    margin-top: 30px!important;
-    padding-top: 20px;
-    padding-left: 15px;
-    border-radius: 10px;
-  }
-
-  .boxy {
-    height: 200px;
-    background-color: white;
-    box-shadow: 1px!important;
-    margin-right: 2px!important;
-    margin-left: 2px!important;
-    margin-top: 30px!important;
-    border-radius: 10px;
-    padding-top: 15px;
-    padding-left: 15px;
-  }
-
-  .tile {
-    border-radius: 10px;
-    margin-right: 20px;
-    margin-left: 20px;
-    margin-top: 50px;
-    margin-bottom: 30px;
-    height: 100px;
-    width: 200px;
-    background-color: white;
-  }
-
-  .formly {
-    padding-top: 25px;
-    padding-bottom: 25px;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    background-color: white;
-    border-style: none;
-  }
-
-  .formy {
-    border-radius: 10px;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    background-color: #ccc6c1;
-    border-style: none;
-  }
-
-  .input, select {
-    width: 80%;
-    height: 100%;
-    font-size: 18px;
-  }
-
-  textarea {
-    width: 100%;
-    font-family: monospace;
-    height: 150px;
-    font-size: 18px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-
-    resize: none;
-  }
-
-  .btn-default {
-    width: 300px;
-    height: 100px;
-    text-align: center;
-    line-height: 60px;
-  }
-
-}
+ @import "mobile";
+ @import "desktop";
 
 html, body {
-  background-color: #f2ebe6;
+  background-color: #efebe6;
 }
 
 body, html {
@@ -216,9 +40,20 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
+.navbar {
+  background-color: #b7b0a8;
+
+  font-size: 18px;
+}
+
+.navbar > li > a {
+  color: white; /*Change active text color here*/
+}
+
 .box {
   border-style: none;
   background-color: white;
+  box-shadow: 0 6px 4px -4px black;
 }
 
 .box h1, h2, h3, h4, h5 {
@@ -228,6 +63,7 @@ h1, h2, h3, h4, h5, h6 {
 .boxy {
   border-style: none;
   background-color: white;
+  box-shadow: 0 6px 4px -4px black;
 }
 
 
@@ -276,6 +112,7 @@ a:link, a:hover{
 .item ul, li {
   margin: 0;
   padding: 0;
+  margin-bottom: 5px;
 }
 
 .input, select, textarea {
@@ -296,8 +133,6 @@ textarea:focus, input:focus{
 .btn-danger {
   background-color: #23af93;
 }
-
-
 
 .activity {
   border-bottom: solid 1px #CCC;

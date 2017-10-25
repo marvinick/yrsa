@@ -29,9 +29,10 @@
 
 <br>
 
-<div>
+<div class="row">
+  <div class="col-md-2"></div>
   <% @project.items.each do |item| %>
-    <div class="col-md-4 col-xs-6">
+    <div class="col-md-2 col-xs-6">
       <div class="item">
         <ul>
           <li>
@@ -39,11 +40,11 @@
               <%= image_tag(item.image.url(:large), class: "img-responsive img-rounded") %>
             <% end %>
           </li>
-          <li><h4><strong><%= item.name %></strong></h4></li>
-
+          <li><h5><strong><%= item.name %></strong></h4></li>
         </ul>
       </div>
       <br>
     </div>
   <% end %>
+  <div class="col-md-2"></div>
 </div>

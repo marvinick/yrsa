@@ -1,0 +1,95 @@
+//desktop
+ @media only screen and (min-width: 400px) {
+
+   #footer { display: none; }
+
+   .row {
+     padding-top: 20px;
+     padding-bottom: 20px;
+   }
+
+  .container {
+    max-width:75%!important;
+    padding-bottom: 150px!important;
+  }
+
+  .box {
+    height: 150px;
+    width: 100%;
+    box-shadow: 1px!important;
+    margin-right: 2px!important;
+    margin-left: 2px!important;
+    margin-top: 30px!important;
+    padding-top: 20px;
+    padding-left: 15px;
+    border-radius: 10px;
+  }
+
+  .boxy {
+    height: 200px;
+    background-color: white;
+    box-shadow: 1px!important;
+    margin-right: 2px!important;
+    margin-left: 2px!important;
+    margin-top: 30px!important;
+    border-radius: 10px;
+    padding-top: 15px;
+    padding-left: 15px;
+  }
+
+  .tile {
+    border-radius: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    height: 100px;
+    width: 200px;
+    background-color: white;
+  }
+
+  .formly {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background-color: white;
+    border-style: none;
+  }
+
+  .formy {
+    border-radius: 10px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background-color: #ccc6c1;
+    border-style: none;
+  }
+
+  .input, select {
+    width: 80%;
+    height: 100%;
+    font-size: 18px;
+  }
+
+  textarea {
+    width: 100%;
+    font-family: monospace;
+    height: 150px;
+    font-size: 18px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+
+    resize: none;
+  }
+
+  .btn-default {
+    width: 300px;
+    height: 100px;
+    text-align: center;
+    line-height: 60px;
+  }
+
+}
