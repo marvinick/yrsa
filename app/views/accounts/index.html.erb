@@ -9,13 +9,17 @@
 
 <% if user_signed_in? %>
 <div class="row">
+  <div class="col-md-1"></div>
   <% current_user.all_accounts.each do |account| %>
-    <div class="col-md-4 box">
-      <h3><%= link_to content_tag(:span, account.name), account_path(account) %></h3>
-      <br>
-      <h5>Projects <%= account.projects.count %></h5>
-      <h5>Members <%= account.users.count %></h5>
+    <div class="col-md-3">
+      <div class="box">
+        <h3><%= link_to content_tag(:span, account.name), account_path(account) %></h3>
+        <br>
+        <h5>Projects <%= account.projects.count %></h5>
+        <h5>Members <%= account.users.count %></h5>
+      </div>
     </div>
   <% end %>
+  <div class="col-md-1"></div>
 </div>
 <% end %>

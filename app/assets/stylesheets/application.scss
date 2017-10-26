@@ -24,7 +24,9 @@
 
 
 html, body {
-  background-color: #efebe6;
+  background-color: #f4f3f2;
+  padding-left: 0px;
+  padding-right:0px;
 }
 
 body, html {
@@ -35,10 +37,21 @@ ul, li {
   list-style-type: none;
 }
 
+h1 {
+  font-size: 48px;
+}
+
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   font-weight: bold;
   margin: 0;
+  color: black;
+}
+
+.container2 {
+  background-color: #fcfcfc;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .star-rating {
@@ -46,7 +59,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar {
-  background-color: #b7b0a8;
+  background-color: #fcfcfc;
   font-size: 18px;
 }
 
@@ -61,7 +74,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .box h1, h2, h3, h4, h5 {
-  color: #4e5151;
+  color: black;
+}
+
+.subtitle h4 {
+  color: #ff7272;
+  font-family: Papyrus, fantasy;
+  font-weight: 100;
 }
 
 .boxy {
@@ -69,7 +88,6 @@ h1, h2, h3, h4, h5, h6 {
   background-color: white;
   box-shadow: 0 6px 4px -4px black;
 }
-
 
 .box a:link {
   text-decoration: none!important;
@@ -170,7 +188,7 @@ hr {
   height: 60px;
 }
 #footer {
-  background-color: #f5f5f5;
+  background-color: #fcfcfc;
   position:fixed;
   bottom:0;
   left:0;

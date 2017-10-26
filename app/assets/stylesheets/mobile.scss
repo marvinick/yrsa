@@ -10,6 +10,7 @@
    }
 
    .container {
+     padding-top: 25px;
      padding-bottom: 50px;
    }
 
@@ -35,8 +36,8 @@
       padding-right: 10px;
     }
 
-    h4, strong, small, h3 {
-      font-size: 90%;
+    h1, h2, h3, h4 {
+      font-size: 125%;
     }
 
     .star-rating {
@@ -75,13 +76,5 @@
       margin-top: 10px;
       margin-bottom: 10px;
       background-color: #ccc6c1;
-    }
-
-    .btn-default {
-      width: 80%;
-
-      text-align: center;
-      line-height: 60px;
-      background-color: #ff8e56;
     }
  }
