@@ -23,12 +23,12 @@ module ProjectsHelper
   def ratings
     ratings = []
     @project.items.each do |item|
-      ratings << item_rating / item.details.count rescue 0
+      ratings << project_item_rating / item.details.count rescue 0
     end
     ratings
   end
 
-  def item_rating
+  def project_item_rating
     tar = []
     total_average_ratings = []
     total_rv = []

@@ -24,7 +24,8 @@
     <ul>
       <li>
         <h5>
-          Rating: <% if item_average_rating.present? %>
+          Rating:
+          <% if item_average_rating.present? %>
             <div class="star-rating" data-score= <%= item_average_rating %> ></div>
           <% else %>
             <h5>No reviews yet</h5>

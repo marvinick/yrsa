@@ -1,38 +1,4 @@
 <div class="row">
-  <div class=col-md-5>
-    <h1><%= @project.title %></h1>
-
-    <br>
-
-    <div class="subtitle">
-      <h4><%= @project.description %></h4>
-    </div>
-    <br>
-    <%= link_to account_path(@account) do %>
-      <span class="fa fa-arrow-left fa-2x"></span>
-    <% end %>
-    <h4><%= link_to "edit project", edit_account_project_path(current_account, @project) %></h4>
-    <br>
-    <li><%= link_to "add item", new_account_project_item_path(current_account, @project), class: "btn btn-default btn-lg" %></li>
-  </div>
-  <div class="col-md-1"></div>
-  <div class="col-md-6">
-    <% @project.items.each do |item| %>
-      <div class="item">
-        <ul>
-          <li>
-            <%= link_to account_project_item_path(current_account, @project, item) do %>
-              <%= image_tag(item.image.url(:med), class: "img-responsive img-rounded") %>
-            <% end %>
-          </li>
-          <li><h5><strong><%= item.name %></strong></h4></li>
-        </ul>
-      </div>
-    <% end %>
-  </div>
-</div>
-
-<!-- <div class="row">
   <div class="col-md-2"></div>
   <div class="col-md-8">
     <div class="dropdown-container">
@@ -81,5 +47,40 @@
       </div>
     <% end %>
     <div class="col-md-2"></div>
+  </div>
+</div>
+
+
+<!-- <div class="row">
+  <div class=col-md-5>
+    <h1><%= @project.title %></h1>
+
+    <br>
+
+    <div class="subtitle">
+      <h4><%= @project.description %></h4>
+    </div>
+    <br>
+    <%= link_to account_path(@account) do %>
+      <span class="fa fa-arrow-left fa-2x"></span>
+    <% end %>
+    <h4><%= link_to "edit project", edit_account_project_path(current_account, @project) %></h4>
+    <br>
+    <li><%= link_to "add item", new_account_project_item_path(current_account, @project), class: "btn btn-default btn-lg" %></li>
+  </div>
+  <div class="col-md-1"></div>
+  <div class="col-md-6">
+    <% @project.items.each do |item| %>
+      <div class="item">
+        <ul>
+          <li>
+            <%= link_to account_project_item_path(current_account, @project, item) do %>
+              <%= image_tag(item.image.url(:med), class: "img-responsive img-rounded") %>
+            <% end %>
+          </li>
+          <li><h5><strong><%= item.name %></strong></h4></li>
+        </ul>
+      </div>
+    <% end %>
   </div>
 </div> -->

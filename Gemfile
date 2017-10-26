@@ -41,7 +41,7 @@ gem 'money'
 
 #upload images
 gem 'paperclip'
-gem 'aws-sdk'
+gem 'aws-sdk', '< 3.0'
 gem 'dropzonejs-rails'
 gem 'dotenv-rails', groups: [:development]
 
