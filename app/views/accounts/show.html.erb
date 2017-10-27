@@ -1,50 +1,41 @@
 <div class="row">
-  <div class="col-md-2"></div>
-    <div class="col-md-8">
-    <h1 class="text-center"><strong><%= @account.name %></strong></h1>
-  </div>
-  <div class="col-md-2"></div>
+  <h1 class="text-center"><strong><%= @account.name %></strong></h1>
 </div>
 
-<div class="row">
-  <div class="col-md-3"> </div>
-  <div class="col-md-6 text-center">
-    <%= link_to "manage users", account_users_path(@account, @users), class: "btn btn-success pull-left" %>
-    <%= link_to "add project", new_account_project_path(@account), class: "btn btn-danger pull-right" %>
-  </div>
-  <div class="col-md-3"> </div>
+<div class="row text-center">
+  <%= link_to "manage users", account_users_path(@account, @users), class: "btn btn-default btn-lg" %>
+  <%= link_to "add project", new_account_project_path(@account), class: "btn btn-default btn-lg" %>
 </div>
 
 <br>
 
-<div class="row">
-  <div class="col-md-3"></div>
-  <div class="col-md-2 col-xs-3">
+<div class="row text-center">
+  <div class="col-md-1"></div>
+  <div class="col-md-3 col-xs-3">
     <ul>
       <li><h1><%= projects_in_account %></h1></li>
       <li><h5><small>projects</small></h5></li>
     </ul>
   </div>
-  <div class="col-md-2 col-xs-3">
+  <div class="col-md-3 col-xs-3">
     <ul>
       <li><h1><%= items_in_project %> </h1></li>
       <li><h5><small>items</small></h5></li>
     </ul>
   </div>
-  <div class="col-md-2 col-xs-3">
+  <div class="col-md-3 col-xs-3">
     <ul>
       <li><h1><%= reviews_in_project %></h1></li>
       <li><h5><small>reviews</small></h5></li>
     </ul>
   </div>
-  <div class="col-md-3"></div>
+  <div class="col-md-1"></div>
 </div>
 
 
 <div class="row ">
-  <div class="col-md-3"></div>
   <% @account.projects.each do |project| %>
-    <div class="col-md-3 col-xs-6">
+    <div class="col-md-4 col-xs-6">
       <%= link_to account_project_path(@account, project) do %>
         <div class="box">
           <h4><%= project.title %></h4>
@@ -52,5 +43,4 @@
       <% end %>
     </div>
   <% end %>
-  <div class="col-md-3"></div>
 </div>

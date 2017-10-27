@@ -87,7 +87,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .subtitle h4 {
-  color: #ff7272;
+  color: #c1aeae;
   font-family: Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
   font-weight: 100;
 }
@@ -137,7 +137,7 @@ a:link, a:hover{
   right: 0;
   margin: auto;
   width: 250px;
-  background-color: #b3d6b5;
+  background-color: #f4f3f2;
 }
 
 .item ul, li {
@@ -156,13 +156,9 @@ textarea:focus, input:focus{
   outline: none;
 }
 
-.btn-success {
-  background-color: #8cff8e;
-  border-color: none;
-}
-
-.btn-danger {
-  background-color: #23af93;
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color: #c49999;
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
 }
 
 .activity {

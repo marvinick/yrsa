@@ -2,10 +2,8 @@
   <div class="col-md-3"></div>
   <div class="col-md-6">
     <div class="nested-fields formly">
-
-      <%= f.text_field :name, class: "input" %>
-      
-      <%= f.text_field :description, class: "input" %>
+      <%= f.text_field :name, class: "input", placeholder: "name" %>
+      <%= f.text_field :description, class: "input", placeholder: "description" %>
       <%= f.check_box :_destroy, class: "input" %>
       <br>
       <%= link_to_remove_association "remove this", f, class:"btn btn-danger" %>

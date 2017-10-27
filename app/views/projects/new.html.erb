@@ -1,36 +1,35 @@
 <div class="row">
-  <h1 class="text-center "><%= link_to @account.name, account_path(@account) %></h1>
+  <h1 class="text-center "><%= @account.name %></h1>
 </div>
 
 <%= form_for([current_account, @project]) do |f| %>
-<div class="row">
-  <div class="formly text-center">
-      <h2>new project</h2>
-        <br>
-        <div class="control">
-            <%= f.text_field :title, placeholder: 'title', label: false, class:"input" %>
-        </div>
-        <br>
-        <%= f.text_area :description, placeholder: 'content', label: false, class:"input" %>
-        <br>
-        <br>
-        <br>
-        <div class="row">
-          <div class="col-md-3"></div>
-          <div class="col-md-6 text-center">
-            <h5>Add your team members here:</h5>
-            <%= f.collection_check_boxes :user_ids, current_account.users.all, :id, :email, :item_wrapper_class => 'checkbox_container' do |cb| %>
-              <% cb.label {cb.check_box(class: "checkbox") + cb.text} %>
-            <% end %>
+  <div class="row text-center">
+    <div class="formly ">
+        <h2>new project</h2>
+          <br>
+          <div class="control">
+              <%= f.text_field :title, placeholder: 'title', label: false, class:"input" %>
           </div>
-          <div class="col-md-3"></div>
-        </div>
+          <br>
+          <%= f.text_area :description, placeholder: 'content', label: false, class:"input" %>
+          <br>
+          <br>
+          <br>
+          <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 text-center">
+              <h5>Add your team members here:</h5>
+              <%= f.collection_check_boxes :user_ids, current_account.users.all, :id, :email, :item_wrapper_class => 'checkbox_container' do |cb| %>
+                <% cb.label {cb.check_box(class: "checkbox") + cb.text} %>
+              <% end %>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <%= f.submit "go ahead", class: "btn btn-default btn-lg" %>
+      <%= link_to "never mind", account_path(current_account), class: "btn btn-default btn-lg" %>
     </div>
   </div>
-</div>
-
-<div class="text-center">
-  <%= f.submit "go ahead", class: "btn btn-primary btn-lg" %>
-  <%= link_to "never mind", account_project_path(current_account, @project), class: "btn btn-default btn-lg" %>
-</div>
 <% end %>

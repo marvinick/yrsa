@@ -16,7 +16,7 @@ class ItemsController < BaseController
     @item = Item.new(item_params)
     if @item.save
       flash[:notice] = "An item is created."
-      redirect_to [current_account, @project]
+      redirect_to [current_account, set_project, @item]
     else
       flash.now[:alert] = "Something is wrong."
       render "new"
