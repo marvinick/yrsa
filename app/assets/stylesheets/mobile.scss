@@ -2,6 +2,7 @@
  @media only screen and (max-width: 400px) {
 
    #footer {
+     padding-top: 40px;
      display: block;
    }
 
@@ -12,6 +13,11 @@
    .container {
      padding-top: 25px;
      padding-bottom: 50px;
+   }
+
+   .landing-image {
+
+     padding-bottom: 40px;
    }
 
    .box {

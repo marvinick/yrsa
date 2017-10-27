@@ -38,14 +38,23 @@ ul, li {
 }
 
 h1 {
-  font-size: 48px;
+  font-size: 60px;
+  color: black;
+}
+
+h2 small {
+  font-size: 28px;
+  color: #92b290;
+}
+
+h3 {
+  font-size: 30px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
   font-weight: bold;
   margin: 0;
-  color: black;
 }
 
 .container2 {
@@ -164,16 +173,6 @@ textarea:focus, input:focus{
     font-size: 12px;
     padding-left: 5px;
   }
-}
-
-hr {
-  display: block;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  margin-left: auto;
-  margin-right: auto;
-  border-style: inset;
-  border-width: 1px;
 }
 
 #wrap {

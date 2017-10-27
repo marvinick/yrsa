@@ -1,23 +1,9 @@
 <div class="row">
-  <div class="col-md-2"></div>
-  <div class="col-md-8">
-    <h1 class="text-center "> <%= link_to @project.title, account_project_path(current_account, @project) %></h1>
-  </div>
-  <div class="col-md-2"></div>
-</div>
-
-<div class="row">
-  <div class="col-md-2"></div>
-  <div class="col-md-8">
-    <h1 class="text-center "><%= link_to @account.name, account_path(@account) %></h1>
-  </div>
-  <div class="col-md-2"></div>
+  <h1 class="text-center "> <%= @project.title%></h1>
 </div>
 
 <%= form_for([current_account, @project]) do |f| %>
 <div class="row">
-  <div class="col-md-2"></div>
-  <div class="col-md-8">
     <div class="formly text-center">
       <h2>edit project</h2>
 
@@ -45,12 +31,11 @@
         </div>
     </div>
   </div>
-  <div class="col-md-2"></div>
 </div>
 
 <div class="text-center">
   <%= f.submit "yes please", class: "btn btn-primary btn-lg" %>
-  <%= link_to "never mind", :back, {:class=>"btn btn-lg btn-warning"} %>
+  <%= link_to "never mind", account_project_path(current_account, @project), class: "btn btn-default btn-lg" %>
 </div>
 <% end %>
 <br>

@@ -1,17 +1,10 @@
-<div class="row">
-  <div class="col-md-3"></div>
-  <div class="col-md-6 text-center">
-    <h1><%= link_to set_project.title, account_project_path(current_account, set_project) %></h1>
-  </div>
-  <div class="col-md-2"></div>
+<div class="row text-center">
+  <h1><%= set_project.title %></h1>
 </div>
 
 <%= form_for([current_account, set_project, @item]) do |f| %>
-<div class="row">
-  <div class="col-md-2"></div>
-  <div class="col-md-8">
-    <div class="formly text-center">
-      <h2>new item</h2>
+  <div class="formly text-center">
+    <h2>new item</h2>
       <br>
       <%= f.hidden_field :project_id %>
       <div class="control">
@@ -27,24 +20,16 @@
       </div>
     </div>
   </div>
-  <div class="col-md-2"></div>
-</div>
-
-
-<div class="row">
   <div class="links text-center">
     <h3><%= link_to_add_association '+ add detail', f, :details %></h3>
   </div>
-</div>
 
-<div class="row">
-<%= f.fields_for :details do |detail| %>
-  <%= render "detail_fields", f: detail %>
-<% end %>
-</div>
-<br>
-<div class="row text-center">
-  <%= f.submit "make new item", class:"btn btn-primary btn-lg" %>
-  <%= link_to "never mind", :back, class: "btn btn-warning btn-lg" %>
-</div>
+  <%= f.fields_for :details do |detail| %>
+    <%= render "detail_fields", f: detail %>
+  <% end %>
+
+  <div class="row text-center">
+    <%= f.submit "make new item", class:"btn btn-default btn-lg" %>
+    <%= link_to "never mind", account_project_path(current_account, set_project ), class: "btn btn-default btn-lg" %>
+  </div>
 <% end %>

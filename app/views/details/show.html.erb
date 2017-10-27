@@ -1,24 +1,21 @@
 <div class="dropdown-container">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
     <h1 class="text-center"><%= @detail.name %></h1>
-    <h4 class="text-center"><small><%= @detail.description %></small></h4>
-    <%= reviewers %>
   </a>
   <ul class="dropdown-menu">
     <li><a href="#"> <%= link_to @item.name, account_project_item_path(current_account, set_project, @item) %></a></li>
   </ul>
 </div>
 
-<br>
 <div class="row text-center">
+  <h4><small><%= @detail.description %></small></h4>
+  <h4><%= reviewers %> rater(s)</h4>
+  <br>
   <%= link_to "Rate the detail", new_account_project_item_detail_review_path(current_account, set_project, @item, @detail), class:"btn btn-info btn-lg" %>
 </div>
 <br>
 
-<div class="row">
-  <div class="col-md-3"></div>
-
-  <div class="col-md-6">
+<div class="row text-center">
   <% @detail.reviews.each do |review| %>
     <h2><small><%= review.description %></small></h2>
     <br>
@@ -37,6 +34,4 @@
     <hr>
   <% end %>
   </div>
-
-  <div class="col-md-3"></div>
 </div>

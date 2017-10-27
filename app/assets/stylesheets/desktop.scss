@@ -11,9 +11,12 @@
    }
 
   .container {
-    max-width:70%;
+    max-width:55%;
     padding-bottom: 150px;
-    
+  }
+
+  .landing-image {
+    padding-right: 70px;
   }
 
   .box {
@@ -52,8 +55,6 @@
   .formly {
     padding-top: 25px;
     padding-bottom: 25px;
-    margin-top: 25px;
-    margin-bottom: 25px;
     background-color: white;
     border-style: none;
     border-radius: 20px;
@@ -69,6 +70,13 @@
     background-color: #ccc6c1;
     border-style: none;
     border-radius: 20px;
+  }
+
+  .item {
+    padding-top: 10px;
+    height: 250px;
+    background-color: white;
+    box-shadow: 0 6px 4px -4px black;
   }
 
   .input, select {
