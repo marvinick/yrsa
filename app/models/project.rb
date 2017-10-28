@@ -6,6 +6,8 @@ class Project < ApplicationRecord
 
   has_many :items
 
+  has_many :boards
+
   def as_json(options={})
     super(methods: [:email])
   end

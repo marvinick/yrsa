@@ -49,6 +49,14 @@
   <h3>Reviews: <%=  project_reviews_count.sum %></h3>
 </div>
 
+<%= link_to "post message to the board", new_account_project_board_path(current_account, @project), remote: true, class: "btn btn-default btn-lg" %>
+<br>
+<div class="board-show">
+  <%= render "show_boards" %>
+</div>
+
+<div id="board-modal" class="modal fade"></div>
+
 
 <!-- <div class="row">
   <div class=col-md-5>

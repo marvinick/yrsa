@@ -1,27 +1,55 @@
 class BoardsController < BaseController
+  before_action :set_project
+  before_action :set_board, only: [:edit, :update, :destroy]
+
   def new
-    @board = Board.new
+    @project = current_account.projects.find(params[:project_id])
+    @board = @project.boards.build
   end
 
   def create
     @board = Board.new(board_params)
+    @board.project_id = set_project.id
     @board.user_id = current_user.id
     if @board.save
       flash[:notice] = "You've posted on the board."
-      redirect_to [current_account, @project]
+      # redirect_to [current_account, set_project]
     else
       flash.now[:alert] = "Something's wrong."
+      # redirect_to root_url
     end
   end
 
-  def show
-    @board = Board.find(params[:id])
+  def edit; end
+
+  def update
+    if @board.update_attributes(board_params)
+      flash[:notice] = "Board is updated."
+      redirect_to [current_account, set_project]
+    else
+      flash.now[:alert] = "Board is not saved."
+      redirect_to [current_account, set_project]
+    end
+  end
+
+  def destroy
+    @board.destroy
+    flash[:notice] = "You have deleted the note."
   end
 
   private
 
+  def set_board
+    @board = Board.find(params[:id])
+  end
+
+  def set_project
+    Project.find(params[:project_id])
+  end
+  helper_method :set_project
+
   def board_params
-    params.require(:board).permit(:note, :user_id)
+    params.require(:board).permit(:note, :user_id, :project_id)
   end
 
 end

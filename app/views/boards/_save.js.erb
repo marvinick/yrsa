@@ -1,0 +1,9 @@
+$("ul.errors").html("")
+<% if @board.errors.any? %>
+  <% @board.errors.full_messages.each do |message| %>
+    $("ul.errors").append($("<li />").html("<%= message.html_safe %>"))
+  <% end %>
+<% else %>
+  $(".board-show").html("<%= escape_javascript(render 'show_boards') %>")
+  $("#board-modal").modal("hide")
+<% end %>
