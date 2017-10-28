@@ -3,7 +3,7 @@
     <h1 class="text-center"><%= @detail.name %></h1>
   </a>
   <ul class="dropdown-menu">
-    <li><a href="#"> <%= link_to @item.name, account_project_item_path(current_account, set_project, @item) %></a></li>
+    <li> <%= link_to @item.name, account_project_item_path(current_account, set_project, @item) %></li>
   </ul>
 </div>
 
@@ -13,7 +13,6 @@
   <br>
   <%= link_to "Rate the detail", new_account_project_item_detail_review_path(current_account, set_project, @item, @detail), class:"btn btn-default btn-lg" %>
 </div>
-<br>
 
 <div class="row text-center">
   <% @detail.reviews.each do |review| %>

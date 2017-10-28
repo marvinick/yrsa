@@ -104,10 +104,19 @@
   }
 
   .navbar {
-    height:75px;
+    height:55px;
+  }
+
+  .navbar {
+    float: none;
+    margin:0 auto;
+    display: block;
+    text-align: center;
   }
 
   .navbar > li {
-    line-height: 40px;
+    display: inline-block;
+    float:none;
+    text-align: center;  
   }
 }

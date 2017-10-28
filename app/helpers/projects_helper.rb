@@ -1,9 +1,5 @@
 module ProjectsHelper
 
-  def all_items
-    @project.items.count
-  end
-
   def project_reviewers
     reviewers = []
     @project.items.each do |item|
@@ -17,31 +13,37 @@ module ProjectsHelper
   end
 
   def project_rating
-    ratings.sum / @project.items.count
-  end
-
-  def ratings
-    ratings = []
-    @project.items.each do |item|
-      ratings << project_item_rating / item.details.count rescue 0
-    end
-    ratings
-  end
-
-  def project_item_rating
-    tar = []
-    total_average_ratings = []
-    total_rv = []
+    each_detail = []
     @project.items.each do |item|
       item.details.each do |detail|
         detail.reviews.each do |review|
-          total_rv << review.value
-          total_average_ratings = total_rv.sum / total_rv.count
+          each_detail << review.value
         end
-        tar << total_average_ratings
       end
     end
-    tar.sum
+    (each_detail.sum / each_detail.count.to_f).ceil
+  end
+
+  def project_reviews_count
+    reviews = []
+    @project.items.each do |item|
+      item.details.each do |detail|
+        reviews << detail.reviews.count
+      end
+    end
+    reviews
+  end
+
+  def details_count
+    each_item_details = []
+    @project.items.each do |item|
+      each_item_details << item.details.count
+    end
+    each_item_details.sum
+  end
+
+  def all_items
+    @project.items.count
   end
 
 end

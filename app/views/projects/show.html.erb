@@ -4,7 +4,7 @@
       <h1><%= @project.title %></h1>
     </a>
     <ul class="dropdown-menu">
-      <li><a href="#"> <%= link_to @account.name, account_path(@account) %></a></li>
+      <li> <%= link_to @account.name, account_path(@account) %></li>
       <li role="separator" class="divider"></li>
       <li>
         <%= link_to "edit project", edit_account_project_path(current_account, @project) %>
@@ -16,8 +16,6 @@
     <h4><%= @project.description %></h4>
   </div>
   <br>
-
-
   <li class="text-center"><%= link_to "add item", new_account_project_item_path(current_account, @project), class: "btn btn-default btn-lg" %></li>
 </div>
 
@@ -43,6 +41,13 @@
 
 </div>
 
+<div class="row text-center">
+  <h3>How many items? <%= all_items %></h3>
+  <h3>Reviewed by <%= project_reviewers %> people / person</h3>
+  <h3> How many rateable details? <%= details_count %></h3>
+  <h3>Project rating: <%= project_rating %></h3>
+  <h3>Reviews: <%=  project_reviews_count.sum %></h3>
+</div>
 
 
 <!-- <div class="row">
