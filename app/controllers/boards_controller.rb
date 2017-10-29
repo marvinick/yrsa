@@ -1,6 +1,7 @@
 class BoardsController < BaseController
   before_action :set_project
   before_action :set_board, only: [:edit, :update, :destroy]
+  skip_before_action :authorize_owner!
 
   def new
     @project = current_account.projects.find(params[:project_id])

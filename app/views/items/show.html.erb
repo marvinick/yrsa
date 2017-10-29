@@ -6,16 +6,18 @@
     </a>
     <ul class="dropdown-menu">
       <li><a href="#"> <%= link_to set_project.title, account_project_path(current_account, set_project) %></a></li>
-      <li role="separator" class="divider"></li>
-      <li>
-        <%= link_to "edit", edit_account_project_item_path(current_account, set_project, @item) %>
-      </li>
+      <% if set_project.user_id == current_user.id %>
+        <li role="separator" class="divider"></li>
+        <li>
+          <%= link_to "edit", edit_account_project_item_path(current_account, set_project, @item) %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </div>
 
 <br>
-
+<% if set_project.user_id == current_user.id %>
 <div class="row">
   <div class="col-md-1"></div>
   <div class="col-md-4 pull-left"><%= render "stats" %></div>
@@ -68,6 +70,7 @@
   </div>
   <div class="col-md-1"></div>
 </div>
+<% end %>
 
 <div class="row">
   <div class="col-md-5">
@@ -88,7 +91,7 @@
     <% else %>
       category
     <% end %>
-  </h4> 
+  </h4>
   <% @item.details.each do |detail| %>
     <div class="col-xs-6 col-md-4">
       <div class="boxy">

@@ -8,7 +8,7 @@
         <h4><%= board.note %></h4>
         <h6><%= time_ago_in_words(board.created_at) %> ago</h6>
         <br>
-        <% if current_user.id === board.user_id %>
+        <% if current_user.id == board.user_id %>
           <%= link_to "make some change", edit_account_project_board_path(current_account, set_project, board), remote: true, class: "btn btn-default btn-xs" %>
           <%= link_to "remove it", [current_account, set_project, board], remote: true, method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "btn btn-danger btn-xs" %>
         <% end %>
