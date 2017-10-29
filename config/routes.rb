@@ -30,7 +30,6 @@
         end
       end
       resources :boards
-      get "delete"
     end
 
     resources :invitations do

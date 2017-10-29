@@ -13,10 +13,8 @@ class BoardsController < BaseController
     @board.user_id = current_user.id
     if @board.save
       flash[:notice] = "You've posted on the board."
-      # redirect_to [current_account, set_project]
     else
       flash.now[:alert] = "Something's wrong."
-      # redirect_to root_url
     end
   end
 
@@ -25,10 +23,8 @@ class BoardsController < BaseController
   def update
     if @board.update_attributes(board_params)
       flash[:notice] = "Board is updated."
-      redirect_to [current_account, set_project]
     else
       flash.now[:alert] = "Board is not saved."
-      redirect_to [current_account, set_project]
     end
   end
 

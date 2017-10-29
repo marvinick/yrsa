@@ -33,11 +33,11 @@
 
     <div class="row text-center">
       <%= f.submit "change it", class: "btn btn-default btn-lg" %>
-      <%= link_to "never mind", account_project_item_path(current_account, set_project, @item), class: "btn btn-default btn-lg" %>
+      <%= link_to "never mind", account_project_item_path(current_account, set_project, @item), class: "btn btn-warning btn-lg" %>
       <hr>
       <h4>or, you can make this go away:</h4>
       <br>
-      <li><%= link_to "remove it", [current_account, set_project, @item], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "btn btn-default btn-lg" %></li>
+      <li><%= link_to "remove it", [current_account, set_project, @item], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "btn btn-danger btn-lg" %></li>
     </div>
   <% end %>
 </div>

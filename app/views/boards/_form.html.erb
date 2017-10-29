@@ -5,15 +5,14 @@
       <div class="modal-body">
         <ul class="errors"></ul>
 
-        <div class="form-group">
-          <%= f.label :note, class:"control-label" %>
-          <%= f.text_field :note, class: "form-control" %>
+        <div class="control">
+          <%= f.text_field :note, class: "input" %>
         </div>
 
       </div>
       <div class="modal-footer">
-        <%= f.submit class: "btn btn-primary" %>
-        <%= link_to "Cancel", "#", class: "btn", data: {dismiss: "modal"} %>
+        <%= f.submit class: "btn btn-success" %>
+        <%= link_to "Cancel", "#", class: "btn btn-warning", data: {dismiss: "modal"} %>
       </div>
     <% end %>
   </div>
