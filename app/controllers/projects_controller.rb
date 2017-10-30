@@ -11,6 +11,7 @@ class ProjectsController < BaseController
 
   def create
     @project = current_account.projects.new(project_params)
+    @project.user_id = current_user.id
     if @project.save
       flash[:notice] = "You have created a project."
       redirect_to account_path(current_account)
@@ -20,7 +21,7 @@ class ProjectsController < BaseController
   end
 
   def show
-    
+
   end
 
   def edit; end

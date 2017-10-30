@@ -21,7 +21,7 @@ module ProjectsHelper
         end
       end
     end
-    (each_detail.sum / each_detail.count.to_f).ceil
+    (each_detail.sum / each_detail.count.to_f).ceil rescue 0
   end
 
   def project_reviews_count

@@ -101,6 +101,7 @@
       width: 100%;
       background-color: #f7ead9;
       overflow: auto;
+      z-index: 1000;
     }
 
     .icon-bar a {
@@ -109,7 +110,7 @@
       text-align: center;
       padding: 12px 0;
       transition: all 0.3s ease;
-      color: white;
+      color: #acd1a7;
       font-size: 36px;
     }
 
