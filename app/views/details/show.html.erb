@@ -7,12 +7,16 @@
   </ul>
 </div>
 
+
 <div class="row text-center">
   <h4><small><%= @detail.description %></small></h4>
+
   <h4><%= reviewers %> rater(s)</h4>
   <br>
+
   <%= link_to "Rate the detail", new_account_project_item_detail_review_path(current_account, set_project, @item, @detail), class:"btn btn-default btn-lg" %>
 </div>
+
 
 <div class="row text-center">
   <% @detail.reviews.each do |review| %>
@@ -26,7 +30,7 @@
       <br>
       <%= link_to edit_account_project_item_detail_review_path(current_account, set_project, @item, @detail, review) do %>
         <span class="fa fa-pencil"></span>
-      <% end %>
+      <% end %> 
 
       <%= link_to [current_account, set_project, @item, @detail, review], method: :delete, data: { confirm: "Are you sure you want to remove this?"} do %>
         <span class="fa fa-trash"></span>

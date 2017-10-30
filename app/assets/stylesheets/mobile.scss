@@ -2,7 +2,8 @@
  @media only screen and (max-width: 400px) {
 
    #footer {
-     padding-top: 40px;
+     padding-top: 0px;
+     margin-bottom: 10px;
      display: block;
 
      .navfooter {
@@ -95,4 +96,25 @@
       margin-bottom: 10px;
       background-color: #ccc6c1;
     }
+
+    .icon-bar {
+      width: 100%;
+      background-color: #f7ead9;
+      overflow: auto;
+    }
+
+    .icon-bar a {
+      float: left;
+      width: 20%;
+      text-align: center;
+      padding: 12px 0;
+      transition: all 0.3s ease;
+      color: white;
+      font-size: 36px;
+    }
+
+    .icon-bar a:hover {
+      background-color: grey;
+    }
+
  }

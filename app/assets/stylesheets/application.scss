@@ -24,7 +24,7 @@
 
 
 html, body {
-  background-color: #fff6ed;
+  background-color: #fffaf4;
   padding-left: 0px;
   padding-right:0px;
 }
@@ -52,7 +52,7 @@ h3 {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
+  font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
   font-weight: bold;
   margin: 0;
 }
@@ -68,7 +68,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar {
-  background-color: #fcfcfc;
+  background-color: #fffdfc;
   font-size: 18px;
 }
 
@@ -87,9 +87,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .subtitle h4 {
-  color: #c1aeae;
+  color: grey;
   font-family: "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
-  font-weight: 100;
+  font-weight: bold;
 }
 
 .boxy {
@@ -186,7 +186,7 @@ textarea:focus, input:focus{
   height: 60px;
 }
 #footer {
-  background-color: #fcfcfc;
+  background-color: #f7ead9;
   position:fixed;
   bottom:0;
   left:0;
@@ -267,4 +267,5 @@ textarea:focus, input:focus{
   padding: 20px 20px 20px 20px;
   margin-bottom: 30px;
   border-radius: 15px;
+  margin-bottom: 20px;
 }
