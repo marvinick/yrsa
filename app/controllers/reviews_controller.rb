@@ -14,7 +14,7 @@ class ReviewsController < BaseController
     @review.user_id = current_user.id
     if @review.save
       flash[:notice] = "You've submitted a review."
-      redirect_to account_project_item_detail_path(current_account, set_project, set_item, set_detail)
+      redirect_to account_project_item_path(current_account, set_project, set_item)
     else
       render 'new'
     end
@@ -25,7 +25,7 @@ class ReviewsController < BaseController
   def update
     if @review.update_attributes(review_params)
       flash[:notice] = "You've updated the review."
-      redirect_to account_project_item_detail_path(current_account, set_project, set_item, @detail)
+      redirect_to account_project_item_path(current_account, set_project, set_item)
     else
       render "edit"
     end

@@ -16,3 +16,4 @@ class Project < ApplicationRecord
     author.email
   end
 end
+ 

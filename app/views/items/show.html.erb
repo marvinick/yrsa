@@ -16,6 +16,51 @@
   </div>
 </div>
 
+<div class="row">
+  <div style="overflow-x:auto;">
+    <table>
+      <tr>
+        <th>name</th>
+        <th>description</th>
+        <th>latest rating</th>
+        <th>average rating</th>
+        <th></th>
+
+      </tr>
+      <% @item.details.each do |detail| %>
+
+      <tr>
+        <td><%= link_to detail.name, account_project_item_detail_path(current_account, set_project, @item, detail) %></td>
+        <td><%= detail.description %></td>
+
+        <td>
+          <% detail.reviews.last(1).each do |review| %>
+            <div class="star-rating" data-score= <%= review.value %> ></div>
+          <% end %>
+        </td>
+
+        <td>
+          <% total_rv = [] %>
+          <% detail.reviews.each do |review| %>
+            <% total_rv << review.value %>
+          <% end %>
+          <% if total_rv.any? %>
+            <div class="star-rating" data-score= <%= total_rv.sum / total_rv.count %> ></div>
+          <% else %>
+            <strong>Nothing yet</strong>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to "Rate it", new_account_project_item_detail_review_path(current_account, set_project, @item, detail), class:"btn btn-default btn-xs" %>
+        </td>
+
+      </tr>
+      <% end %>
+    </table>
+  </div>
+
+</div>
+
 <br>
 <% if set_project.user_id == current_user.id %>
 <div class="row">
@@ -84,7 +129,7 @@
 </div>
 
 
-<div class="row">
+<!-- <div class="row">
   <h4 class="text-center">
     <% if @item.details.count > 1 %>
       categories
@@ -95,7 +140,7 @@
   <% @item.details.each do |detail| %>
     <div class="col-xs-6 col-md-4">
       <div class="boxy">
-        <h4><%= link_to content_tag(:span, detail.name), account_project_item_detail_path(current_account, set_project, @item, detail) %></h4>
+        <h4><%= link_to detail.name, account_project_item_detail_path(current_account, set_project, @item, detail) %></h4>
         <br>
         <h5><%= detail.description %></h5>
         <br>
@@ -116,7 +161,8 @@
         <% else %>
           <strong>Nothing yet</strong>
         <% end %>
+        <%= link_to "Rate the detail", new_account_project_item_detail_review_path(current_account, set_project, @item, detail), class:"btn btn-default btn-xs" %>
       </div>
     </div>
   <% end %>
-</div>
+</div> -->
