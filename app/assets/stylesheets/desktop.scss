@@ -31,25 +31,28 @@
   }
 
   .boxy {
-    height: 200px;
+    height: auto;
     background-color: white;
     margin-right: 2px!important;
     margin-left: 2px!important;
     margin-top: 30px!important;
     border-radius: 10px;
-    padding-top: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 15px;
     padding-left: 15px;
   }
 
   .tile {
     border-radius: 10px;
-    margin-right: 20px;
-    margin-left: 20px;
-    margin-top: 50px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     height: 100px;
     width: 200px;
     background-color: white;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 5px;
+    padding-bottom: 5px;
   }
 
   .formly {
@@ -120,5 +123,5 @@
     text-align: center;
   }
 
-  
+
 }

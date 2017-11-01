@@ -30,7 +30,7 @@
       <br>
       <%= link_to edit_account_project_item_detail_review_path(current_account, set_project, @item, @detail, review) do %>
         <span class="fa fa-pencil"></span>
-      <% end %> 
+      <% end %>
 
       <%= link_to [current_account, set_project, @item, @detail, review], method: :delete, data: { confirm: "Are you sure you want to remove this?"} do %>
         <span class="fa fa-trash"></span>

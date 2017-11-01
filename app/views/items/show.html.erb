@@ -4,6 +4,16 @@
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
       <h1 class="text-center"><%= @item.name %></h1>
     </a>
+    <li>
+      <h5 class="text-center">
+        <% if item_average_rating.present? %>
+          <div class="star-rating" data-score= <%= item_average_rating %> ></div>
+        <% else %>
+          <h5>No reviews yet</h5>
+        <% end %>
+      </h5>
+
+    </li>
     <ul class="dropdown-menu">
       <li><a href="#"> <%= link_to set_project.title, account_project_path(current_account, set_project) %></a></li>
       <% if set_project.user_id == current_user.id %>
@@ -17,27 +27,84 @@
 </div>
 
 <div class="row">
+  <div class="col-md-6">
+    <%= image_tag(@item.image.url(:xlarge), class: "img-responsive img-rounded") %>
+  </div>
+  <br>
+
+  <div class="col-md-6">
+    <%= render "stats" %>
+  </div>
+</div>
+
+<br>
+<% if set_project.user_id == current_user.id %>
+<div class="row">
+  <div class="col-md-3 col-xs-6">
+    <div class="tile">
+      <h5> Reviewers: <%= all_reviewers %></h5>
+    </div>
+  </div>
+  <div class="col-md-3 col-xs-6">
+    <div class="tile">
+      <% if total_reviews > 1 %>
+        <h5>reviews: <strong><%= total_reviews %> </strong></h5>
+      <% else %>
+          <h5>review: <strong><%= total_reviews %> </strong></h5>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-3 col-xs-6">
+    <div class="tile">
+      <h5>
+        <% if @item.details.count > 1 %>
+          categories: <%= @item.details.count %>
+        <% else %>
+          category: <%= @item.details.count %>
+        <% end %>
+      </h5>
+    </div>
+  </div>
+  <div class="col-md-3 col-xs-6">
+    <div class="tile">
+
+      <li>
+        <h5>added <%= time_ago_in_words(@item.created_at) %> ago </h5>
+      </li>
+      <li>
+        <h5>last update <%= time_ago_in_words(@item.updated_at) %> ago </h5>
+      </li>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<div class="row">
+  <h3 class="text-center">Description</h3>
+  <div class="boxy">
+    <p><small><%= @item.content %></small></p>
+  </div>
+</div>
+
+
+<div class="row">
   <div style="overflow-x:auto;">
     <table>
       <tr>
         <th>name</th>
-        <th>description</th>
-        <th>latest rating</th>
-        <th>average rating</th>
+        <!-- <th>latest rating</th> -->
+        <th>rating</th>
         <th></th>
-
       </tr>
       <% @item.details.each do |detail| %>
 
       <tr>
-        <td><%= link_to detail.name, account_project_item_detail_path(current_account, set_project, @item, detail) %></td>
-        <td><%= detail.description %></td>
-
-        <td>
+        <td><h4><%= link_to detail.name, account_project_item_detail_path(current_account, set_project, @item, detail) %></h4></td>
+        <!-- <td>
           <% detail.reviews.last(1).each do |review| %>
             <div class="star-rating" data-score= <%= review.value %> ></div>
           <% end %>
-        </td>
+        </td> -->
 
         <td>
           <% total_rv = [] %>
@@ -57,74 +124,6 @@
       </tr>
       <% end %>
     </table>
-  </div>
-
-</div>
-
-<br>
-<% if set_project.user_id == current_user.id %>
-<div class="row">
-  <div class="col-md-1"></div>
-  <div class="col-md-4 pull-left"><%= render "stats" %></div>
-  <div class="col-md-1"></div>
-  <div class="col-md-4 pull-right">
-    <ul>
-      <li>
-        <h5>
-          Rating:
-          <% if item_average_rating.present? %>
-            <div class="star-rating" data-score= <%= item_average_rating %> ></div>
-          <% else %>
-            <h5>No reviews yet</h5>
-          <% end %>
-        </h5>
-
-      </li>
-      <br>
-      <li>
-        <h5> Reviewers: <%= all_reviewers %></h5>
-      </li>
-      <br>
-      <li>
-        <% if total_reviews > 1 %>
-          <h5>reviews: <strong><%= total_reviews %> </strong></h5>
-        <% else %>
-            <h5>review: <strong><%= total_reviews %> </strong></h5>
-        <% end %>
-      </li>
-      <br>
-      <li>
-        <h5>
-          <% if @item.details.count > 1 %>
-            categories: <%= @item.details.count %>
-          <% else %>
-            category: <%= @item.details.count %>
-          <% end %>
-        </h5>
-      </li>
-      <br>
-      <li>
-        <h5>added <%= time_ago_in_words(@item.created_at) %> ago </h5>
-      </li>
-      <br>
-      <li>
-        <h5>last update <%= time_ago_in_words(@item.updated_at) %> ago </h5>
-      </li>
-      <br>
-    </ul>
-  </div>
-  <div class="col-md-1"></div>
-</div>
-<% end %>
-
-<div class="row">
-  <div class="col-md-5">
-    <h3><small><%= @item.content %></small></h3>
-  </div>
-  <br>
-  <div class="col-md-1"></div>
-  <div class="col-md-6">
-    <%= image_tag(@item.image.url(:xlarge), class: "img-responsive img-rounded") %>
   </div>
 </div>
 
