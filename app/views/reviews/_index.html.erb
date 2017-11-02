@@ -1,0 +1,11 @@
+<% set_item.details.each do |detail| %>
+  <% total_rv = [] %>
+  <% detail.reviews.each do |review| %>
+    <% total_rv << review.value %>
+  <% end %>
+  <% if total_rv.any? %>
+    <div class="star-rating" data-score= <%= total_rv.sum / total_rv.count %> ></div>
+  <% else %>
+    <strong>Nothing yet</strong>
+  <% end %>
+<% end %>

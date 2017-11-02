@@ -1,0 +1,34 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <h3>new review</h3>
+    <br>
+    <%= form_for([current_account, set_project, set_item, @detail, @review], remote: true, html: { style: "display:inline;" })  do |f| %>
+      <%= f.hidden_field :detail_id %>
+      <div class="modal-body">
+        <div class="control">
+          <h5><small>from 1 as being really bad to 5 as being great</small></h5>
+          <br>
+          <div id="star-rating"></div>
+        </div>
+        <br>
+        <div class="control">
+          <h5><small>this is optional, but it'll definitely more flesh out rating</small></h5>
+          <br>
+          <%= f.text_area :description, class: "input", placeholder: "write away" %>
+        </div>
+      </div>
+      <br>
+      <div class="modal-footer">
+        <%= f.submit "rate", class: "btn btn-default btn-lg" %>
+        <%= link_to "never mind", account_project_item_path(current_account, set_project, set_item), class: "btn btn-default btn-lg" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script>
+$('#star-rating').raty({
+  path: '/assets/',
+  scoreName: 'review[value]'
+});
+</script>
