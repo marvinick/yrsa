@@ -20,7 +20,8 @@
       <br>
       <div class="modal-footer">
         <%= f.submit "rate", class: "btn btn-default btn-lg" %>
-        <%= link_to "never mind", account_project_item_path(current_account, set_project, set_item), class: "btn btn-default btn-lg" %>
+        
+        <%= link_to "Cancel", "#", class: "btn btn-warning", data: {dismiss: "modal"} %>
       </div>
     <% end %>
   </div>

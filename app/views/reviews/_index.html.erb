@@ -5,7 +5,18 @@
   <% end %>
   <% if total_rv.any? %>
     <div class="star-rating" data-score= <%= total_rv.sum / total_rv.count %> ></div>
+    
   <% else %>
     <strong>Nothing yet</strong>
   <% end %>
 <% end %>
+
+<script>
+$('.star-rating').raty({
+  path: '/assets/',
+  readOnly: true,
+  score: function() {
+    return $(this).attr('data-score');
+  }
+});
+</script>

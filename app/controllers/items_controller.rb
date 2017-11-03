@@ -9,7 +9,7 @@ class ItemsController < BaseController
 
   def new
     @project = current_account.projects.find(params[:project_id])
-    @item = @project.items.build 
+    @item = @project.items.build
   end
 
   def create
@@ -44,6 +44,12 @@ class ItemsController < BaseController
   end
 
   private
+
+  def set_item
+    project = Project.find(params[:project_id])
+    @item = project.items.find(params[:item_id])
+  end
+  helper_method :set_item
 
   def set_item
     @item = Item.find(params[:id])

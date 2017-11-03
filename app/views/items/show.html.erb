@@ -96,26 +96,26 @@
         <th>rating</th>
         <th></th>
       </tr>
-      <% @item.details.each do |detail| %>
 
+      <% set_item.details.each do |detail| %>
       <tr>
         <td><h4><%= link_to detail.name, account_project_item_detail_path(current_account, set_project, @item, detail) %></h4></td>
-        <!-- <td>
-          <% detail.reviews.last(1).each do |review| %>
-            <div class="star-rating" data-score= <%= review.value %> ></div>
-          <% end %>
-        </td> -->
-
         <td>
           <div class="review-index">
-            <%= render "index" %>
-
+            <% total_rv = [] %>
+            <% detail.reviews.each do |review| %>
+              <% total_rv << review.value %>
+            <% end %>
+            <% if total_rv.any? %>
+              <div class="star-rating" data-score= <%= total_rv.sum / total_rv.count %> ></div>
+            <% else %>
+              <strong>Nothing yet</strong>
+            <% end %>
           </div>
         </td>
         <td>
           <%= link_to "Rate it", new_account_project_item_detail_review_path(current_account, set_project, @item, detail), remote: true, class:"btn btn-default btn-xs" %>
         </td>
-
       </tr>
       <% end %>
     </table>
