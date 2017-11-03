@@ -1,5 +1,15 @@
 module ItemsHelper
 
+  def reviewers
+    reviewers = []
+    @item.details.each do |detail|
+      detail.reviews.each do |review|
+        reviewers << review.user.email
+      end
+    end
+    reviewers.uniq
+  end
+
   def item_average_rating
     item_rating / @item.details.count rescue 0
   end
@@ -9,7 +19,7 @@ module ItemsHelper
     total_average_ratings = []
     total_rv = []
     @item.details.each do |detail|
-      detail.reviews.each do |review| 
+      detail.reviews.each do |review|
         total_rv << review.value
         total_average_ratings = total_rv.sum / total_rv.count
       end
