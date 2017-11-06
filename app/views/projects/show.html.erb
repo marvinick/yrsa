@@ -68,3 +68,23 @@
 </div>
 
 <div id="board-modal" class="modal"></div>
+
+<div id="footer">
+  <div class="icon-bar">
+    <%= link_to account_path(current_account) do %>
+      <i class="fa fa-book"> </i>
+    <% end %>
+    <a href="#"><i class="fa fa-"></i></a>
+    <%= link_to root_url do %>
+      <span class="fa fa-home"></span>
+    <% end %>
+    <a href="#"><i class="fa fa-"></i></a>
+
+    <%= link_to edit_account_project_path(current_account, @project) do %>
+      <i class="fa fa-gear"></i>
+    <% end %>
+  </div>
+  <div class="container">
+
+  </div>
+</div>

@@ -95,6 +95,7 @@
         <!-- <th>latest rating</th> -->
         <th>rating</th>
         <th></th>
+        <th></th>
       </tr>
 
       <% set_item.details.each do |detail| %>
@@ -126,6 +127,26 @@
 
 
 <%= reviewers %>
+
+<div id="footer">
+  <div class="icon-bar">
+    <%= link_to account_project_path(current_account, set_project) do %>
+      <i class="fa fa-building"> </i>
+    <% end %>
+    <a href="#"><i class="fa fa-"></i></a>
+    <%= link_to root_url do %>
+      <span class="fa fa-home"></span>
+    <% end %>
+    <a href="#"><i class="fa fa-"></i></a>
+
+    <%= link_to edit_account_project_item_path(current_account, set_project, @item) do %>
+      <i class="fa fa-gear"></i>
+    <% end %>
+  </div>
+  <div class="container">
+
+  </div>
+</div>
 <!-- <div class="row">
   <h4 class="text-center">
     <% if @item.details.count > 1 %>
