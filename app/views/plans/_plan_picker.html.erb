@@ -1,8 +1,12 @@
 <%= simple_form_for(current_account, url: account_choose_plan_url) do |account| %>
   <% @plans.each do |plan| %>
-    <%= account.radio_button :plan_id, plan.id %>
-    <%= account.label "plan_id_#{plan.id}", plan.name %> (<%= money(plan.amount) %>) <br>
+    <div class="box">
+      <%= account.radio_button :plan_id, plan.id %>
+      <%= account.label "plan_id_#{plan.id}", plan.name %> (<%= money(plan.amount) %>) <br>
+    
+    </div>
   <% end %>
+  <br>
   <div id="payment-form"></div>
-  <%= account.submit "Pay", class: "button is-primary is-medium", id: "checkout-btn" %>
+  <%= account.submit "Pay", class: "btn btn-success btn-lg", id: "checkout-btn" %>
 <% end %>

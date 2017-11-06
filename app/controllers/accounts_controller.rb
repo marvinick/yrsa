@@ -19,7 +19,10 @@ class AccountsController < ApplicationController
       )
       @account.update_column(:stripe_customer_id, customer.id)
       sign_in(@account.owner)
+      # plan = Plan.find(params[:account][:plan_id])
+      # @account.plan_id = Plan.stripe_id("basic")
       redirect_to account_choose_plan_url(@account)
+      # redirect_to account_path(@account)
     else
       flash.now[:alert] = "Sorry, your account could not be created."
       render :new

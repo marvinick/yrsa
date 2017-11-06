@@ -1,7 +1,7 @@
-
-<div class="container">
-  <div class='col-md-offset-4 col-md-4 content'>
+<div class="row text-center">
+  <div class='col-md-12'>
     <h2>Create a new account</h2>
+    <br>
     <%= form_for(@account) do |account| %>
       <div class="control">
         <%= account.text_field :name, placeholder: "enter account's name", class: "input is-medium" %>
@@ -25,4 +25,5 @@
       <%= account.button "Next", class: "btn btn-info" %>
     <% end %>
   </div>
+
 </div>

@@ -48,6 +48,6 @@ feature "Accounts" do
     account.reload
     # expect(account.plan).to eq(plan)
     expect(account.stripe_subscription_id).to be_present
-    expect(page.cu  rrent_url).to eq(root_url)
+    expect(page.current_url).to eq(root_url)
   end
 end
