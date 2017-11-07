@@ -3,10 +3,10 @@
     <div class="box">
       <%= account.radio_button :plan_id, plan.id %>
       <%= account.label "plan_id_#{plan.id}", plan.name %> (<%= money(plan.amount) %>) <br>
-    
+
     </div>
   <% end %>
   <br>
-  <div id="payment-form"></div>
-  <%= account.submit "Pay", class: "btn btn-success btn-lg", id: "checkout-btn" %>
+
+  <%= account.submit "Finish", class: "btn btn-success btn-lg" %>
 <% end %>
