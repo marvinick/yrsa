@@ -12,9 +12,9 @@
     <%= javascript_include_tag 'jquery.raty.js', "data-turbolinks-track": false %>
   </head>
   <body>
-    <% unless controller_name == "home" %>
+
         <%= render "layouts/navbar2" %>
-    <% end %>
+    
     <div class="container">
       <%= yield %>
     </div>

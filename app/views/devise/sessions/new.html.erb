@@ -1,20 +1,35 @@
-<div class="container">
-  <p class="title">Log in</h2>
+<div class="log-back">
+  <%= link_to home_path do %>
+    <span class="fa fa-arrow-left fa-2x"></span>
+  <% end %>
+</div>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-inputs">
-      <div class="control">
-        <%= f.text_field :email, required: true, autofocus: true, class: "input is-medium", placeholder: "enter email" %>
+<div class="row text-center">
+
+  <div class="boxy">
+    <h1>Log in</h1>
+    <br>
+    <br>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-inputs">
+        <div class="control">
+          <%= f.text_field :email, required: true, autofocus: true, class: "input text-center", placeholder: "email" %>
+        </div>
+        <br>
+        <div class="control">
+          <%= f.text_field :password, required: false, class: "input text-center", placeholder: "password" %>
+        </div>
+        <br>
+        <div class="control">
+          <%= f.check_box :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        </div>
       </div>
       <br>
-      <%= f.text_field :password, required: false, class: "input is-medium", placeholder: "password" %>
-      <%= f.check_box :remember_me, as: :boolean if devise_mapping.rememberable? %>
-    </div>
-
-    <div class="form-actions">
-      <%= f.button :submit, class: "button is-primary" %>
-    </div>
-  <% end %>
-
+      <div class="form-actions">
+        <%= f.button :submit, class: "btn btn-lg btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+  <br>
   <%= render "devise/shared/links" %>
 </div>

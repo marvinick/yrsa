@@ -1,7 +1,13 @@
 //desktop
  @media only screen and (min-width: 400px) {
 
-   #footer { display: none; }
+   #footer {
+     display: none;
+   }
+
+   .log-back {
+     display: none;
+   }
 
    .row {
      padding-top: 20px;
