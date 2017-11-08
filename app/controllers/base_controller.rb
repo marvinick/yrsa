@@ -4,9 +4,16 @@ class BaseController < ApplicationController
   before_action :authorize_owner!
   before_action :subscription_required!
   before_action :active_subscription_required!
+  before_action :check_stripe_subscription_id?
+
+  def check_stripe_subscription_id?
+    if current_account.stripe_subscription_id.blank?
+      redirect_to account_choose_plan_url(current_account)
+    end
+  end
 
   def current_account
-    @current_account ||= Account.find(params[:account_id]) 
+    @current_account ||= Account.find(params[:account_id])
   end
   helper_method :current_account
 

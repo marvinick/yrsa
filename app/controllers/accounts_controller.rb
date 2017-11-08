@@ -19,8 +19,16 @@ class AccountsController < ApplicationController
       )
       @account.update_column(:stripe_customer_id, customer.id)
       sign_in(@account.owner)
-      # plan = Plan.find(params[:account][:plan_id])
-      # @account.plan_id = Plan.stripe_id("basic")
+
+      # customer = Stripe::Customer.retrieve(@account.stripe_customer_id)
+      # plan = Plan.find(3)
+      # subscription = customer.subscriptions.create(
+      #   plan: plan.stripe_id,
+      #   source: params[:token]
+      # )
+      # @account.plan_id = plan
+      # @account.stripe_subscription_id = subscription.id
+      # flash[:notice] = "Your account has been created."
       redirect_to account_choose_plan_url(@account)
       # redirect_to account_path(@account)
     else

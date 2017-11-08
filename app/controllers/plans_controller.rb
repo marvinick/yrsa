@@ -1,5 +1,6 @@
 class PlansController < BaseController
   skip_before_action :subscription_required!
+  skip_before_action :check_stripe_subscription_id?
 
   def choose
     @plans = Plan.order(:amount)

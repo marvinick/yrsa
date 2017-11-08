@@ -5,7 +5,11 @@
 <% if @account.owner.id == current_user.id %>
   <div class="row text-center">
     <%= link_to "manage users", account_users_path(@account, @users), class: "btn btn-default btn-lg" %>
-    <%= link_to "add project", new_account_project_path(@account), class: "btn btn-default btn-lg" %>
+    <% if @account.stripe_subscription_id.blank? %>
+      <%= link_to "confirm", account_choose_plan_url(@account), class: "btn btn-default" %>
+    <% else %>
+      <%= link_to "add project", new_account_project_path(@account), class: "btn btn-default btn-lg" %>
+    <% end %>
   </div>
 
 <br>
