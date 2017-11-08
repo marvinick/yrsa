@@ -1,12 +1,19 @@
 <%= simple_form_for(current_account, url: account_choose_plan_url) do |account| %>
   <% @plans.each do |plan| %>
-    <div class="box">
-      <%= account.radio_button :plan_id, plan.id %>
-      <%= account.label "plan_id_#{plan.id}", plan.name %> (<%= money(plan.amount) %>) <br>
-
-    </div>
+    <% if plan.id == 3 %>
+      <label class="big text-center">
+        <%= account.radio_button :plan_id, plan.id, data: { behavior: "submit-on-click" }, class:"radiohidden"%>
+        <h1><%= account.label "plan_id_#{plan.id}", plan.name %> (<%= money(plan.amount) %>)</h1> <br>
+        <p>This is where you start</p>
+      </label>
+    <% end %>
   <% end %>
   <br>
-
-  <%= account.submit "Finish", class: "btn btn-success btn-lg" %>
 <% end %>
+
+<script>
+  $(document).on("click", "[data-behavior=submit-on-click]", function() {
+    $form = $(this).closest('form'); // select the form
+    $form.submit(); // submit it
+  });
+</script>

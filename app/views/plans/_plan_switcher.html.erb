@@ -1,4 +1,85 @@
-<table class='table table-striped'>
+<div class="row">
+<% @plans.each do |plan| %>
+
+
+    <% if plan.id == 1 %>
+      <div class="big">
+        <%= plan.name %>
+        <%= plan.projects_allowed %>
+        <%= money(plan.amount) %>
+        <% if current_account.plan == plan %>
+          <button class="btn btn-success">Current plan</button>
+        <% else %>
+          <% if current_account.over_limit_for?(plan) %>
+            <%= form_tag account_switch_plan_path(account_id: current_account.id, plan_id: plan.id), method: :put do %>
+              <%= hidden_field_tag :plan_id, plan.id %>
+              <%= submit_tag "Switch", id: "choose_#{plan.name.underscore}", class: 'button is-primary', disabled: true %>
+            <% end %>
+          <% else %>
+            <%= form_tag account_switch_plan_path(account_id: current_account.id, plan_id: plan.id), method: :put do %>
+              <%= hidden_field_tag :plan_id, plan.id %>
+              <%= submit_tag "Switch", id: "choose_#{plan.name.underscore}", class: 'button is-primary' %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+
+
+
+  <% if plan.id == 2 %>
+    <div class="big">
+      <%= plan.name %>
+      <%= plan.projects_allowed %>
+      <%= money(plan.amount) %>
+      <% if current_account.plan == plan %>
+        <button class="btn btn-success">Current plan</button>
+      <% else %>
+        <% if current_account.over_limit_for?(plan) %>
+          <%= form_tag account_switch_plan_path(account_id: current_account.id, plan_id: plan.id), method: :put do %>
+            <%= hidden_field_tag :plan_id, plan.id %>
+            <%= submit_tag "Switch", id: "choose_#{plan.name.underscore}", class: 'button is-primary', disabled: true %>
+          <% end %>
+        <% else %>
+          <%= form_tag account_switch_plan_path(account_id: current_account.id, plan_id: plan.id), method: :put do %>
+            <%= hidden_field_tag :plan_id, plan.id %>
+            <%= submit_tag "Switch", id: "choose_#{plan.name.underscore}", class: 'button is-primary' %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+  </div>
+
+
+  <% if plan.id == 3 %>
+    <div class="big">
+      <%= plan.name %>
+      <%= plan.projects_allowed %>
+      <%= money(plan.amount) %>
+      <% if current_account.plan == plan %>
+        <button class="btn btn-success">Current plan</button>
+      <% else %>
+        <% if current_account.over_limit_for?(plan) %>
+          <%= form_tag account_switch_plan_path(account_id: current_account.id, plan_id: plan.id), method: :put do %>
+            <%= hidden_field_tag :plan_id, plan.id %>
+            <%= submit_tag "Switch", id: "choose_#{plan.name.underscore}", class: 'button is-primary', disabled: true %>
+          <% end %>
+        <% else %>
+          <%= form_tag account_switch_plan_path(account_id: current_account.id, plan_id: plan.id), method: :put do %>
+            <%= hidden_field_tag :plan_id, plan.id %>
+            <%= submit_tag "Switch", id: "choose_#{plan.name.underscore}", class: 'button is-primary' %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+
+
+<% end %>
+</div>
+
+<!-- <table class='table table-striped'>
   <thead>
     <tr>
       <th>Name</th>
@@ -39,4 +120,4 @@
       </tr>
     <% end %>
   </tbody>
-</table>
+</table> -->
