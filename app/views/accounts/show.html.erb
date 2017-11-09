@@ -10,6 +10,8 @@
     <% else %>
       <%= link_to "add project", new_account_project_path(@account), class: "btn btn-default btn-lg" %>
     <% end %>
+    <%= link_to "switch account", account_choose_plan_url(@account), class: "btn btn-default btn-lg" %>
+    <%= link_to "Billing Details", account_billing_path(@account), class: "btn btn-default btn-lg" %>
   </div>
 
 <br>
