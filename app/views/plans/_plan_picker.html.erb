@@ -1,14 +1,42 @@
 <%= simple_form_for(current_account, url: account_choose_plan_url) do |account| %>
-  <% @plans.each do |plan| %>
-    <% if plan.id == 3 %>
-      <label class="big text-center">
-        <%= account.radio_button :plan_id, plan.id, data: { behavior: "submit-on-click" }, class:"radiohidden"%>
-        <h1><%= account.label "plan_id_#{plan.id}", plan.name %> (<%= money(plan.amount) %>)</h1> <br>
-        <p>This is where you start</p>
-      </label>
+  <% if current_account.stripe_subscription_id.blank? %>
+
+    <% @plans.each do |plan| %>
+      <% if plan.id == 3 %>
+        <label class="big text-center">
+          <%= account.radio_button :plan_id, plan.id, data: { behavior: "submit-on-click" }, class:"radiohidden"%>
+          <h1><%= account.label "plan_id_#{plan.id}", plan.name %> (<%= money(plan.amount) %>)</h1> <br>
+          <p>This is where you start</p>
+        </label>
+      <% end %>
     <% end %>
+
+  <% else %>
+
+    <% @plans.each do |plan| %>
+
+      <% if plan.id == 2 %>
+        <label class="big">
+          <%= account.radio_button :plan_id, plan.id, data: { name: plan.name, amount: plan.amount} %>
+          <%= account.label "plan_id_#{plan.id}", plan.name %>
+          <%= money(plan.amount) %> <br>
+        </label>
+      <% elsif plan.id == 1 %>
+        <label class="big">
+          <%= account.radio_button :plan_id, plan.id, data: { name: plan.name, amount: plan.amount} %>
+          <%= account.label "plan_id_#{plan.id}", plan.name %>
+          <%= money(plan.amount) %> <br>
+        </label>
+      <% end %>
+
+    <% end %>
+
+  <div id="payment-form"></div>
+  <%= account.submit "Submit payment", class: "btn btn-primary btn-lg", id: "checkout-btn" %>
+
   <% end %>
-  <br>
+
+
 <% end %>
 
 <script>
