@@ -50,7 +50,7 @@ class BaseController < ApplicationController
   end
 
   def active_subscription_required!
-    return if current_account.stripe_customer_id.blank? || current_account.stripe_subscription_status == "active"
+    return if !current_account.stripe_customer_id.blank? || current_account.stripe_subscription_status == "active"
     flash[:alert] = "This account is currently disabled due to an unpaid subscription."
     if owner?
       flash[:alert] = "Please update your payment details to re-activate your subscription."
