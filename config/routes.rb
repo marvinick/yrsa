@@ -11,6 +11,7 @@
   post "/accounts", to: "accounts#create", as: :accounts
 
   resources :accounts do
+    
     get "/choose_plan",
       to: "plans#choose",
       as: :choose_plan

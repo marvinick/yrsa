@@ -1,5 +1,6 @@
 class AccountsController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create]
+  before_action :set_account, only: [:edit, :update, :show]
 
   def index
     @accounts = Account.all
@@ -26,27 +27,30 @@ class AccountsController < ApplicationController
     end
   end
 
-  # def edit; end
-  #
-  # def update
-  #   if @account.update(account_params)
-  #     customer = Stripe::Customer.create(
-  #       description: @account.name,
-  #       email: @account.owner.email
-  #     )
-  #     @account.update_column(:stripe_customer_id, customer.id)
-  #     redirect_to account_choose_plan_url(@account)
-  #   else
-  #     flash.now[:alert] = "Something's wrong."
-  #     render "edit"
-  #   end
-  # end
+  def edit; end
 
-  def show
-    @account = Account.find(params[:id])
+  def update
+    if @account.update(account_params)
+      customer = Stripe::Customer.create(
+        description: @account.name,
+        email: @account.owner.email
+      )
+      @account.update_column(:stripe_customer_id, customer.id)
+      redirect_to account_path(@account)
+
+    else
+      flash.now[:alert] = "Something's wrong."
+      render "edit"
+    end
   end
 
+  def show; end
+
   private
+
+  def set_account
+    @account = Account.find(params[:id])
+  end
 
   def account_params
     params.require(:account).permit(:name,

@@ -47,6 +47,7 @@
 
     <div id="payment-form"></div>
     <%= account.submit "Submit payment", class: "btn btn-primary btn-lg", id: "checkout-btn" %>
+    <%= link_to "cancel", account_path(current_account), class: "btn btn-lg btn-warning" %>
 
   <% end %>
 
