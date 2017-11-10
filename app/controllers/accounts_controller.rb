@@ -36,6 +36,8 @@ class AccountsController < ApplicationController
         email: @account.owner.email
       )
       @account.update_column(:stripe_customer_id, customer.id)
+      reset_session
+      # redirect_to root_url
       redirect_to account_path(@account)
 
     else
