@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
+  use_growlyflash
+  
   include PublicActivity::StoreController
 
-  use_growlyflash
   protect_from_forgery with: :null_session
 
 

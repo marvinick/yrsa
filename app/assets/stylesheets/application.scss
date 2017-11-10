@@ -15,13 +15,18 @@
  *= require dropzone/dropzone
  */
 
- @import "growlyflash";
  @import "jquery.barCharts";
  @import "font-awesome-sprockets";
  @import "font-awesome";
  @import "mobile";
  @import "desktop";
 
+ $growlyflash-top:     20px !default;
+ $growlyflash-side:    20px !default;
+ $growlyflash-width:   500px !default;
+ $growlyflash-zindex:  9999 !default;
+
+ @import "growlyflash";
 
 html, body {
   background-color: #fffaf4;
