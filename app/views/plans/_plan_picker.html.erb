@@ -14,28 +14,41 @@
   <% else %>
 
     <% @plans.each do |plan| %>
-
-      <% if plan.id == 2 %>
-        <label class="big">
-          <%= account.radio_button :plan_id, plan.id, data: { name: plan.name, amount: plan.amount} %>
-          <%= account.label "plan_id_#{plan.id}", plan.name %>
-          <%= money(plan.amount) %> <br>
-        </label>
-      <% elsif plan.id == 1 %>
-        <label class="big">
-          <%= account.radio_button :plan_id, plan.id, data: { name: plan.name, amount: plan.amount} %>
-          <%= account.label "plan_id_#{plan.id}", plan.name %>
-          <%= money(plan.amount) %> <br>
-        </label>
+      <% if current_account.over_limit_for?(plan) %>
+        <% if plan.id == 2 %>
+          <label class="big">
+            <%= account.radio_button :plan_id, plan.id, data: { name: plan.name, amount: plan.amount}, disabled:"disabled" %>
+            <%= account.label "plan_id_#{plan.id}", plan.name %>
+            <%= money(plan.amount) %> <br>
+          </label>
+        <% elsif plan.id == 1 %>
+          <label class="big">
+            <%= account.radio_button :plan_id, plan.id, data: { name: plan.name, amount: plan.amount}, disabled:"disabled" %>
+            <%= account.label "plan_id_#{plan.id}", plan.name %>
+            <%= money(plan.amount) %> <br>
+          </label>
+        <% end %>
+      <% else %>
+        <% if plan.id == 2 %>
+          <label class="big">
+            <%= account.radio_button :plan_id, plan.id, data: { name: plan.name, amount: plan.amount} %>
+            <%= account.label "plan_id_#{plan.id}", plan.name %>
+            <%= money(plan.amount) %> <br>
+          </label>
+        <% elsif plan.id == 1 %>
+          <label class="big">
+            <%= account.radio_button :plan_id, plan.id, data: { name: plan.name, amount: plan.amount} %>
+            <%= account.label "plan_id_#{plan.id}", plan.name %>
+            <%= money(plan.amount) %> <br>
+          </label>
+        <% end %>
       <% end %>
-
     <% end %>
 
-  <div id="payment-form"></div>
-  <%= account.submit "Submit payment", class: "btn btn-primary btn-lg", id: "checkout-btn" %>
+    <div id="payment-form"></div>
+    <%= account.submit "Submit payment", class: "btn btn-primary btn-lg", id: "checkout-btn" %>
 
   <% end %>
-
 
 <% end %>
 
