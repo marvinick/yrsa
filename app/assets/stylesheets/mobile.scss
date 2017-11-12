@@ -145,4 +145,21 @@
        margin-bottom: 25px;
      }
 
+     .dropdown-container {
+       position: absolute;
+     }
+
+     .dropdown-menu {
+       position: absolute;
+       top: 100%; /* Bottom of button */
+       margin-right: 20px;
+       right: 5px;
+
+       width: 25px;
+       background-color: #f9f7f7;
+
+       font-size: 15px;
+       font-weight: bold;
+     }
+
  }

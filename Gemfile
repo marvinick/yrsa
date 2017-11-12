@@ -14,6 +14,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem 'rack'
 
 #frontend
 gem "twitter-bootstrap-rails"
@@ -40,6 +41,9 @@ gem 'stripe'
 gem 'money'
 
 #upload images
+gem 'refile', github: 'refile/refile', require: 'refile/rails'
+gem 'refile-mini_magick', github: 'refile/refile-mini_magick'
+gem 'sinatra', github: 'sinatra/sinatra', branch: 'master'
 gem 'paperclip'
 gem 'aws-sdk', '< 3.0'
 gem 'dropzonejs-rails'
