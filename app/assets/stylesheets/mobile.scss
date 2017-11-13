@@ -150,19 +150,17 @@
      }
 
      .dropdown-container {
-       position: absolute;
+       position: relative;
      }
 
      .dropdown-menu {
        position: absolute;
        top: 100%; /* Bottom of button */
-       margin-right: 20px;
-       right: 5px;
-
+       right: 0px;
+       margin: auto;
        width: 25px;
-       background-color: #f9f7f7;
-
-       font-size: 15px;
+       background-color: white;
+       font-size: 15spx;
        font-weight: bold;
      }
 

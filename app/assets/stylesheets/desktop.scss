@@ -1,14 +1,6 @@
 //desktop
  @media only screen and (min-width: 1026px) {
 
-   #footer {
-     display: none;
-   }
-
-   .log-back {
-     display: none;
-   }
-
    .row {
      padding-top: 20px;
      padding-bottom: 20px;
@@ -20,18 +12,8 @@
 
    }
 
-   .billing {
-     margin-top: 40px;
-     border-style: hidden;
-     background-color: white;
-     padding-left: 50px;
-     padding-right: 50px;
-     padding-top: 50px;
-     padding-bottom: 50px;
-   }
-
   .container {
-    max-width:60%;
+    max-width: 60%;
     padding-bottom: 150px;
   }
 
@@ -172,5 +154,21 @@
     font-weight: bold;
   }
 
+  #footer {
+    display: none;
+  }
 
+  .log-back {
+    display: none;
+  }
+
+  .billing {
+    margin-top: 40px;
+    border-style: hidden;
+    background-color: white;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
 }
