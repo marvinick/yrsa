@@ -1,5 +1,5 @@
 //mobile
- @media only screen and (max-width: 400px) {
+ @media only screen and (max-width: 1025px) {
 
    #footer {
      padding-top: 0px;
@@ -60,11 +60,15 @@
       padding-bottom: 5px;
       width: auto;
       background-color: white;
+    }
 
+    .col-xs-4 {
+      margin-left: 0px;
+      margin-right: 0px;
     }
 
     h1, h2, h3, h4 {
-      font-size: 125%;
+      font-size: 100%;
     }
 
     .star-rating {
