@@ -1,6 +1,12 @@
 <div class="row text-center">
+  <div class="col-md-12">
+    <h1><%= link_to @account.name, account_path(@account) %></h1>
+  </div>
+</div>
+
+<div class="row text-center">
   <div class='boxy'>
-    <h1>Edit account</h1>
+    <h3>Edit account</h3>
     <br>
     <%= form_for @account do |account| %>
       <%= account.fields_for :owner do |owner| %>

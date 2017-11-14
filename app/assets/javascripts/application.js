@@ -22,7 +22,7 @@
 
 Growlyflash.defaults = $.extend(true, Growlyflash.defaults, {
   align:   'center',  // horizontal aligning (left, right or center)
-  delay:   8000,     // auto-dismiss timeout (0 to disable auto-dismiss)
+  delay:   3000,     // auto-dismiss timeout (0 to disable auto-dismiss)
   dismiss: true,      // allow to show close button
   spacing: 10,       // spacing between alerts
   target:  'body',   // selector to target element where to place alerts

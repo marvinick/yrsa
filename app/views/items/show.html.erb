@@ -1,5 +1,4 @@
 <div class="row">
-
   <div class="dropdown-container">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
       <h1 class="text-center"><%= @item.name %></h1>
@@ -33,7 +32,9 @@
   <br>
 
   <div class="col-md-6">
-    <%= render "stats" %>
+    <div class="formy">
+      <%= render "stats" %>
+    </div>
   </div>
 </div>
 

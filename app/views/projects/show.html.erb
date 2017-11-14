@@ -13,36 +13,33 @@
       <% end %>
     </ul>
   </div>
-  
+
   <div class="subtitle">
     <h4><%= @project.description %></h4>
   </div>
-</div>
-<br>
-<div class="row">
+  <br>
   <% if @project.user_id == current_user.id %>
-    <li class="text-center"><%= link_to "add item", new_account_project_item_path(current_account, @project), class: "btn btn-default" %></li>
+    <li class="text-center"><%= link_to "add item", new_account_project_item_path(current_account, @project), class: "btn btn-default btn-xs" %></li>
   <% end %>
+</div>
+
+<div class="row">
+
   <% @project.items.each do |item| %>
     <div class="col-md-4 col-xs-6">
       <%= link_to account_project_item_path(current_account, @project, item) do %>
-      <div class="item">
-        <ul>
-          <li><h4 class="text-center"><strong><%= item.name %></strong></h4></li>
-          <li>
-            <%= image_tag(item.image.url(:large), class: "img-responsive") %>
-          </li>
-        </ul>
-      </div>
+        <div class="item">
+          <%= image_tag(item.image.url(:large), class: "img-responsive") %>
+          <h4><strong><%= item.name %></strong></h4>
+        </div>
       <% end %>
-      <br>
     </div>
   <% end %>
 </div>
 
-<% if @project.user_id == current_user.id %>
-<div class="row">
 
+<div class="row">
+<% if @project.user_id == current_user.id %>
   <div class="col-md-4 col-xs-4">
     <div class="box">
       <h5>Reviewers: <%= project_reviewers %> </h5>
@@ -58,17 +55,14 @@
       <h5>Reviews: <%=  project_reviews_count.sum %></h5>
     </div>
   </div>
-</div>
 <% end %>
-
-<hr>
-<h3 class="text-center"><small>comments section</small></h3>
-<br>
-<%= link_to "post message to the board", new_account_project_board_path(current_account, @project), remote: true, class: "btn btn-success btn-lg" %>
-<br>
+</div>
 <br>
 <div class="row">
   <div class="board-show">
+      <div class="text-center">
+        <%= link_to "message board", new_account_project_board_path(current_account, @project), remote: true, class: "btn btn-success btn-lg " %>
+      </div>
     <%= render "show_boards" %>
   </div>
 </div>

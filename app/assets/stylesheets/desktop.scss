@@ -6,10 +6,10 @@
      padding-bottom: 20px;
      padding-left: 0px;
      padding-left: 0px;
-     margin-top: -10px;
+     margin-top: 5px;
+     margin-bottom: 5px;
      margin-left: 0px;
      margin-right: 0px;
-
    }
 
   .container {
@@ -47,10 +47,10 @@
 
   .boxy {
     height: auto;
+    width: auto;
     background-color: white;
     margin-right: 2px!important;
     margin-left: 2px!important;
-    margin-top: 30px!important;
     border-radius: 10px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -80,21 +80,33 @@
   }
 
   .formy {
-    border-radius: 10px;
+    height: 200px;
     padding-top: 25px;
-    padding-bottom: 25px;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    background-color: #ccc6c1;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: white;
     border-style: none;
-    border-radius: 20px;
   }
 
   .item {
     padding-top: 10px;
-    height: 250px;
+    height: auto;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
     background-color: white;
     box-shadow: 0 6px 4px -4px black;
+  }
+
+  .comment {
+    padding: 20px 20px 20px 20px;
+    margin-bottom: 20px;
+  }
+
+  .board-show {
+    background-color: white;
+    padding: 20px 20px 20px 20px;
   }
 
   .input, select {

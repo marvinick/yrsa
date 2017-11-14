@@ -1,19 +1,25 @@
-<% @project.boards.group_by(&:day).each do |day, boards| %>
-  <h2 class="text-center"><%= day %></h2>
-  <br>
-  <div>
-    <% boards.each do |board| %>
-    <div class="comment">
-      <h4><small><%= board.note %></small></h4>
-      <h6><small><%= time_ago_in_words(board.created_at) %> ago</small></h6>
-      <h6><small><%= board.user.email %></small></h6>
+<div class="comment">
+  <% @project.boards.order("created_at desc").each do |board| %>
+    <div class="row">
+      <div class="col-md-11">
+        <h4><%= board.note %></h4>
+        <p><%= time_ago_in_words(board.created_at) %> ago</p>
+        <p><%= board.user.email %></p>
+      </div>
       <br>
-      <% if current_user.id == board.user_id %>
-      <%= link_to "make some change", edit_account_project_board_path(current_account, @project, board), remote: true, class: "btn btn-default btn-xs" %>
-      <%= link_to "remove it", [current_account, @project, board], remote: true, method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "btn btn-danger btn-xs" %>
-      <% end %>
+      <div class="col-md-1">
+        <% if current_user.id == board.user_id %>
+          <%= link_to edit_account_project_board_path(current_account, @project, board), remote: true do %>
+            <icon class="fa fa-pencil "></icon>
+          <% end %>
+
+          <%= link_to [current_account, @project, board], remote: true, method: :delete, data: { confirm: "Are you sure you want to remove this?"} do %>
+            <icon class="fa fa-trash"></icon>
+          <% end %>
+        <% end %>
+      </div>
     </div>
-    <hr>
-    <% end %>
-  </div>
-<% end %>
+    <br>
+  <% end %>
+
+</div>

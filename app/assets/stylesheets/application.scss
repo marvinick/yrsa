@@ -20,12 +20,7 @@
  @import "font-awesome";
  @import "mobile";
  @import "desktop";
-
- $growlyflash-top:     20px !default;
- $growlyflash-side:    20px !default;
- $growlyflash-width:   500px !default;
- $growlyflash-zindex:  9999 !default;
-
+ @import "tablet";
  @import "growlyflash";
 
 html, body {
@@ -58,7 +53,6 @@ h3 {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
-  font-weight: bold;
   margin: 0;
 }
 
@@ -85,10 +79,6 @@ h1, h2, h3, h4, h5, h6 {
   border-style: none;
   background-color: white;
   box-shadow: 0 6px 4px -4px black;
-}
-
-.box h1, h2, h3, h4, h5 {
-  color: #aae2a3;
 }
 
 .subtitle h4 {
@@ -252,26 +242,18 @@ textarea:focus, input:focus{
   -webkit-font-smoothing: antialiased;
 }
 
-.comment {
-  background-color: white;
-  padding: 20px 20px 20px 20px;
-  margin-bottom: 30px;
-  border-radius: 15px;
-  margin-bottom: 20px;
-}
-
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-    border: 1px solid #ddd;
-    border-style: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-style: none;
 }
 
 th, td {
-    border: none;
-    text-align: center;
-    padding: 8px;
+  border: none;
+  text-align: center;
+  padding: 8px;
 }
 
 tr:nth-child(even){
@@ -284,4 +266,12 @@ tr:nth-child(even){
 
 .radiohidden {
   display:none;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    /* Set the hr color */
+    color: black; /* old IE */
+    background-color: black; /* Modern Browsers */
 }
