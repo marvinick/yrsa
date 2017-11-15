@@ -38,6 +38,13 @@ class ReviewsController < BaseController
 
   private
 
+  def check_review_limit
+
+    if set_review.user_id == curren
+      flash.now[:alert] = "You can only review once."
+    end
+  end
+
   def review_params
     params.require(:review).permit(:description, :value, :detail_id, :user_id)
   end
@@ -48,6 +55,7 @@ class ReviewsController < BaseController
     @detail = @item.details.find(params[:detail_id])
     @review = @detail.reviews.find(params[:id])
   end
+  helper_method :set_review
 
   def set_item
     @item = Item.find(params[:id])

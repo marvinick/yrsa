@@ -63,4 +63,5 @@ class ItemsController < BaseController
     Project.find(params[:project_id])
   end
   helper_method :set_project
+
 end
