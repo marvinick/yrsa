@@ -174,8 +174,8 @@ textarea:focus, input:focus{
   text-align:center;
 }
 
-.modal-content {
-  background-color: #f7ead9;
+.modal-backdrop {
+  opacity: 0;
 }
 
 .btn {
@@ -186,22 +186,20 @@ textarea:focus, input:focus{
 }
 
 .btn-success {
-  background-color: hsl(133, 100%, 44%) !important;
- background-repeat: repeat-x;
- filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00f435", endColorstr="#00e030");
- background-image: -khtml-gradient(linear, left top, left bottom, from(#00f435), to(#00e030));
- background-image: -moz-linear-gradient(top, #00f435, #00e030);
- background-image: -ms-linear-gradient(top, #00f435, #00e030);
- background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #00f435), color-stop(100%, #00e030));
- background-image: -webkit-linear-gradient(top, #00f435, #00e030);
- background-image: -o-linear-gradient(top, #00f435, #00e030);
- background-image: linear-gradient(#00f435, #00e030);
- border-color: #00e030 #00e030 hsl(133, 100%, 43%);
- color: #fff !important;
- text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.06);
- -webkit-font-smoothing: antialiased;
-
- border-width: medium;
+  background-color: hsl(145, 62%, 68%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#cdf3dd", endColorstr="#7adfa4");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#cdf3dd), to(#7adfa4));
+  background-image: -moz-linear-gradient(top, #cdf3dd, #7adfa4);
+  background-image: -ms-linear-gradient(top, #cdf3dd, #7adfa4);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #cdf3dd), color-stop(100%, #7adfa4));
+  background-image: -webkit-linear-gradient(top, #cdf3dd, #7adfa4);
+  background-image: -o-linear-gradient(top, #cdf3dd, #7adfa4);
+  background-image: linear-gradient(#cdf3dd, #7adfa4);
+  border-color: #7adfa4 #7adfa4 hsl(145, 62%, 63%);
+  color: #333 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.33);
+  -webkit-font-smoothing: antialiased;
 }
 
 .btn-default {
@@ -246,8 +244,8 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
   width: 100%;
-  border: 1px solid #ddd;
   border-style: none;
+
 }
 
 th, td {
@@ -269,9 +267,13 @@ tr:nth-child(even){
 }
 
 hr {
-    border: none;
-    height: 1px;
-    /* Set the hr color */
-    color: black; /* old IE */
-    background-color: black; /* Modern Browsers */
+  border: none;
+  height: 1px;
+  color: black; /* old IE */
+  background-color: black; /* Modern Browsers */
+}
+
+img {
+  margin-left: auto;
+  margin-right: auto;
 }

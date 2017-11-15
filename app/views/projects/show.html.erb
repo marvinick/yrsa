@@ -24,7 +24,6 @@
 </div>
 
 <div class="row">
-
   <% @project.items.each do |item| %>
     <div class="col-md-4 col-xs-6">
       <%= link_to account_project_item_path(current_account, @project, item) do %>
@@ -32,6 +31,7 @@
           <%= image_tag(item.image.url(:large), class: "img-responsive") %>
           <h4><strong><%= item.name %></strong></h4>
         </div>
+        <br>
       <% end %>
     </div>
   <% end %>
@@ -41,17 +41,17 @@
 <div class="row">
 <% if @project.user_id == current_user.id %>
   <div class="col-md-4 col-xs-4">
-    <div class="box">
+    <div class="stats1">
       <h5>Reviewers: <%= project_reviewers %> </h5>
     </div>
   </div>
   <div class="col-md-4 col-xs-4">
-    <div class="box">
+    <div class="stats2">
       <h5>Project rating: <%= project_rating %></h5>
     </div>
   </div>
   <div class="col-md-4 col-xs-4">
-    <div class="box">
+    <div class="stats3">
       <h5>Reviews: <%=  project_reviews_count.sum %></h5>
     </div>
   </div>

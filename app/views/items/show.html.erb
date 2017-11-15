@@ -1,18 +1,20 @@
-<div class="row">
+<div class="row text-center">
   <div class="dropdown-container">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-      <h1 class="text-center"><%= @item.name %></h1>
+      <h1><%= @item.name %></h1>
     </a>
     <li>
-      <h5 class="text-center">
+      <h5>
         <% if item_average_rating.present? %>
           <div class="star-rating" data-score= <%= item_average_rating %> ></div>
         <% else %>
           <h5>No reviews yet</h5>
         <% end %>
       </h5>
-
     </li>
+    <div class="subtitle">
+      <h4><%= @item.content %></h4>
+    </div>
     <ul class="dropdown-menu">
       <li><a href="#"> <%= link_to set_project.title, account_project_path(current_account, set_project) %></a></li>
       <% if set_project.user_id == current_user.id %>
@@ -38,16 +40,15 @@
   </div>
 </div>
 
-<br>
 <% if set_project.user_id == current_user.id %>
 <div class="row">
   <div class="col-md-3 col-xs-6">
-    <div class="tile">
+    <div class="stats1">
       <h5> Reviewers: <%= all_reviewers %></h5>
     </div>
   </div>
   <div class="col-md-3 col-xs-6">
-    <div class="tile">
+    <div class="stats2">
       <% if total_reviews > 1 %>
         <h5>reviews: <strong><%= total_reviews %> </strong></h5>
       <% else %>
@@ -56,7 +57,7 @@
     </div>
   </div>
   <div class="col-md-3 col-xs-6">
-    <div class="tile">
+    <div class="stats3">
       <h5>
         <% if @item.details.count > 1 %>
           categories: <%= @item.details.count %>
@@ -67,7 +68,7 @@
     </div>
   </div>
   <div class="col-md-3 col-xs-6">
-    <div class="tile">
+    <div class="stats4">
 
       <li>
         <h5>added <%= time_ago_in_words(@item.created_at) %> ago </h5>
@@ -80,15 +81,7 @@
 </div>
 <% end %>
 
-<div class="row">
-  <h3 class="text-center">Description</h3>
-  <div class="">
-    <p><small><%= @item.content %></small></p>
-  </div>
-</div>
-
-
-<div class="row">
+<div class="row text-center">
   <div style="overflow-x:auto;">
     <table>
       <tr>
@@ -99,7 +92,7 @@
         <th></th>
       </tr>
 
-      <% set_item.details.each do |detail| %>
+      <% @item.details.each do |detail| %>
       <tr>
         <td><h4><%= link_to detail.name, account_project_item_detail_path(current_account, set_project, @item, detail) %></h4></td>
         <td>
@@ -109,7 +102,7 @@
               <% total_rv << review.value %>
             <% end %>
             <% if total_rv.any? %>
-              <div class="star-rating" style="zoom: 125%" data-score= <%= total_rv.sum / total_rv.count %> ></div>
+              <div class="star-rating" data-score= <%= total_rv.sum / total_rv.count %> ></div>
             <% else %>
               <strong>Nothing yet</strong>
             <% end %>
@@ -126,8 +119,6 @@
 
 <div id="review-modal" class="modal"></div>
 
-
-<%= reviewers %>
 
 <div id="footer">
   <div class="icon-bar">

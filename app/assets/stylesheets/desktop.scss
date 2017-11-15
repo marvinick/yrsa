@@ -2,19 +2,23 @@
  @media only screen and (min-width: 1026px) {
 
    .row {
-     padding-top: 20px;
-     padding-bottom: 20px;
-     padding-left: 0px;
-     padding-left: 0px;
+     padding-top: 5px;
+     padding-bottom: 5px;
      margin-top: 5px;
      margin-bottom: 5px;
-     margin-left: 0px;
-     margin-right: 0px;
+
    }
 
   .container {
     max-width: 60%;
     padding-bottom: 150px;
+  }
+
+  .container-fluid {
+    padding-left: 10px;
+    padding-right: 0px;
+    margin-left: 0px;
+    margin-right: -5px;
   }
 
   .landing-image {
@@ -43,6 +47,54 @@
     padding-top: 20px;
     padding-left: 15px;
     border-radius: 10px;
+  }
+
+  .stats1 {
+    height: 150px;
+    width: 100%;
+    margin-right: 2px!important;
+    margin-left: 2px!important;
+    margin-top: 30px!important;
+    padding-top: 20px;
+    padding-left: 15px;
+    border-radius: 10px;
+    background-color: #deeaab;
+  }
+
+  .stats2 {
+    height: 150px;
+    width: 100%;
+    margin-right: 2px!important;
+    margin-left: 2px!important;
+    margin-top: 30px!important;
+    padding-top: 20px;
+    padding-left: 15px;
+    border-radius: 10px;
+    background-color: #f9bf7c;
+  }
+
+  .stats3 {
+    height: 150px;
+    width: 100%;
+    margin-right: 2px!important;
+    margin-left: 2px!important;
+    margin-top: 30px!important;
+    padding-top: 20px;
+    padding-left: 15px;
+    border-radius: 10px;
+    background-color: #9dd3db;
+  }
+
+  .stats4 {
+    height: 150px;
+    width: 100%;
+    margin-right: 2px!important;
+    margin-left: 2px!important;
+    margin-top: 30px!important;
+    padding-top: 20px;
+    padding-left: 15px;
+    border-radius: 10px;
+    background-color: #aa9a88;
   }
 
   .boxy {
@@ -107,6 +159,11 @@
   .board-show {
     background-color: white;
     padding: 20px 20px 20px 20px;
+  }
+
+  .modal-content {
+    background-color: white;
+    margin-top: 300px;
   }
 
   .input, select {

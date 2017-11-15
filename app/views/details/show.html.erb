@@ -19,7 +19,7 @@
 
 
 <div class="row text-center">
-  <% @detail.reviews.each do |review| %>
+  <% @detail.reviews.order("updated_at DESC").each do |review| %>
     <h2><small><%= review.description %></small></h2>
     <br>
     <div class="star-rating" data-score= <%= review.value %> ></div>
