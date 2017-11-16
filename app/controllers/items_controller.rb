@@ -45,18 +45,17 @@ class ItemsController < BaseController
 
   private
 
+  def item_params
+    params.require(:item).permit(:name, :content, :image, :project_id, :account_id, details_attributes: [:id, :name, :description, :value, :_destroy ])
+  end
+
   def set_item
-    project = Project.find(params[:project_id])
-    @item = project.items.find(params[:item_id])
+    @item = set_project.items.find(params[:item_id])
   end
   helper_method :set_item
 
   def set_item
     @item = Item.find(params[:id])
-  end
-
-  def item_params
-    params.require(:item).permit(:name, :content, :image, :project_id, :account_id, details_attributes: [:id, :name, :description, :value, :_destroy ])
   end
 
   def set_project

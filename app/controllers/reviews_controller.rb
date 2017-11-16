@@ -3,10 +3,7 @@ class ReviewsController < BaseController
   skip_before_action :authorize_owner!, only: [:new, :create, :edit, :update, :destroy]
 
   def new
-    @project = Project.find(params[:project_id])
-    @item = @project.items.find(params[:item_id])
-    @detail = @item.details.find(params[:detail_id])
-    @review = @detail.reviews.build
+    @review = set_detail.reviews.build
   end
 
   def create
@@ -38,45 +35,35 @@ class ReviewsController < BaseController
 
   private
 
-  def check_review_limit
-
-    if set_review.user_id == curren
-      flash.now[:alert] = "You can only review once."
-    end
-  end
-
   def review_params
     params.require(:review).permit(:description, :value, :detail_id, :user_id)
   end
 
   def set_review
-    project = Project.find(params[:project_id])
-    @item = project.items.find(params[:item_id])
-    @detail = @item.details.find(params[:detail_id])
-    @review = @detail.reviews.find(params[:id])
+    @review = set_detail.reviews.find(params[:id])
   end
   helper_method :set_review
 
-  def set_item
-    @item = Item.find(params[:id])
+  def set_detail
+    @detail = set_item.details.find(params[:detail_id])
   end
+  helper_method :set_detail
+
+  def set_item
+    @item = set_project.items.find(params[:item_id])
+  end
+  helper_method :set_item
 
   def set_project
     project = Project.find(params[:project_id])
   end
   helper_method :set_project
 
-  def set_item
-    project = Project.find(params[:project_id])
-    @item = project.items.find(params[:item_id])
-  end
-  helper_method :set_item
+  def check_review_limit
 
-  def set_detail
-    project = Project.find(params[:project_id])
-    @item = project.items.find(params[:item_id])
-    @detail = @item.details.find(params[:detail_id])
+    if set_review.user_id == curren
+      flash.now[:alert] = "You can only review once."
+    end
   end
-  helper_method :set_detail
 
 end
