@@ -11,7 +11,7 @@
   post "/accounts", to: "accounts#create", as: :accounts
 
   resources :accounts do
-    
+
     get "/choose_plan",
       to: "plans#choose",
       as: :choose_plan
@@ -32,9 +32,8 @@
 
     resources :projects do
       resources :items do
-        resources :details do
-          resources :reviews
-        end
+        resources :reviews
+        resources :details
       end
       resources :boards
     end

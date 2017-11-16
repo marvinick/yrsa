@@ -109,7 +109,7 @@
           </div>
         </td>
         <td>
-          <%= link_to "Rate it", new_account_project_item_detail_review_path(current_account, set_project, @item, detail), remote: true, class:"btn btn-default btn-xs" %>
+
         </td>
       </tr>
       <% end %>
@@ -117,6 +117,7 @@
   </div>
 </div>
 
+  <%= link_to "Rate it", new_account_project_item_review_path(current_account, set_project, @item),  class:"btn btn-default btn-xs" %>
 <div id="review-modal" class="modal"></div>
 
 
@@ -139,40 +140,3 @@
 
   </div>
 </div>
-<!-- <div class="row">
-  <h4 class="text-center">
-    <% if @item.details.count > 1 %>
-      categories
-    <% else %>
-      category
-    <% end %>
-  </h4>
-  <% @item.details.each do |detail| %>
-    <div class="col-xs-6 col-md-4">
-      <div class="boxy">
-        <h4><%= link_to detail.name, account_project_item_detail_path(current_account, set_project, @item, detail) %></h4>
-        <br>
-        <h5><%= detail.description %></h5>
-        <br>
-        <% detail.reviews.last(1).each do |review| %>
-          <strong>latest rating</strong>
-          <div class="star-rating" data-score= <%= review.value %> ></div>
-          <small><%= time_ago_in_words(review.created_at) %> ago</small>
-        <% end %>
-        <br>
-
-        <% total_rv = [] %>
-        <% detail.reviews.each do |review| %>
-          <% total_rv << review.value %>
-        <% end %>
-        <strong>Average ratings</strong>
-        <% if total_rv.any? %>
-          <div class="star-rating" data-score= <%= total_rv.sum / total_rv.count %> ></div>
-        <% else %>
-          <strong>Nothing yet</strong>
-        <% end %>
-        <%= link_to "Rate the detail", new_account_project_item_detail_review_path(current_account, set_project, @item, detail), class:"btn btn-default btn-xs" %>
-      </div>
-    </div>
-  <% end %>
-</div> -->

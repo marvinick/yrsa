@@ -3,7 +3,7 @@ class ReviewsController < BaseController
   skip_before_action :authorize_owner!, only: [:new, :create, :edit, :update, :destroy]
 
   def new
-    @review = set_detail.reviews.build
+    @review = set_item.reviews.build
   end
 
   def create
@@ -11,6 +11,7 @@ class ReviewsController < BaseController
     @review.user_id = current_user.id
     if @review.save
       flash[:notice] = "You've submitted a review."
+      redirect_to account_project_item_path(current_account, set_project, set_item)
     else
       render 'new'
     end
@@ -40,14 +41,9 @@ class ReviewsController < BaseController
   end
 
   def set_review
-    @review = set_detail.reviews.find(params[:id])
+    @review = set_item.reviews.find(params[:id])
   end
   helper_method :set_review
-
-  def set_detail
-    @detail = set_item.details.find(params[:detail_id])
-  end
-  helper_method :set_detail
 
   def set_item
     @item = set_project.items.find(params[:item_id])

@@ -1,28 +1,10 @@
-<div class="row text-center">
-  <h1><%= @detail.name %></h1>
-  <h4><small><%= @detail.description %></small></h4>
-</div>
-
-<div class="row">
-  <div class="formly text-center">
-    <h3>new review</h3>
-    <br>
-    <%= form_for([current_account, set_project, set_item, @detail, @review]) do |f| %>
-      <%= f.hidden_field :detail_id %>
-      <div class="control">
-        <h5><small>from 1 as being really bad to 5 as being great</small></h5>
-        <br>
-        <div id="star-rating"></div>
-      </div>
-      <br>
-      <div class="control">
-        <h5><small>this is optional, but it'll definitely more flesh out rating</small></h5>
-        <br>
-        <%= f.text_area :description, class: "input", placeholder: "write away" %>
-      </div>
-      <br>
-      <%= f.submit "rate", class: "btn btn-default btn-lg" %>
-      <%= link_to "never mind", account_project_item_path(current_account, set_project, set_item), class: "btn btn-default btn-lg" %>
+<%= form_for([current_account, set_project, set_item, @review]) do |f| %>
+  <%= f.hidden_field :detail_id %>
+  <%= f.fields_for :properties do |builder| %>
+    <% set_item.details.each do |detail| %>
+      <%= f.label detail.name %>
+      <%= f.text_field :value, field: detail, f: builder %>
     <% end %>
-  </div>
-</div>
+  <% end %>
+  <%= f.submit "rate", class: "btn btn-default btn-lg" %>
+<% end %>
