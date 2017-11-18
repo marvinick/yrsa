@@ -1,10 +1,8 @@
 <%= form_for([current_account, set_project, set_item, @review]) do |f| %>
   <%= f.hidden_field :detail_id %>
-  <%= f.fields_for :properties do |builder| %>
-    <% set_item.details.each do |detail| %>
-      <%= f.label detail.name %>
-      <%= f.text_field :value, field: detail, f: builder %>
-    <% end %>
+  <%= f.hidden_field :item_id %>
+  <%= f.fields_for :properties, OpenStruct.new(@review.properties) do |builder| %>
+    <%= render "rating_field", f: builder %>
   <% end %>
   <%= f.submit "rate", class: "btn btn-default btn-lg" %>
 <% end %>

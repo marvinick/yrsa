@@ -14,9 +14,8 @@
   <h4><%= reviewers %> rater(s)</h4>
   <br>
 
-  <%= link_to "Rate the detail", new_account_project_item_detail_review_path(current_account, set_project, @item, @detail), class:"btn btn-default btn-lg" %>
+  <%= link_to "Rate the detail", new_account_project_item_review_path(current_account, set_project, @item), class:"btn btn-default btn-lg" %>
 </div>
-
 
 <div class="row text-center">
   <% @detail.reviews.order("updated_at DESC").each do |review| %>
@@ -28,11 +27,11 @@
     <h5><small><%= time_ago_in_words(review.created_at) %> ago</small></h5>
     <% if review.user_id == current_user.id %>
       <br>
-      <%= link_to edit_account_project_item_detail_review_path(current_account, set_project, @item, @detail, review) do %>
+      <%= link_to edit_account_project_item_review_path(current_account, set_project, @item, review) do %>
         <span class="fa fa-pencil"></span>
       <% end %>
 
-      <%= link_to [current_account, set_project, @item, @detail, review], method: :delete, data: { confirm: "Are you sure you want to remove this?"} do %>
+      <%= link_to [current_account, set_project, @item, review], method: :delete, data: { confirm: "Are you sure you want to remove this?"} do %>
         <span class="fa fa-trash"></span>
       <% end %>
       <hr>

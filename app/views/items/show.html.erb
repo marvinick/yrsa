@@ -80,45 +80,18 @@
   </div>
 </div>
 <% end %>
-
-<div class="row text-center">
-  <div style="overflow-x:auto;">
-    <table>
-      <tr>
-        <th>name</th>
-        <!-- <th>latest rating</th> -->
-        <th>rating</th>
-        <th></th>
-        <th></th>
-      </tr>
-
-      <% @item.details.each do |detail| %>
-      <tr>
-        <td><h4><%= link_to detail.name, account_project_item_detail_path(current_account, set_project, @item, detail) %></h4></td>
-        <td>
-          <div class="review-index">
-            <% total_rv = [] %>
-            <% detail.reviews.each do |review| %>
-              <% total_rv << review.value %>
-            <% end %>
-            <% if total_rv.any? %>
-              <div class="star-rating" data-score= <%= total_rv.sum / total_rv.count %> ></div>
-            <% else %>
-              <strong>Nothing yet</strong>
-            <% end %>
-          </div>
-        </td>
-        <td>
-
-        </td>
-      </tr>
-      <% end %>
-    </table>
-  </div>
-</div>
-
+<hr>
   <%= link_to "Rate it", new_account_project_item_review_path(current_account, set_project, @item),  class:"btn btn-default btn-xs" %>
-<div id="review-modal" class="modal"></div>
+
+<div class="row">
+  <% @item.reviews.each do |review| %>
+  <div class="box">
+    <% review.properties.each do |name, value| %>
+      <li><%= name %> : <%= value %></li>
+    <% end %>
+  </div>
+  <% end %>
+</div>
 
 
 <div id="footer">
