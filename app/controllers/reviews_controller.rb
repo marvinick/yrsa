@@ -1,5 +1,5 @@
 class ReviewsController < BaseController
-  before_action :set_review, except: [:new, :create]
+  before_action :set_review, except: [:new, :create, :index]
   skip_before_action :authorize_owner!, only: [:new, :create, :edit, :update, :destroy]
 
   def new
@@ -15,6 +15,10 @@ class ReviewsController < BaseController
     else
       render 'new'
     end
+  end
+
+  def index
+    @reviews = set_item.reviews.all.order('created_at DESC')
   end
 
   def edit; end

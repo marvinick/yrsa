@@ -132,16 +132,17 @@
   }
 
   .formy {
-    height: 200px;
     padding-top: 25px;
-    padding-bottom: 20px;
-    padding-right: 20px;
-    padding-left: 20px;
+    padding-bottom: 40px;
+    padding-left: 120px;
+    margin-top: 20px;  
+    margin-bottom: 20px;
     background-color: white;
     border-style: none;
   }
 
   .item {
+    width: auto;
     padding-top: 10px;
     height: auto;
     padding-bottom: 10px;

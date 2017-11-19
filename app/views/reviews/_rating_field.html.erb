@@ -1,8 +1,8 @@
-<div class="container">
-  <div class="field">
-    <% set_item.details.each do |detail| %>
-      <p class="title"><%= detail.name %></p>
-        <%= f.select detail.name, options_for_select([["1 - Bad"], ["2 - Don't care for it"], ["3 - so-so"], ["4 - Good"], ["5 - Great"]]) %>
-      <% end %>
-  </div>
+<div class="formy">
+  <% set_item.details.each do |detail| %>
+    <h3><%= detail.name %></h3>
+    <%= f.select detail.name, options_for_select([["1 - Bad"], ["2 - Don't care for it"], ["3 - so-so"], ["4 - Good"], ["5 - Great"]]) %>
+    <br>
+    <br>
+  <% end %>
 </div>
