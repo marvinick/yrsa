@@ -80,19 +80,22 @@
   </div>
 </div>
 <% end %>
+
 <hr>
-  <%= link_to "Rate it", new_account_project_item_review_path(current_account, set_project, @item),  class:"btn btn-default btn-xs" %>
+<%= render "current_user_review" %>
 
 <div class="row">
-  <% @item.reviews.each do |review| %>
-  <div class="box">
+  <% @item.reviews.order('created_at desc').last(5).each do |review| %>
+  <div class="boxy">
     <% review.properties.each do |name, value| %>
       <li><%= name %> : <%= value %></li>
     <% end %>
-    <%= link_to "edit", edit_account_project_item_review_path(current_account, set_project, @item, review) %>
-
+    <li><%= time_ago_in_words(review.created_at) %> ago</li>
+    <% if current_user.id == review.user_id %>
+      <%= link_to "edit", edit_account_project_item_review_path(current_account, set_project, @item, review) %>
+    <% end %>
   </div>
-
+  <br>
   <% end %>
 </div>
 

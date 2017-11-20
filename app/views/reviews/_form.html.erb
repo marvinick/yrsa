@@ -1,35 +1,12 @@
 
-
-
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <%= form_for([current_account, set_project, set_item, @detail, @review], remote: true, html: { style: "display:inline;" })  do |f| %>
-        <%= f.hidden_field :detail_id %>
-        <div class="modal-body">
-          <div class="control">
-            <h5><small>from 1 as being really bad to 5 as being great</small></h5>
-            <br>
-            <div id="star-rating"></div>
-          </div>
-          <br>
-          <div class="control">
-            <h5><small>this is optional, but it'll definitely more flesh out rating</small></h5>
-            <br>
-            <%= f.text_area :description, class: "input", placeholder: "write away" %>
-          </div>
-          <div class="control">
-            <%= f.submit "rate", class: "btn btn-default btn-lg" %>
-            <%= link_to "Cancel", "#", class: "btn btn-warning", data: {dismiss: "modal"} %>
-          </div>
-        </div>
-      <% end %>
+  <%= form_for([current_account, set_project, set_item, @review]) do |f| %>
+    <%= f.hidden_field :item_id %>
+    <%= f.fields_for :properties, OpenStruct.new(@review.properties) do |builder| %>
+      <%= render "rating_field", f: builder %>
+    <% end %>
+    <br>
+    <div class="text-center">
+      <%= f.submit "rate", class: "btn btn-default btn-lg " %>
+      <%= link_to "cancel", account_project_item_path(current_account, set_project, set_item), class: "btn btn-default btn-lg" %>
     </div>
-  </div>
-
-
-<script>
-$('#star-rating').raty({
-  path: '/assets/',
-  scoreName: 'review[value]'
-});
-</script>
+  <% end %>

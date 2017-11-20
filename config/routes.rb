@@ -32,7 +32,11 @@
 
     resources :projects do
       resources :items do
-        resources :reviews
+        resources :reviews do
+          member do
+            get :confirm
+          end
+        end
         resources :details
       end
       resources :boards

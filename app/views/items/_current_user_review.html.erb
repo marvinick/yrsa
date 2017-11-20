@@ -1,0 +1,14 @@
+<% if reviewers.include?(current_user.email) %>
+  <h3>You've submitted a review</h3>
+  <% @item.reviews.last(1).each do |review| %>
+    <% if current_user.id == review.user_id %>
+      <% review.properties.each do |name, value| %>
+        <li><%= name %> : <%= value %></li>
+      <% end %>
+      <li><%= time_ago_in_words(review.created_at) %> ago</li>
+      <%= link_to "edit", edit_account_project_item_review_path(current_account, set_project, @item, review) %>
+    <% end %>
+  <% end %>
+<% else %>
+  <%= link_to "Rate it", new_account_project_item_review_path(current_account, set_project, @item),  class:"btn btn-default btn-xs" %>
+<% end %>

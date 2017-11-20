@@ -1,6 +1,7 @@
 class ReviewsController < BaseController
   before_action :set_review, except: [:new, :create, :index]
-  skip_before_action :authorize_owner!, only: [:new, :create, :edit, :update, :destroy]
+  skip_before_action :authorize_owner!, only: [:new, :create, :edit, :update, :destroy, :index]
+  before_action :authorize_reviewer, only: [:edit, :update, :destroy]
 
   def new
     @review = set_item.reviews.build
@@ -12,6 +13,7 @@ class ReviewsController < BaseController
     if @review.save
       flash[:notice] = "You've submitted a review."
       redirect_to account_project_item_path(current_account, set_project, set_item)
+      # redirect_to account_project_item_review_confirm(current_account, set_project, set_item, @review)
     else
       render 'new'
     end
@@ -38,9 +40,19 @@ class ReviewsController < BaseController
     redirect_to account_project_item_detail_path(current_account, set_project, set_item, set_detail)
   end
 
+  def confirm; end
+
   private
 
+  def authorize_reviewer
+    if @review.user_id != current_user.id
+      flash.now[:alert] = "You're not authorized to do that."
+      redirect_to account_project_item_path(current_account, set_project, set_item)
+    end
+  end
+
   def review_params
+    # params.require(:review).permit(:item_id, :detail_id, :id, :description, :value, properties: [:value, :name, :_destroy])
     params.require(:review).permit!
   end
 

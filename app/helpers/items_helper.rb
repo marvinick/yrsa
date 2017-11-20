@@ -2,10 +2,8 @@ module ItemsHelper
 
   def reviewers
     reviewers = []
-    @item.details.each do |detail|
-      detail.reviews.each do |review|
-        reviewers << review.user.email
-      end
+    @item.reviews.each do |review|
+      reviewers << review.user.email
     end
     reviewers.uniq
   end
