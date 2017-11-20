@@ -12,8 +12,8 @@ class ReviewsController < BaseController
     @review.user_id = current_user.id
     if @review.save
       flash[:notice] = "You've submitted a review."
-      redirect_to account_project_item_path(current_account, set_project, set_item)
-      # redirect_to account_project_item_review_confirm(current_account, set_project, set_item, @review)
+      # redirect_to account_project_item_path(current_account, set_project, set_item)
+      redirect_to confirm_account_project_item_review_path(current_account, set_project, set_item, @review)
     else
       render 'new'
     end
@@ -37,7 +37,7 @@ class ReviewsController < BaseController
   def destroy
     @review.destroy
     flash[:notice] = "You have deleted your review."
-    redirect_to account_project_item_detail_path(current_account, set_project, set_item, set_detail)
+    redirect_to account_project_item_path(current_account, set_project, set_item)
   end
 
   def confirm; end
