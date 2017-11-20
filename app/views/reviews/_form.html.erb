@@ -1,6 +1,6 @@
 
   <%= form_for([current_account, set_project, set_item, @review]) do |f| %>
-    <%= f.hidden_field :item_id %>
+    
     <%= f.fields_for :properties, OpenStruct.new(@review.properties) do |builder| %>
       <%= render "rating_field", f: builder %>
     <% end %>
