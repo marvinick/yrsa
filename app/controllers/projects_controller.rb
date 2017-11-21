@@ -21,7 +21,11 @@ class ProjectsController < BaseController
   end
 
   def show
-
+    @items = if params[:term]
+      set_project.items.where('name ILIKE ?', "%#{params[:term]}%")
+    else
+      set_project.items.all
+    end
   end
 
   def edit; end

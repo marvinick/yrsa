@@ -46,7 +46,7 @@ class ItemsController < BaseController
   private
 
   def item_params
-    params.require(:item).permit(:name, :content, :image, :project_id, :account_id, details_attributes: [:id, :name, :description, :value, :_destroy ])
+    params.require(:item).permit(:term, :name, :content, :image, :project_id, :account_id, details_attributes: [:id, :name, :description, :value, :_destroy ])
   end
 
   def set_item

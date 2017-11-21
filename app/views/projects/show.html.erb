@@ -1,3 +1,14 @@
+<% for item in @items %>
+  <div class='task'>
+      <strong> <%= item.name %> </strong>
+  </div>
+<% end %>
+
+<%= form_tag(account_project_path(current_account, @project), method: :get) do %>
+  <%= text_field_tag :term, params[:term]  %>
+  <%= submit_tag 'Search' %>
+<% end %>
+
 <div class="row text-center">
   <div class="dropdown-container">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
