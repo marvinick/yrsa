@@ -40,10 +40,10 @@ gem "devise"
 gem 'stripe'
 gem 'money'
 
+#search
+gem 'pg_search'
+
 #upload images
-gem 'refile', github: 'refile/refile', require: 'refile/rails'
-gem 'refile-mini_magick', github: 'refile/refile-mini_magick'
-gem 'sinatra', github: 'sinatra/sinatra', branch: 'master'
 gem 'paperclip'
 gem 'aws-sdk', '< 3.0'
 gem 'dropzonejs-rails'
