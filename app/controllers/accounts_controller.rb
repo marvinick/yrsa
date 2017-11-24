@@ -46,7 +46,9 @@ class AccountsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    
+  end
 
   private
 
