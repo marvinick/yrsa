@@ -1,15 +1,12 @@
-class LookupsController < BaseController
-  def search
-    @items = if params[:term]
-      set_project.items.where('name ILIKE ?', "%#{params[:term]}%")
-      redirect_to account_lookups_path(current_account)
-    else
-      set_project.items.all
-    end
-  end
+class LookupsController < ApplicationController
 
   def index
-    set_project.items.where('name ILIKE ?', "%#{params[:term]}%")
+    @lookups = if params[:term]
+      Project.where('title ILIKE ?', "%#{params[:term]}%")
+    else
+      Project.all
+    end
+
   end
 
   private

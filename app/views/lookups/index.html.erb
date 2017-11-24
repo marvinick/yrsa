@@ -1,3 +1,21 @@
-<% set_projects.each do |project| %>
-  <%= project.title %>
+<%= form_tag(lookups_path, method: :get) do %>
+  <li><%= text_field_tag :term, params[:term]  %></li>
+  <li><%= submit_tag 'Search', class:"btn btn-defaul" %></li>
 <% end %>
+
+<div class="row">
+  <% if @lookups.present? %>
+    <% @lookups.each do |project| %>
+      <% if project.user_id == current_user.id %>
+        <li><h3><%= project.title %></h3></li>
+        <% project.items.each do |item| %>
+          <div class="box">
+            <li><%= item.name %></li>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <h1>Search it</h1>
+  <% end %>
+</div>
