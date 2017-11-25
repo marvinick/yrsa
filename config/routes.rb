@@ -50,13 +50,11 @@
     end
 
     resources :users, only: [:index, :destroy]
+
+    resources :lookups, only: [:index]
   end
 
-  resources :lookups, only: [:index] do
-    member do
-      get :search
-    end
-  end 
+
 
   namespace :admin do
     root to: "members#index"

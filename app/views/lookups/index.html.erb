@@ -1,21 +1,23 @@
-<%= form_tag(lookups_path, method: :get) do %>
+<%= form_tag(account_lookups_path, method: :get ) do %>
   <li><%= text_field_tag :term, params[:term]  %></li>
-  <li><%= submit_tag 'Search', class:"btn btn-defaul" %></li>
+  <li><%= submit_tag 'Search', name: nil, class:"btn btn-defaul" %></li>
 <% end %>
 
-<div class="row">
-  <% if @lookups.present? %>
-    <% @lookups.each do |project| %>
-      <% if project.user_id == current_user.id %>
-        <li><h3><%= project.title %></h3></li>
-        <% project.items.each do |item| %>
-          <div class="box">
-            <li><%= item.name %></li>
-          </div>
+<% if params[:term].present? %>
+  <div class="row">
+    <% if @lookups.blank? %>
+      <p>nada</p>
+    <% else %>
+      <% @lookups.each do |project| %>
+        <% if project.user_id == current_user.id %>
+          <li><h3><%= link_to project.title, account_project_path(current_account, project) %></h3></li>
+          <% project.items.each do |item| %>
+            <div class="box">
+              <li><%= item.name %></li>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
     <% end %>
-  <% else %>
-    <h1>Search it</h1>
-  <% end %>
-</div>
+  </div>
+<% end %>
