@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171116070922) do
+ActiveRecord::Schema.define(version: 20171125061128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 20171116070922) do
     t.integer  "author_id"
     t.integer  "account_id"
     t.integer  "user_id"
+    t.boolean  "is_public"
     t.index ["author_id"], name: "index_projects_on_author_id", using: :btree
   end
 

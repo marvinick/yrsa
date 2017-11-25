@@ -20,13 +20,26 @@
       <hr>
       <br>
       <h3>
+
+        <%= form_tag(home_path, method: :get ) do %>
+          <li><%= text_field_tag :term, params[:term]  %></li>
+          <li><%= submit_tag 'Search', name: nil, class:"btn btn-defaul" %></li>
+        <% end %>
         <small>
+          <% if params[:term].present? %>
+            <% if @projects.blank? %>
+              <p>nada</p>
+            <% else %>
+              <% @projects.each do |p| %>
+                <li><%= link_to p.title, home_path %></li>
+              <% end %>
+            <% end %>
+          <% end %>
           the premise is simple: break them down. User will have a choice whether to rate a place in general OR rate exactly of what they know.
         </small>
       </h3>
     </div>
   </div>
-
   <br>
   <br>
 
@@ -48,7 +61,7 @@
 
 <div id="footer">
   <div class="icon-bar">
-    
+
       <i class="fa fa"> </i>
 
     <a href="#"><i class="fa fa-"></i></a>
