@@ -1,11 +1,12 @@
 class LookupsController < BaseController
 
   def index
-    @lookups = if params[:term]
-      current_account.projects.where('title ILIKE ?', "%#{params[:term]}%")
-    else
-      current_account.projects.all
-    end
+    @lookups = current_account.projects.search_name(params[:query])
+    # @lookups = if params[:term]
+    #   current_account.projects.where('title ILIKE ?', "%#{params[:term]}%")
+    # else
+    #   current_account.projects.all
+    # end
   end
 
   private

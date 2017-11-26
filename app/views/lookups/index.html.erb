@@ -1,9 +1,9 @@
 <%= form_tag(account_lookups_path, method: :get ) do %>
-  <li><%= text_field_tag :term, params[:term]  %></li>
+  <li><%= text_field_tag :query, params[:query]  %></li>
   <li><%= submit_tag 'Search', name: nil, class:"btn btn-defaul" %></li>
 <% end %>
 
-<% if params[:term].present? %>
+<% if params[:query].present? %>
   <div class="row">
     <% if @lookups.blank? %>
       <p>nada</p>
