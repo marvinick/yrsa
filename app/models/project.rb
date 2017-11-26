@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
   include PgSearch
-  # multisearchable :against => [:title]
-  pg_search_scope :search_name, :against => [:title]
+  multisearchable against: [:title]
+  # pg_search_scope :search_name, :against => [:title], using: { tsearch: { prefix: true } }
 
   belongs_to :account, optional: true
 

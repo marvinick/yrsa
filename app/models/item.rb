@@ -1,4 +1,8 @@
 class Item < ApplicationRecord
+  include PgSearch
+  multisearchable against: :name
+  # pg_search_scope :search_name, :against => [:name], using: { tsearch: { prefix: true } }
+
   belongs_to :project, optional: true
   has_many :details, dependent: :destroy
   has_many :reviews, dependent: :destroy

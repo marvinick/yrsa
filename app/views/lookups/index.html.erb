@@ -5,17 +5,14 @@
 
 <% if params[:query].present? %>
   <div class="row">
-    <% if @lookups.blank? %>
+    <% if @pg_search_documents.blank? %>
       <p>nada</p>
     <% else %>
-      <% @lookups.each do |project| %>
-        <% if project.user_id == current_user.id %>
-          <li><h3><%= link_to project.title, account_project_path(current_account, project) %></h3></li>
-          <% project.items.each do |item| %>
-            <div class="box">
-              <li><%= item.name %></li>
-            </div>
-          <% end %>
+      <% @pg_search_documents.each do |pg_search_document| %>
+        <% if pg_search_document.searchable.respond_to?(:title) %>
+          <h4>Project: </h4> <%= pg_search_document.searchable.title %>
+        <% else %>
+          <h4>Item: </h4> <%= pg_search_document.searchable.name %>
         <% end %>
       <% end %>
     <% end %>
