@@ -3,7 +3,7 @@
 </div>
 
 <div class="row">
-  <%= form_for([current_account, set_project, @item]) do |f| %>
+  <%= form_for([current_account, set_project, @item], html: { multipart: true, class: "dropzone"}) do |f| %>
 
     <div class="formly text-center">
       <h2>edit item</h2>

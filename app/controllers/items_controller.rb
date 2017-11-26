@@ -2,6 +2,7 @@ class ItemsController < BaseController
   before_action :set_project
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   skip_before_action :authorize_owner!, only: [:index, :show]
+  # respond_to :html, :json
 
   def index
     @items = current_account.project.items.all
@@ -12,11 +13,26 @@ class ItemsController < BaseController
     @item = @project.items.build
   end
 
+  # def create
+  #   @item = Item.new(item_params)
+  #   if @item.save
+  #     flash[:notice] = "An item is created."
+  #     redirect_to [current_account, set_project, @item]
+  #   else
+  #     flash.now[:alert] = "Something is wrong."
+  #     render "new"
+  #   end
+  # end
+
   def create
     @item = Item.new(item_params)
     if @item.save
-      flash[:notice] = "An item is created."
-      redirect_to [current_account, set_project, @item]
+      respond_to do |format|
+        format.html { redirect_to [current_account, set_project, @item], notice: 'item was created' }
+        format.json do
+          render json: { message: "success", fileID: @item.id }, status: 200
+        end
+      end
     else
       flash.now[:alert] = "Something is wrong."
       render "new"

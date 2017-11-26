@@ -10,9 +10,11 @@
     <% else %>
       <% @pg_search_documents.each do |pg_search_document| %>
         <% if pg_search_document.searchable.respond_to?(:title) %>
-          <h4>Project: </h4> <%= pg_search_document.searchable.title %>
-        <% else %>
-          <h4>Item: </h4> <%= pg_search_document.searchable.name %>
+            <% if current_user.id == pg_search_document.searchable.user_id %>
+              <h4>Project: </h4> <%= link_to pg_search_document.searchable.title, [current_account, pg_search_document.searchable] %>
+            <% end %>
+        <% elsif pg_search_document.searchable.class == Item %>
+          <h4>Item: </h4> <%= link_to pg_search_document.searchable.name, [current_account, pg_search_document.searchable.project, pg_search_document.searchable] %>
         <% end %>
       <% end %>
     <% end %>

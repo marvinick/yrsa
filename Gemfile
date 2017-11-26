@@ -15,6 +15,7 @@ gem 'jquery-rails'
 gem 'turbolinks', github: 'rails/turbolinks'
 gem 'jbuilder', '~> 2.5'
 gem 'rack'
+gem "responders"
 
 #frontend
 gem "twitter-bootstrap-rails"
@@ -48,6 +49,8 @@ gem 'paperclip'
 gem 'aws-sdk', '< 3.0'
 gem 'dropzonejs-rails'
 gem 'dotenv-rails', groups: [:development]
+gem 'delayed_paperclip'
+
 
 group :development, :test do
   gem 'byebug', platform: :mri
