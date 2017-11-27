@@ -13,31 +13,30 @@ class ItemsController < BaseController
     @item = @project.items.build
   end
 
-  # def create
-  #   @item = Item.new(item_params)
-  #   if @item.save
-  #     flash[:notice] = "An item is created."
-  #     redirect_to [current_account, set_project, @item]
-  #   else
-  #     flash.now[:alert] = "Something is wrong."
-  #     render "new"
-  #   end
-  # end
-
   def create
     @item = Item.new(item_params)
     if @item.save
-      respond_to do |format|
-        format.html { redirect_to [current_account, set_project, @item], notice: 'item was created' }
-        format.json do
-          render json: { message: "success", fileID: @item.id }, status: 200
-        end
-      end
+      flash[:notice] = "An item is created."
+      redirect_to [current_account, set_project, @item]
     else
       flash.now[:alert] = "Something is wrong."
       render "new"
     end
   end
+
+  # def create
+  #   @item = Item.new(item_params)
+  #   if @item.save
+  #     respond_to do |format|
+  #       format.json do
+  #         render nothing: true, status: 200
+  #       end
+  #     end
+  #   else
+  #     flash.now[:alert] = "Something is wrong."
+  #     render "new"
+  #   end
+  # end
 
   def show; end
 

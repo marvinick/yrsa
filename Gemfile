@@ -36,6 +36,7 @@ gem 'public_activity'
 
 #authentication
 gem "devise"
+gem "omniauth-google-oauth2"
 
 #paymentsubscription
 gem 'stripe'

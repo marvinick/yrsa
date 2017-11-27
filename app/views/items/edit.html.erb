@@ -3,7 +3,7 @@
 </div>
 
 <div class="row">
-  <%= form_for([current_account, set_project, @item], html: { multipart: true, class: "dropzone"}) do |f| %>
+  <%= form_for([current_account, set_project, @item]) do |f| %>
 
     <div class="formly text-center">
       <h2>edit item</h2>
@@ -17,7 +17,7 @@
         <%= f.text_field :content, placeholder: 'content', label: false, class: "input"  %>
       </div>
       <div class="control-image">
-        <%= f.file_field :image, class: "pull-right" %>
+        <%= f.file_field :image, class:"btn btn-default"  %>
       </div>
     </div>
     <br>
