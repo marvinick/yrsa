@@ -15,6 +15,7 @@ class Item < ApplicationRecord
   }
 
   validates_presence_of :name
+  validates :content, length: {minimum: 5, maximum: 280}, allow_blank: false
 
   validates_attachment_content_type :image,
 		content_type:  /^image\/(png|gif|jpeg)/,

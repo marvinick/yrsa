@@ -15,7 +15,12 @@
   </div>
 
   <div class="subtitle">
-    <h4><%= @project.description %></h4>
+    <% if @project.description.length > 100 %>
+      <%= truncate(@project.description, length: 100) %>
+      <%= link_to '...Read more', '', class: "read-more-#{@project.id}" %>
+    <% else %>
+      <h4><%= @project.description %></h4>
+    <% end %>
   </div>
 </div>
 
@@ -113,3 +118,10 @@
 
   </div>
 </div>
+
+<script>
+  $('.read-more-<%= @project.id %>').on('click', function(e) {
+    e.preventDefault()
+    $(this).parent().html('<%= escape_javascript @project.description %>')
+  })
+</script>

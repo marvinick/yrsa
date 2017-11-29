@@ -22,9 +22,10 @@
  @import "desktop";
  @import "tablet";
  @import "growlyflash";
+ @import "toggle";
 
 html, body {
-  background-color: #fffaf4;
+  background-color: #f9f7f4;
   padding-left: 0px;
   padding-right:0px;
 }
@@ -67,7 +68,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar {
-  background-color: #fffdfc;
+  background-color: #ffffff;
   font-size: 18px;
 }
 

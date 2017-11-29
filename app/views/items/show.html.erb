@@ -1,3 +1,7 @@
+<div>
+
+<div>
+
 <div class="row text-center">
   <div class="dropdown-container">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -13,7 +17,12 @@
       </h5>
     </li>
     <div class="subtitle">
-      <h4><%= @item.content %></h4>
+      <% if @item.content.length > 100 %>
+        <%= truncate(@item.content, length: 100) %>
+        <%= link_to '...Read more', '', class: "read-more-#{@item.id}" %>
+      <% else %>
+        <h4><%= @item.content %></h4>
+      <% end %>
     </div>
     <ul class="dropdown-menu">
       <li><a href="#"> <%= link_to set_project.title, account_project_path(current_account, set_project) %></a></li>
@@ -121,3 +130,9 @@
 
   </div>
 </div>
+<script>
+  $('.read-more-<%= @item.id %>').on('click', function(e) {
+    e.preventDefault()
+    $(this).parent().html('<%= escape_javascript @item.content %>')
+  })
+</script>

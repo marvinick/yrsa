@@ -10,11 +10,11 @@
       <br>
       <%= f.hidden_field :project_id %>
       <div class="control">
-        <%= f.text_field :name, placeholder: 'name', label: false, class: "input " %>
+        <%= f.text_field :name, placeholder: 'name', label: false, class: "input ", :maxlength => 25, :size => 40 %>
       </div>
       <br>
       <div class="control">
-        <%= f.text_field :content, placeholder: 'content', label: false, class: "input"  %>
+        <%= f.text_field :content, placeholder: 'content', label: false, class: "input", :maxlength => 280, :size => 40  %>
       </div>
       <div class="control-image">
         <%= f.file_field :image, class:"btn btn-default"  %>

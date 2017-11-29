@@ -12,6 +12,8 @@ class Project < ApplicationRecord
 
   has_many :boards
 
+  validates :description, length: {minimum: 5, maximum: 280}, allow_blank: false
+
   def as_json(options={})
     super(methods: [:email])
   end

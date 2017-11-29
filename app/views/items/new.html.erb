@@ -4,26 +4,25 @@
 
 <div class="row">
   <%= form_for([current_account, set_project, @item]) do |f| %>
-    <div class="formly text-center">
-      <h2>new item</h2>
-      <br>
-      <%= f.hidden_field :project_id %>
-      <div class="control">
-        <%= f.text_field :name, placeholder: 'name', label: false, class:"input" %>
-      </div>
-      <br>
-      <div class="control">
-        <%= f.text_area :content, placeholder: 'content', label: false, class:"input" %>
-      </div>
-      <br>
-      <div class="control-image">
-        <%= f.file_field :image, class:"btn btn-default"  %>
-      </div>
+  <div class="formly text-center">
+    <h2>edit item</h2>
+    <br>
+    <%= f.hidden_field :project_id %>
+    <div class="control">
+      <%= f.text_field :name, placeholder: 'name', label: false, class: "input ", :maxlength => 25, :size => 40 %>
     </div>
     <br>
-    <div class="links text-center">
-      <h3><%= link_to_add_association '+ add detail', f, :details %></h3>
+    <div class="control">
+      <%= f.text_field :content, placeholder: 'content', label: false, class: "input", :maxlength => 280, :size => 40  %>
     </div>
+    <div class="control-image">
+      <%= f.file_field :image, class:"btn btn-default"  %>
+    </div>
+  </div>
+  <br>
+  <div class="links text-center">
+    <h3><%= link_to_add_association '+ add detail', f, :details %></h3>
+  </div>
 
     <%= f.fields_for :details do |detail| %>
       <%= render "detail_fields", f: detail %>

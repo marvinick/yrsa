@@ -1,0 +1,16 @@
+<div class="formly text-center">
+  <h2>new item</h2>
+  <br>
+  <%= f.hidden_field :project_id %>
+  <div class="control">
+    <%= f.text_field :name, placeholder: 'name', label: false, class:"input" %>
+  </div>
+  <br>
+  <div class="control">
+    <%= f.text_area :content, placeholder: 'content', label: false, class:"input" %>
+  </div>
+  <br>
+  <div class="control-image">
+    <%= f.file_field :image, class:"btn btn-default"  %>
+  </div>
+</div>
