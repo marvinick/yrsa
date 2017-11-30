@@ -1,0 +1,16 @@
+<div class="row">
+  <% @item.reviews.order('created_at desc').last(5).each do |review| %>
+  <div class="boxy">
+    <% review.properties.each do |name, value| %>
+      <li><%= name %> : <%= value %></li>
+    <% end %>
+    <li><%= time_ago_in_words(review.created_at) %> ago</li>
+    <% if current_user.id == review.user_id %>
+      <%= link_to "edit", edit_account_project_item_review_path(current_account, set_project, @item, review) %>
+      <li><%= link_to "remove it", [current_account, set_project, @item, review], method: :delete, data: { confirm: "Are you sure you want to remove this?"} %></li>
+    <% end %>
+  </div>
+  <br>
+  <% end %>
+</div>
+<h4><%= link_to 'see all reviews', account_project_item_reviews_path(current_account, set_project, @item, @reviews) %></h4>

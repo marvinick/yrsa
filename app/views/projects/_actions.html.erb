@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-6">
+    <% if @project.user_id == current_user.id %>
+      <li class="text-center"><%= link_to "add item", new_account_project_item_path(current_account, @project), class: "btn btn-default btn-xs" %></li>
+    <% end %>
+  </div>
+  <div class="col-md-6 text-center">
+    <div class="dropdown-container">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        <button class="btn bnt-def">Search</button>
+      </a>
+      <ul class="dropdown-menu" style="padding-left: 30px;">
+        <li>
+        <%= form_tag(account_project_path, method: :get) do %>
+          <li><%= text_field_tag :term, params[:term]  %></li>
+          <li><%= submit_tag 'Search', class:"btn btn-defaul" %></li>
+        <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="board-show">
+      <div class="text-center">
+        <%= link_to "message board", new_account_project_board_path(current_account, @project), remote: true, class: "btn btn-success btn-lg " %>
+      </div>
+    <%= render "show_boards" %>
+  </div>
+</div>
+
+<div id="board-modal" class="modal"></div>

@@ -1,40 +1,4 @@
-<div>
-
-<div>
-
-<div class="row text-center">
-  <div class="dropdown-container">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-      <h1><%= @item.name %></h1>
-    </a>
-    <li>
-      <h5>
-        <% if item_average_rating.present? %>
-          <div class="star-rating" data-score= <%= item_average_rating %> ></div>
-        <% else %>
-          <h5>No reviews yet</h5>
-        <% end %>
-      </h5>
-    </li>
-    <div class="subtitle">
-      <% if @item.content.length > 100 %>
-        <%= truncate(@item.content, length: 100) %>
-        <%= link_to '...Read more', '', class: "read-more-#{@item.id}" %>
-      <% else %>
-        <h4><%= @item.content %></h4>
-      <% end %>
-    </div>
-    <ul class="dropdown-menu">
-      <li><a href="#"> <%= link_to set_project.title, account_project_path(current_account, set_project) %></a></li>
-      <% if set_project.user_id == current_user.id %>
-        <li role="separator" class="divider"></li>
-        <li>
-          <%= link_to "edit", edit_account_project_item_path(current_account, set_project, @item) %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-</div>
+<%= render "header" %>
 
 <div class="row">
   <div class="col-md-6">
@@ -48,88 +12,16 @@
   </div>
 </div>
 
-<% if set_project.user_id == current_user.id %>
-<div class="row">
-  <div class="col-md-3 col-xs-6">
-    <div class="stats1">
-      <h5> Reviewers: <%= all_reviewers %></h5>
-    </div>
-  </div>
-  <div class="col-md-3 col-xs-6">
-    <div class="stats2">
-      <% if total_reviews > 1 %>
-        <h5>reviews: <strong><%= total_reviews %> </strong></h5>
-      <% else %>
-          <h5>review: <strong><%= total_reviews %> </strong></h5>
-      <% end %>
-    </div>
-  </div>
-  <div class="col-md-3 col-xs-6">
-    <div class="stats3">
-      <h5>
-        <% if @item.details.count > 1 %>
-          categories: <%= @item.details.count %>
-        <% else %>
-          category: <%= @item.details.count %>
-        <% end %>
-      </h5>
-    </div>
-  </div>
-  <div class="col-md-3 col-xs-6">
-    <div class="stats4">
+<%= render "more_stats" %>
 
-      <li>
-        <h5>added <%= time_ago_in_words(@item.created_at) %> ago </h5>
-      </li>
-      <li>
-        <h5>last update <%= time_ago_in_words(@item.updated_at) %> ago </h5>
-      </li>
-    </div>
-  </div>
-</div>
-<% end %>
-
-<hr>
 <%= render "current_user_review" %>
 
-<div class="row">
-  <% @item.reviews.order('created_at desc').last(5).each do |review| %>
-  <div class="boxy">
-    <% review.properties.each do |name, value| %>
-      <li><%= name %> : <%= value %></li>
-    <% end %>
-    <li><%= time_ago_in_words(review.created_at) %> ago</li>
-    <% if current_user.id == review.user_id %>
-      <%= link_to "edit", edit_account_project_item_review_path(current_account, set_project, @item, review) %>
-      <li><%= link_to "remove it", [current_account, set_project, @item, review], method: :delete, data: { confirm: "Are you sure you want to remove this?"} %></li>
-    <% end %>
-  </div>
-  <br>
-  <% end %>
-</div>
+<% if @item.reviews.present? %>
+  <%= render "reviews" %>
+<% end %>
 
-<%= link_to 'see all reviews', account_project_item_reviews_path(current_account, set_project, @item, @reviews) %>
+<%= render "footer" %>
 
-
-<div id="footer">
-  <div class="icon-bar">
-    <%= link_to account_project_path(current_account, set_project) do %>
-      <i class="fa fa-building"> </i>
-    <% end %>
-    <a href="#"><i class="fa fa-"></i></a>
-    <%= link_to root_url do %>
-      <span class="fa fa-home"></span>
-    <% end %>
-    <a href="#"><i class="fa fa-"></i></a>
-
-    <%= link_to edit_account_project_item_path(current_account, set_project, @item) do %>
-      <i class="fa fa-gear"></i>
-    <% end %>
-  </div>
-  <div class="container">
-
-  </div>
-</div>
 <script>
   $('.read-more-<%= @item.id %>').on('click', function(e) {
     e.preventDefault()

@@ -1,0 +1,19 @@
+<div class="row">
+  <% if @items.present? %>
+    <% @items.each do |item| %>
+      <div class="col-md-4 col-xs-6">
+        <%= link_to account_project_item_path(current_account, @project, item) do %>
+          <div class="item">
+            <%= image_tag(item.image.url(:large), class: "img-responsive") %>
+            <h4><strong><%= item.name %></strong></h4>
+          </div>
+          <br>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="boxy">
+      <h3>cant' find anything with that search term</h3>
+    </div>
+  <% end %>
+</div>
