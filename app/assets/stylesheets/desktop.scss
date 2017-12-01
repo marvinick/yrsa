@@ -4,25 +4,29 @@
    .row {
      padding-top: 5px;
      padding-bottom: 5px;
-     margin-top: 5px;
+     margin-top: 50px;
      margin-bottom: 5px;
 
    }
 
   .container {
-    max-width: 60%;
+    max-width: 100%;
     padding-bottom: 150px;
   }
 
   .container-fluid {
-    padding-left: 10px;
-    padding-right: 0px;
-    margin-left: 0px;
-    margin-right: -5px;
+
+    
+    margin-left: 10px;
+    margin-right: 10px;
   }
 
   .landing-image {
     padding-right: 70px;
+  }
+
+  .col-md-4 {
+    margin-bottom: 30px;
   }
 
   .big {
@@ -189,7 +193,7 @@
   }
 
   .control-image {
-    
+
 
     margin-left: 90px;
 
