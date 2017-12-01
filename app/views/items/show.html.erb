@@ -1,30 +1,20 @@
-<%= render "header" %>
 
-<div class="row">
-  <div class="col-md-6">
-    <%= image_tag(@item.image.url(:xlarge), class: "img-responsive img-rounded") %>
-  </div>
-  <br>
-  <div class="col-md-6">
-    <div class="formy">
-      <%= render "stats" %>
-    </div>
-  </div>
+<div class="col-md-8">
+  <%= render "header" %>
+  <hr>
+  <%= image_tag(@item.image.url(:xlarge), class: "img-responsive img-rounded") %>
+  <hr>
+  <%= render "stats" %>
+  <hr>
+  <%= render "current_user_review" %>
+  <hr>
+  <% if @item.reviews.present? %>
+    <%= render "reviews" %>
+  <% end %>
+</div>
+<div class="col-md-1"></div>
+<div class="col-md-3">
+  <%= render "more_stats" %>
 </div>
 
-<%= render "more_stats" %>
-
-<%= render "current_user_review" %>
-
-<% if @item.reviews.present? %>
-  <%= render "reviews" %>
-<% end %>
-
 <%= render "footer" %>
-
-<script>
-  $('.read-more-<%= @item.id %>').on('click', function(e) {
-    e.preventDefault()
-    $(this).parent().html('<%= escape_javascript @item.content %>')
-  })
-</script>

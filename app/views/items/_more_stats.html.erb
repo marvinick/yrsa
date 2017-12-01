@@ -1,11 +1,11 @@
 <% if set_project.user_id == current_user.id %>
 <div class="row">
-  <div class="col-md-3 col-xs-6">
+
     <div class="stats1">
       <h5> Reviewers: <%= all_reviewers %></h5>
     </div>
-  </div>
-  <div class="col-md-3 col-xs-6">
+
+
     <div class="stats2">
       <% if total_reviews > 1 %>
         <h5>reviews: <strong><%= total_reviews %> </strong></h5>
@@ -13,8 +13,8 @@
           <h5>review: <strong><%= total_reviews %> </strong></h5>
       <% end %>
     </div>
-  </div>
-  <div class="col-md-3 col-xs-6">
+
+
     <div class="stats3">
       <h5>
         <% if @item.details.count > 1 %>
@@ -24,8 +24,7 @@
         <% end %>
       </h5>
     </div>
-  </div>
-  <div class="col-md-3 col-xs-6">
+
     <div class="stats4">
       <li>
         <h5>added <%= time_ago_in_words(@item.created_at) %> ago </h5>
@@ -34,6 +33,6 @@
         <h5>last update <%= time_ago_in_words(@item.updated_at) %> ago </h5>
       </li>
     </div>
-  </div>
+  
 </div>
 <% end %>
