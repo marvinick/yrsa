@@ -43,8 +43,12 @@ ul, li {
 }
 
 h1 {
-  font-size: 48px;
-  color: black;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-size: 48px;
+	font-style: normal;
+	font-variant: small-caps;
+	font-weight: 700;
+	line-height: 26.4px;
 }
 
 h2 small {
@@ -57,7 +61,7 @@ h3 {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+  font-family: Futura, "BT Pro Book", Arial, sans-serif;
   margin: 0;
 }
 
@@ -72,12 +76,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar {
-  background-color: #ffffff;
+  background-color: #556d7f;
   font-size: 18px;
 }
 
 .navbar > li > a {
-  color: white; /*Change active text color here*/
+  color: #f9f7f4; /*Change active text color here*/
 }
 
 .box {
