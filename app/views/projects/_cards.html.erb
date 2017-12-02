@@ -1,10 +1,14 @@
 <div class="row">
+  <h4> These are the list of the items you have so far.</h4>
+  <br>
   <% if @items.present? %>
     <% @items.each do |item| %>
       <%= link_to account_project_item_path(current_account, @project, item), class: 'link-to-text-color' do %>
         <div class="col-md-3 col-xs-6">
-          <%= image_tag(item.image.url(:large), class: "img-responsive") %>
-          <h4><%= item.name %></h4>
+          <div class="boxy">
+            <%= image_tag(item.image.url(:large), class: "img-responsive") %>
+            <h4><%= item.name %></h4>
+          </div>
         </div>
       <% end %>
     <% end %>

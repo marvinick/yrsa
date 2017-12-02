@@ -25,7 +25,7 @@
  @import "toggle";
 
 html, body {
-  background-color: #f9f7f4;
+  background-color: white;
   padding-left: 0px;
   padding-right:0px;
 }
@@ -87,7 +87,7 @@ h1, h2, h3, h4, h5, h6 {
 .box {
   border-style: none;
   background-color: white;
-  box-shadow: 0 6px 4px -4px black;
+  box-shadow: 20px 15px 100px -20px #556d7f;
 }
 
 .subtitle h4 {
@@ -99,7 +99,7 @@ h1, h2, h3, h4, h5, h6 {
 .boxy {
   border-style: none;
   background-color: white;
-  box-shadow: 0 6px 4px -4px black;
+  box-shadow: 20px 15px 100px -20px black;
 }
 
 .box a:link {
