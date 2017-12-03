@@ -1,20 +1,23 @@
-
-<div class="col-md-8">
-  <%= render "header" %>
-  <hr>
-  <%= image_tag(@item.image.url(:xlarge), class: "img-responsive img-rounded") %>
-  <hr>
-  <%= render "stats" %>
-  <hr>
-  <%= render "current_user_review" %>
-  <hr>
-  <% if @item.reviews.present? %>
-    <%= render "reviews" %>
-  <% end %>
-</div>
-<div class="col-md-1"></div>
-<div class="col-md-3">
-  <%= render "more_stats" %>
+<div class="row">
+  <div class="col-md-8">
+    <div class="box">
+      <%= render "header" %>
+    </div>
+    <hr>
+    <%= image_tag(@item.image.url(:xlarge), class: "img-responsive img-rounded") %>
+    <hr>
+    <%= render "stats" %>
+    <hr>
+    <%= render "current_user_review" %>
+    <hr>
+    <% if @item.reviews.present? %>
+      <%= render "reviews" %>
+    <% end %>
+  </div>
+  <div class="col-md-1"></div>
+  <div class="col-md-3">
+    <%= render "more_stats" %>
+  </div>
 </div>
 
 <%= render "footer" %>

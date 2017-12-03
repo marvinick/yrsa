@@ -4,7 +4,7 @@
 
 <%= form_for([current_account, @project]) do |f| %>
   <div class="row text-center">
-    <div class="formly ">
+    <div class="formly">
         <h2>new project</h2>
           <br>
           <div class="control">
@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="text-center">
-      <%= f.submit "go ahead", class: "btn btn-success btn-lg" %>
+      <%= f.submit "add project", class: "btn btn-success btn-lg" %>
       <%= link_to "never mind", account_path(current_account), class: "btn btn-warning btn-lg" %>
     </div>
   </div>

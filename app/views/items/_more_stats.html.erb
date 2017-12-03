@@ -1,6 +1,14 @@
 <% if set_project.user_id == current_user.id %>
 <div class="row">
-
+  <li>
+    <h5>
+      <% if item_average_rating.present? %>
+        <div class="star-rating" data-score= <%= item_average_rating %> ></div>
+      <% else %>
+        <h5>No reviews yet</h5>
+      <% end %>
+    </h5>
+  </li>
     <div class="stats1">
       <h5> Reviewers: <%= all_reviewers %></h5>
     </div>
@@ -33,6 +41,6 @@
         <h5>last update <%= time_ago_in_words(@item.updated_at) %> ago </h5>
       </li>
     </div>
-  
+
 </div>
 <% end %>

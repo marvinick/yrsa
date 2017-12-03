@@ -5,7 +5,7 @@
 <div class="row">
   <%= form_for([current_account, set_project, @item]) do |f| %>
   <div class="formly text-center">
-    <h2>edit item</h2>
+    <h2>new item</h2>
     <br>
     <%= f.hidden_field :project_id %>
     <div class="control">
@@ -29,7 +29,7 @@
     <% end %>
 
     <div class="row text-center">
-      <%= f.submit "make new item", class:"btn btn-success btn-lg" %>
+      <%= f.submit "create item", class:"btn btn-success btn-lg" %>
       <%= link_to "never mind", account_project_path(current_account, set_project ), class: "btn btn-warning btn-lg" %>
     </div>
   <% end %>

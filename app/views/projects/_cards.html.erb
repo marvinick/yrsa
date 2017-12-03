@@ -8,6 +8,7 @@
           <div class="boxy">
             <%= image_tag(item.image.url(:large), class: "img-responsive") %>
             <h4><%= item.name %></h4>
+            <p><%= truncate(item.content, length: 25) %></p>
           </div>
         </div>
       <% end %>
