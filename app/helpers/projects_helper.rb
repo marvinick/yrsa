@@ -3,13 +3,19 @@ module ProjectsHelper
   def project_reviewers
     reviewers = []
     @project.items.each do |item|
-      item.details.each do |detail|
-        detail.reviews.each do |review|
-          reviewers << review.user.email
-        end
+      item.reviews.each do |review|
+        reviewers << review.user.email
       end
     end
     reviewers.uniq.count
+  end
+
+  def project_reviews_count
+    reviews = []
+    @project.items.each do |item|
+      reviews << item.reviews.size
+    end
+    reviews.size
   end
 
   def project_rating
@@ -22,16 +28,6 @@ module ProjectsHelper
       end
     end
     (each_detail.sum / each_detail.count.to_f).ceil rescue 0
-  end
-
-  def project_reviews_count
-    reviews = []
-    @project.items.each do |item|
-      item.details.each do |detail|
-        reviews << detail.reviews.count
-      end
-    end
-    reviews
   end
 
   def details_count

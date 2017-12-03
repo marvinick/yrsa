@@ -146,11 +146,16 @@ a:link, a:hover{
 
 textarea:focus, input:focus{
   outline: none;
+  font-size: 30px;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-weight: bolder;
 }
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
   color: #c49999;
-  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  font-size: 30px;
+
 }
 
 .activity {

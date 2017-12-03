@@ -44,25 +44,27 @@
     height: auto;
     width: 100%;
     margin-top: 20px;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     padding-left: 30px;
+    padding-right: 30px;
     border-radius: 5px;
   }
 
-  .stats1 {
-    height: 150px;
+  .board {
+    height: auto;
     width: 100%;
-    margin-right: 2px!important;
-    margin-left: 2px!important;
-    margin-top: 30px!important;
-    padding-top: 20px;
-    padding-left: 15px;
-    border-radius: 10px;
-    background-color: #deeaab;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 5px;
+    box-shadow: 20px 15px 100px -20px #556d7f;
+    background-color: #fffcef;
   }
 
-  .stats2 {
+  .stats {
     height: 150px;
     width: 100%;
     margin-right: 2px!important;
@@ -71,31 +73,8 @@
     padding-top: 20px;
     padding-left: 15px;
     border-radius: 10px;
-    background-color: #f9bf7c;
-  }
-
-  .stats3 {
-    height: 150px;
-    width: 100%;
-    margin-right: 2px!important;
-    margin-left: 2px!important;
-    margin-top: 30px!important;
-    padding-top: 20px;
-    padding-left: 15px;
-    border-radius: 10px;
-    background-color: #9dd3db;
-  }
-
-  .stats4 {
-    height: 150px;
-    width: 100%;
-    margin-right: 2px!important;
-    margin-left: 2px!important;
-    margin-top: 30px!important;
-    padding-top: 20px;
-    padding-left: 15px;
-    border-radius: 10px;
-    background-color: #aa9a88;
+    background-color: white;
+    box-shadow: 20px 15px 100px -20px #556d7f;
   }
 
   .boxy {
@@ -130,6 +109,7 @@
     padding-bottom: 25px;
     background-color: white;
     box-shadow: 20px 15px 100px -20px #556d7f;
+    text-align: center;
   }
 
   .formy {

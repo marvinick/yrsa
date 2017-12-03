@@ -1,29 +1,30 @@
 <% if set_project.user_id == current_user.id %>
-<div class="row">
-  <li>
-    <h5>
-      <% if item_average_rating.present? %>
-        <div class="star-rating" data-score= <%= item_average_rating %> ></div>
-      <% else %>
-        <h5>No reviews yet</h5>
-      <% end %>
-    </h5>
-  </li>
-    <div class="stats1">
+  <div class="row">
+    <li>
+      <h5>
+        <% if item_average_rating.present? %>
+          <div class="star-rating" style="zoom: 125%" data-score= <%= item_average_rating %> ></div>
+        <% else %>
+          <h5>No reviews yet</h5>
+        <% end %>
+      </h5>
+    </li>
+    
+    <div class="stats">
       <h5> Reviewers: <%= all_reviewers %></h5>
     </div>
 
 
-    <div class="stats2">
+    <div class="stats">
       <% if total_reviews > 1 %>
-        <h5>reviews: <strong><%= total_reviews %> </strong></h5>
+        <h5>reviews:</h5> <h1><strong><%= total_reviews %> </strong></h1>
       <% else %>
           <h5>review: <strong><%= total_reviews %> </strong></h5>
       <% end %>
     </div>
 
 
-    <div class="stats3">
+    <div class="stats">
       <h5>
         <% if @item.details.count > 1 %>
           categories: <%= @item.details.count %>
@@ -33,7 +34,7 @@
       </h5>
     </div>
 
-    <div class="stats4">
+    <div class="stats">
       <li>
         <h5>added <%= time_ago_in_words(@item.created_at) %> ago </h5>
       </li>
@@ -41,6 +42,5 @@
         <h5>last update <%= time_ago_in_words(@item.updated_at) %> ago </h5>
       </li>
     </div>
-
-</div>
+  </div>
 <% end %>

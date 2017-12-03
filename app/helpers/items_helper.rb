@@ -8,37 +8,51 @@ module ItemsHelper
     reviewers.uniq
   end
 
+  def all_reviewers
+    reviewers.count
+  end
+
+  def total_reviews
+    @item.reviews.count
+  end
+
+  #real counting begin
+  #more stats
   def item_average_rating
-    item_rating / @item.details.count rescue 0
+    item_rating / count_properties_names rescue 0
+  end
+
+  def count_properties_names
+    names = []
+    @item.reviews.each do |review|
+      review.properties.each_key do |name|
+        names << name
+      end
+    end
+    names.uniq.size
   end
 
   def item_rating
     tar = []
     total_average_ratings = []
     total_rv = []
-    @item.details.each do |detail|
-      detail.reviews.each do |review|
-        total_rv << review.value
+    @item.reviews.each do |review|
+      review.properties.each do |name, value|
+        total_rv << value.to_i
         total_average_ratings = total_rv.sum / total_rv.count
       end
-      tar << total_average_ratings
     end
+    tar << total_average_ratings
     tar.sum
   end
 
-  def total_reviews
-    reviews = []
-    @item.details.each do |detail|
-      reviews << detail.reviews.count
-    end
-    reviews.sum
-  end
+  #graph stats
 
   def all_review_value
     stars = []
-    @item.details.each do |detail|
-      detail.reviews.each do |review|
-        stars << review.value
+    @item.reviews.each do |review|
+      review.properties.each_value do |value|
+        stars << value
       end
     end
     stars
@@ -50,17 +64,5 @@ module ItemsHelper
       b[v] += 1
     end
     b
-  end
-
-  def all_reviewers
-    reviewers = []
-    total_reviewers = []
-    @item.details.each do |detail|
-      detail.reviews.each do |review|
-        reviewers << review.user.email
-      end
-    end
-    total_reviewers << reviewers.uniq.count
-    total_reviewers.sum
   end
 end

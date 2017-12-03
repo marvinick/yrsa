@@ -1,7 +1,7 @@
 <div class="row">
-  <h4> These are the list of the items you have so far.</h4>
-  <br>
   <% if @items.present? %>
+  
+  <br>
     <% @items.each do |item| %>
       <%= link_to account_project_item_path(current_account, @project, item), class: 'link-to-text-color' do %>
         <div class="col-md-3 col-xs-6">
@@ -15,7 +15,7 @@
     <% end %>
   <% else %>
     <div class="boxy">
-      <h3>cant' find anything with that search term</h3>
+      <h3>No items yet!</h3>
     </div>
   <% end %>
 </div>

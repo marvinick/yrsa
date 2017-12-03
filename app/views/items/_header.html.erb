@@ -1,28 +1,24 @@
+<div class="row">
+  <h1><%= @item.name %></h1>
+  <br>
+  <h5>back to <%= link_to set_project.title, account_project_path(current_account, set_project) %></h5>
+  <h3><small>
+    <% if @item.content.length > 280 %>
+      <%= truncate(@item.content, length: 280) %>
+      <%= link_to '...Read more', '', class: "read-more-#{@item.id}" %>
+    <% else %>
+      <%= @item.content %>
+    <% end %>
+  </small></h3>
 
-  <div class="dropdown-container">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-      <h1><%= @item.name %></h1>
-    </a>
-    <br>
-    <h4>
-      <% if @item.content.length > 280 %>
-        <%= truncate(@item.content, length: 280) %>
-        <%= link_to '...Read more', '', class: "read-more-#{@item.id}" %>
-      <% else %>
-        <%= @item.content %>
+  <div class="pull-right">
+    <% if set_project.user_id == current_user.id %>
+      <%= link_to edit_account_project_item_path(current_account, set_project, @item) do %>
+        <icon class="fa fa-gear fa-2x"></icon>
       <% end %>
-    </h4>
-    <ul class="dropdown-menu">
-      <li><a href="#"> <%= link_to set_project.title, account_project_path(current_account, set_project) %></a></li>
-      <% if set_project.user_id == current_user.id %>
-        <li role="separator" class="divider"></li>
-        <li>
-          <%= link_to "edit", edit_account_project_item_path(current_account, set_project, @item) %>
-        </li>
-      <% end %>
-    </ul>
+    <% end %>
   </div>
-
+</div>
 
 <script>
   $('.read-more-<%= @item.id %>').on('click', function(e) {
