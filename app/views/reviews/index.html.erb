@@ -1,6 +1,12 @@
-<div class="row text-center">
-  <h2>Reviews</h2>
-  <h3>The amount of the details that are reviewable: <%= count_details %></h3>
+<div class="row">
+  <div class="box">
+    <h1>Reviews</h1>
+    <br>
+    <h3>Details: <%= count_details %></h3>
+    <br>
+
+    <h5>back to <%= link_to set_item.name, account_project_item_path(current_account, set_project, set_item) %></h5>
+  </div>
 </div>
 
 <div class="row">
@@ -8,7 +14,9 @@
   <div class="col-md-3 col-xs-6">
     <div class="box">
       <% review.properties.each do |name, value| %>
-        <li><%= name %> : <%= value %></li>
+        <h3><%= name %> : <%= value %></h3>
+        <br>
+        <h5><%= review.user.email %></h5>
       <% end %>
       <% if current_user.id == review.user_id %>
         <%= link_to "edit", edit_account_project_item_review_path(current_account, set_project, @item, review) %>

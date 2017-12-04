@@ -1,11 +1,11 @@
 <div class="row">
   <% if @items.present? %>
-  
+
   <br>
     <% @items.each do |item| %>
       <%= link_to account_project_item_path(current_account, @project, item), class: 'link-to-text-color' do %>
         <div class="col-md-3 col-xs-6">
-          <div class="boxy">
+          <div class="box">
             <%= image_tag(item.image.url(:large), class: "img-responsive") %>
             <h4><%= item.name %></h4>
             <p><%= truncate(item.content, length: 25) %></p>
@@ -14,7 +14,7 @@
       <% end %>
     <% end %>
   <% else %>
-    <div class="boxy">
+    <div class="box">
       <h3>No items yet!</h3>
     </div>
   <% end %>

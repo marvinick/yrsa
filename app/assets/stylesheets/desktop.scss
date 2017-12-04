@@ -168,14 +168,12 @@
   }
 
   .control-image {
-
-
     margin-left: 90px;
-
   }
 
   .navbar {
-    height:55px;
+    padding-top: 10px;
+    height: 75px;
   }
 
   .navbar {
@@ -201,11 +199,16 @@
     right: 0;
     margin: auto;
     width: 300px;
-    background-color: #f9f7f7;
+    background-color: #556d7f;
 
     font-size: 20px;
     font-weight: bold;
   }
+
+  .dropdown-menu > li > a:hover {
+    background-color: grey;
+
+}
 
   #footer {
     display: none;
