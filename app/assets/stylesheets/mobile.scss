@@ -13,8 +13,12 @@
      }
    }
 
+   .fa {
+     font-size: 35px;
+   }
+
    .row {
-     margin-top: 10px;
+    
      margin-bottom: 10px;
    }
 
@@ -33,17 +37,19 @@
    }
 
    .box {
-      height: 75px;
+      height: auto;
       width: auto;
       background-color: white;
       margin-top: 15px;
       border-radius: 10px;
       padding-left: 10px;
-      padding-top: 15px;
       padding-right: 10px;
+      padding-top: 10px;
+      padding-right: 10px;
+      padding-bottom: 10px;
     }
 
-    .stats1 {
+    .stats {
       height: 85px;
       width: auto;
       background-color: white;
@@ -52,45 +58,8 @@
       padding-left: 10px;
       padding-top: 15px;
       padding-right: 10px;
-      background-color: #deeaab;
+      background-color: #fffcef;
     }
-
-    .stats2 {
-      height: 85px;
-      width: auto;
-      background-color: white;
-      margin-top: 15px;
-      border-radius: 10px;
-      padding-left: 10px;
-      padding-top: 15px;
-      padding-right: 10px;
-      background-color: #f9bf7c;
-    }
-
-    .stats3 {
-      height: 85px;
-      width: auto;
-      background-color: white;
-      margin-top: 15px;
-      border-radius: 10px;
-      padding-left: 10px;
-      padding-top: 15px;
-      padding-right: 10px;
-      background-color: #9dd3db;
-    }
-
-    .stats4 {
-      height: 85px;
-      width: auto;
-      background-color: white;
-      margin-top: 15px;
-      border-radius: 10px;
-      padding-left: 10px;
-      padding-top: 15px;
-      padding-right: 10px;
-      background-color: #aa9a88;
-    }
-
 
     .boxy {
       height: auto;
@@ -102,6 +71,19 @@
       padding-left: 10px;
       padding-right: 10px;
       padding-bottom: 10px;
+    }
+
+    .board {
+      height: auto;
+      width: 100%;
+      margin-top: 5px;
+      padding-top: 5px;
+      padding-bottom: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
+      border-radius: 5px;
+      box-shadow: 20px 15px 100px -20px #556d7f;
+      background-color: #fffcef;
     }
 
     .tile {

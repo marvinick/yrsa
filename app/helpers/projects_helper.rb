@@ -11,11 +11,9 @@ module ProjectsHelper
   end
 
   def project_reviews_count
-    reviews = []
     @project.items.each do |item|
-      reviews << item.reviews.size
+      return item.reviews.size
     end
-    reviews.size
   end
 
   def project_rating
@@ -30,16 +28,16 @@ module ProjectsHelper
     (each_detail.sum / each_detail.count.to_f).ceil rescue 0
   end
 
+  def all_items
+    @project.items.count
+  end
+
   def details_count
     each_item_details = []
     @project.items.each do |item|
       each_item_details << item.details.count
     end
     each_item_details.sum
-  end
-
-  def all_items
-    @project.items.count
   end
 
 end

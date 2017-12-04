@@ -9,38 +9,45 @@
         <% end %>
       </h5>
     </li>
-    
-    <div class="stats">
-      <h5> Reviewers: <%= all_reviewers %></h5>
+
+    <div class="stats text-center">
+      <h4>
+        Reviewers: <%= all_reviewers %>
+        <br>
+        <span class="fa fa-users fa-5x"></span>
+      </h4>
     </div>
 
-
-    <div class="stats">
-      <% if total_reviews > 1 %>
-        <h5>reviews:</h5> <h1><strong><%= total_reviews %> </strong></h1>
-      <% else %>
-          <h5>review: <strong><%= total_reviews %> </strong></h5>
-      <% end %>
+    <div class="stats text-center">
+      <h4>
+        <% if total_reviews > 1 %>
+          reviews: <%= total_reviews %>
+        <% else %>
+            review: <strong><%= total_reviews %>
+        <% end %>
+        <br>
+        <span class="fa fa-check-square fa-5x"></span>
+      </h4>
     </div>
 
-
-    <div class="stats">
-      <h5>
+    <div class="stats text-center">
+      <h4>
         <% if @item.details.count > 1 %>
           categories: <%= @item.details.count %>
         <% else %>
           category: <%= @item.details.count %>
         <% end %>
-      </h5>
+        <br>
+        <span class="fa fa-film fa-5x"></span>
+      </h4>
     </div>
 
-    <div class="stats">
-      <li>
-        <h5>added <%= time_ago_in_words(@item.created_at) %> ago </h5>
-      </li>
-      <li>
-        <h5>last update <%= time_ago_in_words(@item.updated_at) %> ago </h5>
-      </li>
+    <div class="stats text-center">
+      <h4>
+        added <%= time_ago_in_words(@item.created_at) %> ago
+        last update <%= time_ago_in_words(@item.updated_at) %> ago
+        <span class="fa fa-film fa-5x"></span>
+      </h4>
     </div>
   </div>
 <% end %>

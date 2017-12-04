@@ -1,22 +1,26 @@
 <div class="row">
-  <h1><%= @item.name %></h1>
-  <br>
-  <h5>back to <%= link_to set_project.title, account_project_path(current_account, set_project) %></h5>
-  <h3><small>
-    <% if @item.content.length > 280 %>
-      <%= truncate(@item.content, length: 280) %>
-      <%= link_to '...Read more', '', class: "read-more-#{@item.id}" %>
-    <% else %>
-      <%= @item.content %>
-    <% end %>
-  </small></h3>
+  <div class="box">
+    <h1><%= @item.name %></h1>
+    <br>
 
-  <div class="pull-right">
-    <% if set_project.user_id == current_user.id %>
-      <%= link_to edit_account_project_item_path(current_account, set_project, @item) do %>
-        <icon class="fa fa-gear fa-2x"></icon>
+    <h3><small>
+      <% if @item.content.length > 280 %>
+        <%= truncate(@item.content, length: 280) %>
+        <%= link_to '...Read more', '', class: "read-more-#{@item.id}" %>
+      <% else %>
+        <%= @item.content %>
       <% end %>
-    <% end %>
+    </small></h3>
+
+    <div class="pull-right">
+      <% if set_project.user_id == current_user.id %>
+        <%= link_to edit_account_project_item_path(current_account, set_project, @item) do %>
+          <icon class="fa fa-gear fa-2x"></icon>
+        <% end %>
+      <% end %>
+    </div>
+    <br>
+    <h5>back to <%= link_to set_project.title, account_project_path(current_account, set_project) %></h5>
   </div>
 </div>
 

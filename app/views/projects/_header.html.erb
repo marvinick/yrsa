@@ -1,25 +1,26 @@
 <div class="row">
-  <h1><%= @project.title %></h3>
-  <br>
-
-  <h4><small>
-    <% if @project.description.length > 250 %>
-      <%= truncate(@project.description, length: 250) %>
-      <%= link_to '...Read more', '', class: "read-more-#{@project.id}" %>
-    <% else %>
-      <%= @project.description %>
-    <% end %>
-  </small></h4>
-
-  <div class="pull-right">
-    <% if @project.user_id == current_user.id %>
-      <%= link_to edit_account_project_path(current_account, @project) do %>
-        <icon class="fa fa-gear fa-2x"></icon>
+  <div class="box">
+    <h1><%= @project.title %></h3>
+    <br>
+    <h4><small>
+      <% if @project.description.length > 250 %>
+        <%= truncate(@project.description, length: 250) %>
+        <%= link_to '...Read more', '', class: "read-more-#{@project.id}" %>
+      <% else %>
+        <%= @project.description %>
       <% end %>
-    <% end %>
+    </small></h4>
+
+    <div class="pull-right">
+      <% if @project.user_id == current_user.id %>
+        <%= link_to edit_account_project_path(current_account, @project) do %>
+          <icon class="fa fa-gear fa-2x"></icon>
+        <% end %>
+      <% end %>
+    </div>
+    <br>
+    <h5>back to <%= link_to @account.name, account_path(@account) %></h5>
   </div>
-  <br>
-  <h5>back to <%= link_to @account.name, account_path(@account) %></h5>
 </div>
 
 

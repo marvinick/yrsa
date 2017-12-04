@@ -1,18 +1,40 @@
+
 <div class="row">
 <% if @project.user_id == current_user.id %>
-  <div class="col-md-4 col-xs-4">
-    <div class="boxy">
-      <h5>Reviewers: <%= project_reviewers %> </h5>
+  <div class="col-md-3 col-xs-6">
+    <div class="stats text-center">
+      <h4>
+        Reviewers: <%= project_reviewers %>
+        <br>
+        <span class="fa fa-check-square fa-5x"></span>
+      </h4>
     </div>
   </div>
-  <div class="col-md-4 col-xs-4">
-    <div class="boxy">
-      <h5>Project rating: <%= project_rating %></h5>
+  <div class="col-md-3 col-xs-6">
+    <div class="stats text-center">
+      <h4>
+        Project rating: <%= project_rating %>
+        <br>
+        <span class="fa fa-check-square fa-5x"></span>
+      </h4>
     </div>
   </div>
-  <div class="col-md-4 col-xs-4">
-    <div class="boxy">
-      <h5>Reviews: <%=  project_reviews_count %></h5>
+  <div class="col-md-3 col-xs-6">
+    <div class="stats text-center">
+      <h4>
+        Reviews: <%=  project_reviews_count %>
+        <br>
+        <span class="fa fa-check-square fa-5x"></span>
+      </h4>
+    </div>
+  </div>
+  <div class="col-md-3 col-xs-6">
+    <div class="stats text-center">
+      <h4>
+        Reviews: <%=  project_reviews_count %>
+        <br>
+        <span class="fa fa-check-square fa-5x"></span>
+      </h4>
     </div>
   </div>
 <% end %>
