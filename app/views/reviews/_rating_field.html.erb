@@ -1,8 +1,27 @@
 
 <% set_item.details.each do |detail| %>
+  <%= f.collection_radio_buttons :detail, [[5], [4], [3], [2], [1]], :first, :last, item_wrapper_tag: false, boolean_style: :inline do |b| %>
+    <%= b.radio_button + b.label {''} %>
+  <% end %>
+<% end %>
+
+
+
+<!-- <% set_item.details.each do |detail| %>
+  <h3><%= detail.name %></h3>
+  <div class="review_drop">
+    <% values = [[1], [2], [3], [4], [5]] %>
+    <% values.each do |value| %>
+      <%= radio_button_tag detail.name, value %>
+    <% end %>
+  </div>
+  <br>
+<% end %> -->
+
+<!-- <% set_item.details.each do |detail| %>
   <h3><%= detail.name %></h3>
   <div class="review_drop">
     <%= f.select detail.name, options_for_select([[1], [2], [3], [4], [5]] ) %>
   </div>
   <br>
-<% end %>
+<% end %> -->

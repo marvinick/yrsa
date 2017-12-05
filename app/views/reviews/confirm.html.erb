@@ -1,9 +1,13 @@
-
+<br>
+<br>
+<br>
 <div class="row">
-<h2>Thank you for submitting your review.</h2>
-<% set_item.reviews.last(1).each do |review| %>
-  <p>
-    There's nothing else you need to do at the moment. But you can always <%= link_to 'edit', edit_account_project_item_review_path(current_account, set_project, set_item, review) %> your response
-  </p>
-<% end %>
+  <div class="boxy">
+    <h2>Thank you for submitting your review.</h2>
+    <% set_item.reviews.last(1).each do |review| %>
+      <h4>
+        There's nothing else you need to do at the moment. But you can always <%= link_to 'edit', edit_account_project_item_review_path(current_account, set_project, set_item, review) %> your response OR back to <%= link_to set_item.name, account_project_item_path(current_account, set_project, set_item) %>
+      </h4>
+    <% end %>
+  </div>
 </div>
