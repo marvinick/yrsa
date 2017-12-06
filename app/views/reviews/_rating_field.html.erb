@@ -1,8 +1,10 @@
-
 <% set_item.details.each do |detail| %>
-  <%= f.collection_radio_buttons :detail, [[5], [4], [3], [2], [1]], :first, :last, item_wrapper_tag: false, boolean_style: :inline do |b| %>
-    <%= b.radio_button + b.label {''} %>
+  <%= detail.name %>
+  <br>
+  <%= f.collection_radio_buttons detail.name, [[5], [4], [3], [2], [1]], :last, :first, item_wrapper_tag: true, boolean_style: :inline do |b| %>
+    <%= b.radio_button + b.label %>
   <% end %>
+  <br>
 <% end %>
 
 
@@ -19,9 +21,17 @@
 <% end %> -->
 
 <!-- <% set_item.details.each do |detail| %>
-  <h3><%= detail.name %></h3>
-  <div class="review_drop">
-    <%= f.select detail.name, options_for_select([[1], [2], [3], [4], [5]] ) %>
+  <div class="field">
+    <h3><%= detail.name %></h3>
+    <%= f.select detail.name, options_for_select([[1], [2], [3], [4], [5]]), {}, {class: "review_drop"} %>
+    <div id="star-rating" style="zoom: 125%">
   </div>
-  <br>
+  <script>
+    $(".field #star-rating").each(function() {
+      $(this).raty({
+        path: '/assets/',
+        scoreName: 'detail.name'
+      });
+    });
+  </script>
 <% end %> -->
