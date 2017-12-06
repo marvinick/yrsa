@@ -8,7 +8,7 @@ end
 gem 'rails', '~> 5.0.4'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
@@ -20,6 +20,7 @@ gem "responders"
 #frontend
 gem "twitter-bootstrap-rails"
 gem 'font-awesome-sass'
+
 
 #form
 gem "simple_form"

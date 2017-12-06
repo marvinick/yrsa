@@ -2,36 +2,13 @@
   <%= detail.name %>
   <br>
   <%= f.collection_radio_buttons detail.name, [[5], [4], [3], [2], [1]], :last, :first, item_wrapper_tag: true, boolean_style: :inline do |b| %>
-    <%= b.radio_button + b.label %>
+    <%= b.radio_button + b.label  %>
   <% end %>
   <br>
 <% end %>
 
-
-
-<!-- <% set_item.details.each do |detail| %>
-  <h3><%= detail.name %></h3>
-  <div class="review_drop">
-    <% values = [[1], [2], [3], [4], [5]] %>
-    <% values.each do |value| %>
-      <%= radio_button_tag detail.name, value %>
-    <% end %>
-  </div>
-  <br>
-<% end %> -->
-
-<!-- <% set_item.details.each do |detail| %>
-  <div class="field">
-    <h3><%= detail.name %></h3>
-    <%= f.select detail.name, options_for_select([[1], [2], [3], [4], [5]]), {}, {class: "review_drop"} %>
-    <div id="star-rating" style="zoom: 125%">
-  </div>
-  <script>
-    $(".field #star-rating").each(function() {
-      $(this).raty({
-        path: '/assets/',
-        scoreName: 'detail.name'
-      });
-    });
-  </script>
-<% end %> -->
+<script>
+  $('.checkbox').click(function(){
+    $(this).toggleClass('is-checked');
+  });
+</script>
