@@ -90,15 +90,16 @@
   }
 
   .tile {
+    height: auto;
+    width: 100%;
+    margin-right: 10px!important;
+    margin-left: 10px!important;
     border-radius: 10px;
-    margin-bottom: 20px;
-    height: 100px;
-    width: 200px;
-    background-color: white;
-    padding-top: 5px;
-    padding-left: 10px;
-    padding-right: 5px;
-    padding-bottom: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+    box-shadow: 20px 15px 100px -20px #556d7f;
   }
 
   .formly {
@@ -231,4 +232,5 @@
   .review_drop {
     width: 400px;
   }
+
 }
