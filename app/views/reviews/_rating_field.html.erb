@@ -1,36 +1,12 @@
-<!-- <% set_item.details.each do |detail| %>
-  <h2><%= detail.name %></h2>
-  <br>
-  <% values = [[5], [4], [3], [2], [1]] %>
-  <%= f.collection_radio_buttons detail.name, values, :last, :first, item_wrapper_tag: true, boolean_style: :inline do |b| %>
-
-      <div class="div1">
-
-        <%= b.radio_button %>
-        <label><%= b.label %></label>
-      </div>
-
-
-  <% end %>
-
-  <br>
-  <br>
-
-<% end %> -->
-
 <% set_item.details.each do |detail| %>
   <h2><%= detail.name %></h2>
   <br>
   <%= f.collection_radio_buttons detail.name, [[5], [4], [3], [2], [1]], :last, :first, item_wrapper_tag: true, boolean_style: :inline do |b| %>
-
     <label class="tile">
-
-        <%= b.radio_button %>
-      
+      <%= b.radio_button %>
       <%= b.label %>
     </label>
   <% end %>
   <br>
   <br>
-
 <% end %>

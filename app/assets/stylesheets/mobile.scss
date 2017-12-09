@@ -18,7 +18,7 @@
    }
 
    .row {
-    
+
      margin-bottom: 10px;
    }
 
@@ -88,14 +88,14 @@
 
     .tile {
       border-radius: 10px;
-      margin-bottom: 20px;
-      height: 100px;
-      padding-top: 5px;
-      padding-left: 10px;
-      padding-right: 5px;
-      padding-bottom: 5px;
+      height: auto;
+      padding-top: 2px;
+      padding-left: 2px;
+      padding-right: 2px;
+      padding-bottom: 2px;
       width: auto;
       background-color: white;
+      margin: auto;
     }
 
     .item {
@@ -164,6 +164,7 @@
     }
 
     .formly {
+      width: auto;
       padding-top: 10px;
       padding-bottom: 10px;
       margin-top: 10px;
@@ -229,6 +230,10 @@
        font-weight: bold;
      }
 
+    //style
+    label {
+      font-size: 15px;
+    }
 
 
  }

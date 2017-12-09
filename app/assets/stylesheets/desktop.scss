@@ -89,19 +89,6 @@
     padding-left: 15px;
   }
 
-  .tile {
-    height: auto;
-    width: 100%;
-    margin-right: 10px!important;
-    margin-left: 10px!important;
-    border-radius: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-right: 15px;
-    padding-left: 15px;
-    box-shadow: 20px 15px 100px -20px #556d7f;
-  }
-
   .formly {
     margin-left: 100px;
     margin-right: 100px;
@@ -201,15 +188,13 @@
     margin: auto;
     width: 300px;
     background-color: #556d7f;
-
     font-size: 20px;
     font-weight: bold;
   }
 
   .dropdown-menu > li > a:hover {
     background-color: grey;
-
-}
+  }
 
   #footer {
     display: none;
@@ -229,8 +214,12 @@
     padding-bottom: 50px;
   }
 
-  .review_drop {
-    width: 400px;
-  }
+  //style
 
+  label {
+    font-size: 30px;
+    font-weight: 900;
+    font-family: monospace;
+
+  }
 }
