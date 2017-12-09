@@ -73,8 +73,9 @@
     padding-top: 20px;
     padding-left: 15px;
     border-radius: 10px;
-    background-color: #fffcef;
-    box-shadow: 20px 15px 100px -20px #556d7f;
+    background-color: white;
+    border-color: black;
+    border-style: inset;
   }
 
   .boxy {
@@ -187,7 +188,7 @@
     right: 0;
     margin: auto;
     width: 300px;
-    background-color: #556d7f;
+    background-color: white;
     font-size: 20px;
     font-weight: bold;
   }
