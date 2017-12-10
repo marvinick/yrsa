@@ -52,8 +52,13 @@ class ReviewsController < BaseController
   end
 
   def review_params
+    params.require(:review).tap do |whitelisted|
+      whitelisted[:properties] = params[:review][:properties]
+      whitelisted[:description] = params[:review][:description]
+    end
     # params.require(:review).permit(:item_id, :detail_id, :id, :description, :value, properties: [:value, :name, :_destroy])
-    params.require(:review).permit!
+    # params.require(:review).permit!
+    # params.require(:review).permit(:item_id, :detail_id, :id, :description, :value, :properties => {})
   end
 
   def set_review

@@ -5,6 +5,7 @@
       <% review.properties.each do |name, value| %>
         <li><%= name %> : <%= value %></li>
       <% end %>
+      <%= review.description %>
       <li><%= time_ago_in_words(review.created_at) %> ago</li>
       <% if current_user.id == review.user_id %>
         <%= link_to "edit", edit_account_project_item_review_path(current_account, set_project, @item, review) %>

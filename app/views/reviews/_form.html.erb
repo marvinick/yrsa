@@ -4,8 +4,8 @@
     <%= f.hidden_field :item_id %>
     <%= f.fields_for :properties, OpenStruct.new(@review.properties) do |builder| %>
       <%= render "rating_field", f: builder %>
-
     <% end %>
+    <%= f.text_field :description %>
     <br>
     <div class="text-center">
       <%= f.submit "rate", class: "btn btn-default btn-lg " %>
@@ -13,4 +13,3 @@
     </div>
   <% end %>
 </div>
- 
