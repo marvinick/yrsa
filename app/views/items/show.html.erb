@@ -2,14 +2,14 @@
   <div class="col-md-8">
 
     <%= render "header" %>
-
-    <hr>
+    <br>
     <%= image_tag(@item.image.url(:xlarge), class: "img-responsive img-rounded") %>
-    <hr>
+    <br>
     <%= render "stats" %>
     <hr>
+    <br>
     <%= render "current_user_review" %>
-    <hr>
+
     <% if @item.reviews.present? %>
       <%= render "reviews" %>
     <% end %>

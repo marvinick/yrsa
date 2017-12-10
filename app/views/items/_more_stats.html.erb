@@ -1,6 +1,7 @@
 <% if set_project.user_id == current_user.id %>
   <div class="row">
-    <li>
+
+    <div class="box">
       <h5>
         <% if item_average_rating.present? %>
           <div class="star-rating" style="zoom: 125%" data-score= <%= item_average_rating %> ></div>
@@ -8,46 +9,40 @@
           <h5>No reviews yet</h5>
         <% end %>
       </h5>
-    </li>
+      <p><small>not to bad ehh?!</small></p>
+    </div>
 
-    <div class="stats text-center">
+    <div class="boxy text-center">
       <h4>
         Reviewers: <%= all_reviewers %>
-        <br>
-        <span class="fa fa-users fa-5x"></span>
+
       </h4>
     </div>
 
-    <div class="stats text-center">
+    <div class="boxy text-center">
       <h4>
         <% if total_reviews > 1 %>
           reviews: <%= total_reviews %>
         <% else %>
             review: <strong><%= total_reviews %>
         <% end %>
-        <br>
-        <span class="fa fa-check-square fa-5x"></span>
       </h4>
     </div>
 
-    <div class="stats text-center">
+    <div class="boxy text-center">
       <h4>
         <% if @item.details.count > 1 %>
           categories: <%= @item.details.count %>
         <% else %>
           category: <%= @item.details.count %>
         <% end %>
-        <br>
-        <span class="fa fa-film fa-5x"></span>
+
       </h4>
     </div>
 
-    <div class="stats text-center">
-      <h4>
-        added <%= time_ago_in_words(@item.created_at) %> ago
-        last update <%= time_ago_in_words(@item.updated_at) %> ago
-        <span class="fa fa-film fa-5x"></span>
-      </h4>
+    <div class="boxy text-center">
+      <h4>added <%= time_ago_in_words(@item.created_at) %> ago</h4>
+      <h4>last update <%= time_ago_in_words(@item.updated_at) %> ago</h4>
     </div>
   </div>
 <% end %>

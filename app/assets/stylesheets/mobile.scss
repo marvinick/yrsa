@@ -2,6 +2,7 @@
  @media only screen and (max-width: 759px) {
 
    #footer {
+     background-color: white!important;
      padding-top: 0px;
      margin-bottom: 10px;
      display: block;
@@ -10,11 +11,15 @@
        float:none;
        display:inline-block;
        vertical-align: top;
-     }
+      }
+
+      .fa {
+        font-size: 35px;
+      }
    }
 
    .fa {
-     font-size: 35px;
+     font-size: 20px;
    }
 
    .row {
@@ -40,13 +45,14 @@
       height: auto;
       width: auto;
       background-color: white;
-      margin-top: 15px;
+      margin-bottom: 20px;
       border-radius: 10px;
       padding-left: 10px;
       padding-right: 10px;
       padding-top: 10px;
       padding-right: 10px;
       padding-bottom: 10px;
+
     }
 
     .stats {
@@ -63,7 +69,6 @@
 
     .boxy {
       height: auto;
-      background-color: white;
       width: auto;
       margin-top: 15px;
       border-radius: 10px;

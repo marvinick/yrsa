@@ -1,20 +1,24 @@
 <div class="row text-center">
   <div class="col-md-12">
     <h1><%= link_to current_account.name, account_path(current_account) %></h1>
+    <br>
     <h4><%= current_account.owner.email %></h4>
   </div>
 </div>
+<br>
 
-
-<div class="boxy">
-  <h3 class="text-center"><%= link_to "Invite new user", new_account_invitation_path(current_account), class: "btn btn-lg btn-success" %></h3>
+<div class="box text-center">
+  <%= link_to "Invite new user", new_account_invitation_path(current_account), class: "btn btn-lg btn-default" %>
+  <br>
   <br>
 <% current_account.users.each do |user| %>
-  <div class="col-md-6">
-    <li><%= user.email %></li>
-  </div>
-  <div class="col-md-6">
-    <li><%= link_to "Remove", account_user_path(current_account, user), method: :delete, data: { confirm: "Are you sure you want to remove this user?" }, class: "btn btn-xs btn-danger" %></li>
+  <div class="formly">
+    <div class="col-md-6">
+      <h4><%= user.email %></h4>
+    </div>
+    <div class="col-md-6">
+      <%= link_to "Remove", account_user_path(current_account, user), method: :delete, data: { confirm: "Are you sure you want to remove this user?" }, class: "btn btn-xs btn-danger" %>
+    </div>
   </div>
   <br>
   <br>

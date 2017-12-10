@@ -16,7 +16,6 @@
 //= require growlyflash
 //= require twitter/bootstrap
 //= require turbolinks
-//= require chartkick
 //= require cocoon
 //= require dropzone
 //= require sweetalert2

@@ -21,15 +21,8 @@ gem "responders"
 gem "twitter-bootstrap-rails"
 gem 'font-awesome-sass'
 
-
 #form
-gem "simple_form"
 gem "cocoon"
-
-#charts
-gem "chartkick"
-gem 'groupdate', '~> 2.1.1'
-gem 'active_median', '~> 0.1.0'
 
 #notification / activity
 gem 'growlyflash'

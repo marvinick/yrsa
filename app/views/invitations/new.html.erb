@@ -1,14 +1,15 @@
 <div class='row'>
   <div class='col-md-offset-4 col-md-4 content'>
     <h2>New Invitation</h2>
+    <br>
     <%= form_for ([@account, @invitation]) do |f| %>
       <%= f.hidden_field :account_id %>
       <div>
         <%= f.text_field :email, class: "input is-primary", placeholder: "enter email" %>
       </div>
       <br>
-      <%= f.submit "Invite User", class: "button is-primary" %>
+      <%= f.submit "Invite User", class: "btn btn-default btn-lg" %>
+      <%= link_to "Cancel", account_users_path(current_account), class: "btn btn-default btn-lg" %>
     <% end %> </div>
   </div>
 </div>
- 

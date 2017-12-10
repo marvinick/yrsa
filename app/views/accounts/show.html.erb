@@ -1,7 +1,8 @@
-<div class="row">
-  <h1 class="text-center"><strong><%= @account.name %></strong></h1>
+<div class="row text-center">
+  <small>account</small>
+  <h1><strong><%= @account.name %></strong></h1>
 </div>
-
+<br>
 <% if @account.owner.id == current_user.id %>
   <div class="row text-center">
     <div class="col-md-6 col-xs-6">
