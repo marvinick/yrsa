@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  *= require dropzone/dropzone
+ *= require sweetalert2
  */
 
  @import "jquery.barCharts";
@@ -125,6 +126,9 @@ h1, h2, h3, h4, h5, h6 {
    border-style: solid;
  }
 
+  .tile:hover {
+    background-color: #bee5c3;
+  }
 .box a:link {
   text-decoration: none!important;
 }
@@ -250,5 +254,5 @@ input[type=radio] + label {
   color: #999b9a;
 }
 input[type=radio]:checked + label {
-  color: black;
+  color: #4cc45b;
 }

@@ -1,7 +1,7 @@
 <% set_item.details.each do |detail| %>
   <h2><%= detail.name %></h2>
   <br>
-  <%= f.collection_radio_buttons detail.name, [[5], [4], [3], [2], [1]], :last, :first, item_wrapper_tag: true, boolean_style: :inline do |b| %>
+  <%= f.collection_radio_buttons detail.name, [[1], [2], [3], [4], [5]], :last, :first, item_wrapper_tag: true, boolean_style: :inline do |b| %>
     <label class="tile">
       <%= b.radio_button %>
       <%= b.label %>

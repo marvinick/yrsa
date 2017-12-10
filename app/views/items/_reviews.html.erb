@@ -1,7 +1,7 @@
 <div class="row">
   <% @item.reviews.order('created_at desc').last(5).each do |review| %>
   <div class="col-md-6">
-    <div class="boxy">
+    <div class="box">
       <% review.properties.each do |name, value| %>
         <li><%= name %> : <%= value %></li>
       <% end %>
@@ -16,4 +16,3 @@
   <% end %>
 </div>
 <h4><%= link_to 'see all reviews', account_project_item_reviews_path(current_account, set_project, @item, @reviews) %></h4>
- 

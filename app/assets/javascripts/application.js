@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
 //= require jquery
 //= require jquery_ujs
 //= require growlyflash
@@ -18,6 +19,8 @@
 //= require chartkick
 //= require cocoon
 //= require dropzone
+//= require sweetalert2
+//= require sweet-alert2-rails
 //= require_tree .
 
 Growlyflash.defaults = $.extend(true, Growlyflash.defaults, {
@@ -30,3 +33,12 @@ Growlyflash.defaults = $.extend(true, Growlyflash.defaults, {
   type:    null,     // bootstrap alert class by default
   class:   ['alert', 'growlyflash', 'fade']
 });
+
+window.sweetAlertConfirmConfig = {
+  title: 'Are you sure?',
+  type: 'info',
+  showCancelButton: true,
+  confirmButtonColor: '#DD6B55',
+  confirmButtonText: 'yes I am',
+  cancelButtonText: "hold on"
+};
