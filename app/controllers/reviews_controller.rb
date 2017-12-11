@@ -56,6 +56,7 @@ class ReviewsController < BaseController
       whitelisted[:properties] = params[:review][:properties]
       whitelisted[:description] = params[:review][:description]
     end
+    
     # params.require(:review).permit(:item_id, :detail_id, :id, :description, :value, properties: [:value, :name, :_destroy])
     # params.require(:review).permit!
     # params.require(:review).permit(:item_id, :detail_id, :id, :description, :value, :properties => {})
@@ -77,7 +78,6 @@ class ReviewsController < BaseController
   helper_method :set_project
 
   def check_review_limit
-
     if set_review.user_id == curren
       flash.now[:alert] = "You can only review once."
     end

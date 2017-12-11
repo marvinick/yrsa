@@ -1,27 +1,38 @@
 <div class="row">
-  <div class="box">
-    <h1>Reviews</h1>
-    <br>
-    <h3>Details: <%= count_details %></h3>
-    <br>
-
-    <h5>back to <%= link_to set_item.name, account_project_item_path(current_account, set_project, set_item) %></h5>
-  </div>
+  <div class="col-md-12">
+    <div class="box">
+      <h1>Reviews</h1>
+      <br>
+      <h5>back to <%= link_to set_item.name, account_project_item_path(current_account, set_project, set_item) %></h5>
+    </div>
+  <div>
 </div>
 
 <div class="row">
+  <h3 class="text-center">Reviews <%= count_reviews %></h3>
+  <br>
   <% set_item.reviews.each do |review| %>
-  <div class="col-md-3 col-xs-6">
-    <div class="box">
-      <% review.properties.each do |name, value| %>
-        <h3><%= name %> : <%= value %></h3>
-        <br>
-        <h5><%= review.user.email %></h5>
-      <% end %>
-      <% if current_user.id == review.user_id %>
-        <%= link_to "edit", edit_account_project_item_review_path(current_account, set_project, @item, review) %>
-      <% end %>
+    <% keys = [] %>
+    <% values = [] %>
+    <div class="col-md-3 col-xs-6">
+      <div class="box">
+        <% review.properties.each do |name, value| %>
+          <% keys << name %>
+          <% values << value.to_i %>
+          <h3><%= name %> : <%= value %></h3>
+        <% end %>
+        <hr>
+        <h3>
+          <strong><%= (values.sum.to_f / keys.uniq.size).round %> claps</strong>
+          <small>
+            <% if current_user.id == review.user_id %>
+              <%= link_to "edit", edit_account_project_item_review_path(current_account, set_project, @item, review) %>
+            <% end %>
+          </small>
+        </h3>
+
+        <h6><small>reviewed by </small><%= review.user.email %></h6>
+      </div>
     </div>
-  </div>
   <% end %>
 </div>

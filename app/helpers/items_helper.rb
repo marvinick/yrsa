@@ -13,11 +13,13 @@ module ItemsHelper
   end
 
   def total_reviews
-    @item.reviews.count
+    set_item.reviews.count
   end
 
   #real counting begin
-  #more stats
+  #calculate average rating for each review
+  
+
   def item_average_rating
     item_rating / count_properties_names rescue 0
   end
@@ -47,6 +49,15 @@ module ItemsHelper
   end
 
   #graph stats
+  def count_values
+    stars = []
+    @item.reviews.each do |review|
+      review.properties.each_value do |value|
+        stars << value
+      end
+    end
+    stars.size
+  end
 
   def all_review_value
     stars = []

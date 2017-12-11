@@ -2,14 +2,19 @@
   <div class="row">
 
     <div class="box">
-      <h5>
-        <% if item_average_rating.present? %>
-          <div class="star-rating" style="zoom: 125%" data-score= <%= item_average_rating %> ></div>
-        <% else %>
-          <h5>No reviews yet</h5>
+      <% total = [] %>
+      <% set_item.reviews.each do |review| %>
+
+        <% keys = [] %>
+        <% values = [] %>
+        <% review.properties.each do |name, value| %>
+          <% keys << name %>
+          <% values << value.to_i %>
         <% end %>
-      </h5>
-      <p><small>not to bad ehh?!</small></p>
+        <% total << (values.sum.to_f / keys.uniq.size).round %>
+      <% end %>
+      <h3><%= (total.sum.to_f / set_item.reviews.count).round %> claps</h3>
+      <!-- <div class="star-rating" style="zoom: 125%" data-score= <%= (total.sum.to_f / set_item.reviews.count).round %> ></div> -->
     </div>
 
     <div class="boxy text-center">
