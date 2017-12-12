@@ -45,7 +45,6 @@ gem 'pg_search'
 gem 'paperclip'
 gem 'aws-sdk', '< 3.0'
 gem 'dropzonejs-rails'
-gem 'dotenv-rails', groups: [:development]
 gem 'delayed_paperclip'
 
 
@@ -57,6 +56,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'dotenv-rails'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
   gem 'spring'

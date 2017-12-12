@@ -13,8 +13,8 @@
         <% end %>
         <% total << (values.sum.to_f / keys.uniq.size).round %>
       <% end %>
-      <h3><%= (total.sum.to_f / set_item.reviews.count).round %> claps</h3>
-      <!-- <div class="star-rating" style="zoom: 125%" data-score= <%= (total.sum.to_f / set_item.reviews.count).round %> ></div> -->
+      <h3><%= (total.sum.to_f / set_item.reviews.count).round rescue 0 %> claps</h3>
+      <!-- <div class="star-rating" style="zoom: 125%" data-score= <%= (total.sum.to_f / set_item.reviews.count).round rescue 0 %> ></div> -->
     </div>
 
     <div class="boxy text-center">

@@ -1,10 +1,8 @@
 class ApplicationController < ActionController::Base
-  use_growlyflash
-  
-  include PublicActivity::StoreController
-
   protect_from_forgery with: :null_session
+  use_growlyflash
 
+  include PublicActivity::StoreController
 
   def current_account
     nil

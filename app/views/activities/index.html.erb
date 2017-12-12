@@ -1,4 +1,19 @@
-<h1>Latest Activities</h1>
-<% @activities.each do |activity| %>
-  <%= activity.inspect %>
-<% end %>
+<div class="row">
+    <h1>Latest Activities</h1>
+    <br>
+
+    <% @activities.each do |activity| %>
+      <div class="col-md-4">
+        <div class="boxy">
+
+          <h3><%= activity.owner.email %></h3>
+
+          <%= activity.trackable.inspect %>
+
+
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+</div>

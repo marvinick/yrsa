@@ -6,6 +6,4 @@ class Review < ApplicationRecord
 
   belongs_to :item, optional: true
   serialize :properties, Hash
-
-  belongs_to :detail, optional: true
 end

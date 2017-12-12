@@ -2,6 +2,7 @@
   <h2><%= detail.name %></h2>
   <br>
   <%= f.collection_radio_buttons detail.name, [[1], [2], [3], [4], [5]], :last, :first, item_wrapper_tag: true, boolean_style: :inline do |b| %>
+
     <label class="tile">
       <%= b.radio_button %>
       <%= b.label %>
