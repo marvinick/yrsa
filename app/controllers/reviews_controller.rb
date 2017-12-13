@@ -1,4 +1,6 @@
 class ReviewsController < BaseController
+  include PublicActivity::StoreController
+  
   before_action :set_review, except: [:new, :create, :index]
   skip_before_action :authorize_owner!, only: [:new, :create, :edit, :update, :destroy, :index]
   before_action :authorize_reviewer, only: [:edit, :update, :destroy]
@@ -56,7 +58,7 @@ class ReviewsController < BaseController
       whitelisted[:properties] = params[:review][:properties]
       whitelisted[:description] = params[:review][:description]
     end
-    
+
     # params.require(:review).permit(:item_id, :detail_id, :id, :description, :value, properties: [:value, :name, :_destroy])
     # params.require(:review).permit!
     # params.require(:review).permit(:item_id, :detail_id, :id, :description, :value, :properties => {})

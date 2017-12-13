@@ -1,6 +1,7 @@
 class Review < ApplicationRecord
   include PublicActivity::Model
-  tracked owner: ->(controller, model) { controller && controller.current_user }
+  # tracked owner: ->(controller, model) { controller && controller.current_user }
+  tracked
 
   belongs_to :user
 
