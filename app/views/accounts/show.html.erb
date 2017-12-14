@@ -6,21 +6,26 @@
 <% if @account.owner.id == current_user.id %>
 
   <div class="row">
-    <div class="col-md-3 col-xs-6">
+    <div class="col-md-2 ">
+    </div>
+    <div class="col-md-4 col-xs-6">
       <%= link_to account_users_path(@account, @users) do %>
         <div class="account_box3">
-          <%= image_tag 'final-fulton.jpg', class: "img-responsive" %>
-          <h3 class="text-center">users</h3>
+          <%= image_tag 'guys.jpg', class: "img-responsive" %>
+          <h4 class="text-center">users</h4>
         </div>
       <% end %>
     </div>
-    <div class="col-md-3 col-xs-6">
+
+    <div class="col-md-4 col-xs-6">
       <%= link_to edit_account_path(@account) do %>
         <div class="account_box4">
-          <%= image_tag 'final-fulton.jpg', class: "img-responsive" %>
-          <h3 class="text-center">edit account</h3>
+          <%= image_tag 'fulton.jpg', class: "img-responsive" %>
+          <h4 class="text-center">edit account</h4>
         </div>
       <% end %>
+    </div>
+    <div class="col-md-2 ">
     </div>
   </div>
 
@@ -49,7 +54,7 @@
 
   <div class="row text-center">
     <% if @account.stripe_subscription_id.blank? %>
-      <%= link_to "confirm", account_choose_plan_url(@account), class: "btn btn-default" %>
+      <%= link_to "you must confirm before creating your account", account_choose_plan_url(@account), class: "btn btn-default" %>
     <% else %>
       <%= link_to "add project", new_account_project_path(@account), class: "btn btn-default btn-lg" %>
     <% end %>
@@ -71,7 +76,6 @@
 
 <div id="footer">
   <div class="icon-bar">
-
       <i class="fa fa"> </i>
 
     <a href="#"><i class="fa fa-"></i></a>
@@ -79,7 +83,6 @@
       <span class="fa fa-home"></span>
     <% end %>
     <a href="#"><i class="fa fa-"></i></a>
-
 
       <i class="fa fa"></i>
 
