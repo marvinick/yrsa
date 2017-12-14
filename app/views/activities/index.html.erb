@@ -2,23 +2,14 @@
     <h1>Latest Activities</h1>
     <br>
 
-    <!-- <% @activities.each do |activity| %>
+    <% @activities.each do |activity| %>
       <div class="col-md-4">
         <div class="boxy">
 
           <%= activity.trackable.inspect %>
         </div>
       </div>
-    <% end %> -->
-
-    <!-- <% @activities.each do |activity| %>
-      <%= render partial "activities/#{ activity.trackable.review }",
-         activity: activity,
-         object: activity.trackable,
-         owner: activity.owner
-      %>
-    <% end %> -->
-    <%= render_activities @activities %>
+    <% end %>
 
   </div>
 </div>

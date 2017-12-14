@@ -4,60 +4,73 @@
 </div>
 <br>
 <% if @account.owner.id == current_user.id %>
-  <div class="row text-center">
-    <div class="col-md-6 col-xs-6">
-      <div class="text-center">
-        <% if @account.stripe_subscription_id.blank? %>
-          <%= link_to "confirm", account_choose_plan_url(@account), class: "btn btn-default" %>
-        <% else %>
-          <%= link_to "add project", new_account_project_path(@account), class: "btn btn-default btn-lg" %>
-        <% end %>
-      </div>
-    </div>
-    <div class="col-md-6 col-xs-6">
-      <div class="text-center">
-        <div class="dropdown-container">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            <button class="btn btn-default btn-lg">settings</button>
-          </a>
-          <ul class="dropdown-menu">
-            <li><%= link_to "switch account", account_choose_plan_url(@account) %></li>
-            <li role="separator" class="divider"></li>
-            <li><%= link_to "Billing Details", account_billing_path(@account) %></li>
-            <li role="separator" class="divider"></li>
-            <li><%= link_to "manage users", account_users_path(@account, @users) %></li>
-            <li role="separator" class="divider"></li>
-            <li><%= link_to "Edit", edit_account_path(@account) %></li>
-          </ul>
+
+  <div class="row">
+    <div class="col-md-3 col-xs-6">
+      <%= link_to account_choose_plan_url(@account) do %>
+        <div class="account_box1">
+          <%= image_tag 'final-fulton.jpg', class: "img-responsive" %>
+          <h3 class="text-center">switch plan</h3>
         </div>
-      </div>
+      <% end %>
+    </div>
+    <div class="col-md-3 col-xs-6">
+      <%= link_to account_billing_path(@account) do %>
+        <div class="account_box2">
+          <%= image_tag 'final-fulton.jpg', class: "img-responsive" %>
+          <h3 class="text-center">billing</h3>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-3 col-xs-6">
+      <%= link_to account_users_path(@account, @users) do %>
+        <div class="account_box3">
+          <%= image_tag 'final-fulton.jpg', class: "img-responsive" %>
+          <h3 class="text-center">users</h3>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-3 col-xs-6">
+      <%= link_to edit_account_path(@account) do %>
+        <div class="account_box4">
+          <%= image_tag 'final-fulton.jpg', class: "img-responsive" %>
+          <h3 class="text-center">edit account</h3>
+        </div>
+      <% end %>
     </div>
   </div>
 
-<br>
+  <!-- <div class="row text-center">
+    <div class="col-md-1"></div>
+    <div class="col-md-3 col-xs-3">
+      <ul>
+        <li><h1><%= projects_in_account %></h1></li>
+        <li><h5><small>projects</small></h5></li>
+      </ul>
+    </div>
+    <div class="col-md-3 col-xs-3">
+      <ul>
+        <li><h1><%= items_in_project %> </h1></li>
+        <li><h5><small>items</small></h5></li>
+      </ul>
+    </div>
+    <div class="col-md-3 col-xs-3">
+      <ul>
+        <li><h1><%= reviews_in_project %></h1></li>
+        <li><h5><small>reviews</small></h5></li>
+      </ul>
+    </div>
+    <div class="col-md-1"></div>
+  </div> -->
 
-<div class="row text-center">
-  <div class="col-md-1"></div>
-  <div class="col-md-3 col-xs-3">
-    <ul>
-      <li><h1><%= projects_in_account %></h1></li>
-      <li><h5><small>projects</small></h5></li>
-    </ul>
+  <div class="row text-center">
+    <% if @account.stripe_subscription_id.blank? %>
+      <%= link_to "confirm", account_choose_plan_url(@account), class: "btn btn-default" %>
+    <% else %>
+      <%= link_to "add project", new_account_project_path(@account), class: "btn btn-default btn-lg" %>
+    <% end %>
   </div>
-  <div class="col-md-3 col-xs-3">
-    <ul>
-      <li><h1><%= items_in_project %> </h1></li>
-      <li><h5><small>items</small></h5></li>
-    </ul>
-  </div>
-  <div class="col-md-3 col-xs-3">
-    <ul>
-      <li><h1><%= reviews_in_project %></h1></li>
-      <li><h5><small>reviews</small></h5></li>
-    </ul>
-  </div>
-  <div class="col-md-1"></div>
-</div>
+
 <% end %>
 
 <div class="row ">
