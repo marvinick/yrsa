@@ -1,6 +1,6 @@
 class ReviewsController < BaseController
   include PublicActivity::StoreController
-  
+
   before_action :set_review, except: [:new, :create, :index]
   skip_before_action :authorize_owner!, only: [:new, :create, :edit, :update, :destroy, :index]
   before_action :authorize_reviewer, only: [:edit, :update, :destroy]
@@ -70,12 +70,12 @@ class ReviewsController < BaseController
   helper_method :set_review
 
   def set_item
-    @item = set_project.items.find(params[:item_id])
+    @item = set_project.items.find_by slug: params[:item_id]
   end
   helper_method :set_item
 
   def set_project
-    project = Project.find(params[:project_id])
+    project = Project.find_by slug: params[:project_id]
   end
   helper_method :set_project
 

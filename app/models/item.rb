@@ -24,4 +24,14 @@ class Item < ApplicationRecord
   validates_with AttachmentSizeValidator, attributes: :image, less_than: 10.megabytes
 
   process_in_background :image, processing_image_url: "/images/:style/cartoon.png"
+
+  before_save :generate_slug
+
+  def generate_slug
+    self.slug = self.name.gsub(" ", "-").downcase
+  end
+
+  def to_param
+    self.slug
+  end
 end

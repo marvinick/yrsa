@@ -21,4 +21,14 @@ class Project < ApplicationRecord
   def email
     author.email
   end
+
+  before_save :generate_slug
+
+  def generate_slug
+    self.slug = self.title.gsub(" ", "-").downcase
+  end
+
+  def to_param
+    self.slug
+  end
 end

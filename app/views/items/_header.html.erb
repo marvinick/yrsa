@@ -13,8 +13,8 @@
     </small></h3>
 
     <div class="pull-right">
-      <% if set_project.user_id == current_user.id %>
-        <%= link_to edit_account_project_item_path(current_account, set_project, @item) do %>
+      <% if @project.user_id == current_user.id %>
+        <%= link_to edit_account_project_item_path(current_account, set_project, set_item) do %>
           <icon class="fa fa-gear fa-2x"></icon>
         <% end %>
       <% end %>
