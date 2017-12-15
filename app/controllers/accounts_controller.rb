@@ -47,13 +47,13 @@ class AccountsController < ApplicationController
   end
 
   def show
-    
+
   end
 
   private
 
   def set_account
-    @account = Account.find(params[:id])
+    @account = Account.find_by slug: params[:id]
   end
 
   def account_params
@@ -67,7 +67,7 @@ class AccountsController < ApplicationController
   end
 
   def set_project
-    @account.projects.find_by(params[:project_id])
+    @account.projects.find_by slug: params[:project_id]
   end
   helper_method :set_project
 end
