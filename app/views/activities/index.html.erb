@@ -5,8 +5,13 @@
     <% @activities.each do |activity| %>
       <div class="col-md-4">
         <div class="boxy">
-
-          <%= activity.trackable.inspect %>
+        <% if activity.trackable %>
+          <%= activity.owner.email %>
+          reviewed
+          <% if activity.trackable.item %>
+            <%= activity.trackable.item.name  %>
+          <% end %>
+        <% end %>
         </div>
       </div>
     <% end %>
