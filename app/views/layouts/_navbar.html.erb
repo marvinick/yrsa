@@ -10,13 +10,17 @@
 
       <ul class="nav navbar-nav navbar-center">
         <% if user_signed_in? %>
-          <li> <%= link_to "Home", root_url %></li>
-          <li><%= link_to "activities", activities_path %></li>
+          <li> <%= link_to "home", root_url %></li>
+          <% if controller_name != "activities" %>
+            <li><%= link_to "activity", activities_path %></li>
+          <% end %>
 
-          <% if @account %>
-            <li><%= link_to "search", account_lookups_path(@account) %></li>
-          <% elsif current_account %>
-            <li><%= link_to "search", account_lookups_path(current_account) %></li>
+          <% if controller_name != "lookups" %>
+            <% if @account %>
+              <li><%= link_to "search", account_lookups_path(@account) %></li>
+            <% elsif current_account %>
+              <li><%= link_to "search", account_lookups_path(current_account) %></li>
+            <% end %>
           <% end %>
         <% end %>
       </ul>
