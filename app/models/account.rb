@@ -17,7 +17,7 @@ class Account < ApplicationRecord
   end
 
   def over_limit_for?(plan)
-    projects.count > plan.projects_allowed
+    projects.count > plan.projects_allowed rescue 0
   end
 
   before_save :generate_slug
