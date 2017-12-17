@@ -1,5 +1,5 @@
   Rails.application.routes.draw do
-  get 'activities/index'
+
 
   devise_for :users
 
@@ -11,7 +11,8 @@
   post "/accounts", to: "accounts#create", as: :accounts
 
   resources :accounts do
-
+    get 'activities/index'
+      
     get "/choose_plan",
       to: "plans#choose",
       as: :choose_plan
