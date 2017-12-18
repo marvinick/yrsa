@@ -23,6 +23,7 @@ gem 'font-awesome-sass'
 
 #form
 gem "cocoon"
+gem 'simple_form'
 
 #notification / activity
 gem 'growlyflash'

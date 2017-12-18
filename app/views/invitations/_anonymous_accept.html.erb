@@ -4,7 +4,7 @@
 <p>
   <h3>Sign up as a new user</h3>
 </p>
-  <%= form_for [:accepted, @account, @invitation], as: :user do |f| %>
+  <%= simple_form_for [:accepted, @account, @invitation], as: :user do |f| %>
   <%= f.input :email, value: @invitation.email %>
   <%= f.input :password %>
   <%= f.input :password_confirmation %>
