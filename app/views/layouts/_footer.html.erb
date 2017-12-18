@@ -6,16 +6,23 @@
 
     <a href="#"><i class="fa fa-"></i></a>
 
-    <%= link_to account_lookups_path(current_account) do %>
-      <i class="fa fa-search"> </i>
+    <% if @account %>
+      <%= link_to account_lookups_path(@account) do %>
+        <i class="fa fa-search"> </i>
+      <% end %>
+    <% elsif current_account %>
+      <%= link_to account_lookups_path(current_account) do %>
+        <i class="fa fa-search"> </i>
+      <% end %>
     <% end %>
+
 
     <a href="#"><i class="fa fa-"></i></a>
 
     <%= link_to destroy_user_session_path, method: :delete do %>
       <i class="fa fa-user"></i>
     <% end %>
-    
+
   </div>
   <div class="container">
 

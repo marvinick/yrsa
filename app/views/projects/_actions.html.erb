@@ -1,15 +1,13 @@
 <div class="row">
   <div class="col-md-6">
-    <h2> Items <%= all_items %>/50 </h2>
+    <h2> Items <%= all_items %>/25 </h2>
     <br>
-    <% if @project.user_id == current_user.id %>
-      <%= link_to "add item", new_account_project_item_path(current_account, @project), class: "btn btn-default btn-lg pull-left" %>
-    <% end %>
-  </div> 
+
+  </div>
   <div class="col-md-6">
     <div class="pull-right">
-      <%= form_tag(account_project_path, method: :get) do %>
-        <li><%= text_field_tag :term, params[:term]  %> <%= submit_tag 'search', class:"btn btn-default btn-lg" %></li>
+      <% if @project.user_id == current_user.id %>
+        <%= link_to "add item", new_account_project_item_path(current_account, @project), class: "btn btn-default btn-lg pull-left" %>
       <% end %>
     </div>
   </div>

@@ -68,7 +68,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .fa {
-  color: black;
+  text-shadow: 0px 0px 1px black, 0px 0px 1px black;
+  color: white;
 }
 
 .container2 {
@@ -166,15 +167,16 @@ a:link, a:hover{
 
 textarea:focus, input:focus{
   outline: none;
-  font-size: 30px;
+  font-size: 20px;
   font-family: Futura, "Trebuchet MS", Arial, sans-serif;
   font-weight: bolder;
 }
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-  color: #c49999;
+  color: black;
   font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-  font-size: 30px;
+  font-size: 15px;
+  font-weight: lighter;
 
 }
 
