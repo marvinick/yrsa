@@ -7,7 +7,7 @@ class InvitationsController < BaseController
   def index
     @invitations = current_account.invitations.all
   end
- 
+
   def new
     @invitation = current_account.invitations.build
   end
@@ -51,7 +51,7 @@ class InvitationsController < BaseController
   private
 
   def set_account
-    @account = Account.find(params[:account_id])
+    @account = Account.find_by slug: params[:account_id]
   end
 
   def invitation_params
