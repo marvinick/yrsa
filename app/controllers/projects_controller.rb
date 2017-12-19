@@ -24,7 +24,7 @@ class ProjectsController < BaseController
     @items = if params[:term]
       set_project.items.where('name ILIKE ?', "%#{params[:term]}%")
     else
-      set_project.items.all
+      @items = set_project.items.all
     end
   end
 
