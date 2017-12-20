@@ -10,8 +10,10 @@
 
 <div class="row">
   <h3 class="text-center">Reviews <%= count_reviews %></h3>
+
   <br>
   <% set_item.reviews.each do |review| %>
+
     <% keys = [] %>
     <% values = [] %>
     <div class="col-md-3 col-xs-6">
@@ -43,5 +45,6 @@
         <h6><small>reviewed by </small><%= review.user.email %></h6>
       </div>
     </div>
+
   <% end %>
 </div>
