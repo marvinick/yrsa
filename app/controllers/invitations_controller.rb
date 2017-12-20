@@ -18,7 +18,7 @@ class InvitationsController < BaseController
     @invitation.save
     InvitationMailer.invite(@invitation, @account).deliver_now
     flash[:notice] = "#{@invitation.email} has been invited."
-    redirect_to root_path
+    redirect_to account_users_path(current_account)
   end
 
   def accept
