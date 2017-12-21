@@ -18,8 +18,8 @@ module ItemsHelper
 
   #real counting begin
   #calculate average rating for each review
-  
 
+ 
   def item_average_rating
     item_rating / count_properties_names rescue 0
   end
