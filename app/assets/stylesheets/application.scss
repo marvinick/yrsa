@@ -134,8 +134,16 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none!important;
 }
 
+.box:hover {
+  background-color: #fffbf2;
+}
+
 a:link, a:hover{
   text-decoration: none!important;
+}
+
+a:link {
+  color: black!important;
 }
 
 .box span {

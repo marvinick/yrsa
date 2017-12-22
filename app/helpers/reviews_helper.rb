@@ -40,7 +40,7 @@ module ReviewsHelper
 
   end
 
-  #how many times a "name" got each "value" e.g a name "height" got 5 times of value "4", 2 times of value "1", 3 times of value "5", etc
+  #how many times a "key" got each "value" e.g a name "height" got 5 times of value "4", 2 times of value "1", 3 times of value "5", etc
   def count_value_frequency
     frequency = []
     set_item.reviews.each do |review|
@@ -51,6 +51,28 @@ module ReviewsHelper
     end
     frequency.each_slice(2).to_a
   end
+
+
+  def keys_and_values
+    keys_values = []
+    set_item.reviews.each do |review|
+      review.properties.each do |k,v|
+        keys_values << k.gsub(" ", "")
+        keys_values << + v.to_i
+      end
+    end
+    keys_values.each_slice(2).to_a
+  end
+
+  #sum all values for each key
+  def total_keys_and_values
+    result = Hash.new(0)
+    keys_and_values.each { |subarray| result[subarray[0]] += subarray[1] }
+    result
+  end
+
+
+
 end
 
 
