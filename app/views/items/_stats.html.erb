@@ -20,3 +20,25 @@
       <% end %>
     </div>
 </div>
+
+<div class="row">
+    <div class="stats-row">
+      <% if total_keys_and_values.present? %>
+        <% total_keys_and_values.sort.each do |k,v| %>
+
+          <div class="barChart">
+            <div class="barChart__row" data-value="100">
+              <div class="barChart__row" data-value= <%= ((v.to_f / show_value) * 100).round(1) %> >
+                <span class="barChart__label"><strong><%= k %></strong> </span>
+                <span class="barChart__value"><h5><small><%= ((v.to_f / show_value) * 100).round(1) %>%</small></h5></span>
+                <span class="barChart__bar"><span class="barChart__barFill"></span></span>
+              </div>
+            </div>
+          </div>
+
+        <% end %>
+      <% else %>
+        <h3>No review yet!</h3>
+      <% end %>
+    </div>
+</div>

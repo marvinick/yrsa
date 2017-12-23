@@ -51,5 +51,7 @@
 
 
 <%  total_keys_and_values.sort.each do |k,v| %>
-  <li><%= k %> is <%= v %></li>
+  <h3><%= k %> is <%= ((v.to_f / show_value) * 100).round(1)  %>%</h3>
 <% end %>
+
+<%=  %>
