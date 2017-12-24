@@ -40,4 +40,12 @@ module ProjectsHelper
     each_item_details.sum
   end
 
+  def invitations
+    invitations = []
+    current_account.invitations.each do |invitation|
+      invitations << invitation.email
+    end
+    invitations.uniq
+  end
+
 end

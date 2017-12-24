@@ -25,3 +25,7 @@
 <% end %>
 
 </div>
+
+<% current_account.invitations.each do |i| %>
+  <li><%= i.email %> </li>
+<% end %>

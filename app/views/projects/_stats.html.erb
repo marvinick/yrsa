@@ -1,34 +1,25 @@
 
 <div class="row">
 <% if @project.user_id == current_user.id %>
-  <div class="col-md-3 col-xs-6">
+  <div class="col-md-4 col-xs-6">
     <div class="boxy text-center">
       <h4>
-        Reviewers: <%= project_reviewers %>
+        Invited users: <%= invitations.count %>
 
       </h4>
     </div>
   </div>
-  <div class="col-md-3 col-xs-6">
+  <div class="col-md-4 col-xs-6">
     <div class="boxy text-center">
       <h4>
-        Project rating: <%= project_rating %>
+        Overall rating: <%= project_rating %>
       </h4>
     </div>
   </div>
-  <div class="col-md-3 col-xs-6">
+  <div class="col-md-4 col-xs-6">
     <div class="boxy text-center">
       <h4>
         Reviews: <%=  project_reviews_count %>
-
-      </h4>
-    </div>
-  </div>
-  <div class="col-md-3 col-xs-6">
-    <div class="boxy text-center">
-      <h4>
-        Reviews: <%= project_reviews_count %>
-
       </h4>
     </div>
   </div>
