@@ -25,7 +25,7 @@ class InvitationsController < BaseController
     store_location_for(:user, request.fullpath)
     @invitation = Invitation.find_by!(token: params[:id])
   end
-
+ 
   def accepted
     @invitation = Invitation.find_by!(token: params[:id])
 
