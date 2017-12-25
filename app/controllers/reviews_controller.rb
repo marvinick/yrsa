@@ -1,6 +1,7 @@
 class ReviewsController < BaseController
   include PublicActivity::StoreController
 
+  before_action :set_item
   before_action :set_review, except: [:new, :create, :index]
   skip_before_action :authorize_owner!, only: [:new, :create, :edit, :update, :destroy, :index]
   before_action :authorize_reviewer, only: [:edit, :update, :destroy]
