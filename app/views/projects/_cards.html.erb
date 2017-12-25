@@ -7,8 +7,10 @@
         <div class="col-md-3 col-xs-6">
           <div class="box">
             <%= image_tag(item.image.url(:large), class: "img-responsive") %>
-            <h4><%= item.name %></h4>
-            <p><%= truncate(item.content, length: 25) %></p>
+            <h3><%= truncate(item.name, length: 10) %></h3>
+            <!-- <p>updated <%= time_ago_in_words(item.updated_at) %> ago</p> -->
+            <!-- <p><%= truncate(item.content, length: 25) %></p> -->
+
           </div>
         </div>
       <% end %>

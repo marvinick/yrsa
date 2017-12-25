@@ -5,31 +5,32 @@
 </div>
 
 <div class="row text-center">
-  <div class='boxy'>
-    <h1>Create account</h1>
-    <br>
-    <%= form_for(@account) do |account| %>
-      <div class="control">
-        <%= account.text_field :name, placeholder: "enter account's name", class: "input text-center" %>
-      </div>
-      <br>
-      <%= account.fields_for :owner do |owner| %>
+  <h1>Create account</h1>
+  <br>
+  <div class="col-md-12">
+    <div class='formly'>
+      <%= form_for(@account) do |account| %>
         <div class="control">
-          <%= owner.text_field :email, class: "input text-center", placeholder: "email " %>
+          <%= account.text_field :name, placeholder: "enter account's name", class: "input text-center" %>
         </div>
         <br>
-        <div class="control">
-          <%= owner.password_field :password, class: "input text-center", placeholder: "password" %>
-        </div>
-        <br>
-        <div class="control">
-          <%= owner.password_field :password_confirmation, class: "input text-center", placeholder: "confirm password" %>
-        </div>
-        <br>
+        <%= account.fields_for :owner do |owner| %>
+          <div class="control">
+            <%= owner.text_field :email, class: "input text-center", placeholder: "email " %>
+          </div>
+          <br>
+          <div class="control">
+            <%= owner.password_field :password, class: "input text-center", placeholder: "password" %>
+          </div>
+          <br>
+          <div class="control">
+            <%= owner.password_field :password_confirmation, class: "input text-center", placeholder: "confirm password" %>
+          </div>
+          <br>
+        <% end %>
+
+        <%= account.button "Next", class: "btn btn-default btn-lg" %>
       <% end %>
-
-      <%= account.button "Next", class: "btn btn-info btn-lg" %>
-    <% end %>
+    </div>
   </div>
-
 </div>

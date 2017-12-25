@@ -6,13 +6,17 @@
 
     <a href="#"><i class="fa fa-"></i></a>
 
-    <% if @account %>
-      <%= link_to account_lookups_path(@account) do %>
-        <i class="fa fa-search"> </i>
-      <% end %>
-    <% elsif current_account %>
-      <%= link_to account_lookups_path(current_account) do %>
-        <i class="fa fa-search"> </i>
+    <% if user_signed_in? %>
+      <% if @account %>
+        <%= link_to account_lookups_path(@account) do %>
+          <i class="fa fa-search"> </i>
+        <% end %>
+      <% elsif current_account %>
+        <%= link_to account_lookups_path(current_account) do %>
+          <i class="fa fa-search"> </i>
+        <% end %>
+      <% else %>
+        <i class="fa fa-" ><i>
       <% end %>
     <% end %>
 
