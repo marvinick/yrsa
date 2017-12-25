@@ -23,7 +23,7 @@
 
     <a href="#"><i class="fa fa-"></i></a>
 
-    <%= link_to destroy_user_session_path, method: :delete do %>
+    <%= link_to destroy_user_session_path, method: :delete, data: { confirm: "Are you sure you want to log out?"}  do %>
       <i class="fa fa-user"></i>
     <% end %>
 

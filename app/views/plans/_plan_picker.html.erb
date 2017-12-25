@@ -10,7 +10,7 @@
     <% if current_account.stripe_subscription_id.blank? %>
 
       <% @plans.each do |plan| %>
-        <% if plan.id == 3 %>
+        <% if plan.name == "Basic" %>
           <label class="big text-center">
             <%= account.radio_button :plan_id, plan.id, data: { behavior: "submit-on-click" }, class:"radiohidden"%>
             <h1><%= account.label "plan_id_#{plan.id}", plan.name %> (<%= money(plan.amount) %>)</h1> <br>
@@ -23,13 +23,13 @@
 
       <% @plans.each do |plan| %>
         <% if current_account.over_limit_for?(plan) %>
-          <% if plan.id == 2 %>
+          <% if plan.name == "Silver" %>
             <label class="boxy">
               <%= account.radio_button :plan_id, plan.id, data: { name: plan.name, amount: plan.amount}, disabled:"disabled" %>
               <%= account.label "plan_id_#{plan.id}", plan.name %>
               <%= money(plan.amount) %> <br>
             </label>
-          <% elsif plan.id == 1 %>
+          <% elsif plan.name == "Starter" %>
             <label class="boxy">
               <%= account.radio_button :plan_id, plan.id, data: { name: plan.name, amount: plan.amount}, disabled:"disabled" %>
               <%= account.label "plan_id_#{plan.id}", plan.name %>
@@ -37,13 +37,13 @@
             </label>
           <% end %>
         <% else %>
-          <% if plan.id == 2 %>
+          <% if plan.name == "Silver" %>
             <label class="boxy">
               <%= account.radio_button :plan_id, plan.id, data: { name: plan.name, amount: plan.amount} %>
               <%= account.label "plan_id_#{plan.id}", plan.name %>
               <%= money(plan.amount) %> <br>
             </label>
-          <% elsif plan.id == 1 %>
+          <% elsif plan.name == "Starter" %>
             <label class="boxy">
               <%= account.radio_button :plan_id, plan.id, data: { name: plan.name, amount: plan.amount} %>
               <%= account.label "plan_id_#{plan.id}", plan.name %>
