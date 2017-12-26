@@ -2,7 +2,7 @@
   <% @item.reviews.order('created_at desc').last(5).each do |review| %>
   <% keys = [] %>
   <% values = [] %>
-  <div class="col-md-6">
+  <div class="col-md-12">
     <div class="box">
       <% review.properties.each do |name, value| %>
         <% keys << name %>
@@ -15,7 +15,7 @@
           <h5><%= value %></h5>
         </div>
       <% end %>
-      
+
       <% if review.description.present? %>
 
         <h3 class="text-center"><small ><%= review.description.truncate(25) %></small></h3>

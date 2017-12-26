@@ -40,9 +40,9 @@ body, html {
   overflow-x:hidden!important;
 }
 
-ul, li {
-  list-style-type: none;
-}
+// ul, li {
+//   list-style-type: none;
+// }
 
 h1 {
   font-family: Futura, "Trebuchet MS", Arial, sans-serif;
@@ -53,11 +53,6 @@ h1 {
 	line-height: 26.4px;
 }
 
-h2 small {
-  font-size: 25px;
-  color: #92b290;
-}
-
 h3 {
   font-size: 20px;
 }
@@ -65,6 +60,27 @@ h3 {
 h1, h2, h3, h4, h5, h6 {
   font-family: Futura, "BT Pro Book", Arial, sans-serif;
   margin: 0;
+}
+
+ul, li {
+  list-style-type: none;
+}
+
+.review-header h2 {
+   width: 100%;
+   text-align: center;
+   border-bottom: 1px solid #000;
+   line-height: 0.1em;
+   margin: 10px 0 20px;
+}
+
+.review-header p {
+   color: grey;
+}
+
+h2 span {
+    background:#fff;
+    padding:0 10px;
 }
 
 .fa {
@@ -100,7 +116,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .box {
-  border-style: none;
   background-color: white;
   box-shadow: 20px 15px 100px -20px #556d7f;
 }
@@ -121,21 +136,15 @@ h1, h2, h3, h4, h5, h6 {
    margin-left: 2px;
    margin-right: 2px;
    background-color: white;
-   border-radius: 30px;
    box-shadow: -5px 25px 150px -20px black;
-   border-color: black;
-   border-style: solid;
  }
 
   .tile:hover {
-    background-color: #bee5c3;
+    background-color: #fff6a5;
+    border-radius: 30px;
   }
 .box a:link {
   text-decoration: none!important;
-}
-
-.box:hover {
-  background-color: #fffbf2;
 }
 
 a:link, a:hover{
@@ -175,17 +184,10 @@ a:link {
 
 textarea:focus, input:focus{
   outline: none;
-  font-size: 20px;
-  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-  font-weight: bolder;
 }
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-  color: black;
-  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-  font-size: 15px;
   font-weight: lighter;
-
 }
 
 .activity {
@@ -262,8 +264,9 @@ input[type=radio] {
 input[type=radio] + label {
   color: #999b9a;
 }
+
 input[type=radio]:checked + label {
-  color: #4cc45b;
+  color: #ffeb21;
 }
 
 .stats-row {

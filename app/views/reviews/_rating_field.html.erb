@@ -1,13 +1,21 @@
 <% set_item.details.each do |detail| %>
-  <h2><%= detail.name %></h2>
-  <br>
-  <%= f.collection_radio_buttons detail.name, [[1], [2], [3], [4], [5]], :last, :first, item_wrapper_tag: true, boolean_style: :inline do |b| %>
+  <div class="box text-center">
+    <h3><%= detail.name %></h3>
+    <br>
+    <%= f.collection_radio_buttons detail.name,
+        [
+          [1],
+          [2],
+          [3],
+          [4],
+          [5]
+        ],
+        :last, :first, item_wrapper_tag: true, boolean_style: :inline do |b| %>
 
-    <label class="tile">
-      <%= b.radio_button %>
-      <%= b.label %>
-    </label>
-  <% end %>
-  <br>
-  <br>
+      <label class="tile">
+        <%= b.radio_button %>
+        <%= b.label %>
+      </label>
+    <% end %>
+  </div>
 <% end %>

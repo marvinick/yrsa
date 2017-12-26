@@ -1,10 +1,9 @@
 <% if set_project.user_id == current_user.id %>
-  <div class="row">
 
-    <div class="box">
+  <div class="col-md-3 col-xs-6">
+    <div class="box text-center">
       <% total = [] %>
       <% set_item.reviews.each do |review| %>
-
         <% keys = [] %>
         <% values = [] %>
         <% review.properties.each do |name, value| %>
@@ -13,41 +12,48 @@
         <% end %>
         <% total << (values.sum.to_f / keys.uniq.size).round %>
       <% end %>
-      <h3><%= (total.sum.to_f / set_item.reviews.count).round rescue 0 %> claps</h3>
+      <h2><%= (total.sum.to_f / set_item.reviews.count).round rescue 0 %> </h2>
+      <h4>claps</h4>
       <!-- <div class="star-rating" style="zoom: 125%" data-score= <%= (total.sum.to_f / set_item.reviews.count).round rescue 0 %> ></div> -->
     </div>
+  </div>
 
-    <div class="boxy text-center">
-      <h4>
-        Reviewers: <%= all_reviewers %>
-
-      </h4>
+  <div class="col-md-3 col-xs-6">
+    <div class="box text-center">
+      <h2><%= all_reviewers %></h2>
+      <h4>Reviewers</h4>
     </div>
+  </div>
 
-    <div class="boxy text-center">
-      <h4>
-        <% if total_reviews > 1 %>
-          reviews: <%= total_reviews %>
-        <% else %>
-            review: <strong><%= total_reviews %>
-        <% end %>
-      </h4>
+  <div class="col-md-3 col-xs-6">
+    <div class="box text-center">
+      <% if total_reviews > 1 %>
+        <h2> <%= total_reviews %></h2>
+        <h4>reviews</h4>
+      <% else %>
+        <h2><%= total_reviews %></h2>
+        <h4>review</h4>
+      <% end %>
     </div>
+  </div>
 
-    <div class="boxy text-center">
-      <h4>
-        <% if @item.details.count > 1 %>
-          categories: <%= @item.details.count %>
-        <% else %>
-          category: <%= @item.details.count %>
-        <% end %>
-
-      </h4>
+  <div class="col-md-3 col-xs-6">
+    <div class="box text-center">
+      <% if @item.details.count > 1 %>
+        <h2><%= @item.details.count %></h2>
+        <h4>details</h4>
+      <% else %>
+        <h2><%= @item.details.count %></h2>
+        <h4>details</h4>
+      <% end %>
     </div>
+  </div>
 
+  <!-- <div class="col-md-3">
     <div class="boxy text-center">
       <h4>added <%= time_ago_in_words(@item.created_at) %> ago</h4>
       <h4>last update <%= time_ago_in_words(@item.updated_at) %> ago</h4>
     </div>
-  </div>
+  </div> -->
+
 <% end %>

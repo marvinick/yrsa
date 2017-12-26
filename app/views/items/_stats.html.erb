@@ -1,9 +1,9 @@
 <br>
 <div class="row">
+  <div class="col-md-6">
     <div class="stats-row">
       <% if each_review_value.present? %>
         <% each_review_value.sort.each do |k,v| %>
-
           <div class="barChart">
             <div class="barChart__row" data-value="100">
               <div class="barChart__row" data-value= <%= ((v.to_f / count_values.to_f) * 100).to_i %> >
@@ -13,15 +13,14 @@
               </div>
             </div>
           </div>
-
         <% end %>
       <% else %>
         <h3>No review yet!</h3>
       <% end %>
     </div>
-</div>
+  </div>
 
-<div class="row">
+  <div class="col-md-6">
     <div class="stats-row">
       <% if total_keys_and_values.present? %>
         <% total_keys_and_values.sort.each do |k,v| %>
@@ -34,10 +33,10 @@
               </div>
             </div>
           </div>
-
         <% end %>
       <% else %>
         <h3>No review yet!</h3>
       <% end %>
     </div>
+  </div>
 </div>
