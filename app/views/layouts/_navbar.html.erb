@@ -1,7 +1,11 @@
 <nav class="navbar navbar-default" style="list-style-type: none;">
   <div class="container">
     <div class="navbar-header">
-      <li class="navbar-brand" href="#"><%= link_to "aetomata", home_path %></li>
+      <% if user_signed_in? %>
+        <li class="navbar-brand" href="#"><%= link_to "aetomata", home_path %></li>
+      <% else %>
+        <li><%= link_to "sign in", new_user_session_path, class: "btn btn-default" %></li>
+      <% end %>
     </div>
 
     <div class="collapse navbar-collapse">
@@ -42,8 +46,7 @@
           </li>
 
         <% else %>
-          <li><%= link_to "signup", new_account_path %></li>
-          <li><%= link_to "signin", new_user_session_path %></li>
+          <%= link_to "sign up", new_account_path, class:"btn btn-default" %>
         <% end %>
       </ul>
 

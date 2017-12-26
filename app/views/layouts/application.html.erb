@@ -18,7 +18,9 @@
     <div class="container">
       <%= yield %>
     </div>
-    <%= render "layouts/footer" %>
+    <% unless controller_name == "home" %>
+      <%= render "layouts/footer" %>
+    <% end %>
     <div id="push"></div>
 
     <script>
