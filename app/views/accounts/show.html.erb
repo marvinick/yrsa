@@ -3,84 +3,63 @@
   <h1><strong><%= @account.name %></strong></h1>
 </div>
 <br>
-<% if @account.owner.id == current_user.id %>
+<div class="row">
+  <% if @account.owner.id == current_user.id %>
+    <div class="col-md-2">
+      <div class="row">
+        <div class="col-md-12 col-xs-6">
+          <%= link_to account_users_path(@account, @users) do %>
+            <div class="account_box3">
+              <%= image_tag 'guys.jpg', class: "img-responsive" %>
+              <h4 class="text-center">users</h4>
+            </div>
+          <% end %>
+        </div>
 
-  <div class="row">
-    <div class="col-md-3 col-xs-1 ">
+        <div class="col-md-12 col-xs-6">
+          <%= link_to edit_account_path(@account) do %>
+            <div class="account_box4">
+              <%= image_tag 'fulton.jpg', class: "img-responsive" %>
+              <h4 class="text-center">edit</h4>
+            </div>
+          <% end %>
+        </div>
+
+      </div>
     </div>
-    <div class="col-md-2 col-xs-4">
-      <%= link_to account_users_path(@account, @users) do %>
-        <div class="account_box3">
-          <%= image_tag 'guys.jpg', class: "img-responsive" %>
-          <h4 class="text-center">users</h4>
+  <% end %>
+
+  <div class="col-md-1"></div>
+
+  <div class="col-md-9">
+    <div class="row">
+      <div class="col-md-12">
+        <% if @account.owner.id == current_user.id %>
+          <% if @account.stripe_subscription_id.blank? %>
+            <%= link_to "you must confirm before creating your account", account_choose_plan_url(@account), class: "btn btn-warning btn-sm " %>
+          <% else %>
+            <%= link_to "add project", new_account_project_path(@account), class: "btn btn-success btn-sm " %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row">
+      <% @account.projects.each do |project| %>
+        <div class="col-md-3 col-xs-6">
+          <%= link_to account_project_path(@account, project) do %>
+            <div class="account_box4 text-center">
+              <%= image_tag 'street.jpg', class: "img-responsive" %>
+              <h2><%= project.title %></h2>
+              <hr>
+              <h4><%= truncate(project.description, length: 15) %></h4>
+              <h6><%= time_ago_in_words(project.updated_at) %> ago</h6>
+            </div>
+          <% end %>
         </div>
       <% end %>
-    </div>
-
-    <div class="col-xs-2"></div>
-
-    <div class="col-md-2 col-xs-4">
-      <%= link_to edit_account_path(@account) do %>
-        <div class="account_box4">
-          <%= image_tag 'fulton.jpg', class: "img-responsive" %>
-          <h4 class="text-center">edit</h4>
-        </div>
-      <% end %>
-    </div>
-    <div class="col-md-3 col-xs-1 ">
     </div>
   </div>
-<% end %>
-  <!-- <div class="row text-center">
-    <div class="col-md-1"></div>
-    <div class="col-md-3 col-xs-3">
-      <ul>
-        <li><h1><%= projects_in_account %></h1></li>
-        <li><h5><small>projects</small></h5></li>
-      </ul>
-    </div>
-    <div class="col-md-3 col-xs-3">
-      <ul>
-        <li><h1><%= items_in_project %> </h1></li>
-        <li><h5><small>items</small></h5></li>
-      </ul>
-    </div>
-    <div class="col-md-3 col-xs-3">
-      <ul>
-        <li><h1><%= reviews_in_project %></h1></li>
-        <li><h5><small>reviews</small></h5></li>
-      </ul>
-    </div>
-    <div class="col-md-1"></div>
-  </div> -->
-
-
-
-<div class="row text-center ">
-  <% if @account.owner.id == current_user.id %>
-    <% if @account.stripe_subscription_id.blank? %>
-      <%= link_to "you must confirm before creating your account", account_choose_plan_url(@account), class: "btn btn-default" %>
-    <% else %>
-      <%= link_to "add project", new_account_project_path(@account), class: "btn btn-default btn-sm" %>
-    <% end %>
-  <% end %>
-  <br>
-  <br>
-
-
-  <% @account.projects.each do |project| %>
-    <div class="col-md-4 col-xs-6">
-      <%= link_to account_project_path(@account, project) do %>
-        <div class="box text-center">
-          <%= image_tag 'street.jpg', class: "img-responsive" %>
-          <h2><%= project.title %></h2>
-          <hr>
-          <h4><%= truncate(project.description, length: 15) %></h4>
-          <h6><%= time_ago_in_words(project.updated_at) %> ago</h6>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
 </div>
 
 <footer id="footer">
@@ -100,3 +79,27 @@
 
   </div>
 </footer>
+
+
+<!-- <div class="row text-center">
+  <div class="col-md-1"></div>
+  <div class="col-md-3 col-xs-3">
+    <ul>
+      <li><h1><%= projects_in_account %></h1></li>
+      <li><h5><small>projects</small></h5></li>
+    </ul>
+  </div>
+  <div class="col-md-3 col-xs-3">
+    <ul>
+      <li><h1><%= items_in_project %> </h1></li>
+      <li><h5><small>items</small></h5></li>
+    </ul>
+  </div>
+  <div class="col-md-3 col-xs-3">
+    <ul>
+      <li><h1><%= reviews_in_project %></h1></li>
+      <li><h5><small>reviews</small></h5></li>
+    </ul>
+  </div>
+  <div class="col-md-1"></div>
+</div> -->

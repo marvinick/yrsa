@@ -1,44 +1,51 @@
-<div class="row">
-  <h1 class="text-center "> <%= @project.title%></h1>
+<div class="row text-center">
+  <p>project</p>
+  <h1> <%= @project.title%></h1>
 </div>
-
+<br>
 <%= form_for([current_account, @project]) do |f| %>
+
   <div class="row">
-      <div class="formly text-center">
-        <h2>edit project</h2>
-          <br>
-          <div class="control">
-              <%= f.text_field :title, placeholder: 'title', label: false, class:"input" %>
-          </div>
-          <br>
-          <div class="control">
-            <%= f.text_area :description, placeholder: 'write away', label: false, class:"input" %>
-          </div>
-          <br>
-          <br>
-          <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6 text-center">
-              <h5><strong>Add your team members here:</strong></h5>
-              <%= f.collection_check_boxes :user_ids, current_account.users.all, :id, :email, :item_wrapper_class => 'checkbox_container' do |cb| %>
-                <% cb.label {cb.check_box(class: "checkbox") + cb.text} %>
-              <% end %>
-            </div>
-            <div class="col-md-3"></div>
-          </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-6 text-center">
+      <h2>edit project</h2>
+      <div class="control">
+        <%= f.text_field :title, placeholder: 'title', label: false, class:"input" %>
+      </div>
+      <div class="control">
+        <%= f.text_area :description, placeholder: 'write away', label: false, class:"input" %>
       </div>
     </div>
-    <br>
-    <div>
-      <%= f.submit "change", class: "btn btn-default btn-lg pull-right" %>
+    <div class="col-md-1"></div>
+    <div class="col-md-3 text-center">
+      <h4><small>Add or edit your team members</small></h4>
+      <br>
+      <%= f.collection_check_boxes :user_ids, current_account.users.all, :id, :email, :item_wrapper_class => 'checkbox_container' do |cb| %>
+        <% cb.label(class: "check_box") do %>
+
+          <div class="col-xs-1">
+            <%= cb.check_box(class: "check_box") %>
+          </div>
+
+          <div class="col-xs-4">
+            <%= cb.text %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+
+  <div class="row text-center">
+    <div class="col-md-8">
+      <%= f.submit "change", class: "btn btn-default btn-lg" %>
       <%= link_to "cancel", account_project_path(current_account, @project), class: "btn btn-default btn-lg" %>
       <br>
-      <hr>
-      <div class="formy text-center">
-        <h4>or, you can remove it</h4>
-        <br>
-        <%= link_to "remove", [current_account, @project], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "btn btn-danger btn-lg" %>
-      </div>
+      <br>
+      <h4>or, you can remove it</h4>
+      <br>
+      <%= link_to "remove", [current_account, @project], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "btn btn-danger btn-lg" %>
     </div>
   </div>
+
 <% end %>

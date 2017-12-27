@@ -94,9 +94,6 @@ h2 span {
   padding-bottom: 30px;
 }
 
-.star-rating {
-  zoom: 70%;
-}
 
 .navbar {
   background-color: white;
@@ -277,4 +274,9 @@ input[type=radio]:checked + label {
 .landing-image h3 {
   color: grey;
   font-weight: lighter;
+}
+
+.check_box {
+  font-size: 18px;
+  font-style: italic;
 }
