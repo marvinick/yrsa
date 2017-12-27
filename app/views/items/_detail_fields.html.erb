@@ -1,13 +1,8 @@
-<div class="row text-center">
-  <div class="col-md-3"></div>
-  <div class="col-md-6">
-    <div class="nested-fields formly">
-      <%= f.text_field :name, class: "input", placeholder: "name" %>
-      <%= f.text_field :description, class: "input", placeholder: "description" %>
-      <%= f.check_box :_destroy, class: "input" %>
-      <br>
-      <%= link_to_remove_association "remove this", f, class:"btn btn-danger" %>
-    </div>
+<div class="box">
+  <div class="nested-fields">
+    <%= link_to_remove_association " ", f, class:"fa fa-times-circle fa-2x pull-right", data: {confirm: 'are you sure ?'} %>
+    <%= f.text_field :name, class: "input", placeholder: "name" %>
+    <%= f.text_field :description, class: "input", placeholder: "description" %>
+    <!-- <%= f.check_box :_destroy, class: "input" %> -->
   </div>
-  <div class="col-md-3"></div>
 </div>
