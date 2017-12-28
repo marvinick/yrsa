@@ -4,7 +4,9 @@ class Item < ApplicationRecord
 
   belongs_to :project, optional: true
 
-  has_many :details, dependent: :destroy
+  has_many :detail_items
+  has_many :details, through: :detail_items
+
   has_many :reviews, dependent: :destroy
 
   accepts_nested_attributes_for :details, allow_destroy: true, reject_if: ->(attrs) { attrs['name'].blank? || attrs['description'].blank? }

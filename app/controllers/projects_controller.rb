@@ -65,7 +65,7 @@ class ProjectsController < BaseController
   def project_params
     params.require(:project).permit(:title, :description, :account_id, user_ids: [])
   end
-
+ 
   def set_account
     @account = Account.find_by slug: params[:account_id]
   end

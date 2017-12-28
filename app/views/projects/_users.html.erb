@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-12">
-    <% @details.each do |detail| %>
-      <%= detail.name %>
+    <% @project.users.each do |u| %>
+      <%= u.email %>
     <% end %>
   </div>
 </div>

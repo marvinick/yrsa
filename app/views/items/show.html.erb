@@ -1,10 +1,12 @@
+
 <div class="row">
   <div class="col-md-8">
 
     <%= render "header" %>
+    <%= render "details" %>
     <br>
     <%= image_tag(@item.image.url(:xlarge), class: "img-responsive img-rounded") %>
-    
+
     <br>
     <%= render "stats" %>
     <br>
