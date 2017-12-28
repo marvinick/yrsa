@@ -4,7 +4,11 @@
     <h1><%= @project.title %> </h1>
     <br>
     <h5>back to <%= link_to @account.name, account_path(@account) %></h5>
-
+    <% if @project.user_id == current_user.id %>
+      <%= link_to edit_account_project_path(current_account, @project) do %>
+        <icon class="fa fa-gear pull-right"></icon>
+      <% end %>
+    <% end %>
   </div>
   <div class="col-md-8">
     <h4><small>
@@ -15,11 +19,8 @@
         <%= @project.description %>
       <% end %>
     </small></h4>
-    <% if @project.user_id == current_user.id %>
-      <%= link_to edit_account_project_path(current_account, @project) do %>
-        <icon class="fa fa-gear pull-right"></icon>
-      <% end %>
-    <% end %>
+    <br>
+    <%= render "stats" %>
   </div>
 </div>
 

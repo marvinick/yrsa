@@ -12,7 +12,7 @@
 
   resources :accounts do
     get 'activities/index'
-      
+
     get "/choose_plan",
       to: "plans#choose",
       as: :choose_plan
@@ -32,6 +32,7 @@
       as: :update_payment_details
 
     resources :projects do
+      resources :details
       resources :items do
         resources :reviews do
           member do

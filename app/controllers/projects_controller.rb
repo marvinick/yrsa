@@ -21,6 +21,7 @@ class ProjectsController < BaseController
   end
 
   def show
+    @details = @project.details.all
     @items = if params[:term]
       set_project.items.where('name ILIKE ?', "%#{params[:term]}%")
     else
