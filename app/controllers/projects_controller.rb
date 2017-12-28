@@ -21,7 +21,9 @@ class ProjectsController < BaseController
   end
 
   def show
-    @details = @project.details.all
+    @detail = set_project.details.build
+    @details = set_project.details.last(10)
+    
     @items = if params[:term]
       set_project.items.where('name ILIKE ?', "%#{params[:term]}%")
     else
@@ -65,7 +67,7 @@ class ProjectsController < BaseController
   def project_params
     params.require(:project).permit(:title, :description, :account_id, user_ids: [])
   end
- 
+
   def set_account
     @account = Account.find_by slug: params[:account_id]
   end

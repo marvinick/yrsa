@@ -22,20 +22,7 @@
         <div class="control">
           <%= f.file_field :image, class:"btn btn-default"  %>
         </div>
-        <div class="control">
-          <%= f.collection_check_boxes :detail_ids, set_project.details.all, :id, :name, :item_wrapper_class => 'checkbox_container' do |cb| %>
-            <% cb.label(class: "check_box") do %>
 
-              <div class="col-xs-1">
-                <%= cb.check_box(class: "check_box") %>
-              </div>
-
-              <div class="col-xs-4">
-                <%= cb.text %>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
       </div>
       <br>
       <br>
@@ -44,12 +31,21 @@
     <div class="col-md-3">
       <h5 class="text-center">add / edit attributes for your users to rate</h5>
       <br>
-      <div class="links">
-        <h5><%= link_to_add_association ' ', f, :details, class:"fa fa-plus fa-3x" %></h5>
-        <%= f.fields_for :details do |detail| %>
-          <%= render "detail_fields", f: detail %>
+      <div class="control">
+        <%= f.collection_check_boxes :detail_ids, set_project.details.all, :id, :name, :item_wrapper_class => 'checkbox_container' do |cb| %>
+          <% cb.label(class: "check_box") do %>
+
+            <div class="col-xs-1">
+              <%= cb.check_box(class: "check_box") %>
+            </div>
+
+            <div class="col-xs-4">
+              <%= cb.text %>
+            </div>
+          <% end %>
         <% end %>
       </div>
+      
       <br>
       <br>
       <div class="row text-center">

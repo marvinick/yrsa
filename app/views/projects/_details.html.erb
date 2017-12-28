@@ -1,7 +1,19 @@
 <div class="row">
-  <div class="col-md-12">
-    <% @details.each do |detail| %>
-      <%= detail.name %>
+  <div class="col-md-4">
+    <%= form_for ([current_account, @project, @detail]), remote: true, html: {} do |f| %>
+      <% f.hidden_field :project_id %>
+      <h5>Add an attribute</h5>
+      <li><%= f.text_field :name, placeholder: "name" %></li>
+
+      <%= f.button "add", class: "btn btn-success" %>
     <% end %>
+  </div>
+  <div class="col-md-8">
+    <h4><strong>Attributes</strong></h4>
+    <br>
+    <div id="details">
+      <%= render @details %>
+    </div>
+    <%= link_to "more", account_project_details_path(current_account, @project, @details) %>
   </div>
 </div>

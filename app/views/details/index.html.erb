@@ -1,0 +1,17 @@
+<div class"row">
+  <div class="col-md-6">
+    <%= link_to "project", account_project_path(current_account, set_project) %>
+  </div>
+</div>
+<div class="row">
+
+  <% @details.order("created_at desc").each do |detail| %>
+    <div class="col-md-3">
+      <div class="box">
+        <%= detail.name %>
+        <%= link_to "delete", account_project_detail_path(current_account, set_project, detail), method: :delete, data: {confirm: "are you sure"} %>
+      </div>
+    </div>
+  <% end %>
+
+</div>

@@ -44,6 +44,17 @@ body, html {
 //   list-style-type: none;
 // }
 
+h4.test {
+  width: 11em;
+  border: 1px solid #000000;
+  word-wrap: break-word;
+  background-color: #feffe2;
+  padding: 2px 2px 2px 2px;
+  margin: 2px 2px 5px 2px;
+  border-style: none;
+  display: inline;
+}
+
 h1 {
   font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-size: 48px;
