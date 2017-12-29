@@ -1,0 +1,56 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <%= form_for([current_account, @project]) do |f| %>
+      <div class="modal-body">
+        <div class="row">
+
+          <div class="col-md-12 text-center">
+            <div class="control">
+              <%= f.text_field :title, placeholder: 'title', label: false, class: "input ", :maxlength => 25, :size => 40 %>
+            </div>
+            <br>
+            <div class="control">
+              <%= f.text_field :description, placeholder: 'description', label: false, class: "input-text", :maxlength => 280, :size => 40  %>
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+
+          <div class="col-md-10">
+            <% if invitations.present? %>
+              <h5>Add your team members here:</h5>
+              <br>
+              <%= f.collection_check_boxes :user_ids, current_account.users.all, :id, :email, :item_wrapper_class => 'checkbox_container' do |cb| %>
+                <% cb.label(class: "check_box") do %>
+                  <div class="col-xs-1">
+                    <%= cb.check_box(class: "check_box") %>
+                  </div>
+
+                  <div class="col-xs-4">
+                    <%= cb.text %>
+                  </div>
+                <% end %>
+              <% end %>
+            <% else %>
+              <h5>No one?! Go invite some users</h5>
+            <% end %>
+          </div>
+
+        </div>
+        <br>
+        <br>
+        <div class="row text-center">
+          <%= f.submit "edit", class:"btn btn-warning btn-lg" %>
+          <%= link_to "cancel", account_project_path(current_account, @project), class: "btn btn-default btn-lg" %>
+          <br>
+          <br>
+          <br>
+          <h4>or, you can remove it</h4>
+          <br>
+          <%= link_to "remove", [current_account, @project], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "btn btn-danger btn-lg" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

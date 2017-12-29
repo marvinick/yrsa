@@ -1,0 +1,13 @@
+<% @account.projects.each do |project| %>
+  <div class="col-md-3 col-xs-6">
+    <%= link_to account_project_path(@account, project) do %>
+      <div class="account_box4 text-center">
+        <%= image_tag 'street.jpg', class: "img-responsive" %>
+        <h2><%= project.title %></h2>
+        <hr>
+        <h4><%= truncate(project.description, length: 15) %></h4>
+        <h6><%= time_ago_in_words(project.updated_at) %> ago</h6>
+      </div>
+    <% end %>
+  </div>
+<% end %>

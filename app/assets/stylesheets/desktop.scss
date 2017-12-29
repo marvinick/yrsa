@@ -183,9 +183,19 @@
     padding: 20px 20px 20px 20px;
   }
 
+  .modal-header {
+    background-color: white;
+    text-align: center;
+  }
+
   .modal-content {
     background-color: white;
-    margin-top: 300px;
+    margin-top: auto;
+  }
+
+  .modal-body {
+    width: 600px;
+    height: 600px;
   }
 
   .input-text, select textarea {

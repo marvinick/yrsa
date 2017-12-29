@@ -13,7 +13,7 @@ class DetailsController < BaseController
     @detail = @project.details.new(detail_params)
     if @detail.save
       respond_to do |format|
-        format.html { redirect_to account_project_path(current_account, set_project) }
+        # format.html { redirect_to account_project_path(current_account, set_project) }
         format.js {}
       end
     end

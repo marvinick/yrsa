@@ -1,5 +1,5 @@
 <% set_item.details.each do |detail| %>
-  <div class="box text-center">
+  <div class=" text-center">
     <h3><%= detail.name %></h3>
     <br>
     <%= f.collection_radio_buttons detail.name,
@@ -12,19 +12,20 @@
         ],
         :last, :first, item_wrapper_tag: true, boolean_style: :inline do |b| %>
       <div class="pretty p-icon p-toggle p-plain ">
-
         <label class="">
           <%= b.radio_button %>
           <div class="state p-off">
-              <i class="icon fa fa-star-o "></i>
-              <%= b.label %>
+            <i class="icon fa fa-meh-o"></i>
+            <%= b.label %>
           </div>
           <div class="state p-on p-warning-o">
-            <i class="icon fa fa-star fa-2x "></i>
+            <i class="icon fa fa-smile-o"></i>
             <%= b.label %>
           </div>
         </label>
       </div>
     <% end %>
   </div>
+  <br>
+  <br>
 <% end %>
