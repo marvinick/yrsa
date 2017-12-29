@@ -1,13 +1,18 @@
 <div class="row text-center">
-  <p>project</p>
-  <h1><%= set_project.title %></h1>
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <p>edit item</p>
+    <h1><%= @item.name %></h1>
+    <br>
+  </div>
+  <div class="col-md-2"></div>
 </div>
-<br>
 <%= form_for([current_account, set_project, @item]) do |f| %>
   <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-4">
-      <h2 class="text-center">edit item</h2>
+
+      <h2 class="text-center"></h2>
       <br>
       <div class="">
         <%= f.hidden_field :project_id %>
@@ -16,7 +21,7 @@
         </div>
         <br>
         <div class="control">
-          <%= f.text_field :content, placeholder: 'content', label: false, class: "input", :maxlength => 280, :size => 40  %>
+          <%= f.text_field :content, placeholder: 'content', label: false, class: "input-text", :maxlength => 280, :size => 40  %>
         </div>
         <br>
         <div class="control">
@@ -25,10 +30,11 @@
 
       </div>
       <br>
-      <br>
+
     </div>
     <div class="col-md-1"></div>
     <div class="col-md-3">
+      <br>
       <h5 class="text-center">add / edit attributes for your users to rate</h5>
       <br>
       <div class="control">
@@ -45,7 +51,7 @@
           <% end %>
         <% end %>
       </div>
-      
+
       <br>
       <br>
       <div class="row text-center">

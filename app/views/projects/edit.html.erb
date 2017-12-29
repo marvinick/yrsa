@@ -1,39 +1,54 @@
 <div class="row text-center">
-  <p>project</p>
-  <h1> <%= @project.title%></h1>
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <h1><%= @project.title %></h1>
+    <hr>
+  </div>
+  <div class="col-md-2"></div>
 </div>
-<br>
 <%= form_for([current_account, @project]) do |f| %>
 
   <div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-6 text-center">
+    <div class="col-md-2"></div>
+    <div class="col-md-5 text-center">
       <h2>edit project</h2>
+      <br>
       <div class="control">
         <%= f.text_field :title, placeholder: 'title', label: false, class:"input" %>
       </div>
       <div class="control">
-        <%= f.text_area :description, placeholder: 'write away', label: false, class:"input" %>
+        <%= f.text_area :description, placeholder: 'write away', label: false, class:"input-text" %>
       </div>
     </div>
-    <div class="col-md-1"></div>
+
     <div class="col-md-3 text-center">
-      <h4><small>Add or edit your team members</small></h4>
-      <br>
-      <%= f.collection_check_boxes :user_ids, current_account.users.all, :id, :email, :item_wrapper_class => 'checkbox_container' do |cb| %>
-        <% cb.label(class: "check_box") do %>
+      <% if invitations.present? %>
+          <h4><small>Select your team members</small></h4>
+          <br>
 
-          <div class="col-xs-1">
-            <%= cb.check_box(class: "check_box") %>
-          </div>
+          <%= f.collection_check_boxes :user_ids, current_account.users.all, :id, :email, :item_wrapper_class => 'checkbox_container' do |cb| %>
 
-          <div class="col-xs-4">
-            <%= cb.text %>
-          </div>
-        <% end %>
+            <% cb.label(class: "check_box") do %>
+
+              <div class="col-xs-1">
+
+                  <%= cb.check_box(class: "check_box") %>
+                
+              </div>
+              <div class="col-xs-4">
+                <%= cb.text %>
+              </div>
+            <% end %>
+          <% end %>
+
+      <% else %>
+        <h4>No one yet?! Invite some people</h4>
       <% end %>
+      <br>
+      <br>
+      <%= link_to "Invite new user", new_account_invitation_path(current_account), class: "btn btn-default" %>
     </div>
-    <div class="col-md-1"></div>
+    <div class="col-md-2"></div>
   </div>
 
   <div class="row text-center">

@@ -11,11 +11,20 @@
           [5]
         ],
         :last, :first, item_wrapper_tag: true, boolean_style: :inline do |b| %>
+      <div class="pretty p-icon p-toggle p-plain ">
 
-      <label class="tile">
-        <%= b.radio_button %>
-        <%= b.label %>
-      </label>
+        <label class="">
+          <%= b.radio_button %>
+          <div class="state p-off">
+              <i class="icon fa fa-star-o "></i>
+              <%= b.label %>
+          </div>
+          <div class="state p-on p-warning-o">
+            <i class="icon fa fa-star fa-2x "></i>
+            <%= b.label %>
+          </div>
+        </label>
+      </div>
     <% end %>
   </div>
 <% end %>
