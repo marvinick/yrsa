@@ -14,7 +14,7 @@
 
     <div class="pull-right">
       <% if @project.user_id == current_user.id %>
-        <%= link_to edit_account_project_item_path(current_account, set_project, set_item) do %>
+        <%= link_to edit_account_project_item_path(current_account, set_project, set_item), remote: true do %>
           <icon class="fa fa-gear fa-2x"></icon>
         <% end %>
       <% end %>
@@ -23,6 +23,8 @@
     <h5>back to <%= link_to set_project.title, account_project_path(current_account, set_project) %></h5>
   </div>
 </div>
+
+<div id="product-modal" class="modal fade"></div>
 
 <script>
   $('.read-more-<%= @item.id %>').on('click', function(e) {

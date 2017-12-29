@@ -6,7 +6,7 @@
     <h5>back to <%= link_to @account.name, account_path(@account) %></h5>
     <% if @project.user_id == current_user.id %>
       <%= link_to edit_account_project_path(current_account, @project), remote: true do %>
-        <span class="fa fa-gear pull-right"></span>
+        <span class="fa fa-gear"></span>
       <% end %>
     <% end %>
   </div>
