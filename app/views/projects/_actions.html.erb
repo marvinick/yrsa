@@ -1,13 +1,15 @@
 <div class="row">
   <div class="col-md-6 col-xs-6">
-    <h3> Items <%= all_items %>/25 </h3>
-    <br>
-
+    <div class="tab">
+      <button class="tablinks" onclick="openCity(event, 'cards')" id="defaultOpen"><h5>Cards</h5></button>
+      <button class="tablinks" onclick="openCity(event, 'lists')"><h5>Lists</h5></button>
+    </div>
   </div>
+
   <div class="col-md-6 col-xs-6">
     <div class="pull-right">
       <% if @project.user_id == current_user.id %>
-        <%= link_to "add item", new_account_project_item_path(current_account, @project), remote: true, class: "btn btn-default btn-sm pull-left" %>
+        <%= link_to "add item", new_account_project_item_path(current_account, @project), remote: true, class: "btn btn-default btn-sm " %>
       <% end %>
     </div>
   </div>

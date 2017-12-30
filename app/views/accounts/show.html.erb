@@ -4,53 +4,62 @@
 </div>
 <br>
 <div class="row">
-  <% if @account.owner.id == current_user.id %>
-    <div class="col-md-2">
-      <div class="row">
-        <div class="col-md-12 col-xs-6">
-          <%= link_to account_users_path(@account, @users) do %>
-            <div class="account_box3">
-              <%= image_tag 'guys.jpg', class: "img-responsive" %>
-              <h4 class="text-center">users</h4>
-            </div>
-          <% end %>
-        </div>
-
-        <div class="col-md-12 col-xs-6">
-          <%= link_to edit_account_path(@account) do %>
-            <div class="account_box4">
-              <%= image_tag 'fulton.jpg', class: "img-responsive" %>
-              <h4 class="text-center">edit</h4>
-            </div>
-          <% end %>
-        </div>
-
+  <div class="col-md-3"></div>
+  <div class="col-md-2 col-xs-6">
+    <%= link_to account_users_path(@account, @users) do %>
+      <div class="account_box3">
+        <%= image_tag 'guys.jpg', class: "img-responsive" %>
+        <h4 class="text-center">users management</h4>
       </div>
-    </div>
-  <% end %>
-
-  <div class="col-md-1"></div>
-
-  <div class="col-md-9">
-    <div class="row">
-      <div class="col-md-12">
-        <% if @account.owner.id == current_user.id %>
-          <% if @account.stripe_subscription_id.blank? %>
-            <%= link_to "you must confirm before creating your account", account_choose_plan_url(@account), class: "btn btn-warning btn-sm " %>
-          <% else %>
-            <%= link_to "add project", new_account_project_path(@account), remote: true, class: "btn btn-success btn-sm " %>
-          <% end %>
+    <% end %>
+  </div>
+  <div class="col-md-2 col-xs-6">
+    <%= link_to edit_account_path(@account) do %>
+      <div class="account_box4">
+        <%= image_tag 'fulton.jpg', class: "img-responsive" %>
+        <h4 class="text-center">edit account</h4>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-2 col-xs-6">
+    <% if @account.owner.id == current_user.id %>
+      <% if @account.stripe_subscription_id.blank? %>
+        <%= link_to account_choose_plan_url(@account) do %>
+          <div class="account_box3">
+            <%= image_tag 'charts.png', class: "img-responsive" %>
+            <h4 class="text-center">confirm first</h4>
+          </div>
         <% end %>
-      </div>
-    </div>
+      <% else %>
+        <%= link_to new_account_project_path(@account), remote: true do %>
+          <div class="account_box3">
+            <%= image_tag 'charts.png', class: "img-responsive" %>
+            <h4 class="text-center">add project</h4>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
 
-    <div class="row">
+  </div>
+  <div class="col-md-3"></div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <div class="review-header">
+      <h2><span>projects</span></h2>
+      <br>
+      <br>
       <div class="product-index">
         <%= render "projects/index" %>
       </div>
     </div>
   </div>
+  <div class="col-md-1"></div>
+
 </div>
+
 
 <div id="product-modal" class="modal fade"></div>
 

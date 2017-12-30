@@ -1,4 +1,4 @@
-<% @account.projects.each do |project| %>
+<!-- <% @account.projects.each do |project| %>
   <div class="col-md-3 col-xs-6">
     <%= link_to account_project_path(@account, project) do %>
       <div class="account_box4 text-center">
@@ -10,4 +10,24 @@
       </div>
     <% end %>
   </div>
-<% end %>
+<% end %> -->
+
+<table class="table">
+  <thead>
+    <tr>
+
+      <th scope="col">Title</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @account.projects.order('created_at desc').each do |project| %>
+      <tr>
+        <td><h4><%= link_to project.title, account_project_path(@account, project)  %></h4></td>
+        <td><h4><%= truncate(project.description, length: 60) %></h4></td>
+        <td><%= time_ago_in_words(project.created_at) %> ago</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
