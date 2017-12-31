@@ -43,3 +43,6 @@ window.sweetAlertConfirmConfig = {
   confirmButtonText: 'yes I am',
   cancelButtonText: "hold on"
 };
+
+
+//cards/lists tab

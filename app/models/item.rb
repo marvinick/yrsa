@@ -12,8 +12,7 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :details, allow_destroy: true, reject_if: ->(attrs) { attrs['name'].blank? || attrs['description'].blank? }
 
   has_attached_file :image, styles: {
-    large: "300x150#",
-    xlarge: "500x300#"
+    large: "300x200#"
   }
 
   validates_presence_of :name

@@ -9,7 +9,7 @@
     <%= link_to account_users_path(@account, @users) do %>
       <div class="account_box3">
         <%= image_tag 'guys.jpg', class: "img-responsive" %>
-        <h4 class="text-center">users management</h4>
+        <h5 class="text-center">users</h5>
       </div>
     <% end %>
   </div>
@@ -17,7 +17,7 @@
     <%= link_to edit_account_path(@account) do %>
       <div class="account_box4">
         <%= image_tag 'fulton.jpg', class: "img-responsive" %>
-        <h4 class="text-center">edit account</h4>
+        <h5 class="text-center">edit account</h5>
       </div>
     <% end %>
   </div>
@@ -27,14 +27,14 @@
         <%= link_to account_choose_plan_url(@account) do %>
           <div class="account_box3">
             <%= image_tag 'charts.png', class: "img-responsive" %>
-            <h4 class="text-center">confirm first</h4>
+            <h5 class="text-center">confirm first</h5>
           </div>
         <% end %>
       <% else %>
         <%= link_to new_account_project_path(@account), remote: true do %>
           <div class="account_box3">
             <%= image_tag 'charts.png', class: "img-responsive" %>
-            <h4 class="text-center">add project</h4>
+            <h5 class="text-center">add project</h5>
           </div>
         <% end %>
       <% end %>

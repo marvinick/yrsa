@@ -15,11 +15,11 @@ module AccountsHelper
     project_reviews = []
     @account.projects.each do |project|
       project.items.each do |item|
-        item.details.each do |detail|
-          project_reviews << detail.reviews.count
+        item.reviews.each do |review|
+          project_reviews << review
         end
       end
     end
-    project_reviews.sum
+    project_reviews.count
   end
 end

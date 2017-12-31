@@ -1,30 +1,28 @@
 <div class="row">
-  <div class="box">
+  <div class="col-md-4">
+    <%= image_tag(@item.image.url(:large), class: "img-responsive img-rounded") %>
+    <h6>project <%= link_to @project.title, account_project_path(current_account, set_project) %></h6>
+  </div>
+  <div class="col-md-7">
+
     <h1><%= @item.name %></h1>
     <br>
-
-    <h3><small>
-      <% if @item.content.length > 280 %>
-        <%= truncate(@item.content, length: 280) %>
-        <%= link_to '...Read more', '', class: "read-more-#{@item.id}" %>
-      <% else %>
-        <%= @item.content %>
-      <% end %>
-    </small></h3>
-
-    <div class="pull-right">
-      <% if @project.user_id == current_user.id %>
-        <%= link_to edit_account_project_item_path(current_account, set_project, set_item), remote: true do %>
-          <icon class="fa fa-gear fa-2x"></icon>
+    <h3>
+      <small>
+        <% if @item.content.length > 280 %>
+          <%= truncate(@item.content, length: 280) %>
+          <%= link_to '...Read more', '', class: "read-more-#{@item.id}" %>
+        <% else %>
+          <%= @item.content %>
         <% end %>
-      <% end %>
-    </div>
-    <br>
-    <h5>back to <%= link_to set_project.title, account_project_path(current_account, set_project) %></h5>
+      </small>
+    </h3>
+    <% if @project.user_id == current_user.id %>
+      <h6><%= link_to "edit", edit_account_project_item_path(current_account, set_project, set_item), remote: true %></h6>
+    <% end %>
   </div>
 </div>
 
-<div id="product-modal" class="modal fade"></div>
 
 <script>
   $('.read-more-<%= @item.id %>').on('click', function(e) {

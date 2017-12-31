@@ -1,33 +1,15 @@
-<!-- <% @account.projects.each do |project| %>
-  <div class="col-md-3 col-xs-6">
+<% @account.projects.each do |project| %>
+  <div class="col-md-3">
     <%= link_to account_project_path(@account, project) do %>
-      <div class="account_box4 text-center">
-        <%= image_tag 'street.jpg', class: "img-responsive" %>
-        <h2><%= project.title %></h2>
+      <div class="account_box1 text-space">
+
+        <!-- <%= image_tag 'street.jpg', class: "img-responsive" %> -->
+        <h3><%= project.title %></h3>
         <hr>
-        <h4><%= truncate(project.description, length: 15) %></h4>
-        <h6><%= time_ago_in_words(project.updated_at) %> ago</h6>
+        <h5><%= items_in_project %> items</h5>
+        <h5><%= reviews_in_project %> reviews</h5>
+        <h6>created <%= time_ago_in_words(project.updated_at) %> ago</h6>
       </div>
     <% end %>
   </div>
-<% end %> -->
-
-<table class="table">
-  <thead>
-    <tr>
-
-      <th scope="col">Title</th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @account.projects.order('created_at desc').each do |project| %>
-      <tr>
-        <td><h4><%= link_to project.title, account_project_path(@account, project)  %></h4></td>
-        <td><h4><%= truncate(project.description, length: 60) %></h4></td>
-        <td><%= time_ago_in_words(project.created_at) %> ago</td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% end %>

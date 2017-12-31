@@ -94,6 +94,22 @@
     padding-right: 15px;
     padding-left: 15px;
     margin-bottom: 20px;
+    border-width: thin;
+  }
+
+  .boxyy {
+    height: auto;
+    width: 100%;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: white;
+    border-width: thin;
+    border-style: dotted;
   }
 
   .formly {
@@ -129,14 +145,21 @@
   }
 
   .account_box1 {
-    height: auto;
-    width: 100%;
+    height: 200px;
+    width: auto;
     padding-bottom: 20px;
-    border-radius: 5px;
-    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
     border-style: none;
     background-color: white;
     box-shadow: 20px 15px 100px -20px #556d7f;
+  }
+
+  .text-space h1,h2,h3,h4,h5,h6,p {
+    line-height: 30px;
   }
 
   .account_box2 {
@@ -166,6 +189,7 @@
     height: auto;
     width: 100%;
     padding-bottom: 20px;
+
     border-radius: 5px;
     margin-bottom: 20px;
     border-style: none;
@@ -217,6 +241,16 @@
     padding-bottom: 10px;
     font-weight: lighter;
     resize: none;
+  }
+
+  .detail-text, select textarea {
+    width: 50%;
+    height: 30px;
+    font-size: 15px;
+    font-weight: bolder;
+    border-top: none;
+    border-right: none;
+    border-left: none;
   }
 
   .control-image {
