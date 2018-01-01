@@ -7,25 +7,26 @@
 </div>
 <br>
 
-<div class="box text-center">
-  <%= link_to "Invite new user", new_account_invitation_path(current_account), class: "btn btn-lg btn-default" %>
+<div class="text-center">
+  <%= link_to "Invite new user", new_account_invitation_path(current_account), class: "btn btn-default" %>
   <br>
   <br>
 <% current_account.users.each do |user| %>
-  <div class="formly">
-    <div class="col-md-6">
-      <h4><%= user.email %></h4>
+
+    <div class="col-md-3"></div>
+
+      <div class="col-md-6">
+        <div class="formy">
+          <h4><%= user.email %>
+            <%= link_to "Remove", account_user_path(current_account, user), method: :delete, data: { confirm: "Are you sure you want to remove this user?" }, class: "btn btn-xs btn-danger" %>
+          </h4>
+        </div>
+      </div>
     </div>
-    <div class="col-md-6">
-      <%= link_to "Remove", account_user_path(current_account, user), method: :delete, data: { confirm: "Are you sure you want to remove this user?" }, class: "btn btn-xs btn-danger" %>
-    </div>
+    <div class="col-md-3"></div>
   </div>
   <br>
   <br>
 <% end %>
 
 </div>
-
-<% current_account.invitations.each do |i| %>
-  <li><%= i.email %> </li>
-<% end %>
