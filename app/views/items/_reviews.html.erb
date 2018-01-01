@@ -3,6 +3,7 @@
     <div class="col-md-12">
       <h3>Latest reviews</h3>
       <hr>
+
       <%= render "current_user_review" %>
       
       <% @item.reviews.order('created_at desc').last(5).each do |review| %>
