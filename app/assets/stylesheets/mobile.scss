@@ -236,12 +236,14 @@
     }
 
     .formly {
-      width: auto;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      margin-top: 10px;
-      margin-bottom: 10px;
+      height: auto;
+      max-width: 100%;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      padding-left: 15px;
+      padding-right: 15px;
       background-color: white;
+      box-shadow: 20px 15px 50px -20px #556d7f;
     }
 
     .formy {

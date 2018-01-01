@@ -2,31 +2,30 @@
   <div class="col-md-12">
     <h1><%= link_to current_account.name, account_path(current_account) %></h1>
     <br>
-    <h4><%= current_account.owner.email %></h4>
+    <h5><%= current_account.owner.email %></h5>
   </div>
 </div>
-<br>
 
-<div class="text-center">
-  <%= link_to "Invite new user", new_account_invitation_path(current_account), class: "btn btn-default" %>
-  <br>
-  <br>
-<% current_account.users.each do |user| %>
+<div class="row text-center">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <%= link_to "Invite new user", new_account_invitation_path(current_account), class: "btn btn-default" %>
+    <br>
+    <br>
+    <% current_account.users.each do |user| %>
 
-    <div class="col-md-3"></div>
+      <div class="formy">
 
-      <div class="col-md-6">
-        <div class="formy">
-          <h4><%= user.email %>
+          <div class="pull-left">
+            <h5><%= user.email %></h5>
+          </div>
+          <div class="pull-right">
             <%= link_to "Remove", account_user_path(current_account, user), method: :delete, data: { confirm: "Are you sure you want to remove this user?" }, class: "btn btn-xs btn-danger" %>
-          </h4>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3"></div>
-  </div>
-  <br>
-  <br>
-<% end %>
+          </div>
 
+      </div>
+      <br>
+    <% end %>
+  </div>
+  <div class="col-md-3"></div>
 </div>
