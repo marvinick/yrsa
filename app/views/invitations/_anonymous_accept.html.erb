@@ -1,19 +1,17 @@
 <p>
-<%= link_to "Sign in as an existing user", new_user_session_path %> </p>
+<%= link_to "Sign in as an existing user", new_user_session_path, class: "btn btn-primary" %> </p>
 <hr>
 <p>
   <h3>Sign up as a new user</h3>
 </p>
   <%= simple_form_for [:accepted, @account, @invitation], as: :user do |f| %>
-  <%= f.input :email, value: @invitation.email, class: "input" %>
+  <%= f.input :email, value: @invitation.email, class: "input", label: false, :input_html => {:size => 40} %>
   <br>
-  <%= f.input :password, class: "input" %>
+  <%= f.input :password, class: "input", label: false, placeholder: "password", :input_html => {:size => 40} %>
   <br>
-  <%= f.input :password_confirmation %>
-  <br>
-  <br>
+  <%= f.input :password_confirmation, class: "input", label: false, placeholder: "confirm password", :input_html => { :size => 40} %>
   <br>
   <br>
-  <br>
+
   <%= f.submit "Accept Invitation", class: "btn btn-primary" %>
 <%end%>
