@@ -1,16 +1,19 @@
 <div class="modal-dialog">
   <div class="modal-content">
     <%= form_for([current_account, @project]) do |f| %>
+    <br>
+    <h2 class="text-center">edit project</h2>
+      <br>
       <div class="modal-body">
         <div class="row">
 
           <div class="col-md-12 text-center">
             <div class="control">
-              <%= f.text_field :title, placeholder: 'title', label: false, class: "input ", :maxlength => 25, :size => 40 %>
+              <%= f.text_field :title, placeholder: 'title', label: false, class: "input ", :maxlength => 40 %>
             </div>
             <br>
             <div class="control">
-              <%= f.text_field :description, placeholder: 'description', label: false, class: "input-text", :maxlength => 280, :size => 40  %>
+              <%= f.text_area :description, placeholder: 'description', label: false, class: "input-text", :maxlength => 280, :size => 40  %>
             </div>
           </div>
 

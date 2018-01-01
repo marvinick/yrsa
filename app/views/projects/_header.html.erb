@@ -3,7 +3,8 @@
     <h5><small>project</small></h5>
     <h1><%= @project.title %> </h1>
     <br>
-    <h5>back to <%= link_to @account.name, account_path(@account) %></h5>
+    <h5>back to <%= link_to @account.name, account_path(@account), class: "link-to-text-color" %></h5>
+
     <% if @project.user_id == current_user.id %>
       <%= link_to edit_account_project_path(current_account, @project), remote: true do %>
         <span class="fa fa-gear"></span>

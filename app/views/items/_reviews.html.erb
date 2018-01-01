@@ -1,42 +1,43 @@
+<div class="item">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Latest reviews</h3>
+      <hr>
+      <%= render "current_user_review" %>
+      
+      <% @item.reviews.order('created_at desc').last(5).each do |review| %>
+        <% keys = [] %>
+        <% values = [] %>
+        <%= link_to account_project_item_reviews_path(current_account, set_project, @item, @reviews), class: "link-to-text-color" do %>
+          <div class="box">
+            <% review.properties.each do |name, value| %>
+              <% keys << name %>
+              <% values << value.to_i %>
+              <!-- <div class="col-md-9 col-xs-9">
+                <h3><%= name %> </h3>
+              </div>
+              <div class="col-md-3 col-xs-3">
+                <h5><%= value %></h5>
+              </div> -->
+            <% end %>
 
-<div class="row">
-  <% @item.reviews.order('created_at desc').last(5).each do |review| %>
-    <% keys = [] %>
-    <% values = [] %>
-    <%= link_to account_project_item_reviews_path(current_account, set_project, @item, @reviews) do %>
-      <div class="box">
-        <% review.properties.each do |name, value| %>
-          <% keys << name %>
-          <% values << value.to_i %>
-          <!-- <div class="col-md-9 col-xs-9">
-            <h3><%= name %> </h3>
+            <!-- <% if review.description.present? %>
+
+              <h3><small ><%= review.description.truncate(25) %></small></h3>
+            <% end %> -->
+
+            <h3>
+              <strong><%= (values.sum.to_f / keys.uniq.size).round %> <span class="far fa-smile fa-3x"></span></strong>
+            </h3>
+            <br>
+            <br>
+            <h6><small>reviewed by </small><%= review.user.email %></h6>
+            <h6><%= time_ago_in_words(review.created_at) %> ago</h6>
+
           </div>
-          <div class="col-md-3 col-xs-3">
-            <h5><%= value %></h5>
-          </div> -->
         <% end %>
 
-        <!-- <% if review.description.present? %>
-
-          <h3><small ><%= review.description.truncate(25) %></small></h3>
-        <% end %> -->
-
-        <h3>
-          <strong><%= (values.sum.to_f / keys.uniq.size).round %> <span class="fas fa-smile fa-3x"></span></strong>
-        </h3>
-        <br>
-        <br>
-        <h6><small>reviewed by </small><%= review.user.email %></h6>
-        <h6><%= time_ago_in_words(review.created_at) %> ago</h6>
-        <small>
-          <% if current_user.id == review.user_id %>
-            <%= link_to "edit", edit_account_project_item_review_path(current_account, set_project, @item, review) %>
-            <%= link_to "remove", [current_account, set_project, @item, review], method: :delete, data: { confirm: "Are you sure you want to remove this?"} %>
-          <% end %>
-        </small>
-      </div>
-    <% end %>
-
-  <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
-<!-- <h4><%= link_to 'see all reviews', account_project_item_reviews_path(current_account, set_project, @item, @reviews) %></h4> -->

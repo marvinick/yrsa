@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="review-header">
+    <h2><span>announcement board</span></h2>
+  </div>
+  <br>
+  <div class="col-md-4">
+    <div class="boxy">
+      <%= form_for ([current_account, set_project, @board]), remote: true, html: {} do |f| %>
+
+        <li><%= f.text_area :note, placeholder: "write something", class: "input-text", :size => 40  %></li>
+        <li><%= f.button "add", class: "btn btn-warning btn-lg" %></li>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 pull-right">
+    <div id="boards">
+      <%= render @boards %>
+    </div>
+  </div>
+</div>

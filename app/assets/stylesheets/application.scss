@@ -34,23 +34,21 @@ html, body {
 }
 
 .link-to-text-color {
-  color: black;
+  color: #ff8787;
 }
+
 
 body, html {
   overflow-x:hidden!important;
 }
 
-// ul, li {
-//   list-style-type: none;
-// }
 
 h4.test {
   width: 11em;
   border: 1px solid #000000;
   word-wrap: break-word;
-  background-color: #eafeff;
-  padding: 2px 2px 2px 2px;
+  background-color: #ffdddd;
+  padding: 1px 2px 1px 2px;
   margin: 2px 2px 5px 2px;
   border-style: none;
   display: inline;
@@ -106,7 +104,6 @@ h2 span {
   padding-bottom: 30px;
 }
 
-
 .navbar {
   background-color: white;
   font-size: 24px;
@@ -130,9 +127,8 @@ h2 span {
 }
 
 .boxy {
-  border-style: none;
   background-color: white;
-  box-shadow: 20px 15px 100px -20px black;
+
 }
 
 .tile {
@@ -152,6 +148,7 @@ h2 span {
     background-color: #fff6a5;
     border-radius: 30px;
   }
+
 .box a:link {
   text-decoration: none!important;
 }
@@ -178,12 +175,6 @@ a:link {
   z-index:2;
 }
 
-
-.item ul, li {
-  margin: 0;
-  padding: 0;
-  margin-bottom: 5px;
-}
 
 .input, select, textarea {
   border-top: none;
@@ -319,7 +310,8 @@ input[type=radio]:checked + label {
 
 /* Create an active/current tablink class */
 .tab button.active {
-    background-color: #eafeff;
+    background-color: #ffdddd
+    ;
 }
 
 /* Style the tab content */

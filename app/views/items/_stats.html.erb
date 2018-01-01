@@ -1,26 +1,8 @@
-
 <div class="row">
-  <div class="col-md-6">
-    <div class="stats-row">
-      <% if each_review_value.present? %>
-        <% each_review_value.sort.each do |k,v| %>
-          <div class="barChart">
-            <div class="barChart__row" data-value="100">
-              <div class="barChart__row" data-value= <%= ((v.to_f / count_values.to_f) * 100).to_i %> >
-                <span class="barChart__label"><strong><%= k %></strong> </span>
-                <span class="barChart__value"><h5><small><%= ((v.to_f / count_values.to_f) * 100).to_i %>%</small></h5></span>
-                <span class="barChart__bar"><span class="barChart__barFill"></span></span>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      <% else %>
-        <h3>No review yet!</h3>
-      <% end %>
-    </div>
-  </div>
 
   <div class="col-md-6">
+    <h4><strong>Attributes</strong></h4>
+    <br>
     <div class="stats-row">
       <% if total_keys_and_values.present? %>
         <% total_keys_and_values.sort.each do |k,v| %>
@@ -37,6 +19,28 @@
         <% end %>
       <% else %>
 
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <h4><strong>Values</strong></h4>
+    <br>
+    <div class="stats-row">
+      <% if each_review_value.present? %>
+        <% each_review_value.sort.each do |k,v| %>
+          <div class="barChart">
+            <div class="barChart__row" data-value="100">
+              <div class="barChart__row" data-value= <%= ((v.to_f / count_values.to_f) * 100).to_i %> >
+                <span class="barChart__label"><%= k %></span>
+                <span class="barChart__value"><h5><small><%= ((v.to_f / count_values.to_f) * 100).to_i %>%</small></h5></span>
+                <span class="barChart__bar"><span class="barChart__barFill"></span></span>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <h3>No review yet!</h3>
       <% end %>
     </div>
   </div>

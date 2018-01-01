@@ -45,15 +45,16 @@
    }
 
   .box {
+    cursor:pointer;
     height: auto;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 10px;
     padding-top: 10px;
-    padding-bottom: 30px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
     border-radius: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   .board {
@@ -85,16 +86,13 @@
 
   .boxy {
     height: auto;
-    width: auto;
-    margin-right: 2px!important;
-    margin-left: 2px!important;
-    border-radius: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-bottom: 20px;
-    border-width: thin;
+    width: 100%;
+    margin-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: white;
+    border-style: none;
   }
 
   .boxyy {
@@ -109,7 +107,7 @@
     margin-bottom: 20px;
     background-color: white;
     border-width: thin;
-    border-style: dotted;
+    border-style: solid;
   }
 
   .formly {
@@ -123,6 +121,7 @@
   }
 
   .formy {
+    cursor:pointer;
     max-width: 100%;
     padding-top: 25px;
     padding-bottom: 40px;
@@ -133,14 +132,8 @@
   }
 
   .item {
-    width: auto;
-    padding-top: 0px;
-    height: auto;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    background-color: white;
-    box-shadow: 20px 15px 70px -20px;
+
+
 
   }
 
@@ -219,7 +212,7 @@
 
   .modal-body {
     width: 600px;
-    height: 550px;
+    height: 600px;
   }
 
   .input-text, select textarea {
@@ -232,6 +225,7 @@
     border-top: none;
     border-right: none;
     border-left: none;
+
   }
 
   .input, select textarea {
@@ -254,7 +248,7 @@
   }
 
   .control-image {
-    margin-left: 90px;
+    // width: 100%;
   }
 
   .navbar {

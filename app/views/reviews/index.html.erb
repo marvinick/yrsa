@@ -1,22 +1,21 @@
 <div class="row">
-  <div class="col-md-12">
-    <div class="box">
-      <h1>Reviews</h1>
-      <br>
-      <h5>back to <%= link_to set_item.name, account_project_item_path(current_account, set_project, set_item) %></h5>
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <h6 class="text-center"> item <%= link_to set_item.name, account_project_item_path(current_account, set_project, set_item), class: "link-to-text-color" %></h6>
+    <div class="review-header">
+      <h2><span> <%= count_reviews %> Reviews</span></h2>
+
     </div>
-  <div>
+  </div>
+  <div class="col-md-3"></div>
 </div>
 
 <div class="row">
-  <h3 class="text-center">Reviews <%= count_reviews %></h3>
-
-  <br>
   <% set_item.reviews.each do |review| %>
 
     <% keys = [] %>
     <% values = [] %>
-    <div class="col-md-3 col-xs-6">
+    <div class="col-md-3">
       <div class="box">
         <% review.properties.each do |name, value| %>
           <% keys << name %>
@@ -30,14 +29,15 @@
           </div>
         <% end %>
         <% if review.description.present? %>
-          <h3 class="text-center"><small ><%= review.description.truncate(25) %></small></h3>
+          <h4><small ><%= review.description.truncate(25) %></small></h4>
         <% end %>
         <hr>
         <h3>
-          <strong><%= (values.sum.to_f / keys.uniq.size).round %> claps</strong>
+          <strong><%= (values.sum.to_f / keys.uniq.size).round %> smiles</strong>
           <small>
             <% if current_user.id == review.user_id %>
-              <%= link_to "edit", edit_account_project_item_review_path(current_account, set_project, @item, review) %>
+              <%= link_to "edit", edit_account_project_item_review_path(current_account, set_project, @item, review), class: "link-to-text-color" %>
+              <%= link_to "remove", [current_account, set_project, @item, review], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "link-to-text-color" %>
             <% end %>
           </small>
         </h3>
@@ -50,8 +50,6 @@
 </div>
 
 
-<%  total_keys_and_values.sort.each do |k,v| %>
+<!-- <%  total_keys_and_values.sort.each do |k,v| %>
   <h3><%= k %> is <%= ((v.to_f / show_value) * 100).round(1)  %>%</h3>
-<% end %>
-
-<%=  %>
+<% end %> -->

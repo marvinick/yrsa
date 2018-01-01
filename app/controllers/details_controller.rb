@@ -16,7 +16,7 @@ class DetailsController < BaseController
         # format.html { redirect_to account_project_path(current_account, set_project) }
         format.js {}
       end
-    end
+    end 
   end
 
   def show; end

@@ -56,8 +56,6 @@
     resources :lookups, only: [:index]
   end
 
-
-
   namespace :admin do
     root to: "members#index"
 

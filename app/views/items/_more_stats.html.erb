@@ -3,7 +3,7 @@
 
     <div class="col-md-2"></div>
     <div class="col-md-2 col-xs-6">
-      <div class="boxy text-center">
+      <div class="box text-center">
         <% total = [] %>
         <% set_item.reviews.each do |review| %>
           <% keys = [] %>
@@ -21,7 +21,7 @@
     </div>
 
     <div class="col-md-2 col-xs-6">
-      <div class=" boxy text-center">
+      <div class=" box text-center">
         <h2><%= all_reviewers %></h2>
         <h5>reviewers</h5>
 
@@ -29,7 +29,7 @@
     </div>
 
     <div class="col-md-2 col-xs-6">
-      <div class="boxy text-center">
+      <div class="box text-center">
         <% if total_reviews > 1 %>
           <h2> <%= total_reviews %></h2>
           <h4>reviews</h4>
@@ -41,13 +41,13 @@
     </div>
 
     <div class="col-md-2 col-xs-6">
-      <div class="boxy text-center">
+      <div class="box text-center">
         <% if @item.details.count > 1 %>
           <h2><%= @item.details.count %></h2>
-          <h5>details</h5>
+          <h5>attributes</h5>
         <% else %>
           <h2><%= @item.details.count %></h2>
-          <h5>details</h5>
+          <h5>attribute</h5>
         <% end %>
       </div>
     </div>

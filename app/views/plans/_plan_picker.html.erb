@@ -5,16 +5,30 @@
 </div>
 
 <br>
-<div class="row text-center">
+<div class="row">
   <%= form_for(current_account, url: account_choose_plan_url) do |account| %>
     <% if current_account.stripe_subscription_id.blank? %>
 
       <% @plans.each do |plan| %>
         <% if plan.name == "Basic" %>
-          <label class="big text-center">
+          <label class="formy">
             <%= account.radio_button :plan_id, plan.id, data: { behavior: "submit-on-click" }, class:"radiohidden"%>
             <h1><%= account.label "plan_id_#{plan.id}", plan.name %> (<%= money(plan.amount) %>)</h1> <br>
-            <p>This is where you start</p>
+            <h3>Welcome to this unfinished project :)</h3>
+            <br>
+            <%= image_tag 'panic_cartoon', class: "img-responsive"%>
+            <br>
+            <h3>As you will see, there are a lot more work to be done. Expect errors, redundancies, typos and ugly layouts</h3>
+            <h3>Obviously we don't want the public to get their hands on this . .  .yet</h3>
+            <h3>As you're going through the flow, try to focus on the followings steps:</h3>
+            <br>
+            <h4 style="color: red;">- create a project</h4>
+            <h4 style="color: red;">- add attributes from within the project</h4>
+            <h4 style="color: red;">- and then create few items (select attributes while you're at it)</h4>
+            <h4 style="color: red;">- review the items, based on the attributes you added on the previous step</h4>
+            <h4 style="color: red;">- and that's it . . . see if this project has the potential for real world users</h4>
+            <br>
+            <h1 class="text-center">Tap to continue</h1>
           </label>
         <% end %>
       <% end %>
