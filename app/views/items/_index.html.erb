@@ -3,7 +3,7 @@
     <% @items.each do |item| %>
       <%= link_to account_project_item_path(current_account, @project, item), class: 'link-to-text-color' do %>
         <div class="col-md-3 col-xs-6">
-          <div class="boxy">
+          <div class="box">
             <%= image_tag(item.image.url(:large), class: "img-responsive") %>
             <h5><%= truncate(item.name, length: 15) %></h5>
             <!-- <p>updated <%= time_ago_in_words(item.updated_at) %> ago</p> -->
