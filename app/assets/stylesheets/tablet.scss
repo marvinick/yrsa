@@ -1,5 +1,9 @@
 //mobile
- @media only screen and (min-width: 760px) and (max-width: 1025px)  {
+ @media only screen and (min-width: 760px) and (max-width: 1024px)  {
+
+   .row {
+    margin-top: 20px;
+   }
 
    #footer {
      padding-top: 0px;
@@ -28,13 +32,14 @@
    }
 
    .box {
-      height: 150px;
+      height: auto;
       width: auto;
       background-color: white;
-      margin-top: 15px;
+      margin-top: 50px;
       border-radius: 10px;
       padding-left: 10px;
-      padding-top: 15px;
+      padding-top: 20px;
+      padding-bottom: 20px;
       padding-right: 10px;
     }
 
@@ -68,7 +73,7 @@
     }
 
     h1, h2, h3, h4 {
-      font-size: 100%;
+      font-size: 150%;
     }
 
     .star-rating {
@@ -117,7 +122,7 @@
 
     .icon-bar {
       width: 100%;
-      background-color: #f7ead9;
+      background-color: white;
       overflow: auto;
       z-index: 1000;
     }
@@ -126,7 +131,7 @@
       float: left;
       width: 20%;
       text-align: center;
-      padding: 12px 0;
+      padding: 5px 0;
       transition: all 0.3s ease;
       color: #acd1a7;
       font-size: 36px;
@@ -162,6 +167,52 @@
        background-color: white;
        font-size: 22px;
        font-weight: bold;
+     }
+
+     .account_box1 {
+       height: auto;
+       width: auto;
+       padding-bottom: 20px;
+       padding-top: 20px;
+       padding-left: 20px;
+       padding-right: 20px;
+       border-radius: 10px;
+       margin-bottom: 25px;
+       border-style: none;
+       background-color: white;
+       box-shadow: 20px 15px 100px -20px #556d7f;
+     }
+
+     .account_box3 {
+       height: auto;
+       width: 100%;
+       padding-bottom: 20px;
+       border-radius: 5px;
+       margin-bottom: 20px;
+       border-style: none;
+       background-color: white;
+       box-shadow: 20px 15px 100px -20px #556d7f;
+     }
+
+     .account_box4 {
+       height: auto;
+       width: 100%;
+       padding-bottom: 20px;
+       border-radius: 5px;
+       margin-bottom: 20px;
+       border-style: none;
+       background-color: white;
+       box-shadow: 20px 15px 100px -20px #556d7f;
+     }
+
+     .detail-text, select textarea {
+       width: 60%;
+       height: 20px;
+       font-size: 15px;
+       font-weight: bolder;
+       border-top: none;
+       border-right: none;
+       border-left: none;
      }
 
  }
