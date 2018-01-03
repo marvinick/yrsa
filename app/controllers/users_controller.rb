@@ -3,7 +3,8 @@ class UsersController < BaseController
 
   def index
     @users = current_account.users.all
-    @invitations = current_account.invitations.all 
+    @invitations = current_account.invitations.all
+    @invitation = current_account.invitations.build
   end
 
   def destroy

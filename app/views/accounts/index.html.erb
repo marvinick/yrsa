@@ -1,20 +1,23 @@
-<div class="row">
-    <h1 class="text-center"><strong>pick an account</strong></h2>
+<div class="row text-center">
+  <span class="fa fa-home fa-2x"></span>
+  <br>
+  <br>
+  <h1><strong>Account(s)</strong></h2>
 </div>
 
 <% if user_signed_in? %>
-<div class="row text-center">
-  <div class="col-md-3"></div>
-  <div class="col-md-6">
-    <% current_user.all_accounts.each do |account| %>
-      <%= link_to account_path(account) do %>
-        <div class="box">
-          <h2><%= account.name %><h/h2>
-          <h5>Projects <%= account.projects.count %></h5>
-          <h5>Members <%= account.users.count %></h5>
+  <div class="row text-center">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <% current_user.all_accounts.each do |account| %>
+        <%= link_to account_path(account) do %>
+          <div class="box">
+            <h2><%= account.name %><h/h2>
+            <h5>Projects <%= account.projects.count %></h5>
+            <h5>Members <%= account.users.count %></h5>
+        <% end %>
+        </div>
       <% end %>
-      </div>
-    <% end %>
-  <div class="col-md-3"></div>
-</div>
+    <div class="col-md-3"></div>
+  </div>
 <% end %>
