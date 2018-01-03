@@ -76,15 +76,6 @@ ul, li {
   list-style-type: none;
 }
 
-.icon-bar {
-  width: 100%;
-  background-color: white;
-  overflow: auto;
-  z-index: 1000;
-  border-top: thin;
-  box-shadow: 20px 15px 100px -20px #556d7f;
-}
-
 .review-header h2 {
    width: 100%;
    text-align: center;
@@ -214,10 +205,6 @@ textarea:focus, input:focus{
   height: auto !important;
   height: 100%;
   margin: 0 auto -60px;
-}
-
-#push, #footer {
-  height: 50px;
 }
 
 #footer {

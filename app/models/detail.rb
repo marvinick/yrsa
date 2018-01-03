@@ -5,4 +5,5 @@ class Detail < ApplicationRecord
 
   validates_presence_of :name
   validates :name, length: {minimum: 1, maximum: 20}, allow_blank: false
+  validates_uniqueness_of :name
 end
