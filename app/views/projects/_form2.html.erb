@@ -1,6 +1,7 @@
 <div class="modal-dialog">
   <div class="modal-content">
     <%= form_for([current_account, @project]) do |f| %>
+    <%= render "shared/errors", obj: @project %>
     <br>
     <h2 class="text-center">edit project</h2>
       <br>

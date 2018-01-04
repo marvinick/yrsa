@@ -1,5 +1,9 @@
+
+
 <div>
   <%= form_for([current_account, set_project, set_item, @review]) do |f| %>
+
+    <%= render "shared/errors", obj: @review %>
     <%= f.hidden_field :item_id %>
     <%= f.hidden_field :id %>
 

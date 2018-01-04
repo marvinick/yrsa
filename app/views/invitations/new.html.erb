@@ -3,6 +3,7 @@
     <h2>New Invitation</h2>
     <br>
     <%= form_for ([@account, @invitation]) do |f| %>
+    <%= render "shared/errors", obj: @invitation %>
       <%= f.hidden_field :account_id %>
       <div>
         <%= f.text_field :email, class: "input", placeholder: "enter email" %>
