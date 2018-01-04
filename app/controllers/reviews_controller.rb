@@ -3,8 +3,8 @@ class ReviewsController < BaseController
 
   before_action :set_item
   before_action :set_review, only: [:edit, :update, :destroy]
-  skip_before_action :authorize_owner!, only: [:new, :create, :edit, :update, :destroy, :index]
-  # before_action :authorize_reviewer, only: [:edit, :update, :destroy]
+  skip_before_action :authorize_owner!
+  before_action :authorize_reviewer, only: [:edit, :update, :destroy]
 
   def new
     @review = set_item.reviews.build
