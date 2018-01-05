@@ -55,7 +55,7 @@ h4.test {
 }
 
 h1 {
-  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  // font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-size: 48px;
 	font-style: normal;
 	font-variant: small-caps;
@@ -315,4 +315,16 @@ input[type=radio]:checked + label {
     display: none;
     padding: 6px 12px;
     border: none;
+}
+
+//buttons styling
+
+.btn-success {
+  background-color: #94d888;
+  border-color: #94d888;
+}
+
+.btn-success:hover {
+  background-color: #c1ddbc;
+  border-color: green;
 }

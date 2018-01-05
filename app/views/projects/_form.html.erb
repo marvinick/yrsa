@@ -4,6 +4,7 @@
     <h2 class="text-center">new project</h2>
     <br>
     <%= form_for([current_account, @project]) do |f| %>
+    <%= render "shared/errors", obj: @project %>
       <div class="modal-body">
         <div class="row">
 

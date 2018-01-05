@@ -1,23 +1,27 @@
-
-  <h3> Items <%= all_items %>/25 </h3>
+<% if @items.present? %>
+  <h3> Items <%= all_items %> /25 </h3>
   <br>
 
-<table class="table">
-  <thead>
-    <tr>
-
-      <th scope="col">Name</th>
-      <th scope="col">Content</th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @project.items.order('created_at desc').each do |item| %>
+  <table class="table">
+    <thead>
       <tr>
-        <td><h4><%= link_to item.name, account_project_item_path(@account, @project, item), class: "link-to-text-color"  %></h4></td>
-        <td><h4><%= truncate(item.content, length: 60) %></h4></td>
-        <td><%= time_ago_in_words(item.created_at) %> ago</td>
+        <th scope="col">Name</th>
+        <th scope="col">Content</th>
+        <th scope="col"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @project.items.order('created_at desc').each do |item| %>
+        <tr>
+          <td><h4><%= link_to item.name, account_project_item_path(@account, @project, item), class: "link-to-text-color"  %></h4></td>
+          <td><h4><%= truncate(item.content, length: 60) %></h4></td>
+          <td><%= time_ago_in_words(item.created_at) %> ago</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="text-center">
+    <h3>No items yet</h3>
+  </div>
+<% end %>

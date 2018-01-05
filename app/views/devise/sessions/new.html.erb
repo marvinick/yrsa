@@ -1,33 +1,81 @@
 <div class="log-back">
-  <%= link_to home_path do %>
+  <%= link_to new_user_session_path do %>
     <span class="fa fa-arrow-left fa-2x"></span>
   <% end %>
 </div>
 
+
 <div class="row text-center">
-  <h1>Log in</h1>
-  <br>
-  <div class="formly">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="form-inputs">
-        <div class="control">
-          <%= f.text_field :email, required: true, autofocus: true, class: "input text-center", placeholder: "email" %>
-        </div>
-        <br>
-        <div class="control">
-          <%= f.password_field :password, required: false, class: "input text-center", placeholder: "password" %>
-        </div>
-        <br>
-        <div class="control">
-          <%= f.check_box :remember_me, as: :boolean if devise_mapping.rememberable? %>
-        </div>
-      </div>
+  <div class="col-md-8">
+    <div class="mobile-user">
+      <% if !user_signed_in? %>
+        <%= link_to "sign up", new_account_path, class:"btn btn-default pull-right" %>
+        <!-- <%= link_to "sign in", new_user_session_path, class: "btn btn-default pull-left" %> -->
+      <% end %>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="landing-image">
+      <h1><%= link_to "aetomata", root_url %></h1>
       <br>
-      <div class="form-actions">
-        <%= f.button :submit, class: "btn btn-lg btn-primary" %>
-      </div>
-    <% end %>
+      <br>
+
+      <%= image_tag 'fulton2.jpg', class: "img-responsive" %>
+      <h3>
+         Instead of "reading" a review, see exactly what your users are talking about.
+      </h3>
+      <br>
+      <br>
+      <br>
+      <%= image_tag 'guys2.jpg', class: "img-responsive" %>
+      <br>
+      <h3>
+        You can limit who can review your item. Or you can have any one to review it.
+      </h3>
+      <br>
+      <br>
+      <br>
+      <%= image_tag 'charts.png', class: "img-responsive" %>
+      <br>
+      <h3>
+        Visualize your data with the simple straight forward charts
+      </h3>
+      <br>
+      <br>
+      <br>
+      <%= image_tag 'dynamic.png', class: "img-responsive" %>
+      <br>
+      <h3>
+        Create and modify what attributes that you want your users to review, dynamically
+      </h3>
+    </div>
   </div>
-  <br>
-  <%= render "devise/shared/links" %>
+  <div class="col-md-4">
+    <h1>Log in</h1>
+    <br>
+    <div class="boxy">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-inputs">
+          <div class="control">
+            <%= f.text_field :email, required: true, autofocus: true, class: "input text-center", placeholder: "email" %>
+          </div>
+          <br>
+          <div class="control">
+            <%= f.password_field :password, required: false, class: "input text-center", placeholder: "password" %>
+          </div>
+          <br>
+          <div class="control">
+            <%= f.check_box :remember_me, as: :boolean if devise_mapping.rememberable? %>
+          </div>
+        </div>
+        <br>
+        <div class="form-actions">
+          <%= f.button :submit, class: "btn btn-lg btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+    <br>
+    <%= render "devise/shared/links" %>
+  </div>
 </div>
