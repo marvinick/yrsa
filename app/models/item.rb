@@ -11,9 +11,10 @@ class Item < ApplicationRecord
 
   accepts_nested_attributes_for :details, allow_destroy: true, reject_if: ->(attrs) { attrs['name'].blank? || attrs['description'].blank? }
 
-  has_attached_file :image, styles: {
-    large: "300x200#"
-  }
+  has_attached_file :image, styles: {large: "415x312#"}, :default_url => "/assets/missing.png"
+
+  attr_accessor :delete_image
+  before_validation { image.clear if delete_image == '1' }
 
   validates_presence_of :name
   validates :content, length: {minimum: 5, maximum: 280}, allow_blank: false
@@ -22,9 +23,9 @@ class Item < ApplicationRecord
 		content_type:  /^image\/(png|gif|jpeg)/,
 		message: "Only images allowed"
 
-  validates_with AttachmentSizeValidator, attributes: :image, less_than: 10.megabytes
+  validates_with AttachmentSizeValidator, attributes: :image, less_than: 5.megabytes
 
-  process_in_background :image, processing_image_url: "/images/:style/cartoon.png"
+  process_in_background :image, processing_image_url: "/assets/ajax-loader.gif"
 
   before_save :generate_slug
 
