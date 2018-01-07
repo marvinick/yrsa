@@ -14,33 +14,35 @@
   <div id="lists" class="tabcontent">
     <br>
     <br>
-    <h1>Log in</h1>
+    <h2>sign in</h2>
     <br>
-    <div class="boxy">
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="form-inputs">
-          <div class="control">
-            <%= f.text_field :email, required: true, autofocus: true, class: "input text-center", placeholder: "email" %>
-          </div>
-          <br>
-          <div class="control">
-            <%= f.password_field :password, required: false, class: "input text-center", placeholder: "password" %>
-          </div>
-          <br>
-          <div class="control">
-            <%= f.check_box :remember_me, as: :boolean if devise_mapping.rememberable? %>
-          </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="boxy">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="form-inputs">
+              <div class="control">
+                <%= f.text_field :email, required: true, autofocus: true, class: "input text-center", placeholder: "email" %>
+              </div>
+              <br>
+              <div class="control">
+                <%= f.password_field :password, required: false, class: "input text-center", placeholder: "password" %>
+              </div>
+            </div>
+            <br>
+            <div class="form-actions">
+              <%= f.button :submit, class: "btn btn-lg btn-success" %>
+            </div>
+          <% end %>
+
         </div>
         <br>
-        <div class="form-actions">
-          <%= f.button :submit, class: "btn btn-lg btn-success" %>
-        </div>
-      <% end %>
-
+        <%= render "devise/shared/links" %>
+        <br>
+        <%= link_to "sign up", new_account_path, class:"btn btn-default btn-lg" %>
+      </div>
+      <div class="col-md-3"></div>
     </div>
-    <br>
-    <%= render "devise/shared/links" %>
-    <br>
-    <%= link_to "sign up", new_account_path, class:"btn btn-default btn-lg" %>
   </div>
 </div>
