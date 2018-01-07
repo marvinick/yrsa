@@ -36,7 +36,7 @@
           <strong><%= (values.sum.to_f / keys.uniq.size).round %> smiles</strong>
           <small>
             <% if current_user.id == review.user_id %>
-              <%= link_to "edit", edit_account_project_item_review_path(current_account, set_project, set_item, review), class: "link-to-text-color" %>
+              <%= link_to "edit", edit_account_project_item_review_path(current_account, set_project, set_item, review), remote: true, class: "link-to-text-color" %>
               <%= link_to "remove", [current_account, set_project, set_item, review], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "link-to-text-color" %>
             <% end %>
           </small>
@@ -49,7 +49,7 @@
   <% end %>
 </div>
 
-
+<div id="product-modal" class="modal fade"></div>
 <!-- <%  total_keys_and_values.sort.each do |k,v| %>
   <h3><%= k %> is <%= ((v.to_f / show_value) * 100).round(1)  %>%</h3>
 <% end %> -->
