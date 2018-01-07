@@ -1,57 +1,19 @@
-<div class="log-back">
-  <%= link_to new_user_session_path do %>
-    <span class="fa fa-arrow-left fa-2x"></span>
-  <% end %>
-</div>
-
-
-<div class="row text-center">
-  <div class="col-md-8">
-    <div class="mobile-user">
-      <% if !user_signed_in? %>
-        <%= link_to "sign up", new_account_path, class:"btn btn-default pull-right" %>
-        <!-- <%= link_to "sign in", new_user_session_path, class: "btn btn-default pull-left" %> -->
-      <% end %>
+<div class="row">
+  <div class="col-md-12 text-center">
+    <div class="tab">
+      <button class="tablinks" onclick="openCity(event, 'cards')" id="defaultOpen"><span class="fa fa-home"></span></button>
+      <button class="tablinks" onclick="openCity(event, 'lists')"><span class="fas fa-sign-in-alt"></span></button>
     </div>
-    <br>
-    <br>
-    <br>
-    <div class="landing-image">
-      <h1><%= link_to "aetomata", root_url %></h1>
-      <br>
-      <br>
 
-      <%= image_tag 'fulton2.jpg', class: "img-responsive" %>
-      <h3>
-         Instead of "reading" a review, see exactly what your users are talking about.
-      </h3>
-      <br>
-      <br>
-      <br>
-      <%= image_tag 'guys2.jpg', class: "img-responsive" %>
-      <br>
-      <h3>
-        You can limit who can review your item. Or you can have any one to review it.
-      </h3>
-      <br>
-      <br>
-      <br>
-      <%= image_tag 'charts.png', class: "img-responsive" %>
-      <br>
-      <h3>
-        Visualize your data with the simple straight forward charts
-      </h3>
-      <br>
-      <br>
-      <br>
-      <%= image_tag 'dynamic.png', class: "img-responsive" %>
-      <br>
-      <h3>
-        Create and modify what attributes that you want your users to review, dynamically
-      </h3>
-    </div>
+  <div id="cards" class="tabcontent">
+    <br>
+    <br>
+    <%= render "home/landing" %>
   </div>
-  <div class="col-md-4">
+
+  <div id="lists" class="tabcontent">
+    <br>
+    <br>
     <h1>Log in</h1>
     <br>
     <div class="boxy">
@@ -71,11 +33,14 @@
         </div>
         <br>
         <div class="form-actions">
-          <%= f.button :submit, class: "btn btn-lg btn-primary" %>
+          <%= f.button :submit, class: "btn btn-lg btn-success" %>
         </div>
       <% end %>
+
     </div>
     <br>
     <%= render "devise/shared/links" %>
+    <br>
+    <%= link_to "sign up", new_account_path, class:"btn btn-default btn-lg" %>
   </div>
 </div>

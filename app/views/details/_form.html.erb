@@ -1,8 +1,9 @@
-<%= form_for([current_account, set_project, @detail]) do |f| %>
-  
-  <li><%= f.text_field :name, placeholder: "name" %></li>
-  <br>
-  <li><%= f.text_field :description, placeholder: "description" %></li>
-  <br>
-  <%= f.button "add detail", class: "btn btn-success" %>
-<% end %>
+
+  <%= form_for([current_account, set_project, @detail]) do |f| %>
+
+    <li><%= f.text_field :name, placeholder: "name" %></li>
+    <br>
+    <li><%= f.text_field :description, placeholder: "description" %></li>
+    <br>
+    <%= f.button "add detail", class: "btn btn-success" %>
+  <% end %>

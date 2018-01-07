@@ -13,15 +13,20 @@
     <%= javascript_include_tag 'jquery.raty.js', "data-turbolinks-track": false %>
   </head>
   <body>
-
-    <%= render "layouts/navbar" %>
+    <% if user_signed_in? %>
+      <%= render "layouts/navbar" %>
+    <% end %>
 
     <div class="container">
       <%= yield %>
     </div>
-    <% unless controller_name == "home" %>
-      <%= render "layouts/footer" %>
+
+    <% if user_signed_in? %>
+      <% unless controller_name == "home" %>
+        <%= render "layouts/footer" %>
+      <% end %>
     <% end %>
+
     <div id="push"></div>
 
     <script>
