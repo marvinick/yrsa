@@ -19,30 +19,22 @@
             <div class="control">
               <%= f.file_field :image, class:"btn btn-default control-image"  %>
             </div>
-            <br>
           </div>
         </div>
         <div class="row">
-          <h4 class="text-center">edit attributes for your users to rate</h4>
+          <h3 class="text-center"><small>attributes</small></h3>
           <br>
-          <div class="control">
             <%= f.collection_check_boxes :detail_ids, set_project.details.all, :id, :name, :item_wrapper_class => 'checkbox_container' do |cb| %>
               <% cb.label(class: "check_box") do %>
-
-                <div class="col-xs-1">
+                <div class="col-md-4 col-xs-2">
                   <%= cb.check_box(class: "check_box") %>
-                </div>
-
-                <div class="col-xs-4">
-                  <%= cb.text %>
+                  <li><h6><%= cb.text %></h6></li>
                 </div>
               <% end %>
             <% end %>
-          </div>
-
+        </div>
         <div class="row text-center">
-          <%= f.submit "submit", class:"btn btn-warning btn-lg" %>
-
+          <%= f.submit "submit", class:"btn btn-default btn-lg" %>
         </div>
       </div>
     <% end %>
