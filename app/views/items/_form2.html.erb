@@ -25,7 +25,7 @@
         <div class="row">
           <div class="col-md-12">
             <br>
-            <h4>attributes</h4>
+            <h5>attributes</h5>
             <br>
               <%= f.collection_check_boxes :detail_ids, set_project.details.all, :id, :name, :item_wrapper_class => 'checkbox_container' do |cb| %>
                 <% cb.label(class: "check_box") do %>

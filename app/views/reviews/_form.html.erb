@@ -1,26 +1,29 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <%= form_for([current_account, set_project, set_item, @review], remote: true)  do |f| %>
+      <div class="modal-body">
+        <h4 class="text-center">rate attributes</h4>
+        <hr>
+        <%= render "shared/errors", obj: @review %>
+        <%= f.hidden_field :item_id %>
+        <%= f.hidden_field :id %>
 
+        <%= f.fields_for :properties, OpenStruct.new(@review.properties) do |builder| %>
+          <%= render "rating_field", f: builder %>
 
-<div>
-  <%= form_for([current_account, set_project, set_item, @review]) do |f| %>
-
-    <%= render "shared/errors", obj: @review %>
-    <%= f.hidden_field :item_id %>
-    <%= f.hidden_field :id %>
-
-    <%= f.fields_for :properties, OpenStruct.new(@review.properties) do |builder| %>
-      <%= render "rating_field", f: builder %>
-
+        <% end %>
+        <br>
+        <div class="control">
+          <h4>in your own words</h4>
+          <br>
+          <%= f.text_area :description, class:"input", placeholder: "note" %>
+        </div>
+        <br>
+        <div class="text-center">
+          <%= f.submit "rate", class: "btn btn-default btn-lg " %>
+          <%= link_to "cancel", account_project_item_path(current_account, set_project, set_item), class: "btn btn-default btn-lg" %>
+        </div>
+      </div>
     <% end %>
-    <br>
-    <div class="control">
-      <h4>in your own words</h4>
-      <br>
-      <%= f.text_area :description, class:"input", placeholder: "note" %>
-    </div>
-    <br>
-    <div class="text-center">
-      <%= f.submit "rate", class: "btn btn-default btn-lg " %>
-      <%= link_to "cancel", account_project_item_path(current_account, set_project, set_item), class: "btn btn-default btn-lg" %>
-    </div>
-  <% end %>
+  </div>
 </div>

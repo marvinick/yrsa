@@ -23,7 +23,7 @@
 
           <div class="col-md-10">
             <% if invitations.present? %>
-              <h5>Add your users</h5>
+              <h5>users</h5>
               <br>
               <%= f.collection_check_boxes :user_ids, current_account.users.all, :id, :email, :item_wrapper_class => 'checkbox_container' do |cb| %>
                 <% cb.label(class: "check_box") do %>

@@ -5,7 +5,7 @@
       <hr>
 
       <%= render "current_user_review" %>
-      
+
       <% @item.reviews.order('created_at desc').last(5).each do |review| %>
         <% keys = [] %>
         <% values = [] %>
