@@ -1,0 +1,22 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <br>
+    <div class"row">
+      <div class="col-md-12">
+        <h3 class="text-center">Attributes</h3>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <% @details.order("created_at desc").each do |detail| %>
+        <div class="col-md-4">
+          <div class="boxy">
+            <h5 style="color: red;"><%= detail.name %></h5>
+            <%= link_to "", account_project_detail_path(current_account, set_project, detail), method: :delete, data: {confirm: "are you sure"}, class: "fa fa-trash" %>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

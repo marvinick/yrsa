@@ -38,7 +38,7 @@ class ItemsController < BaseController
   end
 
   def destroy
-    @item.destroy!
+    @item.destroy
     flash[:notice] = "You have deleted your item."
     redirect_to account_project_path(current_account, set_project)
   end
