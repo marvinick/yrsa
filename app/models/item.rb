@@ -6,12 +6,13 @@ class Item < ApplicationRecord
 
   has_many :detail_items
   has_many :details, through: :detail_items
+  has_many :details, dependent: :nullify
 
   has_many :reviews, dependent: :destroy
 
-  accepts_nested_attributes_for :details, allow_destroy: true, reject_if: ->(attrs) { attrs['name'].blank? || attrs['description'].blank? }
+  # accepts_nested_attributes_for :details, allow_destroy: true, reject_if: ->(attrs) { attrs['name'].blank? || attrs['description'].blank? }
 
-  has_attached_file :image, styles: {large: "415x312#"}, :default_url => "/assets/missing.png"
+  has_attached_file :image, styles: {large: "400x250#"}, :default_url => "/assets/missing.png"
 
   attr_accessor :delete_image
   before_validation { image.clear if delete_image == '1' }
