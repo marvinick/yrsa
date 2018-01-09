@@ -1,6 +1,6 @@
 <div class="row">
   <% if @project.user_id == current_user.id %>
-    <div class="col-md-4 col-xs-6">
+    <div class="col-md-4 col-sm-4 col-xs-6">
       <div class="box text-center">
         <h4>
           Invited users: <%= invitations.count %>
@@ -8,7 +8,7 @@
       </div>
     </div>
 
-    <div class="col-md-4 col-xs-6">
+    <div class="col-md-4 col-sm-4 col-xs-6">
       <div class="box text-center">
         <h4>
           overall rating: <%= project_rating %>
@@ -16,7 +16,7 @@
       </div>
     </div>
 
-    <div class="col-md-4 col-xs-6">
+    <div class="col-md-4 col-sm-4 col-xs-6">
       <div class="box text-center">
         <h4>
           Reviews: <%=  project_reviews_count %>

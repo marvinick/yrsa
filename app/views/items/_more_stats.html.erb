@@ -2,7 +2,7 @@
   <% if set_project.user_id == current_user.id %>
 
     <div class="col-md-2"></div>
-    <div class="col-md-2 col-xs-6">
+    <div class="col-md-2 col-sm-3 col-xs-6">
       <div class="box text-center">
         <% total = [] %>
         <% set_item.reviews.each do |review| %>
@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <div class="col-md-2 col-xs-6">
+    <div class="col-md-2 col-sm-3 col-xs-6">
       <div class=" box text-center">
         <h2><%= all_reviewers %></h2>
         <h5>reviewers</h5>
@@ -28,7 +28,7 @@
       </div>
     </div>
 
-    <div class="col-md-2 col-xs-6">
+    <div class="col-md-2 col-sm-3 col-xs-6">
       <div class="box text-center">
         <% if total_reviews > 1 %>
           <h2> <%= total_reviews %></h2>
@@ -40,7 +40,7 @@
       </div>
     </div>
 
-    <div class="col-md-2 col-xs-6">
+    <div class="col-md-2 col-sm-3 col-xs-6">
       <div class="box text-center">
         <% if @item.details.count > 1 %>
           <h2><%= @item.details.count %></h2>
