@@ -1,6 +1,10 @@
 
-  <div class="col-md-4">
-    <% @project.users.each do |u| %>
-      <%= u.email %>
-    <% end %>
+  <div class="col-md-3">
+
+    <div class="box">
+      <h4>users</h4>
+      <% @project.users.each do |u| %>
+        <h4><small><%= u.email %></small></h4>
+      <% end %>
+    </div>
   </div>

@@ -1,14 +1,27 @@
-<div class="row">
-	<%= render "header" %>
-	<%= render "details" %>
+<div class="container-fluid">
+	<div class="row">
+		<%= render "header" %>
+		<%= render "details" %>
+		<%= render "users" %>
 
-	<%= render "users" %>
-	<%= render "actions" %>
-	<div id="cards" class="tabcontent">
-		<%= render "cards" %>
 	</div>
-	<div id="lists" class="tabcontent">
-		 <%= render "items_list" %>
+</div>
+<div class="container-fluid">
+	<div class="row">
+		<%= render "stats" %>
+	</div>
+</div>
+
+<div class="container-fluid">
+	<div class="row">
+	<hr>
+		<%= render "actions" %>
+		<div id="cards" class="tabcontent">
+			<%= render "cards" %>
+		</div>
+		<div id="lists" class="tabcontent">
+			 <%= render "items_list" %>
+		</div>
 	</div>
 </div>
 
