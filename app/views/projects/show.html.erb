@@ -1,17 +1,20 @@
-<%= render "header" %>
-<%= render "details" %>
-<!-- <%= render "users" %> -->
-<hr>
-<%= render "actions" %>
+<div class="row">
+	<%= render "header" %>
+	<%= render "details" %>
 
-<div id="cards" class="tabcontent">
-	<%= render "cards" %>
+	<%= render "users" %>
+	<%= render "actions" %>
+	<div id="cards" class="tabcontent">
+		<%= render "cards" %>
+	</div>
+	<div id="lists" class="tabcontent">
+		 <%= render "items_list" %>
+	</div>
 </div>
-<div id="lists" class="tabcontent">
-	 <%= render "items_list" %>
-</div>
 
-<%= render "footer" %>
 
-<div id="product-modal" class="modal fade"></div>
-  <!-- <li><%= link_to "board", account_project_boards_path(current_account, @project, @boards) %></li> -->
+
+	<%= render "footer" %>
+
+	<div id="product-modal" class="modal fade"></div>
+	  <!-- <li><%= link_to "board", account_project_boards_path(current_account, @project, @boards) %></li> -->
