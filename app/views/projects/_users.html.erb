@@ -1,10 +1,10 @@
 
-  <div class="col-md-3">
+  <div class="col-md-3 col-sm-3 col-xs-6">
 
     <div class="box">
       <h4>users</h4>
       <% @project.users.each do |u| %>
-        <h4><small><%= u.email %></small></h4>
+        <h5><small><%= u.email %></small></h5>
       <% end %>
     </div>
   </div>
