@@ -12,7 +12,7 @@ class Item < ApplicationRecord
 
   # accepts_nested_attributes_for :details, allow_destroy: true, reject_if: ->(attrs) { attrs['name'].blank? || attrs['description'].blank? }
 
-  has_attached_file :image, styles: {large: "400x250#"}, :default_url => "/assets/missing.png"
+  has_attached_file :image, styles: {large: "500x350#"}, :default_url => "/assets/missing.png"
 
   attr_accessor :delete_image
   before_validation { image.clear if delete_image == '1' }
