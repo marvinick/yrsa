@@ -1,34 +1,36 @@
 //desktop
  @media only screen and (min-width: 1026px) {
 
+  .jumbotron {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     // margin: 0!important;
     margin-bottom: 0.83em;
   }
 
    .row {
-     padding-top: 5px;
-     padding-bottom: 5px;
-     margin-top: 0px;
-     margin-bottom: 5px;
+
+     padding-top: 20px;
+     padding-left: 0px;
+     padding-right: 0px;
    }
 
   .container {
-    max-width: 90%;
+    max-width: 100%;
 
   }
 
   .container-fluid {
-    margin-left: -10px;
-    margin-right: -10px;
+    margin: 0px;
+    padding: 0px;
   }
 
   .landing-image {
     margin: auto;
-  }
-
-  .col-md-3 {
-    margin-bottom: 30px;
   }
 
   .mobile-user {
@@ -62,17 +64,17 @@
     margin-bottom: 5px;
   }
 
-  .board {
-    height: auto;
+  .project-board {
+    height: 200px;
     width: 100%;
     margin-top: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
     border-radius: 5px;
-    box-shadow: 20px 15px 100px -20px #556d7f;
-    background-color: #fffcef;
+    margin-bottom: 40px;
+    background-color: white;
   }
 
   .stats {
@@ -138,8 +140,8 @@
     box-shadow: 20px 15px 100px -20px #556d7f;
   }
 
-  .item {
-
+  .project-row {
+    padding-bottom: 50px;
   }
 
   .account_box1 {
@@ -255,26 +257,24 @@
 
   }
 
-  .control-image {
-    // width: 100%;
-  }
-
   .navbar {
-    padding-top: 10px;
-    height: 75px;
-  }
-
-  .navbar {
+    height: 40px;
     float: none;
     margin:0 auto;
     display: block;
     text-align: center;
+    ;
   }
 
   .navbar > li {
     display: inline-block;
     float:none;
     text-align: center;
+  }
+
+  .project-header {
+    background-color: white;
+
   }
 
   .dropdown-container {
@@ -331,6 +331,6 @@
   //buttons
   .btn-default {
     margin: 10px 10px;
-    background-color: #f7f5f2;
+    background-color: white;
   }
 }

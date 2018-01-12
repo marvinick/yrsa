@@ -1,33 +1,31 @@
-<div class="container-fluid">
-	<div class="row">
-		<%= render "header" %>
-		<%= render "details" %>
-		<%= render "users" %>
 
-	</div>
+<div class="row">
+	<%= render "header" %>
 </div>
-<div class="container-fluid">
-	<div class="row">
-		<%= render "stats" %>
-	</div>
+<div class="row">
+	<%= render "stats" %>
+	<%= render "users" %>
+	<%= render "details" %>
 </div>
 
-<div class="container-fluid">
-	<div class="row">
-	<hr>
+<div class="row">
+	<div class="project-row">
 		<%= render "actions" %>
-		<div id="cards" class="tabcontent">
-			<%= render "cards" %>
-		</div>
-		<div id="lists" class="tabcontent">
-			 <%= render "items_list" %>
-		</div>
 	</div>
 </div>
 
+<div class="row">
 
+	<div id="cards" class="tabcontent">
+		<%= render "cards" %>
+	</div>
+	<div id="lists" class="tabcontent">
+		 <%= render "items_list" %>
+	</div>
 
-	<%= render "footer" %>
+</div>
 
-	<div id="product-modal" class="modal fade"></div>
+<%= render "footer" %>
+
+<div id="product-modal" class="modal fade"></div>
 	  <!-- <li><%= link_to "board", account_project_boards_path(current_account, @project, @boards) %></li> -->

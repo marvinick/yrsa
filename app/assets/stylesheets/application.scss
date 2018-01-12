@@ -28,9 +28,12 @@
 
 
 html, body {
-  background-color: #f7f5f2;
-  padding-left: 0px;
-  padding-right:0px;
+  background-color: #fcf8ed;
+  margin-top: 0px;
+}
+
+.jumbotron {
+  background-color: white;
 }
 
 .link-to-text-color {
@@ -98,7 +101,7 @@ h2 span {
 }
 
 .navbar {
-  background-color: white;
+  background-color: #f7f5f2;
   font-size: 24px;
   font-family: Futura, "BT Pro Book", Arial, sans-serif;
   font-weight: bolder;
@@ -269,7 +272,7 @@ input[type=radio]:checked + label {
 .tab {
   overflow: hidden;
   border: none;
-  background-color: #f7f5f2;
+  background-color: #fcf8ed;
 }
 
 /* Style the buttons that are used to open the tab content */

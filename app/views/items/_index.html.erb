@@ -2,8 +2,8 @@
   <% if @items.present? %>
     <% @items.each do |item| %>
       <%= link_to account_project_item_path(current_account, @project, item), class: 'link-to-text-color' do %>
-        <div class="col-md-3 col-sm-3 col-xs-6">
-          <div class="boxy">
+        <div class="col-md-2 col-sm-3 col-xs-6">
+          <div class="">
             <%= image_tag(item.image.url(:large), class: "img-responsive") %>
 
             <h4><%= truncate(item.name, length: 15) %></h4>
