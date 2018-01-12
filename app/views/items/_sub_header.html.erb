@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-md-3">
+    <%= image_tag(@item.image.url(:large), class: "img-responsive") %>
+  </div>
+  <div class="col-md-1"></div>
+  <div class="col-md-8">
+    <h3>
+      <small>
+        <% if @item.content.length > 280 %>
+          <%= truncate(@item.content, length: 280) %>
+          <%= link_to '...Read more', '', class: "read-more-#{@item.id}" %>
+        <% else %>
+          <%= @item.content %>
+        <% end %>
+      </small>
+    </h3>
+  </div>
+</div>
+
+<script>
+  $('.read-more-<%= @item.id %>').on('click', function(e) {
+    e.preventDefault()
+    $(this).parent().html('<%= escape_javascript @item.content %>')
+  })
+
+  //image overlay
+  $('body').append('<div class="product-image-overlay"><span class="product-image-overlay-close">x</span><img src="" /></div>');
+    var productImage = $('img');
+    var productOverlay = $('.product-image-overlay');
+    var productOverlayImage = $('.product-image-overlay img');
+
+    productImage.click(function () {
+        var productImageSource = $(this).attr('src');
+
+        productOverlayImage.attr('src', productImageSource);
+        productOverlay.fadeIn(100);
+        $('body').css('overflow', 'hidden');
+
+        $('.product-image-overlay-close').click(function () {
+            productOverlay.fadeOut(100);
+            $('body').css('overflow', 'auto');
+        });
+    });
+</script>

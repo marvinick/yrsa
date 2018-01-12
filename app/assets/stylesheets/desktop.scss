@@ -1,19 +1,12 @@
 //desktop
  @media only screen and (min-width: 1026px) {
 
-  .jumbotron {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 5px;
-  }
-
   h1, h2, h3, h4, h5, h6 {
     // margin: 0!important;
     margin-bottom: 0.83em;
   }
 
    .row {
-
      padding-top: 20px;
      padding-left: 0px;
      padding-right: 0px;
@@ -65,16 +58,23 @@
   }
 
   .project-board {
-    height: 200px;
+    height: 250px;
     width: 100%;
     margin-top: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 35px;
+    padding-right: 35px;
     border-radius: 5px;
     margin-bottom: 40px;
     background-color: white;
+  }
+
+  .item-view {
+    height: 700px;
+    width: 100%;
+    background-color: white;
+    padding: 10px 20px 10px 20px;
   }
 
   .stats {

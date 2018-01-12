@@ -1,8 +1,9 @@
-<div class="col-md-4 col-sm-3 col-xs-6 text-center">
+<div class="col-md-4 col-sm-3 col-xs-6 ">
   <div class="project-board">
-    <h4>users</h4>
+    <h3 class="text-center">users</h3>
+    <hr>
     <% @project.users.each do |u| %>
-      <h5><small><%= u.email %></small></h5>
+      <li><h5><%= u.email %></h5></li>
     <% end %>
   </div>
 </div>

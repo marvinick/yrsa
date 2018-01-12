@@ -1,52 +1,11 @@
-<div class="row">
-  <div class="col-md-4 col-sm-4">
-    <%= image_tag(@item.image.url(:large), class: "img-responsive") %>
-  </div>
-  <div class="col-md-1"></div>
-  <div class="col-md-7 col-sm-7">
-    <h1><%= @item.name %></h1>
-    <br>
+<div class="row text-center">
+  <div class="col-md-12 col-sm-7">
     <h6>project <%= link_to @project.title, account_project_path(current_account, set_project), class: "link-to-text-color" %></h6>
-
-    <h3>
-      <small>
-        <% if @item.content.length > 280 %>
-          <%= truncate(@item.content, length: 280) %>
-          <%= link_to '...Read more', '', class: "read-more-#{@item.id}" %>
-        <% else %>
-          <%= @item.content %>
-        <% end %>
-      </small>
-    </h3>
-    <% if @project.user_id == current_user.id %>
-      <h6><%= link_to "edit", edit_account_project_item_path(current_account, set_project, set_item), remote: true %></h6>
-    <% end %>
+    <h3><strong>
+      <%= @item.name %>
+      <% if @project.user_id == current_user.id %>
+        <small><%= link_to "edit", edit_account_project_item_path(current_account, set_project, set_item), remote: true %></small>
+      <% end %>
+    </strong></h3>
   </div>
 </div>
-
-
-<script>
-  $('.read-more-<%= @item.id %>').on('click', function(e) {
-    e.preventDefault()
-    $(this).parent().html('<%= escape_javascript @item.content %>')
-  })
-
-  //image overlay
-  $('body').append('<div class="product-image-overlay"><span class="product-image-overlay-close">x</span><img src="" /></div>');
-    var productImage = $('img');
-    var productOverlay = $('.product-image-overlay');
-    var productOverlayImage = $('.product-image-overlay img');
-
-    productImage.click(function () {
-        var productImageSource = $(this).attr('src');
-
-        productOverlayImage.attr('src', productImageSource);
-        productOverlay.fadeIn(100);
-        $('body').css('overflow', 'hidden');
-
-        $('.product-image-overlay-close').click(function () {
-            productOverlay.fadeOut(100);
-            $('body').css('overflow', 'auto');
-        });
-    });
-</script>

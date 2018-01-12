@@ -1,17 +1,22 @@
 <div class="row">
-  <div class="col-md-9">
-    <%= render "header" %>
-    <br>
-    <%= render "stats" %>
-    <br>
-    <%= render "more_stats" %>
+  <%= render "header" %>
+</div>
+
+<div class="row">
+
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+
+    <div class="item-view">
+      <%= render "sub_header" %>
+      <hr>
+      <%= render "stats" %>
+      <hr>
+      <%= render "more_stats" %>
+    </div>
   </div>
 
-  <div class="col-md-3">
-
-    <%= render "reviews" %>
-
-  </div>
+  <div class="col-md-1"></div>
 </div>
 
 <div id="product-modal" class="modal fade"></div>

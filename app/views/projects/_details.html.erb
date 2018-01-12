@@ -1,5 +1,7 @@
 <div class="col-md-4 col-sm-5 col-xs-6">
   <div class="project-board">
+    <h3 class="text-center">details</h3>
+    <hr>
     <%= form_for ([current_account, @project, @detail]), remote: true, html: {} do |f| %>
       <% f.hidden_field :project_id %>
         <li><%= f.text_field :name, placeholder: "", class: "detail-text", id: "details_form" %>   <%= f.button "add", class: "btn btn-success btn-xs" %></li>
