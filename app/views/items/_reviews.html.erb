@@ -1,45 +1,39 @@
-<div class="item">
-  <div class="row">
-    <h3>Latest reviews</h3>
-    <hr>
-    <div class="col-md-12 col-sm-4">
 
+<div class="row">
+  <h3>Latest reviews</h3>
+  <hr>
+  <%= render "current_user_review" %>
+  <br>
 
-      <%= render "current_user_review" %>
+  <% @item.reviews.order('created_at desc').each do |review| %>
+    <div class="col-md-4">
+      <% keys = [] %>
+      <% values = [] %>
+      <% review.properties.each do |name, value| %>
 
-      <% @item.reviews.order('created_at desc').last(5).each do |review| %>
-        <% keys = [] %>
-        <% values = [] %>
-        <%= link_to account_project_item_reviews_path(current_account, set_project, @item, @reviews), class: "link-to-text-color" do %>
-          <div class="box">
-            <% review.properties.each do |name, value| %>
-              <% keys << name %>
-              <% values << value.to_i %>
-              <!-- <div class="col-md-9 col-xs-9">
-                <h3><%= name %> </h3>
-              </div>
-              <div class="col-md-3 col-xs-3">
-                <h5><%= value %></h5>
-              </div> -->
-            <% end %>
-
-            <!-- <% if review.description.present? %>
-
-              <h3><small ><%= review.description.truncate(25) %></small></h3>
-            <% end %> -->
-
-            <h3>
-              <strong><%= (values.sum.to_f / keys.uniq.size).round %> <span class="far fa-smile fa-3x"></span></strong>
-            </h3>
-            <br>
-            <br>
-            <h6><small>reviewed by </small><%= review.user.email %></h6>
-            <h6><%= time_ago_in_words(review.created_at) %> ago</h6>
-
-          </div>
+        <% keys << name %>
+        <% values << value.to_i %>
+          <h3><%= name %> <%= value %> </h3>
         <% end %>
 
+      <% if review.description.present? %>
+
+        <h3><small ><%= review.description.truncate(25) %></small></h3>
       <% end %>
+
+      <h3>
+        <strong><%= (values.sum.to_f / keys.uniq.size).round %> <span class="far fa-smile fa-3x"></span></strong>
+      </h3>
+      <br>
+      <br>
+      <h6><small>reviewed by </small><%= review.user.email %></h6>
+      <h6><%= time_ago_in_words(review.created_at) %> ago</h6>
+      <small>
+        <% if current_user.id == review.user_id %>
+          <%= link_to "edit", edit_account_project_item_review_path(current_account, set_project, set_item, review), remote: true, class: "link-to-text-color" %>
+          <%= link_to "remove", [current_account, set_project, set_item, review], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "link-to-text-color" %>
+        <% end %>
+      </small>
     </div>
-  </div>
+  <% end %>
 </div>

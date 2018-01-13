@@ -6,17 +6,31 @@
 
   <div class="col-md-1"></div>
   <div class="col-md-10">
-
-    <div class="item-view">
-      <%= render "sub_header" %>
-      <hr>
-      <%= render "stats" %>
-      <hr>
-      <%= render "more_stats" %>
+    <div class="tab">
+      <div class="pull-right">
+        <button class="tablinks" onclick="openCity(event, 'cards')" id="defaultOpen"><span class="fa fa-line-chart"></span></button>
+        <button class="tablinks" onclick="openCity(event, 'lists')"><span class="fa fa-pencil-square-o"></span></button>
+      </div>
     </div>
+    <div id="cards" class="tabcontent">
+      <div class="item-view">
+        <%= render "sub_header" %>
+        <hr>
+        <%= render "stats" %>
+        <hr>
+        <%= render "more_stats" %>
+      </div>
+    </div>
+    <div id="lists" class="tabcontent">
+      <div class="item-view">
+        <%= render "reviews" %>
+      </div>
+    </div>
+
   </div>
 
   <div class="col-md-1"></div>
 </div>
+
 
 <div id="product-modal" class="modal fade"></div>

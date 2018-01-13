@@ -10,11 +10,12 @@
      padding-top: 20px;
      padding-left: 0px;
      padding-right: 0px;
+     height: auto;
    }
 
   .container {
     max-width: 100%;
-
+    padding-bottom: 80px;
   }
 
   .container-fluid {
@@ -71,10 +72,10 @@
   }
 
   .item-view {
-    height: 700px;
+    height: 650px;
     width: 100%;
     background-color: white;
-    padding: 10px 20px 10px 20px;
+    padding: 15px 25px 15px 25px;
   }
 
   .stats {
@@ -158,9 +159,6 @@
     box-shadow: 20px 15px 100px -20px #556d7f;
   }
 
-  .text-space h1,h2,h3,h4,h5,h6,p {
-    line-height: 30px;
-  }
 
   .account_box2 {
     height: auto;
