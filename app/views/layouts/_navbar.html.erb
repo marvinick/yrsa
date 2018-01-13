@@ -14,16 +14,16 @@
 
       <ul class="nav navbar-nav navbar-center">
         <% if user_signed_in? %>
-          <li> <%= link_to "home", root_url %></li>
+          <li> <%= link_to " home", root_url, class: "fa fa-home" %></li>
           <% if controller_name != "activities" %>
-            <li><%= link_to "activity", activities_path %></li>
+            <li><%= link_to " activity", activities_path, class: "fa fa-bars" %></li>
           <% end %>
 
           <% if controller_name != "lookups" %>
             <% if @account %>
-              <li><%= link_to "search", account_lookups_path(@account) %></li>
+              <li><%= link_to " search", account_lookups_path(@account), class: "fa fa-search" %></li>
             <% elsif current_account %>
-              <li><%= link_to "search", account_lookups_path(current_account) %></li>
+              <li><%= link_to " search", account_lookups_path(current_account), class: "fa fa-search" %></li>
             <% end %>
           <% end %>
         <% end %>

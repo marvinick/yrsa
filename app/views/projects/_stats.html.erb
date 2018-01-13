@@ -1,12 +1,15 @@
 <div class="col-md-4 col-xs-12">
   <div class="project-board">
-    <h3 class="text-center">stats</h3>
+    <h3 class="text-center"><icon class="fa fa-bar-chart"></icon> stats</h3>
     <hr>
-    <li><h4>created <%= time_ago_in_words(@project.created_at) %> ago</h4></li>
+    <li><h5> <icon class="fa fa-gear"></icon> created <%= time_ago_in_words(@project.created_at) %> ago</h5></li>
+    <br>
     <% if @project.user_id == current_user.id %>
-      <li><h5><span class="fa fa-gear"> invitations : <%= invitations.count %></span></h5></li>
-      <li><h5>overall rating: <%= project_rating %></h5></li>
-      <li><h5>Reviews: <%=  project_reviews_count %></h5></li>
+      <li><h5> <icon class="fa fa-gear"></icon> invitations : <%= invitations.count %></h5></li>
+      <br>
+      <li><h5> <icon class="fa fa-gear"></icon> overall rating: <%= project_rating %></h5></li>
+      <br>
+      <li><h5><icon class="fa fa-gear"></icon> Reviews: <%=  project_reviews_count %></h5></li>
     <% end %>
   </div>
 </div>
