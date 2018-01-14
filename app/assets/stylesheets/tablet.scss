@@ -3,7 +3,7 @@
 
    .row {
     margin-top: 20px;
-    
+
    }
 
    #footer {
@@ -25,11 +25,48 @@
    .container {
      padding-top: 25px;
      padding-bottom: 50px;
+     margin-right: 25px;
+     margin-left: 0px;
    }
 
    .landing-image {
 
      padding-bottom: 40px;
+   }
+
+   .project-board {
+     height: 250px;
+     width: 100%;
+     margin-top: 20px;
+     padding-top: 20px;
+     padding-bottom: 20px;
+     padding-left: 35px;
+     padding-right: 35px;
+     border-radius: 15px;
+     margin-bottom: 40px;
+     background-color: white;
+   }
+
+   .boxyy {
+     height: auto;
+     width: 100%;
+     margin-top: 20px;
+     padding-top: 40px;
+     padding-bottom: 40px;
+     padding-left: 30px;
+     padding-right: 30px;
+     border-radius: 5px;
+     margin-bottom: 20px;
+     background-color: white;
+   }
+
+   .item-view {
+     height: 100%;
+     width: 100%;
+     background-color: white;
+     border-radius: 15px;
+     padding: 15px 25px 50px 25px;
+     box-shadow: 0.5px 0.5px 0.5px 0.5px #fcfcfc;
    }
 
    .box {

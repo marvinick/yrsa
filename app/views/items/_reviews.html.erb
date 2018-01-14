@@ -6,7 +6,7 @@
   <br> -->
 
   <% @item.reviews.order('created_at desc').each do |review| %>
-    <div class="col-md-4 col-xs-12">
+    <div class="col-md-4 col-sm-6 col-xs-12">
       <div class="boxyy">
         <% keys = [] %>
         <% values = [] %>
@@ -17,10 +17,10 @@
         <% review.properties.each do |name, value| %>
         <% keys << name %>
         <% values << value.to_i %>
-          <div class="col-md-6">
+          <div class="col-md-6 col-sm-6 col-xs-12">
             <h4><%= name %>  </h4>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="pull-right">
               <h3><%= value %></h3>
             </div>
