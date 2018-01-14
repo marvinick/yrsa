@@ -31,7 +31,7 @@ Growlyflash.defaults = $.extend(true, Growlyflash.defaults, {
   spacing: 10,       // spacing between alerts
   target:  'body',   // selector to target element where to place alerts
   title:   false,       // switch for adding a title
-  type:    null,     // bootstrap alert class by default
+  type:    "success ",     // bootstrap alert class by default
   class:   ['alert', 'growlyflash', 'fade']
 });
 

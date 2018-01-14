@@ -14,7 +14,7 @@
    }
 
   .container {
-    max-width: 100%;
+    max-width: 85%;
     padding-bottom: 80px;
   }
 
@@ -67,16 +67,16 @@
     padding-bottom: 20px;
     padding-left: 35px;
     padding-right: 35px;
-    border-radius: 5px;
+    border-radius: 15px;
     margin-bottom: 40px;
     background-color: white;
-    box-shadow: 0.5px 0.5px 0.5px 0.5px grey;
   }
 
   .item-view {
     height: 100%;
     width: 100%;
     background-color: white;
+    border-radius: 15px;
     padding: 15px 25px 50px 25px;
     box-shadow: 0.5px 0.5px 0.5px 0.5px #fcfcfc;
   }

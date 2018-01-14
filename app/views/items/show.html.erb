@@ -1,15 +1,13 @@
-<div class="row">
-  <%= render "header" %>
-</div>
+<div class="container">
+  <div class="row">
+    <%= render "header" %>
+  </div>
 
-<div class="row">
+  <div class="row">
 
-  <div class="col-md-1"></div>
-  <div class="col-md-10">
     <div class="tab">
       <button class="tablinks" onclick="openCity(event, 'cards')" id="defaultOpen"><span class="fa fa-line-chart"></span></button>
       <div class="pull-right">
-
         <button class="tablinks" onclick="openCity(event, 'lists')"><span class="fa fa-pencil-square-o"></span></button>
       </div>
     </div>
@@ -24,7 +22,7 @@
         <% end %>
         <hr>
         <%= render "more_stats" %>
-      </div>
+      </div> 
     </div>
     <div id="lists" class="tabcontent">
 
@@ -37,11 +35,7 @@
         <% end %>
       </div>
     </div>
-
   </div>
-
-  <div class="col-md-1"></div>
 </div>
-
 
 <div id="product-modal" class="modal fade"></div>

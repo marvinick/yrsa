@@ -1,0 +1,19 @@
+
+
+<% @project.items.order('created_at desc').each do |item| %>
+  <% keys = [] %>
+  <% values = [] %>
+  <% item.reviews.each do |review| %>
+
+    <% review.properties.each do |name, value| %>
+      <% keys << name %>
+      <% values << value.to_i %>
+    <% end %>
+
+  <% end %>
+  <div class="col-md-10">
+    <li><h4><%= item.name %> <%= (values.sum.to_f / keys.uniq.size).round %> </h4></li>
+    <li><p style="color:grey;"><%= truncate(item.content, length: 125) %></p></li>
+    <br>
+  </div>
+<% end %>

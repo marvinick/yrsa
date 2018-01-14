@@ -1,28 +1,32 @@
-
-<div class="row">
-	<%= render "header" %>
-</div>
-<div class="row">
-	<%= render "stats" %>
-	<%= render "users" %>
-	<%= render "details" %>
-</div>
-
-<div class="row">
-	<div class="project-row"> 
-		<%= render "actions" %>
+<div class="container">
+	<div class="row">
+		<%= render "header" %>
 	</div>
-</div>
-
-<div class="row">
-
-	<div id="cards" class="tabcontent">
-		<%= render "cards" %>
-	</div>
-	<div id="lists" class="tabcontent">
-		 <%= render "items_list" %>
+	<div class="row">
+		<%= render "stats" %>
+		<%= render "users" %>
+		<%= render "details" %>
 	</div>
 
+	<div class="row">
+		<div class="project-row">
+			<%= render "actions" %>
+		</div>
+	</div>
+
+	<div class="row">
+
+		<div id="cards" class="tabcontent">
+			<%= render "cards" %>
+		</div>
+		<div id="lists" class="tabcontent">
+			<%= render "items_list" %>
+		</div>
+		<div id="simple-lists" class="tabcontent">
+			<%= render "simple_lists" %>
+		</div>
+
+	</div>
 </div>
 
 <%= render "footer" %>

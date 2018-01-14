@@ -5,7 +5,7 @@
     <li>
       <h5>
         <div class="col-md-6 col-xs-6">
-          <icon class="fa fa-gear"></icon> created
+          <icon class="fa fa-circle"></icon> created
         </div>
         <div class="col-md-6 col-xs-6">
           <%= time_ago_in_words(@project.created_at) %> ago
@@ -18,7 +18,7 @@
       <li>
         <h5>
           <div class="col-md-6 col-xs-6">
-            <icon class="fa fa-gear"></icon> invitations
+            <icon class="fa fa-circle"></icon> invitations
           </div>
           <div class="col-md-6 col-xs-6">
             <%= invitations.count %>
@@ -30,7 +30,7 @@
       <li>
         <h5>
           <div class="col-md-6 col-xs-6">
-            <icon class="fa fa-gear"></icon> overall rating
+            <icon class="fa fa-circle"></icon> rating
           </div>
           <div class="col-md-6 col-xs-6">
             <%= project_rating %>
@@ -42,7 +42,7 @@
       <li>
         <h5>
           <div class="col-md-6 col-xs-6">
-            <icon class="fa fa-gear"></icon> Reviews
+            <icon class="fa fa-circle"></icon> Reviews
           </div>
           <div class="col-md-6 col-xs-6">
             <%=  project_reviews_count %>
