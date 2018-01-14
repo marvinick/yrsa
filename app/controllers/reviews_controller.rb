@@ -2,7 +2,7 @@ class ReviewsController < BaseController
   include PublicActivity::StoreController
 
   before_action :set_item
-  before_action :set_review, only: [:edit, :update, :destroy]
+  before_action :set_review, only: [:show, :edit, :update, :destroy]
   skip_before_action :authorize_owner!
   before_action :authorize_reviewer, only: [:edit, :update, :destroy]
 
@@ -25,6 +25,8 @@ class ReviewsController < BaseController
   def index
     @reviews = set_item.reviews.all.order('created_at DESC')
   end
+
+  def show; end 
 
   def edit; end
 
