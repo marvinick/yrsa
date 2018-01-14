@@ -1,15 +1,54 @@
-<div class="col-md-4 col-xs-12">
+<div class="col-md-4 col-sm-4 col-xs-12">
   <div class="project-board">
     <h3 class="text-center"><icon class="fa fa-bar-chart"></icon> stats</h3>
     <hr>
-    <li><h5> <icon class="fa fa-gear"></icon> created <%= time_ago_in_words(@project.created_at) %> ago</h5></li>
+    <li>
+      <h5>
+        <div class="col-md-6 col-xs-6">
+          <icon class="fa fa-gear"></icon> created
+        </div>
+        <div class="col-md-6 col-xs-6">
+          <%= time_ago_in_words(@project.created_at) %> ago
+        </div>
+      </h5>
+    </li>
+    <br>
     <br>
     <% if @project.user_id == current_user.id %>
-      <li><h5> <icon class="fa fa-gear"></icon> invitations : <%= invitations.count %></h5></li>
+      <li>
+        <h5>
+          <div class="col-md-6 col-xs-6">
+            <icon class="fa fa-gear"></icon> invitations
+          </div>
+          <div class="col-md-6 col-xs-6">
+            <%= invitations.count %>
+          </div>
+        </h5>
+      </li>
       <br>
-      <li><h5> <icon class="fa fa-gear"></icon> overall rating: <%= project_rating %></h5></li>
       <br>
-      <li><h5><icon class="fa fa-gear"></icon> Reviews: <%=  project_reviews_count %></h5></li>
+      <li>
+        <h5>
+          <div class="col-md-6 col-xs-6">
+            <icon class="fa fa-gear"></icon> overall rating
+          </div>
+          <div class="col-md-6 col-xs-6">
+            <%= project_rating %>
+          </div>
+        </h5>
+      </li>
+      <br>
+      <br>
+      <li>
+        <h5>
+          <div class="col-md-6 col-xs-6">
+            <icon class="fa fa-gear"></icon> Reviews
+          </div>
+          <div class="col-md-6 col-xs-6">
+            <%=  project_reviews_count %>
+          </div>
+        </h5>
+      </li>
     <% end %>
   </div>
 </div>

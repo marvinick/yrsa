@@ -10,15 +10,16 @@
      padding-top: 20px;
      padding-left: 0px;
      padding-right: 0px;
-     height: auto;
+     height: 100%;
    }
 
   .container {
-    max-width: 80%;
+    max-width: 100%;
     padding-bottom: 80px;
   }
 
   .container-fluid {
+    max-width: 80%;
     margin: 0px;
     padding: 0px;
   }
@@ -69,13 +70,19 @@
     border-radius: 5px;
     margin-bottom: 40px;
     background-color: white;
+    box-shadow: 0.5px 0.5px 0.5px 0.5px grey;
   }
 
   .item-view {
-    height: 650px;
+    height: 100%;
     width: 100%;
     background-color: white;
-    padding: 15px 25px 15px 25px;
+    padding: 15px 25px 50px 25px;
+    box-shadow: 0.5px 0.5px 0.5px 0.5px #fcfcfc;
+  }
+
+  .col-md-10 {
+    height: auto;
   }
 
   .stats {
@@ -109,8 +116,8 @@
     height: auto;
     width: 100%;
     margin-top: 20px;
-    padding-top: 10px;
-    padding-bottom: 30px;
+    padding-top: 40px;
+    padding-bottom: 40px;
     padding-left: 30px;
     padding-right: 30px;
     border-radius: 5px;
@@ -140,6 +147,7 @@
   }
 
   .project-row {
+    padding-left: 15px;
     padding-bottom: 50px;
   }
 

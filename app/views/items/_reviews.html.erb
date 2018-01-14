@@ -6,17 +6,13 @@
   <br> -->
 
   <% @item.reviews.order('created_at desc').each do |review| %>
-    <div class="col-md-6 col-xs-12">
+    <div class="col-md-4 col-xs-12">
       <div class="boxyy">
         <% keys = [] %>
         <% values = [] %>
         <% if review.description.present? %>
-          <h4>"<%= review.description.truncate(25) %> "</h4>
+          <h4><%= review.description.truncate(25) %> </h4>
         <% end %>
-        <br>
-        <h5 style="color:grey">by <strong><%= review.user.email %></strong></h5>
-        <h6><%= time_ago_in_words(review.created_at) %> ago</h6>
-
         <hr>
         <% review.properties.each do |name, value| %>
         <% keys << name %>
@@ -30,11 +26,14 @@
             </div>
           </div>
           <br>
+          <br>
         <% end %>
 
         <h2 class="text-center"><strong><%= (values.sum.to_f / keys.uniq.size).round %> </strong></h2>
         <% if current_user.id == review.user_id %>
           <hr>
+          <h6 style="color:grey"><strong><%= review.user.email %></strong> - <%= time_ago_in_words(review.created_at) %> ago</h6>
+          <br>
           <%= link_to "edit", edit_account_project_item_review_path(current_account, set_project, set_item, review), remote: true, class: "btn btn-xs btn-success" %>
           <%= link_to "remove", [current_account, set_project, set_item, review], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "btn btn-xs btn-danger pull-right" %>
         <% end %>

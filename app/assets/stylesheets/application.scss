@@ -96,8 +96,8 @@ h2 span {
 }
 
 .fa {
-  text-shadow: 0px 0px 1px black, 0px 0px 1px black;
-  color: grey;
+  color: #ededed;
+  -webkit-text-stroke: 0.5px grey;
 }
 
 .navbar {
@@ -309,13 +309,8 @@ input[type=radio]:checked + label {
 //buttons styling
 
 .btn-success {
-  background-color: #94d888;
-  border-color: #94d888;
-}
+  background-color: #6bb271;
 
-.btn-success:hover {
-  background-color: #c1ddbc;
-  border-color: green;
 }
 
 //image overlay
@@ -360,7 +355,7 @@ input[type=radio]:checked + label {
 
 
 //table
-h2 {
+.table h2 {
   text-align: center;
   padding: 20px 0;
 }

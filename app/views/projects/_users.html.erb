@@ -2,8 +2,9 @@
   <div class="project-board">
     <h3 class="text-center"><icon class="fa fa-users"></icon> users</h3>
     <hr>
-    <% @project.users.each do |u| %>
+    <% @project.users.last(5).each do |u| %>
       <li><h5><%= u.email %></h5></li>
+      <br>
     <% end %>
   </div>
 </div>

@@ -19,12 +19,11 @@
       }
    }
 
-   // .fa {
-   //   font-size: 20px;
-   // }
+   .fa {
+     font-size: 20px;
+   }
 
    .row {
-
      margin-bottom: 10px;
    }
 
@@ -51,7 +50,7 @@
      width: 100%;
      margin-top: 10px;
      padding-top: 10px;
-     padding-bottom: 10px;
+     padding-bottom: 30px;
      padding-left: 25px;
      padding-right: 25px;
      border-radius: 5px;
@@ -71,7 +70,12 @@
      margin-bottom: 10px;
      background-color: white;
      border-width: thin;
-     
+
+   }
+
+   .project-row {
+     padding-left: 15px;
+     padding-bottom: 20px;
    }
 
    .box {

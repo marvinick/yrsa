@@ -1,11 +1,14 @@
 <div class="row text-center">
-  <div class="col-md-12 col-sm-7">
+  <div class="col-md-12 col-sm-12">
     <h1>
-      <small><%= link_to @project.title, account_project_path(current_account, set_project), class: "link-to-text-color" %> - </small>
-      <strong><%= @item.name %></strong>
-      <% if @project.user_id == current_user.id %>
-        <small><%= link_to "edit", edit_account_project_item_path(current_account, set_project, set_item), class: "link-to-text-color", remote: true %></small>
-      <% end %>
+      <div class="col-md-12">
+        <small><%= link_to @project.title, account_project_path(current_account, set_project), class: "link-to-text-color" %> - </small>
+
+        <strong><%= @item.name %></strong>
+        <% if @project.user_id == current_user.id %>
+          <small><%= link_to "edit", edit_account_project_item_path(current_account, set_project, set_item), class: "link-to-text-color", remote: true %></small>
+        <% end %>
+      </div>
     </h1>
   </div>
 

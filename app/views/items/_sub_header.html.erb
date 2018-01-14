@@ -4,16 +4,14 @@
   </div>
   <div class="col-md-1"></div>
   <div class="col-md-8">
-    <h3>
-      <small>
-        <% if @item.content.length > 280 %>
-          <%= truncate(@item.content, length: 280) %>
-          <%= link_to '...Read more', '', class: "read-more-#{@item.id}" %>
-        <% else %>
-          <%= @item.content %>
-        <% end %>
-      </small>
-    </h3>
+    <h4>
+      <% if @item.content.length > 280 %>
+        <%= truncate(@item.content, length: 280) %>
+        <%= link_to '...Read more', '', class: "read-more-#{@item.id}" %>
+      <% else %>
+        <%= @item.content %>
+      <% end %>
+    </h4>
   </div>
 </div>
 

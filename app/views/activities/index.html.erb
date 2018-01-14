@@ -2,7 +2,7 @@
     <h1>Latest Activities</h1>
     <br>
 
-    <% @activities.each do |activity| %>
+    <% @activities.last(100).each do |activity| %>
       <div class="col-md-4">
         <% if activity.trackable %>
         <div class="boxy">

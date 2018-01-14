@@ -20,7 +20,7 @@
         <% if @item.reviews.present? %>
           <%= render "stats" %>
         <% else %>
-          <h2 class="text-center" style="color:#94d888;">No reviews yet</h2>
+          <h2 class="text-center" style="color:grey;">No reviews yet</h2>
         <% end %>
         <hr>
         <%= render "more_stats" %>
@@ -32,7 +32,7 @@
           <%= render "reviews" %>
         <% else %>
           <div class="boxyy">
-            <h2 class="text-center" style="color:#94d888;">No reviews yet</h2>
+            <h2 class="text-center" style="color:grey;">No reviews yet</h2>
           </div>
         <% end %>
       </div>
