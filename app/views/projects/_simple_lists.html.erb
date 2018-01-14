@@ -11,8 +11,8 @@
     <% end %>
 
   <% end %>
-  <div class="col-md-10">
-    <li><h4><%= item.name %> <%= (values.sum.to_f / keys.uniq.size).round %> </h4></li>
+  <div class="col-md-10 col-xs-12">
+    <li><h4><%= item.name %> <%= (values.sum.to_f / keys.uniq.size).round rescue 0 %> </h4></li>
     <li><p style="color:grey;"><%= truncate(item.content, length: 125) %></p></li>
     <br>
   </div>
