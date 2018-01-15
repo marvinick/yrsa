@@ -25,25 +25,22 @@
  @import "growlyflash";
  @import "toggle";
  @import "pretty-checkbox";
+ @import "animate";
 
 
 html, body {
   background-color: #fcf8ed;
   margin-top: 0px;
-}
-
-.jumbotron {
-  background-color: white;
+  overflow-x:hidden!important;
 }
 
 .link-to-text-color {
   color: #a05353;
 }
 
-body, html {
-  overflow-x:hidden!important;
+small {
+  font-size: 18px!important;
 }
-
 
 h4.test {
   width: 11em;
@@ -96,7 +93,7 @@ h2 span {
 }
 
 .fa {
-  color: #ededed;
+  color: #424140;
   -webkit-text-stroke: 0.5px grey;
 }
 
@@ -138,15 +135,14 @@ h2 span {
 
 .box a:link {
   text-decoration: none!important;
+  color: black!important;
 }
 
 a:link, a:hover{
   text-decoration: none!important;
 }
 
-a:link {
-  color: black!important;
-}
+
 
 .box span {
   width:100%;

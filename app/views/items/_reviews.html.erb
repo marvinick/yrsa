@@ -8,7 +8,7 @@
   <% @item.reviews.order('created_at desc').each do |review| %>
     <div class="col-md-4 col-sm-6 col-xs-12">
       <%= link_to account_project_item_review_path(current_account, set_project, set_item, review), remote: true do %>
-        <div class="boxyy">
+        <div class="box">
           <% keys = [] %>
           <% values = [] %>
           <% review.properties.each do |name, value| %>
@@ -30,3 +30,4 @@
     </div>
   <% end %>
 </div>
+ 

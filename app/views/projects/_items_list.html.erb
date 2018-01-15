@@ -2,22 +2,25 @@
   <!-- <h3> Items <%= all_items %> /25 </h3>
   <br> -->
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-md-12 col-xs-12">
       <div class="table-responsive" data-pattern="priority-columns">
         <table summary="This table shows how to create responsive tables using RWD-Table-Patterns' functionality" class="table table-bordered table-hover">
           <thead>
             <tr>
               <th>Name</th>
-              <th data-priority="1">Content</th>
               <th data-priority="2">created_at</th>
               <th data-priority="3">updated_at</th>
+              <% @project.items.each do |item| %>
+                <% item.details.each do |detail| %>
+                  <th><%= detail.name %></th>
+                <% end %>
+              <% end %>
             </tr>
           </thead>
           <tbody>
             <% @project.items.order('created_at desc').each do |item| %>
               <tr>
                 <td><%= link_to item.name, account_project_item_path(@account, @project, item), class: "link-to-text-color"  %></td>
-                <td><%= truncate(item.content, length: 60) %></td>
                 <td><%= time_ago_in_words(item.created_at) %> ago</td>
                 <td><%= time_ago_in_words(item.updated_at) %> ago</td>
               </tr>

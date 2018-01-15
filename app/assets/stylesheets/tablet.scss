@@ -40,8 +40,8 @@
      margin-top: 20px;
      padding-top: 20px;
      padding-bottom: 20px;
-     padding-left: 35px;
-     padding-right: 35px;
+     padding-left: 2px;
+     padding-right: 2px;
      border-radius: 15px;
      margin-bottom: 40px;
      background-color: white;
@@ -79,6 +79,9 @@
       padding-top: 20px;
       padding-bottom: 20px;
       padding-right: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-bottom: 20px;
     }
 
     .boxy {
@@ -166,7 +169,7 @@
 
     .icon-bar {
       width: 100%;
-      background-color: white;
+      background-color: #f7f5f2; 
       overflow: auto;
       z-index: 1000;
       box-shadow: 20px 15px 100px -20px #556d7f;

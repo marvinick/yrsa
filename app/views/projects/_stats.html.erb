@@ -2,25 +2,13 @@
   <div class="project-board">
     <h3 class="text-center"><icon class="fa fa-bar-chart"></icon> stats</h3>
     <hr>
-    <li>
-      <h5>
-        <div class="col-md-6 col-xs-6">
-          <icon class="fa fa-circle"></icon> created
-        </div>
-        <div class="col-md-6 col-xs-6">
-          <%= time_ago_in_words(@project.created_at) %> ago
-        </div>
-      </h5>
-    </li>
-    <br>
-    <br>
     <% if @project.user_id == current_user.id %>
       <li>
         <h5>
-          <div class="col-md-6 col-xs-6">
-            <icon class="fa fa-circle"></icon> invitations
+          <div class="col-md-6 col-sm-6 col-xs-6">
+            <icon class="fa fa-circl"></icon> <strong>Invitations</strong>
           </div>
-          <div class="col-md-6 col-xs-6">
+          <div class="col-md-6 col-sm-6 col-xs-6">
             <%= invitations.count %>
           </div>
         </h5>
@@ -29,10 +17,10 @@
       <br>
       <li>
         <h5>
-          <div class="col-md-6 col-xs-6">
-            <icon class="fa fa-circle"></icon> rating
+          <div class="col-md-6 col-sm-6 col-xs-6">
+            <icon class="fa fa-circl"></icon> <strong>Rating</strong>
           </div>
-          <div class="col-md-6 col-xs-6">
+          <div class="col-md-6 col-sm-6 col-xs-6">
             <%= project_rating %>
           </div>
         </h5>
@@ -41,14 +29,27 @@
       <br>
       <li>
         <h5>
-          <div class="col-md-6 col-xs-6">
-            <icon class="fa fa-circle"></icon> Reviews
+          <div class="col-md-6 col-sm-6 col-xs-6">
+            <icon class="fa fa-circl"></icon> <strong>Reviews</strong>
           </div>
-          <div class="col-md-6 col-xs-6">
+          <div class="col-md-6 col-sm-6 col-xs-6">
             <%=  project_reviews_count %>
           </div>
         </h5>
       </li>
+      <br>
+      <br>
+      <li>
+        <h5>
+          <div class="col-md-6 col-sm-6 col-xs-6">
+            <icon class="fa fa-circl"></icon> <strong>created</strong>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 ">
+            <%= time_ago_in_words(@project.created_at) %> ago
+          </div>
+        </h5>
+      </li>
+
     <% end %>
   </div>
 </div>
