@@ -40,8 +40,8 @@
      margin-top: 20px;
      padding-top: 20px;
      padding-bottom: 20px;
-     padding-left: 2px;
-     padding-right: 2px;
+     padding-left: 20px;
+     padding-right: 20px;
      border-radius: 15px;
      margin-bottom: 40px;
      background-color: white;
@@ -76,24 +76,23 @@
       margin-top: 10px;
       border-radius: 10px;
       padding-left: 10px;
-      padding-top: 20px;
-      padding-bottom: 20px;
+      padding-top: 10px;
+      padding-bottom: 10px;
       padding-right: 10px;
-      margin-left: 10px;
-      margin-right: 10px;
-      margin-bottom: 20px;
+      margin-left: 0px;
+      margin-right: 0px;
+      margin-bottom: 5px;
     }
 
     .boxy {
       height: auto;
-      background-color: white;
       width: auto;
       margin-top: 30px!important;
       border-radius: 10px;
-      padding-top: 10px;
-      padding-left: 10px;
-      padding-right: 10px;
-      padding-bottom: 10px;
+      padding-top: 5px;
+      padding-left: 1px;
+      padding-right: 1px;
+      padding-bottom: 5px;
     }
 
     .tile {
@@ -169,7 +168,7 @@
 
     .icon-bar {
       width: 100%;
-      background-color: #f7f5f2; 
+      background-color: #f7f5f2;
       overflow: auto;
       z-index: 1000;
       box-shadow: 20px 15px 100px -20px #556d7f;

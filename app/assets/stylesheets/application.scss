@@ -99,7 +99,7 @@ h2 span {
 .navbar {
   background-color: #f7f5f2;
   font-size: 24px;
-  font-family: Futura, "BT Pro Book", Arial, sans-serif;
+  font-family: 'Proxima Nova', Georgia, sans-serif;
   font-weight: bolder;
 }
 
@@ -111,12 +111,6 @@ h2 span {
 .navbar li {
   color: black!important;
   font-variant: small-caps;
-}
-
-
-.boxy {
-  background-color: white;
-
 }
 
 .tile {
@@ -230,10 +224,6 @@ input[type=radio]:checked + label {
   color: #ffeb21;
 }
 
-.stats-row {
-  padding-left: 10px;
-  padding-right: 30px;
-}
 
 .landing-image h3 {
   color: grey;
