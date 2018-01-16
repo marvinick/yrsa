@@ -26,7 +26,7 @@
  @import "toggle";
  @import "pretty-checkbox";
  @import "animate";
-
+ @import "fonts.min";
 
 html, body {
   background-color: #fcf8ed;
@@ -55,10 +55,8 @@ h4.test {
 
 h1 {
   // font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-	font-size: 42px;
+	font-size: 38px;
 	font-style: normal;
-	font-variant: small-caps;
-	font-weight: 700;
 	line-height: 26.4px;
 }
 
@@ -67,7 +65,8 @@ h3 {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: Futura, "BT Pro Book", Arial, sans-serif;
+  font-family: 'Proxima Nova', Georgia, sans-serif;
+  font-weight: bold;
   margin: 0;
 }
 
@@ -114,10 +113,6 @@ h2 span {
   font-variant: small-caps;
 }
 
-.box {
-  background-color: white;
-  box-shadow: 20px 15px 100px -20px #556d7f;
-}
 
 .boxy {
   background-color: white;
@@ -129,20 +124,12 @@ h2 span {
    width: auto;
    padding-top: 20px;
    padding-bottom: 20px;
-
-
  }
 
-.box a:link {
+a:link {
   text-decoration: none!important;
   color: black!important;
 }
-
-a:link, a:hover{
-  text-decoration: none!important;
-}
-
-
 
 .box span {
   width:100%;
@@ -197,11 +184,6 @@ textarea:focus, input:focus{
   width:100%;
   text-align:center;
 }
-
-.modal-backdrop {
-  opacity: 0.7;
-}
-
 
 table {
   border-collapse: collapse;
@@ -306,7 +288,14 @@ input[type=radio]:checked + label {
 
 .btn-success {
   background-color: #6bb271;
+}
 
+.btn-warning {
+  background-color: #d8c595;
+}
+
+.btn-warning:hover {
+  background-color: #d8c595;
 }
 
 //image overlay
@@ -374,4 +363,16 @@ table caption {
   text-align: center;
   padding-top: 140px;
   font-size: 14px;
+}
+
+
+.modal-content {
+  background-color: white!important;
+  margin-top: 50px;;
+}
+
+.modal-body {
+  background-color: white!important;
+  width: auto;
+  height: auto;
 }

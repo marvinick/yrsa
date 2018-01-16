@@ -90,17 +90,9 @@
    .box {
       height: auto;
       width: auto;
-      background-color: white;
       margin-bottom: 20px;
-      border-radius: 10px;
-      padding-left: 10px;
-      padding-right: 10px;
-      padding-top: 10px;
-      padding-right: 10px;
-      padding-bottom: 10px;
       margin-left: 10px;
       margin-right: 10px;
-
     }
 
     .stats {
@@ -221,11 +213,6 @@
       margin-right: 15px;
     }
 
-    .modal-header {
-      background-color: white;
-      text-align: center;
-    }
-
     .modal-content {
       background-color: white;
       margin-top: 50px;;
@@ -241,9 +228,6 @@
       margin-right: 0px;
     }
 
-    h2 {
-      font-size: 28px;
-    }
 
     .input, select textarea{
       width: 100%;

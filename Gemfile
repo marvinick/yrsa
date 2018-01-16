@@ -17,11 +17,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'rack'
 gem "responders"
 
-#charts
-gem 'chartkick'
-gem 'highcharts-rails'
-gem 'groupdate'
-
 #frontend
 gem "twitter-bootstrap-rails"
 gem 'font-awesome-sass'

@@ -20,8 +20,6 @@
 //= require dropzone
 //= require sweetalert2
 //= require sweet-alert2-rails
-//= require highcharts
-//= require chartkick
 //= require_tree .
 
 Growlyflash.defaults = $.extend(true, Growlyflash.defaults, {

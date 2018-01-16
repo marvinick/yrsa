@@ -7,7 +7,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
+    
     <%= stylesheet_link_tag "jquery.barCharts" %>
     <%= javascript_include_tag "jquery.barChart.js", "data-turbolinks-track" => false %>
     <%= javascript_include_tag 'jquery.raty.js', "data-turbolinks-track": false %>
@@ -30,7 +30,7 @@
     <div id="push"></div>
 
     <script>
-
+      //chart
       $('.barChart').barChart({
         type: 'horizontal',
         easing: 'swing',
@@ -39,6 +39,7 @@
         fillClass: 'barChart__barFill'
       });
 
+      //tabs
       // Get the element with id="defaultOpen" and click on it
       document.getElementById("defaultOpen").click();
 
@@ -63,6 +64,17 @@
         evt.currentTarget.className += " active";
       }
 
+      //modal
+      $('.button').click(function(){
+        var buttonId = $(this).attr('id');
+        $('#modal-container').removeAttr('class').addClass(buttonId);
+        $('body').addClass('modal-active');
+      })
+
+      $('#modal-container').click(function(){
+        $(this).addClass('out');
+        $('body').removeClass('modal-active');
+      });
 
 
     </script>

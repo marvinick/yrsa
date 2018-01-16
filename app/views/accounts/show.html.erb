@@ -1,4 +1,3 @@
-<% @title= @account.name %>
 
 <div class="row text-center">
   <small>account</small>
@@ -35,7 +34,7 @@
       <% else %>
         <%= link_to new_account_project_path(@account), remote: true do %>
           <div class="account_box3">
-            <%= image_tag 'tennis.png', class: "img-responsive" %>
+            <%= image_tag 'dynamic.png', class: "img-responsive" %>
             <h5 class="text-center">add project</h5>
           </div>
         <% end %>
@@ -63,7 +62,7 @@
 </div>
 
 
-<div id="product-modal" class="modal fade"></div>
+<div id="product-modal" class="modal"></div>
 
 <footer id="footer">
   <div class="icon-bar">

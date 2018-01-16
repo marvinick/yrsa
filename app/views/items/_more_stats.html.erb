@@ -12,7 +12,7 @@
             <% keys << name %>
             <% values << value.to_i %>
           <% end %>
-          <% total << (values.sum.to_f / keys.uniq.size).round %>
+          <% total << (values.sum.to_f / keys.uniq.size).round rescue 0 %>
         <% end %>
         <h2><%= (total.sum.to_f / set_item.reviews.count).round rescue 0 %> </h2>
         <h5>smiles</h5>
