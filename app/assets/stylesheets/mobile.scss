@@ -254,6 +254,10 @@
       border-left: none;
     }
 
+    input[type=checkbox] {
+      transform: scale(1);
+    }
+
     .detail-text, select textarea {
       width: 60%;
       height: 20px;

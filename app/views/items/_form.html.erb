@@ -24,20 +24,24 @@
         <div class="row">
           <div class="col-md-12">
             <br>
-            <h5>attributes</h5>
-            <br>
-              <%= f.collection_check_boxes :detail_ids, set_project.details.all, :id, :name, :item_wrapper_class => 'checkbox_container' do |cb| %>
-                <% cb.label(class: "check_box") do %>
-                  <div class="col-xs-1">
-                    <%= cb.check_box(class: "check_box") %>
-                  </div>
-                  <div class="col-xs-4">
-                    <h6><%= cb.text %></h6>
-                  </div>
-                <% end %>
-              <% end %>
+            <h2>attributes</h2>
           </div>
         </div>
+        <br>
+        <div class="row">
+        <%= f.collection_check_boxes :detail_ids, set_project.details.all, :id, :name, :item_wrapper_class => '' do |cb| %>
+          <% cb.label(class: "check_box") do %>
+            <div class="col-xs-1 ">
+              <%= cb.check_box %>
+            </div>
+            <div class="col-xs-4">
+              <h4><%= cb.text %></h4>
+            </div>
+          <% end %>
+        <% end %>
+
+        </div>
+        <br>
         <div class="row text-center">
           <%= f.submit "submit", class:"btn btn-default btn-lg" %>
         </div>
