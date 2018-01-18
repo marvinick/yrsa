@@ -1,11 +1,13 @@
-<%= link_to account_project_path(@account, project) do %>
-  <div class="account_box1 text-space">
+<%= div_for project do %>
+  <%= link_to account_project_path(@account, project) do %>
+    <div class="account_box1 text-space">
 
-    <!-- <%= image_tag 'street.jpg', class: "img-responsive" %> -->
-    <h3><%= project.title %></h3>
-    <hr>
-    <h5><%= items_in_project %> items</h5>
-    <h5><%= reviews_in_project %> reviews</h5>
-    <h6>created <%= time_ago_in_words(project.updated_at) %> ago</h6>
-  </div>
+      <!-- <%= image_tag 'street.jpg', class: "img-responsive" %> -->
+      <h3><%= project.title %></h3>
+      <hr>
+      <h5><%= items_in_project %> items</h5>
+      <h5><%= reviews_in_project %> reviews</h5>
+      <h6>created <%= time_ago_in_words(project.updated_at) %> ago</h6>
+    </div>
+  <% end %>
 <% end %>

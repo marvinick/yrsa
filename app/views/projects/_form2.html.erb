@@ -1,11 +1,10 @@
-<div class="modal-dialog">
-  <div class="modal-content">
+
     <%= form_for([current_account, @project]) do |f| %>
     <%= render "shared/errors", obj: @project %>
     <br>
     <h2 class="text-center">edit project</h2>
       <br>
-      <div class="modal-body">
+
         <div class="row">
 
           <div class="col-md-12 text-center">
@@ -42,7 +41,7 @@
             <% end %>
           </div>
 
-        </div>
+
         <br>
         <br>
         <div class="row text-center">
@@ -57,5 +56,4 @@
         </div>
       </div>
     <% end %>
-  </div>
-</div>
+  

@@ -1,3 +1,2 @@
-$("#product-modal").html("<%= escape_javascript(render 'edit') %>")
-$("#product-modal").modal("show")
- 
+$('form2').hide();
+$('div#<%= dom_id(@project) %>').replaceWith('<%= j render("form2") %>');

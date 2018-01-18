@@ -16,6 +16,7 @@ gem 'turbolinks', github: 'rails/turbolinks'
 gem 'jbuilder', '~> 2.5'
 gem 'rack'
 gem "responders"
+gem 'record_tag_helper', '~> 1.0'
 
 #frontend
 gem "twitter-bootstrap-rails"

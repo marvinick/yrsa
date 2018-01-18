@@ -2,9 +2,11 @@
   <h1>
     <%= @project.title %>
     <small>
-      <% if @project.user_id == current_user.id %>
-        <%= link_to edit_account_project_path(current_account, @project), remote: true do %>
-          <span class="fa fa-ellipsis-v"></span>
+      <%= div_for @project do %>
+        <% if @project.user_id == current_user.id %>
+          <%= link_to edit_account_project_path(current_account, @project), remote: true do %>
+            <span class="fa fa-ellipsis-v"></span>
+          <% end %>
         <% end %>
       <% end %>
     </small>
