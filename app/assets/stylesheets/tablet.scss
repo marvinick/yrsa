@@ -263,4 +263,12 @@
        border-left: none;
      }
 
+     input[type=checkbox] {
+       transform: scale(2);
+     }
+
+     .check_box {
+       font-size: 18px;
+       color: grey;
+     }
  }

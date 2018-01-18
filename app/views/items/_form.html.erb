@@ -1,7 +1,7 @@
 <div class="modal-dialog">
   <div class="modal-content">
     <br>
-    <h2 class="text-center">new item</h2>
+    <h2 class="text-center">create an item</h2>
     <br>
     <%= form_for([current_account, set_project, @item]) do |f| %>
       <div class="modal-body">
@@ -11,6 +11,7 @@
             <div class="control">
               <%= f.text_field :name, placeholder: 'name', label: false, class: "input ", :maxlength => 25, :size => 40 %>
             </div>
+            <br>
             <br>
             <div class="control">
               <%= f.text_area :content, placeholder: 'content', label: false, class: "input-text", :maxlength => 280, :size => 40  %>
@@ -24,26 +25,28 @@
         <div class="row">
           <div class="col-md-12">
             <br>
-            <h2>attributes</h2>
+            <h3>select attributes</h3>
           </div>
         </div>
-        <br>
-        <div class="row">
-        <%= f.collection_check_boxes :detail_ids, set_project.details.all, :id, :name, :item_wrapper_class => '' do |cb| %>
-          <% cb.label(class: "check_box") do %>
-            <div class="col-xs-1 ">
-              <%= cb.check_box %>
-            </div>
-            <div class="col-xs-4">
-              <h4><%= cb.text %></h4>
-            </div>
-          <% end %>
-        <% end %>
 
+        <div class="row">
+          <%= f.collection_check_boxes :detail_ids, set_project.details.all, :id, :name, :item_wrapper_class => '' do |cb| %>
+            <% cb.label(class: "check_box") do %>
+
+              <div class="formly">
+                <div class="col-xs-1 ">
+                  <%= cb.check_box %>
+                </div>
+                <div class="col-xs-6">
+                  <h4><%= cb.text %></h4>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
         </div>
-        <br>
+
         <div class="row text-center">
-          <%= f.submit "submit", class:"btn btn-default btn-lg" %>
+          <%= f.submit "submit", class:"btn btn-success btn-lg" %>
         </div>
       </div>
     <% end %>

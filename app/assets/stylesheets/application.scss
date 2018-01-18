@@ -29,10 +29,11 @@
  @import "fonts.min";
 
 html, body {
-  background-color: #fcf8ed;
+  background-color: #f7f5f2;
   margin-top: 0px;
   overflow-x:hidden!important;
 }
+
 
 .link-to-text-color {
   color: #a05353;
@@ -235,7 +236,7 @@ input[type=radio]:checked + label {
   padding-left: 10px;
   overflow: hidden;
   border: none;
-  background-color: #fcf8ed;
+  background-color: #f7f5f2;
   padding-right: 10px;
 }
 

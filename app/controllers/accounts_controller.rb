@@ -1,6 +1,7 @@
 class AccountsController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create]
   before_action :set_account, only: [:edit, :update, :show]
+  respond_to :html, :json
 
   def index
     @accounts = Account.all
@@ -47,7 +48,8 @@ class AccountsController < ApplicationController
   end
 
   def show
-
+    @projects = @account.projects.all
+    respond_with(@projects)
   end
 
   private

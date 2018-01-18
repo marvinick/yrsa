@@ -1,1 +1,3 @@
-<%= render "save" %>
+$('new').hide();
+$('.my-projects').append('<%= j render partial: “project”, locals: {project: @project} %>');
+$('.new-project-button').show();

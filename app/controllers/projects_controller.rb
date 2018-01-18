@@ -4,6 +4,7 @@ class ProjectsController < BaseController
   before_action :check_plan_limit, only: [:new, :create]
   skip_before_action :active_subscription_required!, only: [:index]
   skip_before_action :authorize_owner!, only: [:index, :show]
+  respond_to :html, :json
 
   def new
     @project = current_account.projects.build
@@ -20,15 +21,15 @@ class ProjectsController < BaseController
     end
   end
 
+  def index
+    @projects = current_account.projects.all
+    respond_with(@projects)
+  end
+
   def show
     @detail = set_project.details.build
     @details = set_project.details.last(10)
-    
-    @items = if params[:term]
-      set_project.items.where('name ILIKE ?', "%#{params[:term]}%")
-    else
-      @items = set_project.items.all
-    end
+    @items = set_project.items.all
   end
 
   def edit; end

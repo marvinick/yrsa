@@ -255,7 +255,12 @@
     }
 
     input[type=checkbox] {
-      transform: scale(1);
+      transform: scale(2);
+    }
+
+    .check_box {
+      font-size: 18px;
+      color: grey;
     }
 
     .detail-text, select textarea {
