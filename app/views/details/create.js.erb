@@ -1,2 +1,3 @@
-$('#details').append("<%= j render partial: 'detail', locals: { detail: @detail } %>");
-$("#details_form").val();
+$('form').hide();
+$('.my-details').append('<%= j render (@detail) %>');
+$('.new-detail-button').show();

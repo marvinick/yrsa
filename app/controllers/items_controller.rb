@@ -2,6 +2,7 @@ class ItemsController < BaseController
   before_action :set_project
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   skip_before_action :authorize_owner!, only: [:index, :show]
+  respond_to :html, :json
 
   def index
     @items = current_account.project.items.all
@@ -21,6 +22,11 @@ class ItemsController < BaseController
       flash.now[:alert] = "Something is wrong."
       render "new"
     end
+  end
+
+  def index
+    @items = set_project.items.all
+    respond_with(@items)
   end
 
   def show; end

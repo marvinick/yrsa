@@ -28,7 +28,7 @@ class ProjectsController < BaseController
 
   def show
     @detail = set_project.details.build
-    @details = set_project.details.last(10)
+    @details = set_project.details.all
     @items = set_project.items.all
   end
 
@@ -80,4 +80,5 @@ class ProjectsController < BaseController
       flash[:alert] = "Project not found."
       redirect_to root_url
   end
+  helper_method :set_project
 end

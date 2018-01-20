@@ -2,13 +2,16 @@
   <div class="col-md-12 col-sm-12">
     <h1>
       <div class="col-md-12">
+
         <small><%= link_to @project.title, account_project_path(current_account, set_project), class: "link-to-text-color" %> - </small>
 
         <strong><%= @item.name %></strong>
         <% if @project.user_id == current_user.id %>
           <small>
-            <%= link_to edit_account_project_item_path(current_account, set_project, set_item), remote: true do  %>
-              <span class="fa fa-ellipsis-v"></span>
+            <%= div_for @item do %>
+              <%= link_to edit_account_project_item_path(current_account, set_project, set_item), remote: true do  %>
+                <span class="fa fa-ellipsis-v"></span>
+              <% end %>
             <% end %>
           </small>
         <% end %>

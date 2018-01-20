@@ -1,2 +1,2 @@
-$("#product-modal").html("<%= escape_javascript(render 'new') %>")
-$("#product-modal").modal("show")
+$('.new-project-button').after('<%= j render('new') %>');
+$('.new-project-button').hide();

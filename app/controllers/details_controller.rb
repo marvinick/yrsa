@@ -2,27 +2,34 @@ class DetailsController < BaseController
   before_action :set_project
   before_action :set_detail, only: [:show, :edit, :update, :destroy]
   skip_before_action :authorize_owner!, only: [:show]
+  respond_to :html, :json
+
+  def index
+    @details = set_project.details.all
+  end
 
   def new
-    @project = current_account.projects.find_by slug: params[:project_id]
     @detail = @project.details.new
   end
 
   def create
-    @project = current_account.projects.find_by slug: params[:project_id]
     @detail = @project.details.new(detail_params)
-    if @detail.save
-      respond_to do |format|
-        # format.html { redirect_to account_project_path(current_account, set_project) }
-        format.js {}
-      end
+    @detail.save
+    respond_to do |f|
+      f.html { redirect_to account_project_path(current_account, @project) }
+      f.js
     end
   end
 
   def show; end
 
-  def index
-    @details = set_project.details.all
+  def edit; end
+
+  def update
+    if @detail.update(detail_params)
+      flash[:notice] = "an attr is updated"
+      redirect_to account_project_path(current_account, set_project)
+    end
   end
 
   def destroy
@@ -37,12 +44,11 @@ class DetailsController < BaseController
   end
 
   def set_detail
-
     @detail = set_project.details.find(params[:id])
   end
 
   def set_project
-    current_account.projects.find_by slug: params[:project_id]
+    @project = current_account.projects.find_by slug: params[:project_id]
   end
   helper_method :set_project
 end

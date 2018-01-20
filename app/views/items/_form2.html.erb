@@ -1,10 +1,9 @@
-<div class="modal-dialog">
-  <div class="modal-content">
+
     <br>
     <h2 class="text-center">edit item</h2>
     <br>
     <%= form_for([current_account, set_project, @item]) do |f| %>
-      <div class="modal-body">
+
         <div class="row">
           <div class="col-md-12">
             <%= f.hidden_field :project_id %>
@@ -42,13 +41,12 @@
 
         <div class="row text-center">
           <%= f.submit "submit", class:"btn btn-default btn-lg" %>
+          <%= link_to "never mind", account_project_item_path(current_account, set_project, @item), class: "btn btn-default btn-lg" %>
           <br>
           <br>
           <h3>Or you can delete this item</h3>
           <br>
           <%= link_to "remove", [current_account, @project, @item], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "btn btn-danger btn-lg" %>
         </div>
-      </div>
+
     <% end %>
-  </div>
-</div>
