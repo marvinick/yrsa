@@ -1,6 +1,7 @@
 
 <%= div_for detail do %>
 
-    <h4 class="test"><small><%= detail.name %></small></h4>
-
+    <h4 class="test"><small><%= detail.name + " ok" %></small></h4>
+    <li><%= link_to "Edit", edit_account_project_detail_path(current_account, set_project, detail), remote: true %></li>
+    <%= link_to "(remove)", account_project_detail_path(current_account, set_project, detail), method: :delete, data: {confirm: "Are you sure?"}, remote: true %>
 <% end %>

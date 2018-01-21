@@ -2,6 +2,7 @@ class ItemsController < BaseController
   before_action :set_project
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   skip_before_action :authorize_owner!, only: [:index, :show]
+  skip_before_action :verify_authenticity_token
   respond_to :html, :json
 
   def index
@@ -16,8 +17,11 @@ class ItemsController < BaseController
   def create
     @item = Item.new(item_params)
     if @item.save
+      respond_to do |f|
+        f.html { redirect_to account_project_path(current_account, set_project)}
+        f.js
+      end
       flash[:notice] = "An item is created."
-      redirect_to [current_account, set_project]
     else
       flash.now[:alert] = "Something is wrong."
       render "new"

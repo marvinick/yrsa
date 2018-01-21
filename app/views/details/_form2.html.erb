@@ -1,4 +1,5 @@
-<%= form_for ([current_account, set_project, @detail]), remote: true, html: {} do |f| %>
-  
-    <li><%= f.text_field :name, placeholder: "", class: "detail-text" %>   <%= f.button "add", class: "btn btn-success btn-xs" %></li>
+<%= form_for ([current_account, set_project, @detail]) do |f| %>
+    <% f.hidden_field :project_id %>
+    <li><%= f.text_field :name, placeholder: "", class: "detail-text" %>   <%= f.button "change", class: "btn btn-warning btn-xs" %> </li>
+
 <% end %>

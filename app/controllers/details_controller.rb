@@ -5,7 +5,7 @@ class DetailsController < BaseController
   respond_to :html, :json
 
   def index
-    @details = set_project.details.all
+    @details = set_project.details.order("created_at DESC")
   end
 
   def new
@@ -27,14 +27,19 @@ class DetailsController < BaseController
 
   def update
     if @detail.update(detail_params)
+
+       redirect_to account_project_path(current_account, set_project)
+      
+
       flash[:notice] = "an attr is updated"
-      redirect_to account_project_path(current_account, set_project)
     end
   end
 
   def destroy
     @detail.destroy
-    redirect_to account_project_path(current_account, set_project)
+    respond_to do |f|
+      f.js
+    end
   end
 
   private

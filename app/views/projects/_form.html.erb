@@ -1,6 +1,6 @@
       <h2 class="text-center">new project</h2>
       <br>
-      <%= form_for([current_account, @project]) do |f| %>
+      <%= form_for([current_account, @project], remote: true) do |f| %>
       <%= render "shared/errors", obj: @project %>
 
           <div class="row">

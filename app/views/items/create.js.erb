@@ -1,1 +1,3 @@
-<%= render "save" %>
+$('form').hide();
+$('.my-items').append('<%= j render (@item) %>');
+$('.new-project-button').show();

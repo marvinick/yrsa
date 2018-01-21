@@ -1,1 +1,3 @@
-<%= render "save" %>
+$('form2').hide();
+$('div#<%= dom_id(@project) %>').replaceWith('<%= j render (@project) %>');
+ 

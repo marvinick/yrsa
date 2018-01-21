@@ -1,2 +1,2 @@
 $('form2').hide();
-$('div#<%= dom_id(@detail) %>').replaceWith('<%= j render partial: "detail", locals: {detail: [current_account, set_project, @detail] } %>');
+$('div#<%= dom_id(@detail) %>').replaceWith('<%= j render (@detail) %>');

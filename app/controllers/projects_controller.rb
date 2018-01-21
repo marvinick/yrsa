@@ -15,7 +15,10 @@ class ProjectsController < BaseController
     @project.user_id = current_user.id
     if @project.save
       flash[:notice] = "You have created a project."
-      redirect_to account_path(current_account)
+      respond_to do |f|
+        f.html { redirect_to account_path(current_account) }
+        f.js
+      end
     else
       render "new"
     end
@@ -30,6 +33,7 @@ class ProjectsController < BaseController
     @detail = set_project.details.build
     @details = set_project.details.all
     @items = set_project.items.all
+
   end
 
   def edit; end
@@ -37,7 +41,7 @@ class ProjectsController < BaseController
   def update
     if @project.update(project_params)
       flash[:notice] = "The project is updated."
-      redirect_to account_project_path(@account, @project)
+      redirect_to account_project_path(@account, set_project)
     else
       flash.now[:alert] = "Something is misssing."
       render "edit"
