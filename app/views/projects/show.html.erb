@@ -1,34 +1,46 @@
 <% @title= @project.title %>
 
-<div class="container">
-	<div class="row">
-		<%= render "header" %>
-	</div>
-	<div class="row">
-		<%= render "stats" %>
-		<%= render "users" %>
+<div class="formy">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+	      <%= div_for @project do %>
+	        <% if @project.user_id == current_user.id %>
+	          <%= link_to edit_account_project_path(current_account, @project), remote: true do %>
+	            <span class="fa fa-ellipsis-h pull-left"></span>
+	          <% end %>
+	        <% end %>
+	      <% end %>
+	    </div>
+		</div>
+		<div class="row">
+			<%= render "header" %>
+		</div>
+		<div class="row">
+			<%= render "stats" %>
+			<%= render "users" %>
 
-	</div>
-	<hr>
-	<div class="row">
-		<%= render "details" %>
-	</div>
-	<hr>
-	<div class="row">
-		<div class="project-row">
+		</div>
+		<hr>
+		<div class="row">
+			<%= render "details" %>
+		</div>
+		<hr>
+		<div class="row">
 			<%= render "actions" %>
 		</div>
-	</div>
-
-	<div class="row">
-		<div id="cards" class="tabcontent">
-			<%= render "cards" %>
-		</div>
-		<div id="lists" class="tabcontent">
-			<%= render "items_list" %>
-		</div>
-		<div id="simple-lists" class="tabcontent">
-			<%= render "simple_lists" %>
+		<br>
+		
+		<div class="row">
+			<div id="cards" class="tabcontent">
+				<%= render "cards" %>
+			</div>
+			<div id="lists" class="tabcontent">
+				<%= render "items_list" %>
+			</div>
+			<div id="simple-lists" class="tabcontent">
+				<%= render "simple_lists" %>
+			</div>
 		</div>
 	</div>
 </div>

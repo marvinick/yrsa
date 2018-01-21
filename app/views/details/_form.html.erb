@@ -1,7 +1,8 @@
 <div id="form1">
   <%= form_for ([current_account, @project, @detail]), remote: true, html: {} do |f| %>
-    <% f.hidden_field :project_id %>
-      <li><%= f.text_field :name, placeholder: "", class: "detail-text" %>   <%= f.button "add", class: "btn btn-success btn-xs" %> </li>
-
+    <div clas="formly">
+      <% f.hidden_field :project_id %>
+        <li><%= f.text_field :name, placeholder: "", class: "detail-text" %>   <%= f.button "add", class: "btn btn-success btn-xs" %> </li>
+    </div>
   <% end %>
 </div>

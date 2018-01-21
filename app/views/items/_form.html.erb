@@ -1,51 +1,38 @@
-
-    <h2 class="text-center">create an item</h2>
+<%= form_for ([current_account, set_project, @item]), remote: true, html: {} do |f| %>
+  <div class="formly">
+    <%= f.hidden_field :project_id %>
+    <div class="control">
+      <%= f.text_field :name, placeholder: 'name', label: false, class: "input ", :maxlength => 25, :size => 40 %>
+    </div>
     <br>
-    <%= form_for ([current_account, set_project, @item]), remote: true, html: {} do |f| %>
+    <div class="control">
+      <%= f.text_field :content, placeholder: 'content', label: false, class: "input", :maxlength => 280, :size => 40  %>
+    </div>
+    <br>
+    <div class="control">
+      <%= f.file_field :image, class:"btn btn-default control-image"  %>
+    </div>
 
-        <div class="row">
-          <div class="col-md-12">
-            <%= f.hidden_field :project_id %>
-            <div class="control">
-              <%= f.text_field :name, placeholder: 'name', label: false, class: "input ", :maxlength => 25, :size => 40 %>
-            </div>
-            <br>
-            <br>
-            <div class="control">
-              <%= f.text_area :content, placeholder: 'content', label: false, class: "input-text", :maxlength => 280, :size => 40  %>
-            </div>
-            <br>
-            <div class="control">
-              <%= f.file_field :image, class:"btn btn-default control-image"  %>
-            </div>
+    <br>
+    <h3>select attributes</h3>
+
+    <%= f.collection_check_boxes :detail_ids, set_project.details.all, :id, :name, :item_wrapper_class => '' do |cb| %>
+      <% cb.label(class: "check_box") do %>
+
+        <div class="formly">
+          <div class="col-xs-1 ">
+            <%= cb.check_box %>
+          </div>
+          <div class="col-xs-6">
+            <h4><%= cb.text %></h4>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-12">
-            <br>
-            <h3>select attributes</h3>
-          </div>
-        </div>
-
-        <div class="row">
-          <%= f.collection_check_boxes :detail_ids, set_project.details.all, :id, :name, :item_wrapper_class => '' do |cb| %>
-            <% cb.label(class: "check_box") do %>
-
-              <div class="formly">
-                <div class="col-xs-1 ">
-                  <%= cb.check_box %>
-                </div>
-                <div class="col-xs-6">
-                  <h4><%= cb.text %></h4>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-
-        <div class="row text-center">
-          <%= f.submit "submit", class:"btn btn-success btn-lg" %>
-          <%= link_to "never mind", account_project_path(current_account, @project), class: "btn btn-default btn-lg" %>
-        </div>
-
+      <% end %>
     <% end %>
+
+    <div class="row text-center">
+      <%= f.submit "submit", class:"btn btn-success btn-lg" %>
+      <%= link_to "never mind", account_project_path(current_account, @project), class: "btn btn-default btn-lg" %>
+    </div>
+  </div>
+<% end %>

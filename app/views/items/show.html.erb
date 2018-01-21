@@ -1,34 +1,47 @@
 <% @title= @item.name %>
 
-<div class="container">
-  <div class="row">
-    <%= render "header" %>
-  </div>
+<div class="formy">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 ">
+        <% if @project.user_id == current_user.id %>
+          <small>
+            <%= div_for @item do %>
+              <%= link_to edit_account_project_item_path(current_account, set_project, set_item), remote: true do  %>
+                <span class="fa fa-ellipsis-h pull-left"></span>
+              <% end %>
+            <% end %>
+          </small>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <%= render "header" %>
+    </div>
+    <br>
+    <div class="row">
 
-  <div class="row">
-
-    <div class="tab">
-      <button class="tablinks" onclick="openCity(event, 'cards')" id="defaultOpen"><span class="fa fa-folder"></span></button>
-      <div class="pull-right">
+      <div class="tab pull-right">
+        <button class="tablinks" onclick="openCity(event, 'cards')" id="defaultOpen"><span class="fa fa-folder"></span></button>
         <button class="tablinks" onclick="openCity(event, 'lists')"><span class="fa fa-pencil-square-o"></span></button>
       </div>
-    </div>
-    <div id="cards" class="tabcontent">
-      <div class="item-view">
-        <%= render "sub_header" %>
-        <hr>
-        <% if @item.reviews.present? %>
-          <%= render "stats" %>
-        <% else %>
-          <h2 class="text-center" style="color:grey;">No reviews yet</h2>
-          <%= render "current_user_review" %>
-        <% end %>
-        <hr>
-        <%= render "more_stats" %>
+      <br>
+      <br>
+      <div id="cards" class="tabcontent">
+        <div class="item-view">
+          <%= render "sub_header" %>
+          <hr>
+          <% if @item.reviews.present? %>
+            <%= render "stats" %>
+          <% else %>
+            <h2 class="text-center" style="color:grey;">No reviews yet</h2>
+            <%= render "current_user_review" %>
+          <% end %>
+          <hr>
+          <%= render "more_stats" %>
+        </div>
       </div>
-    </div>
-    <div id="lists" class="tabcontent">
-
+      <div id="lists" class="tabcontent">
         <% if @item.reviews.present? %>
           <%= render "reviews" %>
         <% else %>
@@ -41,5 +54,4 @@
     </div>
   </div>
 </div>
-
 <div id="product-modal" class="modal"></div>

@@ -1,58 +1,36 @@
-
-    <%= form_for([current_account, @project]) do |f| %>
+<%= form_for([current_account, @project]) do |f| %>
+  <div class="formly">
     <%= render "shared/errors", obj: @project %>
+    <div class="control">
+      <%= f.text_field :title, placeholder: 'title', label: false, class: "input ", :maxlength => 40 %>
+    </div>
     <br>
-    <h2 class="text-center">edit project</h2>
+    <div class="control">
+      <%= f.text_field :description, placeholder: 'description', label: false, class: "input", :maxlength => 280, :size => 40  %>
+    </div>
+    <% if invitations.present? %>
       <br>
-
-        <div class="row">
-
-          <div class="col-md-12 text-center">
-            <div class="control">
-              <%= f.text_field :title, placeholder: 'title', label: false, class: "input ", :maxlength => 40 %>
-            </div>
-            <br>
-            <div class="control">
-              <%= f.text_area :description, placeholder: 'description', label: false, class: "input-text", :maxlength => 280, :size => 40  %>
-            </div>
+      <h5>users</h5>
+      <br>
+      <%= f.collection_check_boxes :user_ids, current_account.users.all, :id, :email, :item_wrapper_class => 'checkbox_container' do |cb| %>
+        <% cb.label(class: "check_box") do %>
+          <div class="col-xs-1">
+            <%= cb.check_box(class: "check_box") %>
           </div>
 
-        </div>
-        <div class="row">
-
-          <div class="col-md-10">
-            <% if invitations.present? %>
-              <br>
-              <h5>users</h5>
-              <br>
-              <%= f.collection_check_boxes :user_ids, current_account.users.all, :id, :email, :item_wrapper_class => 'checkbox_container' do |cb| %>
-                <% cb.label(class: "check_box") do %>
-                  <div class="col-xs-1">
-                    <%= cb.check_box(class: "check_box") %>
-                  </div>
-
-                  <div class="col-xs-4">
-                    <h6><%= cb.text %></h6>
-                  </div>
-                <% end %>
-              <% end %>
-            <% else %>
-              <h5>No one?! Go invite some users</h5>
-            <% end %>
+          <div class="col-xs-4">
+            <h6><%= cb.text %></h6>
           </div>
-
-
-        <br>
-        <br>
-        <div class="row text-center">
-          <%= f.submit "edit", class:"btn btn-success btn-lg" %>
-          <%= link_to "cancel", account_project_path(current_account, @project), class: "btn btn-default btn-lg" %>
-          <br>
-          <br>
-          <br>
-          <h4>or, you can remove it</h4>
-          <br>
-          <%= link_to "remove", [current_account, @project], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "btn btn-danger btn-lg" %>
-        </div>
-      </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <h5>No one?! Go invite some users</h5>
     <% end %>
+
+    <div class="pull-right">
+      <%= link_to "remove", [current_account, @project], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "btn btn-danger" %>
+      <%= f.submit "edit", class:"btn btn-success" %>
+      <%= link_to "cancel", account_project_path(current_account, @project), class: "btn btn-default" %>
+    </div>
+  </div>
+<% end %>

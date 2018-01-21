@@ -1,6 +1,6 @@
-<h3 class="text-center"><icon class="fa fa-flag"></icon> attributes</h3>
-<br>
-<%= link_to "add", new_account_project_detail_path(current_account, @project, @detail), remote: true, class: "new-detail-button btn btn-success" %>
-<br>
-<br>
-<%= render "details/index" %>
+<div class="col-md-12">
+  <%= link_to "add attributes", new_account_project_detail_path(current_account, @project, @detail), remote: true, class: "new-detail-button btn btn-success btn-lg" %>
+  <br>
+  <br>
+  <%= render "details/index" %>
+</div>

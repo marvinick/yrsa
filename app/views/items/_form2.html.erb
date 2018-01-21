@@ -1,52 +1,37 @@
-
+<%= form_for([current_account, set_project, @item]) do |f| %>
+  <div class="formly">
+    <%= f.hidden_field :project_id %>
+    <div class="control">
+      <%= f.text_field :name, placeholder: 'name', label: false, class: "input ", :maxlength => 25, :size => 40 %>
+    </div>
     <br>
-    <h2 class="text-center">edit item</h2>
+    <div class="control">
+      <%= f.text_field :content, placeholder: 'content', label: false, class: "input", :maxlength => 280, :size => 40  %>
+    </div>
     <br>
-    <%= form_for([current_account, set_project, @item]) do |f| %>
-
-        <div class="row">
-          <div class="col-md-12">
-            <%= f.hidden_field :project_id %>
-            <div class="control">
-              <%= f.text_field :name, placeholder: 'name', label: false, class: "input ", :maxlength => 25, :size => 40 %>
-            </div>
-            <br>
-            <div class="control">
-              <%= f.text_area :content, placeholder: 'content', label: false, class: "input-text", :maxlength => 280, :size => 40  %>
-            </div>
-            <br>
-            <div class="control">
-              <%= f.file_field :image, class:"btn btn-default control-image"  %>
-            </div>
-            <%= f.check_box(:delete_image) %>
-          </div>
+    <div class="control">
+      <%= f.file_field :image, class:"btn btn-default control-image"  %>
+    </div>
+    <br>
+    <h5>attributes</h5>
+    <br>
+    <%= f.collection_check_boxes :detail_ids, set_project.details.all, :id, :name, :item_wrapper_class => 'checkbox_container' do |cb| %>
+      <% cb.label(class: "check_box") do %>
+        <div class="col-xs-1 ">
+          <%= cb.check_box(class: "check_box") %>
         </div>
-        <div class="row">
-          <div class="col-md-12">
-            <br>
-            <h5>attributes</h5>
-            <br>
-              <%= f.collection_check_boxes :detail_ids, set_project.details.all, :id, :name, :item_wrapper_class => 'checkbox_container' do |cb| %>
-                <% cb.label(class: "check_box") do %>
-                  <div class="col-xs-1 ">
-                    <%= cb.check_box(class: "check_box") %>
-                  </div>
-                  <div class="col-xs-4">
-                    <h6><%= cb.text %></h6>
-                  </div>
-                <% end %>
-              <% end %>
-          </div>
+        <div class="col-xs-4">
+          <h6><%= cb.text %></h6>
         </div>
-
-        <div class="row text-center">
-          <%= f.submit "submit", class:"btn btn-default btn-lg" %>
-          <%= link_to "never mind", account_project_item_path(current_account, set_project, @item), class: "btn btn-default btn-lg" %>
-          <br>
-          <br>
-          <h3>Or you can delete this item</h3>
-          <br>
-          <%= link_to "remove", [current_account, @project, @item], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "btn btn-danger btn-lg" %>
-        </div>
-
+      <% end %>
     <% end %>
+
+    <div class="row pull-right">
+      <%= link_to "remove", [current_account, @project, @item], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "btn btn-danger" %>
+      <%= link_to "never mind", account_project_item_path(current_account, set_project, @item), class: "btn btn-default" %>
+      <%= f.submit "submit", class:"btn btn-default" %>
+    </div>
+    <br>
+    <br>
+  </div>
+<% end %>

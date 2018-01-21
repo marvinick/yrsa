@@ -32,8 +32,8 @@
    }
 
    .container {
-     padding-top: 25px;
-     padding-bottom: 50px;
+     margin: 0px;
+     padding: 0px;
    }
 
    .landing-image {
@@ -280,19 +280,18 @@
       padding-bottom: 15px;
       padding-left: 15px;
       padding-right: 15px;
-      background-color: white;
-      box-shadow: 20px 15px 50px -20px #556d7f;
+      background-color: #f9f7f2;
+      margin-top: 50px;
     }
 
     .formy {
       cursor:pointer;
       max-width: 100%;
+      margin: 0;
       padding-top: 15px;
       padding-bottom: 15px;
-      padding-left: 25px;
-      padding-right: 15px;
+      padding: 0;
       background-color: white;
-      box-shadow: 20px 15px 100px -20px #556d7f;
     }
 
     #push, #footer {
