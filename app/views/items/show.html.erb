@@ -3,24 +3,21 @@
 <div class="formy">
   <div class="container">
     <div class="row">
-      <div class="col-md-12 ">
-        <% if @project.user_id == current_user.id %>
-          <small>
-            <%= div_for @item do %>
-              <%= link_to edit_account_project_item_path(current_account, set_project, set_item), remote: true do  %>
-                <span class="fa fa-ellipsis-h pull-left"></span>
-              <% end %>
+      <div class="col-md-12">
+        <%= div_for @item do %>
+          <% if @project.user_id == current_user.id %>
+            <%= link_to edit_account_project_item_path(current_account, set_project, set_item), remote: true do  %>
+              <span class="fa fa-ellipsis-h pull-left"></span>
             <% end %>
-          </small>
+          <% end %>
         <% end %>
       </div>
     </div>
-    <div class="row">
+    <div class="row text-center">
       <%= render "header" %>
     </div>
     <br>
     <div class="row">
-
       <div class="tab pull-right">
         <button class="tablinks" onclick="openCity(event, 'cards')" id="defaultOpen"><span class="fa fa-folder"></span></button>
         <button class="tablinks" onclick="openCity(event, 'lists')"><span class="fa fa-pencil-square-o"></span></button>

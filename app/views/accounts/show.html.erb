@@ -10,30 +10,43 @@
     <br>
     <div class="row">
       <div class="col-md-3 col-xs-6 text-center">
-        <div>
-          <%= link_to "billing", account_billing_path(@account), class:"btn btn-lg btn-default" %>
-        </div>
+
+        <%= link_to account_billing_path(@account) do %>
+          <div class="account_box1">
+            <i class="fa fa-credit-card" aria-hidden="true"></i>
+            <h4>billing</h4>
+          </div>
+        <% end %>
+
       </div>
       <div class="col-md-3 col-sm-4 col-xs-6 text-center">
-        <div>
-          <%= link_to "users", account_users_path(@account, @users), class:"btn btn-lg btn-default" %>
-        </div>
+        <%= link_to account_users_path(@account, @users) do %>
+          <div class="account_box1">
+            <i class="fa fa-envelope-open-o" aria-hidden="true"></i>
+            <h4>invitations</h4>
+          </div>
+        <% end %>
       </div>
       <div class="col-md-3 col-sm-4 col-xs-6 text-center">
-        <div>
-          <%= link_to "edit account", edit_account_path(@account), class:"btn btn-lg btn-default"%>
-        </div>
+        <%= link_to edit_account_path(@account) do %>
+          <div class="account_box1">
+            <i class="fa fa-gear" aria-hidden="true"></i>
+            <h4>edit</h4>
+          </div>
+        <% end %>
       </div>
       <div class="col-md-3 col-xs-6 text-center">
-        <div>
-          <%= link_to "plans",  account_choose_plan_url(@account), class:"btn btn-lg btn-default" %>
+        <%= link_to account_choose_plan_url(@account) do %>
+        <div class="account_box1">
+          <i class="fa fa-clone" aria-hidden="true"></i>
+          <h4>plans</h4>
         </div>
+        <% end %>
       </div>
     </div>
-    <br>
-    <div class="row">
 
-      <div class="col-md-12 col-sm-4 col-xs-6">
+    <div class="row">
+      <div class="col-md-12 col-sm-4 col-xs-12">
         <% if @account.owner.id == current_user.id %>
           <% if @account.stripe_subscription_id.blank? %>
             <%= link_to account_choose_plan_url(@account) do %>
@@ -50,8 +63,11 @@
         <% end %>
         <br>
         <br>
-          <%= render "projects/index" %>
+
       </div>
+    </div>
+    <div class="row">
+      <%= render "projects/index" %>
     </div>
   </div>
 </div>

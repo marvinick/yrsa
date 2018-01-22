@@ -1,35 +1,36 @@
 <%= form_for([current_account, @project], remote: true) do |f| %>
-<div class="formly">
-  <%= render "shared/errors", obj: @project %>
+  <div class="formly">
+    <%= render "shared/errors", obj: @project %>
     <div class="control">
       <%= f.text_field :title, placeholder: 'title (new project)', label: false, class: "input ", :maxlength => 25, :size => 40 %>
     </div>
     <br>
     <div class="control">
-      <%= f.text_field :description, placeholder: 'description', label: false, class: "input", :maxlength => 280, :size => 10  %>
+      <%= f.text_area :description, placeholder: 'description', label: false, class: "input", :maxlength => 280, :size => 10  %>
     </div>
     <br>
     <% if invitations.present? %>
       <h4>users</h4>
       <br>
-      <%= f.collection_check_boxes :user_ids, current_account.users.all, :id, :email, :item_wrapper_class => 'checkbox_container' do |cb| %>
-
-          <label class="container2">
-            <%= cb.label %>
-            <%= cb.check_box %>
-            <span class="checkmark"></span>
-
-          </label>
-        
+      <%= f.collection_check_boxes :user_ids, current_account.users.all, :id, :email, :item_wrapper_class => '' do |cb| %>
+        <label class="container2">
+          <%= cb.label %>
+          <%= cb.check_box %>
+          <span class="checkmark"></span>
+        </label>
+        <br>
+        <br>
       <% end %>
+
     <% else %>
-      <h5>No one?! Go invite some users</h5>
+      <h5>Go invite some users</h5>
     <% end %>
 
-    <div class="pull-right">
-      <%= f.submit "add", class:"btn btn-success" %>
+    <div class="row pull-right">
+      <%= f.submit "add project", class:"btn btn-success" %>
       <%= link_to "cancel", account_path(current_account), class: "btn btn-default" %>
     </div>
+    <br>
+    <br>
   </div>
-</div>
 <% end %>

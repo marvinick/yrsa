@@ -76,6 +76,9 @@
     border-radius: 15px;
     margin-bottom: 40px;
     background-color: white;
+    border-style: solid;
+    border-width: thin;
+    border-color: #e2e2e2;
   }
 
   .item-view {
@@ -158,7 +161,7 @@
   }
 
   .account_box1 {
-    height: 200px;
+    height: auto;
     width: auto;
     padding-bottom: 20px;
     padding-top: 20px;
@@ -358,17 +361,17 @@
   //   transform: scale(2);
   // }
 
-    .container2 {
-      display: inline;
-      position: absolute;
-      padding-left: 35px;
-      margin-bottom: 12px;
-      cursor: pointer;
+  .container2 {
+    display: block;
+    position: absolute;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
 
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 
   /* Hide the browser's default checkbox */

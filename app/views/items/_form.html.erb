@@ -6,7 +6,7 @@
     </div>
     <br>
     <div class="control">
-      <%= f.text_field :content, placeholder: 'content', label: false, class: "input", :maxlength => 280, :size => 40  %>
+      <%= f.text_area :content, placeholder: 'content', label: false, class: "input", :maxlength => 280, :size => 40  %>
     </div>
     <br>
     <div class="control">
@@ -14,20 +14,23 @@
     </div>
 
     <br>
-    <h4>select attributes</h4>
-
+    <h4>attributes</h4>
+    <br>
     <%= f.collection_check_boxes :detail_ids, set_project.details.all, :id, :name, :item_wrapper_class => '' do |cb| %>
       <label class="container2">
         <%= cb.label %>
         <%= cb.check_box %>
         <span class="checkmark"></span>
-
       </label>
+      <br>
+      <br>
     <% end %>
 
-    <div class="row text-center">
-      <%= f.submit "submit", class:"btn btn-success btn-lg" %>
-      <%= link_to "never mind", account_project_path(current_account, @project), class: "btn btn-default btn-lg" %>
+    <div class="row pull-right">
+      <%= f.submit "add item", class:"btn btn-success" %>
+      <%= link_to "cancel", account_project_path(current_account, @project), class: "btn btn-default" %>
     </div>
+    <br>
+    <br>
   </div>
 <% end %>
