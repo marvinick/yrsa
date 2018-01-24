@@ -1,0 +1,16 @@
+<% set_item.details.each do |detail| %>
+  <div class=" text-center">
+    <h3><%= detail.name %></h3>
+    <br>
+    <div id="star-rating_<%= detail.id %>"></div>
+  </div>
+  
+  <script>
+    $("#star-rating_<%= detail.id %>").each(function() {
+      $(this).raty({
+        path: '/assets/',
+        scoreName: 'review[properties[<%= detail.name %>]'
+      });
+    });
+  </script>
+<% end %>

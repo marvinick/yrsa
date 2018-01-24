@@ -10,7 +10,7 @@
         <%= f.hidden_field :id %>
 
         <%= f.fields_for :properties, OpenStruct.new(@review.properties) do |builder| %>
-          <%= render "rating_field", f: builder %>
+          <%= render "rating_field2", f: builder %>
 
         <% end %>
         <br>
