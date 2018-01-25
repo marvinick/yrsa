@@ -16,7 +16,7 @@
             <% values << value.to_i %>
           <% end %>
 
-          <h2 class="text-center"><strong><%= (values.sum.to_f / keys.uniq.size).round rescue 0 %> </strong></h2>
+          <h2 class="text-center"><strong><%= (values.sum.to_f / keys.uniq.size).round rescue 0 %> <%= image_tag('star-on.png', style: "zoom:50%;") %></strong></h2>
           <hr>
           <h6 style="color:grey"><strong><%= review.user.email %></strong> - <%= time_ago_in_words(review.created_at) %> ago</h6>
           <br>

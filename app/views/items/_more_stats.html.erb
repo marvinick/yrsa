@@ -15,7 +15,7 @@
           <% total << (values.sum.to_f / keys.uniq.size).round rescue 0 %>
         <% end %>
         <h2><%= (total.sum.to_f / set_item.reviews.count).round rescue 0 %> </h2>
-        <h5>smiles</h5>
+        <h5><%= image_tag('star-on.png', style: "zoom:50%;") %></h5>
         <!-- <div class="star-rating" style="zoom: 125%" data-score= <%= (total.sum.to_f / set_item.reviews.count).round rescue 0 %> ></div> -->
       </div>
     </div>

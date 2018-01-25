@@ -1,36 +1,40 @@
 <%= form_for ([current_account, set_project, @item]), remote: true, html: {} do |f| %>
   <div class="formly">
-    <%= f.hidden_field :project_id %>
-    <div class="control">
-      <%= f.text_field :name, placeholder: 'name', label: false, class: "input ", :maxlength => 25, :size => 40 %>
+    <div class="row">
+      <div class="col-md-8">
+        <%= f.hidden_field :project_id %>
+        <div class="control">
+          <%= f.text_field :name, placeholder: 'name', label: false, class: "input ", :maxlength => 25, :size => 40 %>
+        </div>
+        <br>
+        <div class="control">
+          <%= f.text_area :content, placeholder: 'content', label: false, class: "input", :maxlength => 280, :size => 40  %>
+        </div>
+        <br>
+        <div class="control">
+          <%= f.file_field :image, class:"btn btn-default"  %>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-3">
+        <h4>attributes</h4>
+        <br>
+        <%= f.collection_check_boxes :detail_ids, set_project.details.all, :id, :name, :item_wrapper_class => '' do |cb| %>
+          <label class="container2">
+            <%= cb.label %>
+            <%= cb.check_box %>
+            <span class="checkmark"></span>
+          </label>
+          <br>
+          <br>
+        <% end %>
+      </div>
     </div>
-    <br>
-    <div class="control">
-      <%= f.text_area :content, placeholder: 'content', label: false, class: "input", :maxlength => 280, :size => 40  %>
+    <div class="row">
+      <div class="col-md-8 pull-right">
+        <%= f.submit "add item", class:"btn btn-success" %>
+        <%= link_to "cancel", account_project_path(current_account, @project), class: "btn btn-default" %>
+      </div>
     </div>
-    <br>
-    <div class="control">
-      <%= f.file_field :image, class:"btn btn-default"  %>
-    </div>
-
-    <br>
-    <h4>attributes</h4>
-    <br>
-    <%= f.collection_check_boxes :detail_ids, set_project.details.all, :id, :name, :item_wrapper_class => '' do |cb| %>
-      <label class="container2">
-        <%= cb.label %>
-        <%= cb.check_box %>
-        <span class="checkmark"></span>
-      </label>
-      <br>
-      <br>
-    <% end %>
-
-    <div class="row pull-right">
-      <%= f.submit "add item", class:"btn btn-success" %>
-      <%= link_to "cancel", account_project_path(current_account, @project), class: "btn btn-default" %>
-    </div>
-    <br>
-    <br>
   </div>
 <% end %>

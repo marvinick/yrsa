@@ -1,55 +1,23 @@
-<div class="col-md-4 col-sm-4 col-xs-12">
-  <div class="project-board">
-    <h3 class="text-center"><icon class="fa fa-bar-chart"></icon> stats</h3>
-    <hr>
-    <% if @project.user_id == current_user.id %>
-      <li>
-        <h5>
-          <div class="col-md-6 col-sm-6 col-xs-6">
-            <icon class="fa fa-circl"></icon> <strong>Invitations</strong>
-          </div>
-          <div class="col-md-6 col-sm-6 col-xs-6">
-            <%= invitations.count %>
-          </div>
-        </h5>
-      </li>
-      <br>
-      <br>
-      <li>
-        <h5>
-          <div class="col-md-6 col-sm-6 col-xs-6">
-            <icon class="fa fa-circl"></icon> <strong>Rating</strong>
-          </div>
-          <div class="col-md-6 col-sm-6 col-xs-6">
-            <%= project_rating %>
-          </div>
-        </h5>
-      </li>
-      <br>
-      <br>
-      <li>
-        <h5>
-          <div class="col-md-6 col-sm-6 col-xs-6">
-            <icon class="fa fa-circl"></icon> <strong>Reviews</strong>
-          </div>
-          <div class="col-md-6 col-sm-6 col-xs-6">
-            <%=  project_reviews_count %>
-          </div>
-        </h5>
-      </li>
-      <br>
-      <br>
-      <li>
-        <h5>
-          <div class="col-md-6 col-sm-6 col-xs-6">
-            <icon class="fa fa-circl"></icon> <strong>created</strong>
-          </div>
-          <div class="col-md-6 col-sm-6 col-xs-6 ">
-            <%= time_ago_in_words(@project.created_at) %> ago
-          </div>
-        </h5>
-      </li>
+<div class="row">
+  <% if @project.user_id == current_user.id %>
+    <div class="col-md-2"></div>
+    <div class="col-md-2 col-sm-6 col-xs-6 text-center">
+      <h2><%= invitations.count %></h2>
+       <h6>Invitations</h6>
+    </div>
 
-    <% end %>
-  </div>
+    <div class="col-md-2 col-sm-6 col-xs-6 text-center">
+      <h2><%= project_rating %></h2>
+      <h6>Rating</h6>
+    </div>
+    <div class="col-md-2 col-sm-6 col-xs-6 text-center">
+      <h2><%=  project_reviews_count %></h2>
+      <h6>Reviews</h6>
+    </div>
+    <div class="col-md-2 col-sm-6 col-xs-6 text-center">
+      <h2><%= time_ago_in_words(@project.created_at) %></h2>
+      <h6>  old</h6>
+    </div>
+    <div class="col-md-2"></div>
+  <% end %>
 </div>
