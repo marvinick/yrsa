@@ -1,7 +1,4 @@
-<div class="row">
-    <%= link_to "add attributes", new_account_project_detail_path(current_account, @project, @detail), remote: true, class: "new-detail-button btn btn-success" %>
-    <br>
-    <br>
-    <%= render "details/index" %>
-
-</div>
+<h4>Attributes</h4>
+<br>
+<%= render "details/index" %>
+<%= link_to "add attributes", new_account_project_detail_path(current_account, @project, @detail), remote: true, class: "new-detail-button btn btn-success" %>

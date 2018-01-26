@@ -26,10 +26,10 @@
  @import "toggle";
  @import "pretty-checkbox";
  @import "animate";
- @import "fonts.min";
+
 
 html, body {
-  background-color: #f7f5f2;
+  background-color: #f4f4f4!important;
   margin-top: 0px;
   overflow-x:hidden!important;
 }
@@ -59,7 +59,7 @@ h3 {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Proxima Nova', Georgia, sans-serif;
+  font-family: Helvetica, "Trebuchet MS", Verdana, sans-serif;
   font-weight: bold;
   margin: 0;
 }
@@ -91,9 +91,9 @@ h2 span {
 }
 
 .navbar {
-  background-color: #f7f5f2;
+  background-color: #f4f4f4;
   font-size: 24px;
-  font-family: 'Proxima Nova', Georgia, sans-serif;
+  font-family: Helvetica, "Trebuchet MS", Verdana, sans-serif;
   font-weight: bolder;
 }
 
