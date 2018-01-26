@@ -1,25 +1,24 @@
 <% @title= "Home" %>
 
 <div class="row text-center">
-  <span class="fa fa-home fa-2x"></span>
   <br>
   <br>
-  <h1><strong>Account(s)</strong></h2>
+  <h4>select account</h4>
 </div>
-
+<br>
 <% if user_signed_in? %>
   <div class="row text-center">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
       <% current_user.all_accounts.each do |account| %>
         <%= link_to account_path(account) do %>
-          <div class="box">
+          <div class="account_box1">
             <h2><%= account.name %><h/h2>
             <h5>Projects <%= account.projects.count %></h5>
             <h5>Members <%= account.users.count %></h5>
         <% end %>
         </div>
       <% end %>
-    <div class="col-md-3"></div>
+    <div class="col-md-4"></div>
   </div>
 <% end %>

@@ -1,5 +1,5 @@
 <%= form_for([current_account, @project], remote: true) do |f| %>
-  <div class="formly">
+  <div class="formly2">
     <%= render "shared/errors", obj: @project %>
     <div class="control">
       <%= f.text_field :title, placeholder: 'title (new project)', label: false, class: "input ", :maxlength => 25, :size => 40 %>
@@ -9,22 +9,6 @@
       <%= f.text_area :description, placeholder: 'description', label: false, class: "input", :maxlength => 280, :size => 10  %>
     </div>
     <br>
-    <% if invitations.present? %>
-      <h4>users</h4>
-      <br>
-      <%= f.collection_check_boxes :user_ids, current_account.users.all, :id, :email, :item_wrapper_class => '' do |cb| %>
-        <label class="container2">
-          <%= cb.label %>
-          <%= cb.check_box %>
-          <span class="checkmark"></span>
-        </label>
-        <br>
-        <br>
-      <% end %>
-
-    <% else %>
-      <h5>Go invite some users</h5>
-    <% end %>
 
     <div class="row pull-right">
       <%= f.submit "add project", class:"btn btn-success" %>

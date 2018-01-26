@@ -1,75 +1,84 @@
 <% @title = @account.name %>
 
-<div class="formy">
+  <br>
+  <br>
   <div class="container">
 
     <div class="row text-center">
-      <h1><strong><%= @account.name %></strong></h1>
+      <h1><%= @account.name %></h1>
     </div>
     <br>
+    <br>
     <div class="row">
-      <div class="col-md-3 col-xs-6 text-center">
+      <div class="col-md-2"></div>
+      <div class="col-md-2 col-xs-6 text-center">
 
         <%= link_to account_billing_path(@account) do %>
-          <div class="account_box1">
+          <div class="account_box2">
             <i class="fa fa-credit-card" aria-hidden="true"></i>
             <h4>billing</h4>
           </div>
         <% end %>
 
       </div>
-      <div class="col-md-3 col-sm-4 col-xs-6 text-center">
+      <div class="col-md-2 col-sm-4 col-xs-6 text-center">
         <%= link_to account_users_path(@account, @users) do %>
-          <div class="account_box1">
+          <div class="account_box2">
             <i class="fa fa-envelope-open-o" aria-hidden="true"></i>
             <h4>invitations</h4>
           </div>
         <% end %>
       </div>
-      <div class="col-md-3 col-sm-4 col-xs-6 text-center">
+      <div class="col-md-2 col-sm-4 col-xs-6 text-center">
         <%= link_to edit_account_path(@account) do %>
-          <div class="account_box1">
+          <div class="account_box2">
             <i class="fa fa-gear" aria-hidden="true"></i>
             <h4>edit</h4>
           </div>
         <% end %>
       </div>
-      <div class="col-md-3 col-xs-6 text-center">
+      <div class="col-md-2 col-xs-6 text-center">
         <%= link_to account_choose_plan_url(@account) do %>
-        <div class="account_box1">
+        <div class="account_box2">
           <i class="fa fa-clone" aria-hidden="true"></i>
           <h4>plans</h4>
         </div>
         <% end %>
       </div>
+      <div class="col-md-2"></div>
     </div>
 
     <div class="row">
-      <div class="col-md-12 col-sm-4 col-xs-12">
-        <% if @account.owner.id == current_user.id %>
-          <% if @account.stripe_subscription_id.blank? %>
-            <%= link_to account_choose_plan_url(@account) do %>
-              <div class="box">
 
-                <h5 class="text-center">confirm first</h5>
-              </div>
-            <% end %>
-          <% else %>
-            <%= link_to new_account_project_path(@account), remote: true, class: "new-project-button btn btn-success btn-sm" do %>
-                <h5> + project</h5>
-            <% end %>
-          <% end %>
-        <% end %>
-        <br>
-        <br>
-
+      <div class="header2">
+        <h2><span>projects</span></h2>
       </div>
-    </div>
-    <div class="row">
+      <br>
+      <div class="row">
+       <div class="col-md-12 col-sm-4 col-xs-12">
+         <% if @account.owner.id == current_user.id %>
+           <% if @account.stripe_subscription_id.blank? %>
+             <%= link_to account_choose_plan_url(@account) do %>
+               <div class="box">
+
+                 <h5 class="text-center">confirm first</h5>
+               </div>
+             <% end %>
+           <% else %>
+             <%= link_to new_account_project_path(@account), remote: true, class: "new-project-button btn btn-success" do %>
+                 <h5> + project</h5>
+             <% end %>
+           <% end %>
+         <% end %>
+         <br>
+         <br>
+
+       </div>
+     </div>
       <%= render "projects/index" %>
     </div>
   </div>
-</div>
+
 
 <footer id="footer">
   <div class="icon-bar">

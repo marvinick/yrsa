@@ -160,9 +160,10 @@
       padding-right: 20px;
       border-radius: 10px;
       margin-bottom: 25px;
-      border-style: none;
-      background-color: white;
-      box-shadow: 20px 15px 100px -20px #556d7f;
+      border-style: solid;
+      border-width: thin;
+      border-color: #e8e8e5;
+
     }
 
     .text-space h1,h2,h3,h4,h5,h6,p {
@@ -176,10 +177,24 @@
       border-radius: 5px;
       margin-bottom: 20px;
       border-style: none;
-      background-color: white;
-      box-shadow: 20px 15px 100px -20px #556d7f;
+      background-color: inherit;
 
     }
+
+    .account_box2:hover {
+      height: auto;
+      width: 100%;
+      padding-bottom: 5px;
+      padding-top: 5px;
+      padding-right: 30px;
+      padding-left: 30px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border-style: none;
+      background-color: inherit;
+      box-shadow: 20px 15px 100px -20px #556d7f;
+    }
+
 
     .account_box3 {
       height: auto;

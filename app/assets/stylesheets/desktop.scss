@@ -1,16 +1,22 @@
 //desktop
  @media only screen and (min-width: 1026px) {
 
-  h1, h2, h3, h4, h5, h6 {
-    // margin: 0!important;
-    margin-bottom: 0.83em;
-  }
+
 
   h1 {
-  	font-size: 40px;
-  	font-style: bolder;
+  	font-size: 50px;
+  	font-weight: boldest;
   	line-height: 26.4px;
     margin: 20px 20px;
+  }
+
+  .row h3 {
+    font-size: 27px;
+    font-weight: bold;
+  }
+
+  .row h4, h5, h6 {
+    font-weight: 100;
   }
 
   .check_box {
@@ -26,7 +32,7 @@
    }
 
   .container {
-    max-width: 85%;
+    max-width: 90%;
     padding-bottom: 80px;
   }
 
@@ -150,11 +156,21 @@
     padding-right: 90px;
   }
 
+  .formly2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: white;
+    padding-left: 200px;
+    padding-right: 200px;
+  }
+
   .formy {
     cursor:pointer;
     min-height: 1000px;
     max-width: 100%;
-    padding-top: 25px;
+    padding-top: 50px;
     padding-bottom: 40px;
     padding-left: 30px;
     padding-right: 30px;
@@ -176,9 +192,14 @@
     padding-right: 20px;
     border-radius: 10px;
     margin-bottom: 25px;
-    border-style: none;
     background-color: white;
-    box-shadow: 20px 15px 100px -20px #556d7f;
+    border-style: solid;
+    border-width: thin;
+    border-color: #e8e8e5;
+  }
+
+  .account_box1:hover {
+    background-color: #fffffc;
   }
 
 
@@ -188,10 +209,24 @@
     padding-bottom: 20px;
     border-radius: 5px;
     margin-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
     border-style: none;
-    background-color: white;
-    box-shadow: 20px 15px 100px -20px #556d7f;
+    background-color: inherit;
+  }
 
+  .account_box2:hover {
+    height: auto;
+    width: 100%;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-right: 30px;
+    padding-left: 30px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border-style: none;
+    background-color: inherit;
+    box-shadow: 20px 15px 100px -20px #556d7f;
   }
 
   .account_box3 {
