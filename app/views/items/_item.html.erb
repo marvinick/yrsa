@@ -1,12 +1,14 @@
 <%= link_to account_project_item_path(current_account, @project, item), class: 'link-to-text-color' do %>
   <div class="col-md-3 col-sm-3 col-xs-6">
     <div class="box">
+      <h4><strong><%= truncate(item.name, length: 15) %></strong></h4>
+      <br>
       <%= image_tag(item.image.url(:large), class: "img-responsive") %>
-
-      <h4><%= truncate(item.name, length: 15) %></h4>
-      <h6><%= time_ago_in_words(item.created_at) %> ago</h6>
-      <!-- <p>updated <%= time_ago_in_words(item.updated_at) %> ago</p> -->
-      <!-- <p><%= truncate(item.content, length: 25) %></p> -->
+      <br>
+      <h4><small><%= item.content %></small></h4>
+      <hr>
+      <p><small><%= time_ago_in_words(item.created_at) %> ago</small></p>
+      <p><small>updated <%= time_ago_in_words(item.updated_at) %> ago</small></p>
     </div>
   </div>
 <% end %>

@@ -1,18 +1,11 @@
 //desktop
  @media only screen and (min-width: 1026px) {
 
-
-
   h1 {
   	font-size: 50px;
   	font-weight: boldest;
   	line-height: 26.4px;
     margin: 20px 20px;
-  }
-
-  .row h3 {
-    font-size: 27px;
-    font-weight: bold;
   }
 
   .row h4, h5, h6 {
@@ -32,8 +25,8 @@
    }
 
   .container {
-    max-width: 90%;
-    padding-bottom: 80px;
+    max-width: 70%;
+    padding-bottom: 40px;
   }
 
   .container-fluid {
@@ -68,10 +61,10 @@
     height: auto;
     width: 100%;
     margin-top: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
     border-radius: 5px;
     margin-bottom: 5px;
     background-color: white;
@@ -166,11 +159,9 @@
   }
 
   .formy {
-    cursor:pointer;
-
     max-width: 100%;
-    padding-top: 50px;
-    padding-bottom: 40px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     padding-left: 30px;
     padding-right: 30px;
     background-color: white;
@@ -394,6 +385,8 @@
 
   .fa {
     font-size: 22px;
+    color: #9effa3;
+    -webkit-text-stroke: 0.5px;
   }
 
   //checkbox

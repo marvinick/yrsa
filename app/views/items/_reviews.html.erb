@@ -1,9 +1,7 @@
 
 <div class="row">
-  <!-- <h3 class="text-center">Reviews</h3>
+  <h3><strong>Reviews</strong></h3>
   <br>
-  <%= render "current_user_review" %>
-  <br> -->
 
   <% @item.reviews.order('created_at desc').each do |review| %>
     <div class="col-md-4 col-sm-4 col-xs-12">

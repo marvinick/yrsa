@@ -5,14 +5,7 @@
   </div>
 
   <div class="col-md-10">
-    <h4>
-      <% if @item.content.length > 280 %>
-        <%= truncate(@item.content, length: 280) %>
-        <%= link_to '...Read more', '', class: "read-more-#{@item.id}" %>
-      <% else %>
-        <%= @item.content %>
-      <% end %>
-    </h4>
+    
   </div>
 </div>
 

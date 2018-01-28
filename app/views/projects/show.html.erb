@@ -1,50 +1,52 @@
 <% @title= @project.title %>
 
-<div class="formy">
-	<div class="container-fluid">
-		<div class="row">
-			<%= render "header" %>
-		</div>
-		<br>
-		<div class="row">
-			<div class="col-md-1"></div>
-			<div class="col-md-3">
+<div class="row">
+	<br>
+	<%= div_for @project do %>
+		<%= render "header" %>
+	<% end %>
+</div>
+<br>
+
+<% if @project.user_id == current_user.id %>
+	<div class="row">
+
+		<div class="col-md-3">
+			<div class="formy">
 				<%= render "stats" %>
 			</div>
-			<div class="col-md-3">
+		</div>
+		<div class="col-md-3">
+			<div class="formy">
 				<%= render "users" %>
 			</div>
-			<div class="col-md-5">
+		</div>
+		<div class="col-md-6">
+			<div class="formy">
 				<%= render "details" %>
 			</div>
 		</div>
 	</div>
+<br>
+<% end %>
+
+<div class="row">
+	<%= render "actions" %>
 </div>
 
 <br>
 
-<div class="container-fluid">
-	<div class="row">
-		<%= render "actions" %>
+<div class="row">
+	<div id="cards" class="tabcontent">
+		<%= render "cards" %>
 	</div>
-	<div class="row">
-		<div id="cards" class="tabcontent">
-			<%= render "cards" %>
-		</div>
-		<div id="lists" class="tabcontent">
-			<%= render "items_list" %>
-		</div>
-		<div id="simple-lists" class="tabcontent">
-			<%= render "simple_lists" %>
-		</div>
+	<div id="lists" class="tabcontent">
+		<%= render "items_list" %>
+	</div>
+	<div id="simple-lists" class="tabcontent">
+		<%= render "simple_lists" %>
 	</div>
 </div>
-<br>
-
-<div class="container">
-
-</div>
-
 
 <%= render "footer" %>
 

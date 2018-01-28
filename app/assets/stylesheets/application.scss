@@ -39,10 +39,6 @@ html, body {
   color: #a05353;
 }
 
-small {
-  font-size: 18px!important;
-}
-
 h4.test {
   width: 11em;
   border: 1px solid #000000;
@@ -60,7 +56,6 @@ h3 {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: Helvetica, "Trebuchet MS", Verdana, sans-serif;
-  font-weight: bold;
   margin: 0;
 }
 
@@ -81,13 +76,13 @@ ul, li {
 }
 
 h2 span {
-    background:#fcf8ed;
-    padding:0 10px;
+  background: #fcf8ed;
+  padding:0 10px;
 }
 
 .fa {
-  color: #424140;
-  -webkit-text-stroke: 0.5px grey;
+  color: #bcf4bf;
+  -webkit-text-stroke: 0.5px;
 }
 
 .navbar {

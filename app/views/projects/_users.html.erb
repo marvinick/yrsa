@@ -1,6 +1,6 @@
-<h4>Users</h4>
-<br>
-  <% @project.users.last(5).each do |u| %>
-    <li><h5><%= u.email %></h5></li>
-    
-  <% end %>
+<h4>Project members</h4>
+<hr>
+<% @project.users.last(5).each do |u| %>
+  <li><h5><%= u.email %></h5></li>
+  <br>
+<% end %>

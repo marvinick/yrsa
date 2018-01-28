@@ -1,23 +1,11 @@
-
 <% if @project.user_id == current_user.id %>
-  <div class="row">
-    <div class="col-md-6">
-      <h5>created</h5>
-      <h6><%= time_ago_in_words(@project.created_at) %></h6>
-    </div>
-    <div class="col-md-6">
-      <h5>last updated</h5>
-      <h6><%= time_ago_in_words(@project.updated_at) %></h6>
-    </div>
-  </div>
+  <h4>Quick overviews</h4>
+  <hr>
+  <h4><small>created</small> <%= time_ago_in_words(@project.created_at) %></h4>
   <br>
-  <div class="row">
-    <div class="col-md-12">
-      <h5><%= invitations.count %> invitations</h5>
-      <br>
-      <h5><%= project_rating %> rating </h5>
-      <br>
-      <h5><%=  project_reviews_count %> Reviews</h5>
-    </div>
-  </div>
+  <h4><small>last updated</small> <%= time_ago_in_words(@project.updated_at) %></h4>
+  <br>
+  <h4><%= project_rating %> rating </h4>
+  <br>
+  <h4><%=  project_reviews_count %> Reviews</h4>
 <% end %>
