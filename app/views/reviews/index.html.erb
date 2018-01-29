@@ -23,10 +23,9 @@
             <h3><%= name %>  <%= value %> </h3>
         <% end %>
 
-          <% if review.description.present? %>
-            <h4><small ><%= review.description %></small></h4>
-          <% end %>
-
+        <% if review.description.present? %>
+          <h4><small ><%= review.description %></small></h4>
+        <% end %>
         <hr>
         <h3>
           <strong><%= (values.sum.to_f / keys.uniq.size).round %> smiles</strong>
