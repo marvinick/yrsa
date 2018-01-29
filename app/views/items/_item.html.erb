@@ -5,7 +5,7 @@
       <br>
       <%= image_tag(item.image.url(:large), class: "img-responsive") %>
       <br>
-      <h4><small><%= item.content %></small></h4>
+      <h5 style="color:#afafaf;"><%= truncate(item.content, length: 100) %></h5>
       <hr>
       <p><small><%= time_ago_in_words(item.created_at) %> ago</small></p>
       <p><small>updated <%= time_ago_in_words(item.updated_at) %> ago</small></p>

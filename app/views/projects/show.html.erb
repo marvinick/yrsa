@@ -1,40 +1,43 @@
 <% @title= @project.title %>
-
-<div class="row">
-	<br>
-	<%= div_for @project do %>
-		<%= render "header" %>
-	<% end %>
-</div>
 <br>
-
-<% if @project.user_id == current_user.id %>
+<div class="formy">
 	<div class="row">
-
-		<div class="col-md-3">
-			<div class="formy">
-				<%= render "stats" %>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="formy">
-				<%= render "users" %>
-			</div>
-		</div>
-		<div class="col-md-6">
-			<div class="formy">
-				<%= render "details" %>
-			</div>
-		</div>
+		<%= div_for @project do %>
+			<%= render "header" %>
+		<% end %>
 	</div>
-<br>
-<% end %>
+	<br>
+</div>
+	<br>
 
+	<% if @project.user_id == current_user.id %>
+	<div class="formy">
+			<div class="row">
+
+				<div class="col-md-3">
+					<div class="formy">
+						<%= render "stats" %>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="formy">
+						<%= render "users" %>
+					</div>
+				</div>
+				<div class="col-md-5">
+					<div class="formy">
+						<%= render "details" %>
+					</div>
+				</div>
+			</div>
+	</div>
+	<% end %>
+
+
+<br>
 <div class="row">
 	<%= render "actions" %>
 </div>
-
-<br>
 
 <div class="row">
 	<div id="cards" class="tabcontent">

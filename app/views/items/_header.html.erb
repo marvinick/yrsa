@@ -1,5 +1,5 @@
 <%= div_for @item do %>
-  <div class="col-md-12 col-sm-12">
+
     <div class="formy">
       <% if @project.user_id == current_user.id %>
         <%= link_to edit_account_project_item_path(current_account, set_project, set_item), remote: true do  %>
@@ -31,5 +31,5 @@
       <hr>
       <h5><%= time_ago_in_words(@item.created_at) %> ago</h5>
     </div>
-  </div>
+
 <% end %>

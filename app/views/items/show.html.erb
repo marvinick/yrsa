@@ -1,30 +1,33 @@
 <% @title= @item.name %>
 <br>
-<div class="row">
-  <div class="col-md-5">
-    <%= image_tag(@item.image.url(:large), class: "img-responsive") %>
-  </div>
-  <div class="col-md-7">
-      <%= render "header" %>
-  </div>
-</div>
-<br>
-<div class="row">
-  <% if @item.reviews.present? %>
-    <%= render "stats" %>
-  <% end %>
-</div>
 
-<br>
-<div class="row">
-  <% if @item.reviews.present? %>
-    <%= render "reviews" %>
-  <% else %>
-    <div class="boxyy text-center">
-      <h2 style="color:grey;">No reviews yet</h2>
-      <%= render "current_user_review" %>
+<div class="formy">
+  <div class="row">
+    <div class="col-md-5">
+      <%= image_tag(@item.image.url(:large), class: "img-responsive") %>
     </div>
-  <% end %>
+    <div class="col-md-7">
+        <%= render "header" %>
+    </div>
+  </div>
+  <div class="row">
+    <% if @item.reviews.present? %>
+      <%= render "stats" %>
+    <% end %>
+  </div>
 </div>
+<br>
+
+  <div class="row">
+    <% if @item.reviews.present? %>
+      <%= render "reviews" %>
+    <% else %>
+      <div class="boxyy text-center">
+        <h2 style="color:grey;">No reviews yet</h2>
+        <%= render "current_user_review" %>
+      </div>
+    <% end %>
+  </div>
+
 
 <div id="product-modal" class="modal"></div>

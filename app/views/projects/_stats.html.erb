@@ -1,11 +1,13 @@
 <% if @project.user_id == current_user.id %>
-  <h4>Quick overviews</h4>
+<div class="statsx">
+  <h5><strong>snapshots</strong></h5>
   <hr>
-  <h4><small>created</small> <%= time_ago_in_words(@project.created_at) %></h4>
+  <h5><small>created</small> <strong class="pull-right"><%= time_ago_in_words(@project.created_at) %></strong></h5>
   <br>
-  <h4><small>last updated</small> <%= time_ago_in_words(@project.updated_at) %></h4>
+  <h5><small>updated</small> <strong class="pull-right"><%= time_ago_in_words(@project.updated_at) %></strong></h5>
   <br>
-  <h4><%= project_rating %> rating </h4>
+  <h5><small>rating</small>  <strong class="pull-right"><%= project_rating %></strong></h5>
   <br>
-  <h4><%=  project_reviews_count %> Reviews</h4>
+  <h5><small>Reviews</small> <strong class="pull-right"><%= project_reviews_count %></strong> </h5>
+</div>
 <% end %>

@@ -1,6 +1,14 @@
 //desktop
  @media only screen and (min-width: 1026px) {
 
+  .left {
+    float: left;
+  }
+
+  .right {
+    float: right;
+  }
+
   h1 {
   	font-size: 50px;
   	font-weight: boldest;
@@ -25,13 +33,26 @@
    }
 
   .container {
-    max-width: 70%;
+    max-width: 65%;
     padding-bottom: 40px;
+    margin-bottom: 80px;
   }
 
   .container-fluid {
     max-width: 95%;
+  }
 
+  .statsx br {
+    display: block;
+    margin: 5px 0;
+    content: "";
+    line-height:22px;
+  }
+
+  hr {
+    padding: 0px;
+    margin-top: 5px;
+    margin-bottom: 15px;
   }
 
   .landing-image {
@@ -55,10 +76,27 @@
      margin-bottom: 25px;
    }
 
-  .box {
+  .box2 {
     margin-left: 0px;
     margin-right: 0px;
     height: auto;
+    width: 450px;
+    margin-top: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 5px;
+    margin-bottom: -80px;
+    margin-top: 5px;
+    background-color: white;
+  }
+
+  .box {
+    margin-left: 0px;
+    margin-right: 0px;
+    min-height: 375px;
+    max-height: 375px;
     width: 100%;
     margin-top: 5px;
     padding-top: 15px;
@@ -67,6 +105,7 @@
     padding-right: 30px;
     border-radius: 5px;
     margin-bottom: 5px;
+    margin-top: 5px;
     background-color: white;
   }
 
@@ -143,7 +182,7 @@
     margin-bottom: 20px;
     padding-top: 25px;
     padding-bottom: 25px;
-    background-color: #f9f7f2;
+    background-color: #f9f9f9;
     padding-left: 90px;
     padding-right: 90px;
   }
@@ -385,8 +424,7 @@
 
   .fa {
     font-size: 22px;
-    color: #9effa3;
-    -webkit-text-stroke: 0.5px;
+
   }
 
   //checkbox

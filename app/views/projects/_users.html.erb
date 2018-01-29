@@ -1,6 +1,5 @@
-<h4>Project members</h4>
+<h5><strong>Members</strong></h5>
 <hr>
 <% @project.users.last(5).each do |u| %>
-  <li><h5><%= u.email %></h5></li>
-  <br>
+  <li><h4><small><%= u.email %></small></h4></li> 
 <% end %>

@@ -1,30 +1,52 @@
-
-<div class="row">
-  <h3><strong>Reviews</strong></h3>
-  <br>
-
-  <% @item.reviews.order('created_at desc').each do |review| %>
-    <div class="col-md-4 col-sm-4 col-xs-12">
-      <%= link_to account_project_item_review_path(current_account, set_project, set_item, review), remote: true do %>
-        <div class="box">
-          <% keys = [] %>
-          <% values = [] %>
-          <% review.properties.each do |name, value| %>
-            <% keys << name %>
-            <% values << value.to_i %>
-          <% end %>
-
-          <h2 class="text-center"><strong><%= (values.sum.to_f / keys.uniq.size).round rescue 0 %> <%= image_tag('star-on.png', style: "zoom:50%;") %></strong></h2>
-          <hr>
-          <h6 style="color:grey"><strong><%= review.user.email %></strong> - <%= time_ago_in_words(review.created_at) %> ago</h6>
-          <br>
-          <% if current_user.id == review.user_id %>
-            <%= link_to "edit", edit_account_project_item_review_path(current_account, set_project, set_item, review), remote: true, class: "btn btn-xs btn-success" %>
-            <%= link_to "remove", [current_account, set_project, set_item, review], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "btn btn-xs btn-danger pull-right" %>
-          <% end %>
-
-        </div>
-      <% end %>
+<div class="col-md-12">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-center"><strong>Reviews</strong></h2>
+      <%= render "current_user_review" %>
     </div>
-  <% end %>
+  </div>
+  <br>
+  <div class="row">
+      <% @item.reviews.order('created_at desc').each do |review| %>
+      <div class="col-md-12 col-sm-4 col-xs-12">
+        <div class="<%= cycle('left', 'right') -%>">
+
+          <div class="box2">
+            <%= link_to account_project_item_review_path(current_account, set_project, set_item, review), remote: true do %>
+              <% keys = [] %>
+              <% values = [] %>
+              <div>
+                <h4 style="color:grey"><strong><%= review.user.email %></strong> - <%= time_ago_in_words(review.created_at) %> ago</h4>
+                <% if current_user.id == review.user_id %>
+                <br>
+                  <%= link_to "edit", edit_account_project_item_review_path(current_account, set_project, set_item, review), remote: true, class: "btn btn-xs btn-success" %>
+                  <%= link_to "remove", [current_account, set_project, set_item, review], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "btn btn-xs btn-danger" %>
+                <% end %>
+              </div>
+              <hr>
+              <% if review.description.present? %>
+                <h4><strong><%= review.description %></strong></h4>
+              <% end %>
+              <br>
+              <% review.properties.each do |name, value| %>
+                <% keys << name %>
+                <% values << value.to_i %>
+                <div class="row">
+                  <div class="col-md-6 col-sm-9 col-xs-6">
+                    <h5><%= name %>  </h5>
+                  </div>
+                  <div class="col-md-6 col-sm-3 col-xs-6 pull-left">
+                    <div class="star-rating" data-score= <%= value %>, style= "zoom:30%;" ></div>
+                  </div>
+                </div>
+              <% end %>
+              <br>
+              <h1 class="text-center"><strong><%= (values.sum.to_f / keys.uniq.size).round rescue 0 %> <%= image_tag('star-on.png', style: "zoom:70%;") %></strong></h1>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+
+  </div>
 </div>
