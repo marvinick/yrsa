@@ -41,7 +41,7 @@
               <% end %>
               <li><a href="#"><%= current_user.email %></a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="#">  <%= link_to "logout", destroy_user_session_path, method: :delete %></a></li>
+              <li><%= link_to "logout", destroy_user_session_path, method: :delete %></li>
             </ul>
           </li>
 

@@ -1,14 +1,14 @@
 <%= div_for project do %>
 
   <%= link_to account_project_path(@account, project) do %>
-  <div class="col-md-4 col-sm-4 col-xs-6">
-    <div class="account_box1 text-space">
-      <h3><%= project.title %></h3>
-      <hr>
-      <h5><%= items_in_project %> items</h5>
-      <h5><%= reviews_in_project %> reviews</h5>
-      <h6><%= time_ago_in_words(project.updated_at) %> ago</h6>
+    <div class="col-md-4 col-sm-4 col-xs-6">
+      <div class="account_box1 text-space">
+        <h3><%= project.title %></h3>
+        <hr>
+        <h5><%= items_in_project %> items</h5>
+        <h5><%= reviews_in_project %> reviews</h5>
+        <h6><%= time_ago_in_words(project.updated_at) %> ago</h6>
+      </div>
     </div>
-  </div>
   <% end %>
 <% end %>

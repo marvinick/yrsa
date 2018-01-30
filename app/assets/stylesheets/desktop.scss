@@ -214,23 +214,15 @@
 
   .account_box1 {
     height: auto;
-    width: auto;
+    width: 100%;
     padding-bottom: 20px;
     padding-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
     border-radius: 10px;
     margin-bottom: 25px;
-    background-color: white;
-    border-style: solid;
-    border-width: thin;
-    border-color: #e8e8e5;
+    background-color: #ffb03a;
   }
-
-  .account_box1:hover {
-    background-color: #fffffc;
-  }
-
 
   .account_box2 {
     height: auto;

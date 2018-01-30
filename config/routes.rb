@@ -10,7 +10,7 @@
   get "/accounts/new", to: "accounts#new", as: :new_account
   post "/accounts", to: "accounts#create", as: :accounts
 
-  resources :accounts do
+  resources :accounts, :except => [:show] do
     get 'activities/index'
 
     get "/choose_plan",
