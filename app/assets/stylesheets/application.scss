@@ -36,7 +36,12 @@ html, body {
 
 
 .link-to-text-color {
-  color: #a05353;
+  color: #c4c4c4;
+}
+
+.link-to-text-color:hover {
+  color:#dbdbdb;
+
 }
 
 h4.test {
@@ -81,7 +86,7 @@ h2 span {
 }
 
 .fa {
-  color: #a5dfff;
+  color: #7a7a7a;
   -webkit-text-stroke: 0.5px;
 }
 

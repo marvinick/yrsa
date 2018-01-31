@@ -1,7 +1,7 @@
 <div class="col-md-1">
   <% if @project.user_id == current_user.id %>
     <%= link_to edit_account_project_path(current_account, @project), remote: true do %>
-      <span class="fa fa-bars"></span>
+      <span class="fa fa-bars pull-right"></span>
     <% end %>
   <% end %>
 </div>
