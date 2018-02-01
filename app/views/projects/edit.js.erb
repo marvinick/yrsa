@@ -1,2 +1,5 @@
-$('form2').hide();
 $('div#<%= dom_id(@project) %>').replaceWith('<%= j render("form2") %>');
+$("#hide").click(function(){
+    $("#current-pane").hide();
+    $('.new-project-button').show();
+});

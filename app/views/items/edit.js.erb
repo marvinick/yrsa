@@ -1,2 +1,6 @@
 $('form2').hide();
 $('div#<%= dom_id(@item) %>').replaceWith('<%= j render("form2") %>');
+$("#hide").click(function(){
+    $("#current-pane").hide();
+    $('formly').replaceWith('.header');
+});

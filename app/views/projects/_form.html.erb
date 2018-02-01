@@ -1,17 +1,14 @@
 <%= form_for([current_account, @project], remote: true) do |f| %>
-  <div class="formly2">
+  <div class="formly2" id="current-pane">
     <%= render "shared/errors", obj: @project %>
     <div class="control">
       <%= f.text_field :title, placeholder: 'title (new project)', label: false, class: "input ", :maxlength => 25, :size => 40 %>
     </div>
-    <br>
-    <div class="control">
-      <%= f.text_area :description, placeholder: 'description', label: false, class: "input", :maxlength => 280, :size => 10  %>
-    </div>
 
     <div class="row pull-right">
       <%= f.submit "add project", class:"btn btn-default btn-xs" %>
-      <%= link_to "cancel", root_url, class: "btn btn-default btn-xs" %>
+      <button href="#current-pane" class="btn btn-xs" data-dismiss="alert" aria-label="close" id="hide">close</button>
+
     </div>
     <br>
     <br>

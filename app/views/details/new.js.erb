@@ -1,2 +1,6 @@
 $('.new-detail-button').after('<%= j render('form') %>');
 $('.new-detail-button').hide();
+$("#hide").click(function(){
+    $("#current-pane").hide();
+    $('.new-detail-button').show();
+});

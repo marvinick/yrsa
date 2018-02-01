@@ -1,5 +1,5 @@
 <%= form_for ([current_account, set_project, @item]), remote: true, html: {} do |f| %>
-  <div class="formly">
+  <div class="formly" id="current-pane">
     <div class="row">
       <div class="col-md-8">
         <%= f.hidden_field :project_id %>
@@ -33,7 +33,7 @@
     <div class="row">
       <div class="col-md-8 pull-right">
         <%= f.submit "add item", class:"btn btn-success" %>
-        <%= link_to "cancel", account_project_path(current_account, @project), class: "btn btn-default" %>
+        <button href="#current-pane" class="btn btn-xs" data-dismiss="alert" aria-label="close" id="hide">close</button>
       </div>
     </div>
   </div>
