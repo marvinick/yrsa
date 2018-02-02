@@ -1,2 +1,0 @@
-$(".product-index").html("<%= escape_javascript(render 'index') %>")
-$("#product-modal").modal("hide")

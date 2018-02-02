@@ -1,18 +1,20 @@
 
-  <div class="col-md-1">
-    <% if @project.user_id == current_user.id %>
-      <%= link_to edit_account_project_path(current_account, @project), remote: true do %>
-        <span class="fa fa-bars pull-right"></span>
-      <% end %>
-    <% end %>
-  </div>
+  <%= div_for @project do %>
+      <div class="col-md-1">
+        <% if @project.user_id == current_user.id %>
+          <%= link_to edit_account_project_path(current_account, @project), remote: true do %>
+            <span class="fa fa-bars pull-right"></span>
+          <% end %>
+        <% end %>
+      </div>
 
-  <div class="col-md-11">
-    <h3><strong><%= @project.title %></strong></h2>
-    <!-- <h5>account <%= link_to @account.name, account_path(@account), class: "link-to-text-color" %></h5> -->
-    <h4 style="color:#afafaf;"><%= @project.description %></h4>
-  </div>
-
+      <div class="col-md-11">
+        <h3><strong><%= @project.title %></strong></h2>
+        <!-- <h5>account <%= link_to @account.name, account_path(@account), class: "link-to-text-color" %></h5> -->
+        <h4 style="color:#afafaf;"><%= @project.description %></h4>
+      </div>
+    </div>
+  <% end %>
 
 
 <script>

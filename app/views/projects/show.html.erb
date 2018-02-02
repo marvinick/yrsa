@@ -2,13 +2,12 @@
 <br>
 <div class="formy">
 	<div class="row">
-		<%= div_for @project do %>
+		<div class="header">
 			<%= render "header" %>
-		<% end %>
 	</div>
 	<br>
 </div>
-	<br> 
+	<br>
 
 	<% if @project.user_id == current_user.id %>
 	<div class="formy">
