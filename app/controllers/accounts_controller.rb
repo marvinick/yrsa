@@ -1,11 +1,10 @@
 class AccountsController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create]
-  before_action :set_account, only: [:edit, :update, :show]
+  before_action :set_account, only: [:index, :edit, :update, :show]
   respond_to :html, :json
 
   def index
     @accounts = Account.all
-    
   end
 
   def new
@@ -58,6 +57,7 @@ class AccountsController < ApplicationController
   def set_account
     @account = Account.find_by slug: params[:id]
   end
+  helper_method :set_account
 
   def account_params
     params.require(:account).permit(:name,
