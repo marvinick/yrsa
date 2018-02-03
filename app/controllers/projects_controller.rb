@@ -16,11 +16,11 @@ class ProjectsController < BaseController
     if @project.save
       flash[:notice] = "You have created a project."
       respond_to do |f|
-        f.html { redirect_to account_path(current_account) }
+        f.html { redirect_to account_project_path(current_account, @project) }
         f.js
       end
     else
-      render "new"
+      render "form"
     end
   end
 
@@ -33,7 +33,6 @@ class ProjectsController < BaseController
     @detail = set_project.details.build
     @details = set_project.details.all
     @items = set_project.items.all
-
   end
 
   def edit; end
@@ -41,7 +40,10 @@ class ProjectsController < BaseController
   def update
     if @project.update(project_params)
       flash[:notice] = "The project is updated."
-      redirect_to account_project_path(@account, @project)
+      respond_to do |f|
+        f.html { redirect_to account_project_path(@account, @project) }
+        f.js
+      end
     else
       flash.now[:alert] = "Something is misssing."
       render "edit"
@@ -76,10 +78,10 @@ class ProjectsController < BaseController
   def set_account
     @account = Account.find_by slug: params[:account_id]
   end
+  helper_method :set_account
 
   def set_project
     @project = current_account.projects.find_by slug: params[:id]
-    # @project = current_account.projects.find(params[:id])
     rescue ActiveRecord::RecordNotFound
       flash[:alert] = "Project not found."
       redirect_to root_url

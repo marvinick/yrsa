@@ -48,26 +48,29 @@
       <div class="col-md-1"></div>
       <div class="col-md-10">
         <div class="row">
-          <!-- <% account.projects.each do |project| %>
-            <%= link_to account_project_path(account, project) do %>
-              <div class="col-md-2 col-sm-4 col-xs-6">
-                <div class="account_box1 text-space ">
-                  <h4><strong><%= truncate(project.title, length: 10) %></strong></h4>
-                  <br>
-                  <h5><%= project.items.size %> items </h5>
+          <div class="my-projects">
+            <% account.projects.each do |project| %>
 
-                </div>
-              </div>
+                <%= link_to account_project_path(account, project) do %>
+                  <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="account_box1 text-space ">
+                      <h4><strong><%= truncate(project.title, length: 10) %></strong></h4>
+                      <br>
+                      <h5><%= project.items.size %> items </h5>
+
+                    </div>
+                  </div>
+                <% end %>
+
             <% end %>
-          <% end %> -->
-
+          </div>
+            <!-- <% @projects =  account.projects.all %>
+            <div id="my-projects">
+              <%= render @projects %>
+            </div> -->
          </div>
       </div>
     </div>
   </div>
   <% end %>
-
-  <div class="my-projects">
-    <%= render @projects %>
-  </div>
 <% end %>

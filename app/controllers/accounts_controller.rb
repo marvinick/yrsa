@@ -1,10 +1,11 @@
 class AccountsController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create]
-  before_action :set_account, only: [:index, :edit, :update, :show]
+  before_action :set_account, only: [:edit, :update, :show]
   respond_to :html, :json
 
   def index
-    @accounts = Account.all
+    account = current_user.all_accounts.find slug: params[:id]
+    
   end
 
   def new
