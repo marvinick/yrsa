@@ -4,6 +4,7 @@ class ProjectsController < BaseController
   before_action :check_plan_limit, only: [:new, :create]
   skip_before_action :active_subscription_required!, only: [:index]
   skip_before_action :authorize_owner!, only: [:index, :show]
+  skip_before_action :verify_authenticity_token, only: [:edit, :update]
   respond_to :html, :json
 
   def new

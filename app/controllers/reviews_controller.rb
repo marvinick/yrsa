@@ -5,6 +5,8 @@ class ReviewsController < BaseController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   skip_before_action :authorize_owner!
   before_action :authorize_reviewer, only: [:edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token, only: [:edit, :update]
+  respond_to :html, :json
 
   def new
     @review = set_item.reviews.build
@@ -26,7 +28,7 @@ class ReviewsController < BaseController
     @reviews = set_item.reviews.all.order('created_at DESC')
   end
 
-  def show; end 
+  def show; end
 
   def edit; end
 
@@ -64,12 +66,12 @@ class ReviewsController < BaseController
   end
 
   def set_review
-    @review = set_item.reviews.find(params[:id])
+    @review = @item.reviews.find(params[:id])
   end
   helper_method :set_review
 
   def set_item
-    set_project.items.find_by slug: params[:item_id]
+    @item = set_project.items.find_by slug: params[:item_id]
   end
   helper_method :set_item
 

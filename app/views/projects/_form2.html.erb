@@ -1,4 +1,4 @@
-<%= form_for([current_account, @project]) do |f| %>
+<%= form_for([current_account, @project], remote: true) do |f| %>
   <div class="formly" id="current-pane">
     <%= render "shared/errors", obj: @project %>
     <div class="control">

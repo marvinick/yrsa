@@ -3,10 +3,7 @@ class AccountsController < ApplicationController
   before_action :set_account, only: [:edit, :update, :show]
   respond_to :html, :json
 
-  def index
-    account = current_user.all_accounts.find slug: params[:id]
-    
-  end
+  def index; end
 
   def new
     @account = Account.new

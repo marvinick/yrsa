@@ -29,7 +29,7 @@ class DetailsController < BaseController
     if @detail.update(detail_params)
 
        redirect_to account_project_path(current_account, set_project)
-      
+
 
       flash[:notice] = "an attr is updated"
     end

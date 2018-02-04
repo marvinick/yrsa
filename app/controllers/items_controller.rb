@@ -2,7 +2,7 @@ class ItemsController < BaseController
   before_action :set_project
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   skip_before_action :authorize_owner!, only: [:index, :show]
-  skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token, only: [:edit, :update]
   respond_to :html, :json
 
   def index
@@ -40,7 +40,10 @@ class ItemsController < BaseController
   def update
     if @item.update_attributes(item_params)
       flash[:notice] = "You have updated the item."
-      redirect_to [current_account, set_project, @item]
+      respond_to do |f|
+        f.html { redirect_to [current_account, set_project, @item] }
+        f.js
+      end
     else
       flash.now[:alert] = "Something's wrong."
       render "edit"
@@ -67,6 +70,7 @@ class ItemsController < BaseController
   def set_item
     @item = Item.find_by slug: params[:id]
   end
+
 
   def set_project
     @project = current_account.projects.find_by slug: params[:project_id]

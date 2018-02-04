@@ -23,11 +23,11 @@
 //= require_tree .
 
 Growlyflash.defaults = $.extend(true, Growlyflash.defaults, {
-  align:   'center',  // horizontal aligning (left, right or center)
+  align:   'left',  // horizontal aligning (left, right or center)
   delay:   3000,     // auto-dismiss timeout (0 to disable auto-dismiss)
   dismiss: true,      // allow to show close button
-  spacing: 10,       // spacing between alerts
-  target:  'body',   // selector to target element where to place alerts
+  spacing: 5,       // spacing between alerts
+  target:  'html',   // selector to target element where to place alerts
   title:   false,       // switch for adding a title
   type:    "success ",     // bootstrap alert class by default
   class:   ['alert', 'growlyflash', 'fade']
@@ -39,7 +39,7 @@ window.sweetAlertConfirmConfig = {
   showCancelButton: true,
   confirmButtonColor: '#DD6B55',
   confirmButtonText: 'yes I am',
-  cancelButtonText: "hold on"
+  cancelButtonText: "cancel"
 };
 
 

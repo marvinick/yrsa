@@ -13,7 +13,7 @@
         <div class="<%= cycle('left', 'right') -%>">
 
           <div class="box2">
-            <%= link_to account_project_item_review_path(current_account, set_project, set_item, review), remote: true do %>
+            <%= link_to account_project_item_review_path(current_account, set_project, @item, review), remote: true do %>
               <% keys = [] %>
               <% values = [] %>
               <!-- <div>

@@ -17,7 +17,7 @@ class Item < ApplicationRecord
   attr_accessor :delete_image
   before_validation { image.clear if delete_image == '1' }
 
-  validates_presence_of :name
+  validates_presence_of :name, length: {minimum: 5, maximum: 20}, allow_blank: false
   validates :content, length: {minimum: 5, maximum: 280}, allow_blank: false
   validates_uniqueness_of :name
 
