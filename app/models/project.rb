@@ -14,8 +14,6 @@ class Project < ApplicationRecord
 
   has_many :boards
 
-  
-
   def as_json(options={})
     super(methods: [:email])
   end
@@ -29,6 +27,8 @@ class Project < ApplicationRecord
   def generate_slug
     self.slug = self.title.gsub(" ", "-").downcase
   end
+
+
 
   def to_param
     self.slug

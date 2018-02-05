@@ -16,10 +16,7 @@ class ProjectsController < BaseController
     @project.user_id = current_user.id
     if @project.save
       flash[:notice] = "You have created a project."
-      respond_to do |f|
-        f.html { redirect_to account_project_path(current_account, @project) }
-        f.js
-      end
+      redirect_to account_project_path(current_account, @project)
     else
       render "form"
     end
@@ -39,16 +36,17 @@ class ProjectsController < BaseController
   def edit; end
 
   def update
+
     if @project.update(project_params)
       flash[:notice] = "The project is updated."
-      respond_to do |f|
-        f.html { redirect_to account_project_path(@account, @project) }
-        f.js
-      end
+
+        redirect_to account_project_path(@account, @project)
+        
     else
       flash.now[:alert] = "Something is misssing."
       render "edit"
     end
+
   end
 
   def destroy
@@ -73,8 +71,10 @@ class ProjectsController < BaseController
   end
 
   def project_params
-    params.require(:project).permit(:title, :description, :account_id, user_ids: [])
+    params.require(:project).permit(:title, :id, :description, :account_id, user_ids: [])
   end
+
+
 
   def set_account
     @account = Account.find_by slug: params[:account_id]

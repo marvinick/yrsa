@@ -16,8 +16,8 @@
                   </div>
                   <div class="col-md-1 col-sm-1 col-xs-1"></div>
                   <div class="col-md-9 col-sm-8">
-                    <div class="barChart__row" data-value= <%= ((v.to_f / show_value) * 100).round(0) %> >
-                      <span class="barChart__value"><h5><small><%= ((v.to_f / show_value) * 100).round(0) %>%</small></h5></span>
+                    <div class="barChart__row" data-value= <%= ((v.to_f / show_value) * 100).round(0) rescue 0 %> >
+                      <span class="barChart__value"><h5><small><%= ((v.to_f / show_value) * 100).round(0) rescue 0 %>%</small></h5></span>
                       <span class="barChart__bar"><span class="barChart__barFill"></span></span>
                     </div>
                   </div>
@@ -44,8 +44,8 @@
                   </div>
                   <div class="col-md-1 col-sm-1 col-xs-1"></div>
                   <div class="col-md-9 col-sm-8">
-                    <div class="barChart__row" data-value= <%= ((v.to_f / count_values.to_f) * 100).to_i %> >
-                      <span class="barChart__value"><h5><small><%= ((v.to_f / count_values.to_f) * 100).to_i %>%</small></h5></span>
+                    <div class="barChart__row" data-value= <%= ((v.to_f / count_values.to_f) * 100).to_i rescue 0 %> >
+                      <span class="barChart__value"><h5><small><%= ((v.to_f / count_values.to_f) * 100).to_i rescue 0 %>%</small></h5></span>
                       <span class="barChart__bar"><span class="barChart__barFill"></span></span>
                     </div>
                   </div>
