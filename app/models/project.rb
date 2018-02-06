@@ -14,6 +14,8 @@ class Project < ApplicationRecord
 
   has_many :boards
 
+  has_many :invitations
+
   def as_json(options={})
     super(methods: [:email])
   end
