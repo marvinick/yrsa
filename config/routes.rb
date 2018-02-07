@@ -42,6 +42,7 @@
         resources :details
       end
       resources :boards
+
       resources :invitations do
         member do
           get :accept
@@ -50,12 +51,7 @@
       end
     end
 
-    # resources :invitations do
-    #   member do
-    #     get :accept
-    #     patch :accepted
-    #   end
-    # end
+
 
     resources :users, only: [:index, :destroy, :new, :create]
 

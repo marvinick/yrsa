@@ -36,9 +36,6 @@ gem 'public_activity'
 gem "devise"
 gem "omniauth-google-oauth2"
 
-#invitation
-gem 'invitation'
-
 #paymentsubscription
 gem 'stripe'
 gem 'money'

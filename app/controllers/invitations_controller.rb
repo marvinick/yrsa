@@ -1,5 +1,6 @@
 class InvitationsController < BaseController
   before_action :set_account
+  # before_action :set_project
   skip_before_action :authenticate_user!, only: [:accept, :accepted]
   skip_before_action :authorize_user!, only: [:accept, :accepted]
   before_action :authorize_owner!, except: [:accept, :accepted]
@@ -9,7 +10,8 @@ class InvitationsController < BaseController
   end
 
   def new
-    @invitation = current_account.invitations.build
+    @project = current_account.projects.find_by slug: params[:project_id]
+    @invitation = @project.invitations.build
   end
 
   def create
@@ -49,6 +51,10 @@ class InvitationsController < BaseController
   end
 
   private
+
+  def set_project
+    @project = current_account.projects.find_by slug: params[:project_id]
+  end
 
   def set_account
     @account = Account.find_by slug: params[:account_id]

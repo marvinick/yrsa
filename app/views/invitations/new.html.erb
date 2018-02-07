@@ -2,7 +2,7 @@
   <div class='col-md-offset-4 col-md-4 content'>
     <h2>New Invitation</h2>
     <br>
-    <%= form_for ([@account, @invitation]) do |f| %>
+    <%= form_for ([current_account, @project, @invitation]) do |f| %>
     <%= render "shared/errors", obj: @invitation %>
       <%= f.hidden_field :account_id %>
       <div>
