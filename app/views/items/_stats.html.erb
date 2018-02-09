@@ -40,14 +40,18 @@
               <div class="barChart">
                 <div class="barChart__row" data-value="100">
                   <div class="col-md-1 col-sm-1">
-                    <span class="barChart__label"><%= k %> <%= image_tag('star-on.png', style: "zoom:50%;") %></span>
+                    <% if k != 0 %>
+                      <span class="barChart__label"><%= k %> <%= image_tag('star-on.png', style: "zoom:50%;") %></span>
+
                   </div>
                   <div class="col-md-1 col-sm-1 col-xs-1"></div>
                   <div class="col-md-9 col-sm-8">
-                    <div class="barChart__row" data-value= <%= ((v.to_f / count_values.to_f) * 100).to_i rescue 0 %> >
-                      <span class="barChart__value"><h5><small><%= ((v.to_f / count_values.to_f) * 100).to_i rescue 0 %>%</small></h5></span>
-                      <span class="barChart__bar"><span class="barChart__barFill"></span></span>
-                    </div>
+
+                      <div class="barChart__row" data-value= <%= ((v.to_f / count_values.to_f) * 100).to_i rescue 0 %> >
+                        <span class="barChart__value"><h5><small><%= ((v.to_f / count_values.to_f) * 100).to_i rescue 0 %>%</small></h5></span>
+                        <span class="barChart__bar"><span class="barChart__barFill"></span></span>
+                      </div>
+                    <% end %>
                   </div>
                 </div>
               </div>

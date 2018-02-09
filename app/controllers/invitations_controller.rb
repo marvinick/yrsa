@@ -1,6 +1,6 @@
 class InvitationsController < BaseController
   before_action :set_account
-  # before_action :set_project
+  before_action :set_project
   skip_before_action :authenticate_user!, only: [:accept, :accepted]
   skip_before_action :authorize_user!, only: [:accept, :accepted]
   before_action :authorize_owner!, except: [:accept, :accepted]
@@ -10,17 +10,17 @@ class InvitationsController < BaseController
   end
 
   def new
-    @project = current_account.projects.find_by slug: params[:project_id]
     @invitation = @project.invitations.build
   end
 
   def create
-    @invitation = current_account.invitations.new(invitation_params)
-    @invitation.account_id = current_account.id
+    @invitation = @project.invitations.new(invitation_params)
+    @invitation.project_id = @project.id
     @invitation.save
-    InvitationMailer.invite(@invitation, @account).deliver_now
+    @account = current_account
+    InvitationMailer.invite(@invitation, @project, @account).deliver_now
     flash[:notice] = "#{@invitation.email} has been invited."
-    redirect_to account_users_path(current_account)
+    redirect_to account_project_path(current_account, @project)
   end
 
   def accept
@@ -61,6 +61,6 @@ class InvitationsController < BaseController
   end
 
   def invitation_params
-    params.require(:invitation).permit(:email, :account_id)
+    params.require(:invitation).permit(:email, :account_id, :project_id)
   end
 end

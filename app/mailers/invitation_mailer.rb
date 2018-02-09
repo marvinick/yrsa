@@ -1,10 +1,11 @@
 class InvitationMailer < ApplicationMailer
-  def invite(invitation, account)
-    @account = account
+  def invite(invitation, project, account)
+    @project = project
     @invitation = invitation
+    @account = account
     mail(
       to: invitation.email,
-      subject: "Invitation to join #{invitation.account.name} on Yrsa"
+      subject: "Invitation to join #{invitation.project.title} on #{account.name}"
     )
   end
 end

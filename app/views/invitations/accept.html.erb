@@ -2,7 +2,7 @@
   <div class="content col-md-offset-4 col-md-4">
     <h2>Accepting an invitation</h2>
 
-    You are accepting an invitation to join <%= @invitation.account.name %>
+    You are accepting an invitation to join <%= @invitation.project.title %>
 
     <% if !user_signed_in? %>
       <%= render "anonymous_accept" %>
@@ -12,4 +12,3 @@
 
   </div>
 </div>
- 
