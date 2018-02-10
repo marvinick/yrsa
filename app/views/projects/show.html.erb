@@ -9,26 +9,27 @@
 <br>
 
 <% if @project.user_id == current_user.id %>
-<div class="formy">
+<!-- <div class="formy"> -->
 		<div class="row">
 
-			<div class="col-md-4">
+			<!-- <div class="col-md-4">
 				<div class="formy">
 					<%= render "stats" %>
 				</div>
-			</div>
-			<div class="col-md-3">
+			</div> -->
+			<div class="col-md-6">
 				<div class="formy">
 					<%= render "users" %>
 				</div>
 			</div>
-			<div class="col-md-5">
+			
+			<div class="col-md-6">
 				<div class="formy">
 					<%= render "details" %>
 				</div>
 			</div>
 		</div>
-</div>
+<!-- </div> -->
 <% end %>
 
 <br>
@@ -48,7 +49,6 @@
 	</div>
 </div>
 
-<%= link_to "Invite new user", new_account_project_invitation_path(current_account, @project), class: "btn btn-default" %>
 
 <%= render "footer" %>
 

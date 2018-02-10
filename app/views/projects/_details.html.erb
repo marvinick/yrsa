@@ -1,10 +1,9 @@
-<h5>
-  <strong>Attributes</strong>
-
-</h5>
-<hr>
-<div class="col-md-12">
-  <%= render "details/index" %>
+<div class="row">
+  <h5><strong>Attributes</strong></h5>
+  <hr>
+  <div class="col-md-12">
+    <%= render "details/index" %>
+  </div>
+  <br>
+  <%= link_to "add", new_account_project_detail_path(current_account, @project, @detail), remote: true, class: "new-detail-button btn btn-default pull-right btn-sm" %>
 </div>
-<br>
-<%= link_to "add", new_account_project_detail_path(current_account, @project, @detail), remote: true, class: "new-detail-button btn btn-default pull-right btn-sm" %>

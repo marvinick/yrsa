@@ -1,5 +1,11 @@
-<h5><strong>Members</strong></h5>
-<hr>
-<% @project.users.last(5).each do |u| %>
-  <li><h4><small><%= u.email %></small></h4></li> 
-<% end %>
+<div class="row">
+  <h5><strong>Members</strong></h5>
+  <hr>
+  <% @project.users.last(5).each do |u| %>
+    <li style="display:inline-block; float: left; margin-right:5px;">
+      <h4><small><%= u.email %></small></h4>
+    </li>
+  <% end %>
+  <br>
+  <%= link_to "Invite new user", new_account_project_invitation_path(current_account, @project), class: "btn btn-default pull-right" %>
+</div>

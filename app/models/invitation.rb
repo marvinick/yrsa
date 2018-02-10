@@ -1,6 +1,4 @@
 class Invitation < ApplicationRecord
-  belongs_to :account
-
   belongs_to :project
 
   validates :email, presence: true
