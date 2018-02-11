@@ -5,6 +5,7 @@
     <%= form_for ([current_account, @project, @invitation]) do |f| %>
     <%= render "shared/errors", obj: @invitation %>
       <%= f.hidden_field :account_id %>
+      <%= f.hidden_field :project_id, :value => @invitation.project_id %>
       <div>
         <%= f.text_field :email, class: "input", placeholder: "enter email" %>
       </div>

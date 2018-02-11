@@ -1,4 +1,4 @@
 <%= form_for [:accepted, @account, @project, @invitation], as: :user do |f| %>
-  <% f.hidden_field :project_id %>
+  <%= f.hidden_field :project_id %>
   <%= f.submit "Accept Invitation", class: "btn btn-primary" %>
 <%end%>

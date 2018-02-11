@@ -31,9 +31,10 @@ class InvitationsController < BaseController
 
   def accepted
     @invitation = Invitation.find_by!(token: params[:id])
-    project_id = @invitation.id
+    project_id = @invitation.project_id
     if user_signed_in?
       user = current_user
+      user.project_id = project_id
     else
       user_params = params[:user].permit(
         :email,
@@ -41,8 +42,9 @@ class InvitationsController < BaseController
         :password_confirmation,
         :project_id
       )
-      user.project_id = @invitation.project_id
+
       user = User.create!(user_params)
+      user.project_id = project_id
       sign_in(user)
     end
 

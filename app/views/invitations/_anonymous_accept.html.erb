@@ -6,7 +6,7 @@
 </p>
 
 <%= simple_form_for [:accepted, @account, @project, @invitation], as: :user do |f| %>
-  <% f.hidden_field :project_id %>
+  <%= f.hidden_field :project_id %>
   <%= f.input :email, value: @invitation.email, class: "input", label: false, :input_html => {:size => 40} %>
   <br>
   <%= f.input :password, class: "input", label: false, placeholder: "password", :input_html => {:size => 40} %>
