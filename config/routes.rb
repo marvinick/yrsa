@@ -51,8 +51,6 @@
       end
     end
 
-
-
     resources :users, only: [:index, :destroy, :new, :create]
 
     resources :lookups, only: [:index]

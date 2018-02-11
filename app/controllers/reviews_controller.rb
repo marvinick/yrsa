@@ -17,8 +17,7 @@ class ReviewsController < BaseController
     @review.user_id = current_user.id
     if @review.save
       flash[:notice] = "You've submitted a review."
-      # redirect_to account_project_item_path(current_account, set_project, set_item)
-      redirect_to confirm_account_project_item_review_path(current_account, set_project, set_item, @review)
+      redirect_to account_project_item_path(current_account, set_project, set_item)
     else
       render 'new'
     end

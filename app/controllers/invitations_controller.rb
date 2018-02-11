@@ -26,20 +26,22 @@ class InvitationsController < BaseController
   def accept
     store_location_for(:user, request.fullpath)
     @invitation = Invitation.find_by!(token: params[:id])
+    @invitation.project_id = @project.id
   end
 
   def accepted
     @invitation = Invitation.find_by!(token: params[:id])
-
+    project_id = @invitation.id
     if user_signed_in?
       user = current_user
     else
       user_params = params[:user].permit(
         :email,
         :password,
-        :password_confirmation
+        :password_confirmation,
+        :project_id
       )
-
+      user.project_id = @invitation.project_id
       user = User.create!(user_params)
       sign_in(user)
     end

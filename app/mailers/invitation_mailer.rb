@@ -5,7 +5,7 @@ class InvitationMailer < ApplicationMailer
     @account = account
     mail(
       to: invitation.email,
-      subject: "Invitation to join #{invitation.project.title} on #{account.name}"
+      subject: "Invitation to join project #{invitation.project.title} on #{account.name}"
     )
   end
 end
