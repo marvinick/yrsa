@@ -13,7 +13,9 @@ class ProjectsController < BaseController
 
   def create
     @project = current_account.projects.new(project_params)
+    user = current_user
     @project.user_id = current_user.id
+    current_user.projects << @project
     if @project.save
       flash[:notice] = "You have created a project."
       redirect_to account_project_path(current_account, @project)
@@ -41,7 +43,7 @@ class ProjectsController < BaseController
       flash[:notice] = "The project is updated."
 
         redirect_to account_project_path(@account, @project)
-        
+
     else
       flash.now[:alert] = "Something is misssing."
       render "edit"
@@ -57,6 +59,15 @@ class ProjectsController < BaseController
       flash.now[:alert] = "Unable to remove the project."
     end
   end
+
+  def delete_user_project(current_account, project)
+    user = current_user
+    project = @project
+    user.projects.delete(project)
+
+
+  end
+  helper_method :delete_user_project
 
   private
 

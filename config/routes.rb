@@ -38,6 +38,9 @@
           member do
             get :confirm
           end
+          collection do
+            get :delete_user_project
+          end
         end
         resources :details
       end

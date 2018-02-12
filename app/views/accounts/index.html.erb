@@ -4,7 +4,7 @@
 <br>
 <br>
 <% if user_signed_in? %>
-  <% current_user.all_accounts.each do |account| %>
+  <% current_user.all_accounts.uniq.each do |account| %>
     <div class="row">
       <div class="col-md-1">
         <% if account.stripe_subscription_id.present? %>
@@ -50,7 +50,7 @@
         <div class="row">
           <div class="my-projects">
             <% account.projects.each do |project| %>
-              <% if current_user.project_id == project.id %>
+
                 <%= link_to account_project_path(account, project) do %>
                   <div class="col-md-2 col-sm-4 col-xs-6">
                     <div class="account_box1 text-space ">
@@ -62,7 +62,7 @@
                   </div>
                 <% end %>
 
-              <% end %>
+
             <% end %>
           </div>
             <!-- <% @projects =  account.projects.all %>
