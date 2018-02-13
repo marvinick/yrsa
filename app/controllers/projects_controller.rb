@@ -1,6 +1,6 @@
 class ProjectsController < BaseController
   before_action :set_account
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :remove_user_project]
   before_action :check_plan_limit, only: [:new, :create]
   skip_before_action :active_subscription_required!, only: [:index]
   skip_before_action :authorize_owner!, only: [:index, :show]
@@ -60,14 +60,11 @@ class ProjectsController < BaseController
     end
   end
 
-  def delete_user_project(current_account, project)
-    user = current_user
-    project = @project
-    user.projects.delete(project)
-
-
+  def unfollow
+    user = @project.users.find(params[:id])
+    @project.users.delete(user)
+    redirect_to account_project_path(current_account, @project)
   end
-  helper_method :delete_user_project
 
   private
 
@@ -84,8 +81,6 @@ class ProjectsController < BaseController
   def project_params
     params.require(:project).permit(:title, :id, :description, :account_id, user_ids: [])
   end
-
-
 
   def set_account
     @account = Account.find_by slug: params[:account_id]

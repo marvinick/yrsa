@@ -50,7 +50,7 @@
         <div class="row">
           <div class="my-projects">
             <% account.projects.each do |project| %>
-
+              <% if current_user.project_ids.include? project.id %>
                 <%= link_to account_project_path(account, project) do %>
                   <div class="col-md-2 col-sm-4 col-xs-6">
                     <div class="account_box1 text-space ">
@@ -62,7 +62,7 @@
                   </div>
                 <% end %>
 
-
+              <% end %>
             <% end %>
           </div>
             <!-- <% @projects =  account.projects.all %>

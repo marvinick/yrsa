@@ -32,14 +32,14 @@
       as: :update_payment_details
 
     resources :projects do
+      member do
+        delete :unfollow
+      end
       resources :details
       resources :items do
         resources :reviews do
           member do
             get :confirm
-          end
-          collection do
-            get :delete_user_project
           end
         end
         resources :details
