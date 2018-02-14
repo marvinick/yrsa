@@ -31,11 +31,11 @@ class InvitationsController < BaseController
 
   def accepted
     @invitation = Invitation.find_by!(token: params[:id])
-    project = @project
 
     if user_signed_in?
       user = current_user
-      user.projects << project
+      # user.projects << project
+      @project.users << user
     else
       user_params = params[:user].permit(
         :email,
@@ -45,7 +45,8 @@ class InvitationsController < BaseController
       )
 
       user = User.create!(user_params)
-      user.projects << project
+      # user.projects << project
+      @project.users << user
       sign_in(user)
     end
 

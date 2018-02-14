@@ -1,10 +1,10 @@
 <div class="row">
   <h5><strong>Members</strong></h5>
   <hr>
-  <% @project.users.last(5).each do |u| %>
+  <% @project.users.each do |u| %>
     <li style="display:inline-block; float: left; margin-right:5px;">
-      <h4><small><%= u.email %></small></h4>
-      <%= link_to "x", unfollow_account_project_path(current_account, @project), :method => 'delete', data: { confirm: "are you sure?"} %> 
+      <h5><%= u.email %> <small><%= link_to "x", unfollow_account_project_user_path(current_account, @project, u), :method => 'delete', data: { confirm: "are you sure?"} %> </small></h5>
+      <%= u.id %>
     </li>
   <% end %>
   <br>

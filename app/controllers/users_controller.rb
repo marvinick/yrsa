@@ -13,4 +13,12 @@ class UsersController < BaseController
     flash[:notice] = "#{user.email} has been removed from this account."
     redirect_to account_users_path(current_account, @users)
   end
+
+  def unfollow
+    user = User.find(params[:id])
+    project = Project.find_by slug: params[:project_id]
+    project.users.delete(user)
+    redirect_to account_project_path(current_account, project)
+  end
+
 end

@@ -1,6 +1,6 @@
 class ProjectsController < BaseController
   before_action :set_account
-  before_action :set_project, only: [:show, :edit, :update, :destroy, :remove_user_project]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :unfollow]
   before_action :check_plan_limit, only: [:new, :create]
   skip_before_action :active_subscription_required!, only: [:index]
   skip_before_action :authorize_owner!, only: [:index, :show]
@@ -59,13 +59,7 @@ class ProjectsController < BaseController
       flash.now[:alert] = "Unable to remove the project."
     end
   end
-
-  def unfollow
-    user = @project.users.find(params[:id])
-    @project.users.delete(user)
-    redirect_to account_project_path(current_account, @project)
-  end
-
+  
   private
 
   def check_plan_limit
@@ -85,7 +79,6 @@ class ProjectsController < BaseController
   def set_account
     @account = Account.find_by slug: params[:account_id]
   end
-  helper_method :set_account
 
   def set_project
     @project = current_account.projects.find_by slug: params[:id]

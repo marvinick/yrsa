@@ -32,10 +32,14 @@
       as: :update_payment_details
 
     resources :projects do
-      member do
-        delete :unfollow
+      resources :users, only: [:index, :destroy, :new, :create] do
+        member do
+          delete 'unfollow'
+        end
       end
+        
       resources :details
+
       resources :items do
         resources :reviews do
           member do
@@ -44,6 +48,7 @@
         end
         resources :details
       end
+
       resources :boards
 
       resources :invitations do
@@ -54,7 +59,7 @@
       end
     end
 
-    resources :users, only: [:index, :destroy, :new, :create]
+
 
     resources :lookups, only: [:index]
   end
