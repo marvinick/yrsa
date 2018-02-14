@@ -5,6 +5,7 @@ class ProjectsController < BaseController
   skip_before_action :active_subscription_required!, only: [:index]
   skip_before_action :authorize_owner!, only: [:index, :show]
   skip_before_action :verify_authenticity_token, only: [:edit, :update]
+  before_action :project_looker, only: [:show]
   respond_to :html, :json
 
   def new
@@ -59,7 +60,7 @@ class ProjectsController < BaseController
       flash.now[:alert] = "Unable to remove the project."
     end
   end
-  
+
   private
 
   def check_plan_limit
@@ -69,6 +70,13 @@ class ProjectsController < BaseController
       message += "You need to upgrade your plan to add more projects."
       flash[:alert] = message
       redirect_to account_choose_plan_path
+    end
+  end
+
+  def project_looker
+    unless @project.users.include? current_user.email
+      flash[:alert] = "you're not a member"
+      redirect_to root_url
     end
   end
 

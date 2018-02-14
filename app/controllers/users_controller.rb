@@ -1,5 +1,5 @@
 class UsersController < BaseController
-  before_action :authorize_owner!
+  before_action :authorize_owner!, except: [:unfollow]
 
   def index
     @users = current_account.users.all
@@ -18,7 +18,13 @@ class UsersController < BaseController
     user = User.find(params[:id])
     project = Project.find_by slug: params[:project_id]
     project.users.delete(user)
-    redirect_to account_project_path(current_account, project)
+    if current_user.id != current_account.owner.id
+      flash[:notice] = "you've remove yourself from #{project}"
+      redirect_to root_url
+    else
+      flash[:notice] = "you've remove a user"
+      redirect_to account_project_path(current_account, project)
+    end
   end
 
 end
