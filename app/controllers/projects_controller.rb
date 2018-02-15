@@ -5,7 +5,7 @@ class ProjectsController < BaseController
   skip_before_action :active_subscription_required!, only: [:index]
   skip_before_action :authorize_owner!, only: [:index, :show]
   skip_before_action :verify_authenticity_token, only: [:edit, :update]
-  before_action :project_looker, only: [:show]
+  # before_action :project_looker, only: [:show]
   respond_to :html, :json
 
   def new
@@ -39,17 +39,13 @@ class ProjectsController < BaseController
   def edit; end
 
   def update
-
     if @project.update(project_params)
       flash[:notice] = "The project is updated."
-
         redirect_to account_project_path(@account, @project)
-
     else
       flash.now[:alert] = "Something is misssing."
       render "edit"
     end
-
   end
 
   def destroy
@@ -74,7 +70,7 @@ class ProjectsController < BaseController
   end
 
   def project_looker
-    unless @project.users.include? current_user.email
+    unless  @project.users.include? current_user.email
       flash[:alert] = "you're not a member"
       redirect_to root_url
     end
