@@ -1,6 +1,15 @@
 class Item < ApplicationRecord
   include PgSearch
-  multisearchable against: :name
+  multisearchable against: [:name, :content],
+    using: {
+      tsearch: {
+        prefix: true,
+        highlight: {
+          start_sel: '<b>',
+          stop_sel: '</b>'
+        }
+      }
+    }
 
   belongs_to :project, optional: true
 

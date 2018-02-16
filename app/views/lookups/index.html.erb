@@ -33,6 +33,7 @@
                   <% if current_user.id == pg_search_document.searchable.user_id %>
                     <h3>
                       <%= link_to pg_search_document.searchable.title, [current_account, pg_search_document.searchable] %>
+                        
                       <small>(project)<small>
                     </h3>
                     <hr>

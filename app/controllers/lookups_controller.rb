@@ -1,7 +1,7 @@
 class LookupsController < BaseController
 
   def index
-    @pg_search_documents = PgSearch.multisearch( params[:query] )
+    @pg_search_documents = PgSearch.multisearch( params[:query])
   end
 
   private
