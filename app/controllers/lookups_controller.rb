@@ -1,11 +1,8 @@
 class LookupsController < BaseController
+  respond_to :html, :json
 
   def index
-    respond_to do |format|
-      @pg_search_documents = PgSearch.multisearch( params[:query])
-      format.json
-      format.html
-    end
+    @pg_search_documents = PgSearch.multisearch( params[:query])    
   end
 
   private
