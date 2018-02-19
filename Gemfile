@@ -40,10 +40,9 @@ gem "omniauth-google-oauth2"
 gem 'stripe'
 gem 'money'
 
-#search
+#search / sorting
 gem 'pg_search'
-gem 'select2-rails'
-gem 'underscore-rails'
+gem 'smart_listing', '~> 1.1', '>= 1.1.2'
 
 #upload images
 gem 'paperclip'
