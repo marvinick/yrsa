@@ -45,6 +45,7 @@ gem 'pg_search'
 gem 'smart_listing', '~> 1.1', '>= 1.1.2'
 
 #upload images
+gem 'link_thumbnailer'
 gem 'paperclip'
 gem 'aws-sdk', '< 3.0'
 gem 'dropzonejs-rails'
