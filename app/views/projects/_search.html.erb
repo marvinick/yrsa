@@ -1,15 +1,13 @@
 <div>
-  <h1>
-    <%= "Movie Directory" %>
-  </h1>
+
   <%= smart_listing_controls_for(:items, {class: ""}) do %>
     <div class="filter form-search">
       <div class="input-group">
-        <%= text_field_tag :filter, '', class: "", placeholder: "Search...", autocomplete: :off, value: "#{params[:filter]}" %>
-        <span class="input-group-btn">
-          <%= submit_tag 'Refresh', :class => "btn btn-default", :name => "do_query" %>
-          <%= link_to  "Clear search", '/movies', class: "btn btn-default" %>
-        </span>
+        <%= text_field_tag :filter, '', class: "", placeholder: "Search...", autocomplete: :on, value: "#{params[:filter]}" %>
+
+          <%= submit_tag 'Refresh', :class => "btn btn-primary btn-xs", :name => "do_query" %>
+          <%= link_to  "Clear search", '/items', class: "btn btn-default btn-xs" %>
+
       </div>
     </div>
   <% end %>
@@ -31,5 +29,5 @@
     <% end %>
   </script>
 
-  <%= smart_listing_render :items %>
+
 </div>

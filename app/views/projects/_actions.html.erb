@@ -5,7 +5,9 @@
       <% if @project.user_id == current_user.id %>
     		<%= link_to "add item", new_account_project_item_path(current_account, @project), remote: true, class: "btn btn-default" %>
     	<% end %>
+      <%= render "search" %>
     </h3>
+
   </div>
   <div class="col-md-3 col-sm-6 col-xs-6">
     <div class="tab pull-right">
@@ -14,4 +16,5 @@
       <button class="tablinks" onclick="openCity(event, 'lists')"><span class="fa fa-list"></span></button>
     </div>
   </div>
+
 </div>

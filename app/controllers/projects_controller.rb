@@ -9,7 +9,7 @@ class ProjectsController < BaseController
 
   include SmartListing::Helper::ControllerExtensions
   helper  SmartListing::Helper
-  
+
   respond_to :html, :json
 
   def new
@@ -38,6 +38,17 @@ class ProjectsController < BaseController
     @detail = set_project.details.build
     @details = set_project.details.all
     @items = set_project.items.all
+
+    scope = @items
+    options = {}
+    options = options.merge(query: params[:filter]) if params[:filter].present?
+    options = options.merge(filters: params[:f]) if params[:f].present?
+    scope = @items.all_with_filter(options, scope)
+
+    if params[:items_smart_listing] && params[:items_smart_listing][:page].blank?
+      params[:items_smart_listing][:page] = 1
+    end
+
   end
 
   def edit; end
