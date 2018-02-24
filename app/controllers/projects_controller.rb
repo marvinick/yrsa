@@ -48,7 +48,7 @@ class ProjectsController < BaseController
     if params[:items_smart_listing] && params[:items_smart_listing][:page].blank?
       params[:items_smart_listing][:page] = 1
     end
-
+    
   end
 
   def edit; end
