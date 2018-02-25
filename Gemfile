@@ -42,7 +42,7 @@ gem 'money'
 
 #search / sorting
 gem 'pg_search'
-gem 'smart_listing', '~> 1.1', '>= 1.1.2'
+gem 'jquery-ui-rails'
 
 #upload images
 gem 'link_thumbnailer'

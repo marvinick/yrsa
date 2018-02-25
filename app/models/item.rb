@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+
   include PgSearch
   multisearchable against: [:name, :content],
     using: {

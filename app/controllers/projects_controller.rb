@@ -1,4 +1,5 @@
 class ProjectsController < BaseController
+
   before_action :set_account
   before_action :set_project, only: [:show, :edit, :update, :destroy, :unfollow]
   before_action :check_plan_limit, only: [:new, :create]
@@ -6,9 +7,6 @@ class ProjectsController < BaseController
   skip_before_action :authorize_owner!, only: [:index, :show]
   skip_before_action :verify_authenticity_token, only: [:edit, :update]
   # before_action :project_looker, only: [:show]
-
-  include SmartListing::Helper::ControllerExtensions
-  helper  SmartListing::Helper
 
   respond_to :html, :json
 
@@ -38,17 +36,6 @@ class ProjectsController < BaseController
     @detail = set_project.details.build
     @details = set_project.details.all
     @items = set_project.items.all
-
-    scope = @items
-    options = {}
-    options = options.merge(query: params[:filter]) if params[:filter].present?
-    options = options.merge(filters: params[:f]) if params[:f].present?
-    scope = @items.all_with_filter(options, scope)
-
-    if params[:items_smart_listing] && params[:items_smart_listing][:page].blank?
-      params[:items_smart_listing][:page] = 1
-    end
-    
   end
 
   def edit; end

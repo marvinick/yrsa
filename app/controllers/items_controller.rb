@@ -5,9 +5,6 @@ class ItemsController < BaseController
   skip_before_action :verify_authenticity_token
   respond_to :html, :json
 
-  include SmartListing::Helper::ControllerExtensions
-  helper  SmartListing::Helper
-
   def index
     @items = current_account.project.items.all
   end
@@ -43,10 +40,7 @@ class ItemsController < BaseController
   def update
     if @item.update_attributes(item_params)
       flash[:notice] = "You have updated the item."
-
        redirect_to [current_account, set_project, @item]
-
-
     else
       flash.now[:alert] = "Something's wrong."
       render "edit"

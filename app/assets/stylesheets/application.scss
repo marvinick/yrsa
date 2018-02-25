@@ -14,6 +14,7 @@
  *= require_self
  *= require dropzone/dropzone
  *= require sweetalert2
+ *= require jquery-ui/datepicker
  */
 
  @import "jquery.barCharts";
@@ -24,9 +25,8 @@
  @import "tablet";
  @import "growlyflash";
  @import "toggle";
- @import "pretty-checkbox";
  @import "animate";
- 
+
 
 html, body {
   background-color: #f9f9f9;

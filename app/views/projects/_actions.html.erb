@@ -5,7 +5,7 @@
       <% if @project.user_id == current_user.id %>
     		<%= link_to "add item", new_account_project_item_path(current_account, @project), remote: true, class: "btn btn-default" %>
     	<% end %>
-      <%= render "search" %>
+    
     </h3>
 
   </div>

@@ -1,4 +1,5 @@
 class Project < ApplicationRecord
+
   include PgSearch
   multisearchable against: [:title, :description],
     using: {
@@ -38,8 +39,6 @@ class Project < ApplicationRecord
   def generate_slug
     self.slug = self.title.gsub(" ", "-").downcase
   end
-
-
 
   def to_param
     self.slug

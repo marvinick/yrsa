@@ -20,7 +20,7 @@
 //= require dropzone
 //= require sweetalert2
 //= require sweet-alert2-rails
-//= require smart_listing
+//= require jquery-ui/autocomplete
 //= require_tree .
 
 Growlyflash.defaults = $.extend(true, Growlyflash.defaults, {
