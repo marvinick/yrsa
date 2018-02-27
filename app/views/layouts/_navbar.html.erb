@@ -1,5 +1,5 @@
 <nav class="navbar navbar-default" style="list-style-type: none;">
-  <div class="container">
+  <div class="container-fluid">
     <div class="navbar-header">
       <% if user_signed_in? %>
         <li class="navbar-brand" href="#"><%= link_to "aetomata", home_path %></li>
@@ -10,6 +10,12 @@
 
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-left">
+        <form class="navbar-form" role="search">
+          <%= form_tag(account_lookups_path, method: :get) do %>
+            <%= text_field_tag :query, params[:query] %>
+            <%= submit_tag 'Search', name: nil, class:"btn btn-default" %>
+          <% end %>
+        </form>
       </ul>
 
       <ul class="nav navbar-nav navbar-center">
@@ -18,7 +24,6 @@
           <% if controller_name != "activities" %>
             <li><%= link_to " activity", activities_path, class: "fa fa-history" %></li>
           <% end %>
-
           <% if controller_name != "lookups" %>
             <% if @account %>
               <li><%= link_to " lookup", account_lookups_path(@account), remote: true, class: "fa fa-search" %></li>

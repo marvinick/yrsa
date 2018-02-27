@@ -4,17 +4,22 @@
       <h1 class="text-center">Search</h1>
       <div class="row">
         <div class="formly text-center">
-          <%= form_tag(account_lookups_path, method: :get) do %>
+          <div class="looks-search">
+            <input type="text" id="lookups-search-txt" autofocus>
+            <div class="results" id="lookups-search-results"></div>
+          </div>
+
+          <!-- <%= form_tag(account_lookups_path, method: :get) do %>
 
               <div class="control">
-                <%= text_field_tag :query, params[:query], class:"input"  %>
+                <%= text_field_tag :query, params[:query], autofocus: true, class:"input"  %>
               </div>
               <br>
               <div class="control">
                 <li><%= submit_tag 'Search', name: nil, class:"btn btn-default btn-lg" %></li>
               </div>
 
-          <% end %>
+          <% end %> -->
         </div>
 
         <% if params[:query].present? %>
@@ -59,3 +64,9 @@
   </div>
   <div id="product-modal" class="modal"></div>
 </div>
+
+<script>
+  $(function() {
+    new app.Lookups;
+  });
+</script>

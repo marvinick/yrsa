@@ -2,11 +2,11 @@
   <div class="formly" id="current-pane">
     <%= f.hidden_field :project_id %>
     <div class="control">
-      <%= f.text_field :name, placeholder: 'name', label: false, class: "input ", :maxlength => 25, :size => 40 %>
+      <%= f.text_field :name, placeholder: 'name', label: false, autofocus: true, class: "input ", :maxlength => 25, :size => 40 %>
     </div>
     <br>
     <div class="control">
-      <%= f.text_area :content, placeholder: 'content', label: false, class: "input", :maxlength => 280, :size => 40  %>
+      <%= f.text_area :content, placeholder: 'content', label: false, autofocus: true, class: "input", :maxlength => 280, :size => 40  %>
     </div>
     <br>
     <!-- <div class="control">
