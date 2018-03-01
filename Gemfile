@@ -51,6 +51,8 @@ gem 'aws-sdk', '< 3.0'
 gem 'dropzonejs-rails'
 gem 'delayed_paperclip'
 
+#prograssive web app
+gem 'serviceworker-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri

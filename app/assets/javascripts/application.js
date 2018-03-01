@@ -45,3 +45,4 @@ window.sweetAlertConfirmConfig = {
 
 
 //cards/lists tab
+//= require serviceworker-companion
