@@ -21,6 +21,9 @@
 //= require sweetalert2
 //= require sweet-alert2-rails
 //= require jquery-ui
+//= require underscore
+//= require select2
+//= require messages
 //= require_tree .
 
 Growlyflash.defaults = $.extend(true, Growlyflash.defaults, {

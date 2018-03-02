@@ -43,6 +43,8 @@ gem 'money'
 #search / sorting
 gem 'pg_search'
 gem 'jquery-ui-rails'
+gem 'select2-rails'
+gem 'underscore-rails'
 
 #upload images
 gem 'link_thumbnailer'
