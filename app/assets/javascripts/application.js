@@ -23,7 +23,7 @@
 //= require jquery-ui
 //= require underscore
 //= require select2
-//= require messages
+//= require lookups
 //= require_tree .
 
 Growlyflash.defaults = $.extend(true, Growlyflash.defaults, {

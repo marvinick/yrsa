@@ -4,11 +4,7 @@ class Item < ApplicationRecord
   multisearchable against: [:name, :content],
     using: {
       tsearch: {
-        prefix: true,
-        highlight: {
-          start_sel: '<b>',
-          stop_sel: '</b>'
-        }
+        prefix: true
       }
     }
 

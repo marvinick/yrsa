@@ -37,7 +37,7 @@
           delete 'unfollow'
         end
       end
-        
+
       resources :details
 
       resources :items do
@@ -58,8 +58,6 @@
         end
       end
     end
-
-
 
     resources :lookups, only: [:index]
   end

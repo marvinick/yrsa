@@ -4,11 +4,7 @@ class Project < ApplicationRecord
   multisearchable against: [:title, :description],
     using: {
       tsearch: {
-        prefix: true,
-        highlight: {
-          start_sel: '<b>',
-          stop_sel: '</b>'
-        }
+        prefix: true
       }
     }
   # pg_search_scope :search_name, :against => [:title], using: { tsearch: { prefix: true } }
