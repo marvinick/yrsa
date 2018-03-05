@@ -33,13 +33,13 @@ class Project < ApplicationRecord
 
   has_many :invitations
 
-  def as_json(options={})
-    super(methods: [:email])
-  end
-
-  def email
-    author.email
-  end
+  # def as_json(options={})
+  #   super(methods: [:email])
+  # end
+  #
+  # def email
+  #   author.email
+  # end
 
   before_save :generate_slug
 

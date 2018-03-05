@@ -10,6 +10,7 @@
     <%= stylesheet_link_tag "jquery.barCharts" %>
     <%= javascript_include_tag "jquery.barChart.js", "data-turbolinks-track" => false %>
     <%= javascript_include_tag 'jquery.raty.js', "data-turbolinks-track": false %>
+    <%= javascript_include_tag 'lookups.js', "data-turbolinks-track": false %>
   <link rel="manifest" href="/manifest.json" />
 <meta name="apple-mobile-web-app-capable" content="yes"></head>
   <body>
@@ -27,7 +28,7 @@
     <% end %>
 
     <div id="product-modal" class="modal fade"></div>
-    
+
     <div id="push"></div>
 
     <script>
@@ -52,30 +53,7 @@
         fillClass: 'barChart__barFill'
       });
 
-      //tabs
-      // Get the element with id="defaultOpen" and click on it
-      document.getElementById("defaultOpen").click();
-
-      function openCity(evt, cityName) {
-        // Declare all variables
-        var i, tabcontent, tablinks;
-
-        // Get all elements with class="tabcontent" and hide them
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-
-        // Get all elements with class="tablinks" and remove the class "active"
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-
-        // Show the current tab, and add an "active" class to the button that opened the tab
-        document.getElementById(cityName).style.display = "block";
-        evt.currentTarget.className += " active";
-      }
+      
 
       //modal
       $('.button').click(function(){
@@ -88,21 +66,6 @@
         $(this).addClass('out');
         $('body').removeClass('modal-active');
       });
-
-      //textarea auto adjust
-      var textarea = document.querySelector('textarea');
-
-      textarea.addEventListener('keydown', autosize);
-
-      function autosize(){
-        var el = this;
-        setTimeout(function(){
-          el.style.cssText = 'height:auto; padding:0';
-          // for box-sizing other than "content-box" use:
-          // el.style.cssText = '-moz-box-sizing:content-box';
-          el.style.cssText = 'height:' + el.scrollHeight + 'px';
-        },0);
-      }
 
 
     </script>

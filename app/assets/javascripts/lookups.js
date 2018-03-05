@@ -1,35 +1,35 @@
-jQuery(document).on('turbolinks:load', function() {
-  return $('#to').select2({
-    ajax: {
-      url: '/lookups',
-      data: function(params) {
-        return {
-          term: params.term
-        };
-      },
-      dataType: 'json',
-      delay: 500,
-      processResults: function(data, params) {
-        return {
-          results: _.map(data, function(el) {
-            return {
-              id: el.id,
-              name: el.title + ", " + el.description
-            };
-          })
-        };
-      },
-      cache: true
-    },
-    escapeMarkup: function(markup) {
-      return markup;
-    },
-    minimumInputLength: 2,
-    templateResult: function(item) {
-      return item.title;
-    },
-    templateSelection: function(item) {
-      return item.title;
-    }
-  });
-});
+
+var app = window.app = {};
+
+app.Lookups = function() {
+  this._input = $('#books-search-txt');
+  this._initAutocomplete();
+};
+
+app.Lookups.prototype = {
+  _initAutocomplete: function() {
+    this._input
+      .autocomplete({
+        source: '/lookups',
+        appendTo: '#books-search-results',
+        select: $.proxy(this._select, this)
+      })
+      .autocomplete('instance')._renderItem = $.proxy(this._render, this);
+  },
+
+  _render: function(ul, item) {
+    var markup = [
+
+      '<span>' + item.title + '</span>',
+
+    ];
+    return $('<li>')
+      .append(markup.join(''))
+      .appendTo(ul);
+  },
+
+  _select: function(e, ui) {
+    this._input.val(ui.item.title);
+    return false;
+  }
+};

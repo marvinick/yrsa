@@ -50,7 +50,6 @@ gem 'underscore-rails'
 gem 'link_thumbnailer'
 gem 'paperclip'
 gem 'aws-sdk', '< 3.0'
-gem 'dropzonejs-rails'
 gem 'delayed_paperclip'
 
 #prograssive web app

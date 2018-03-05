@@ -2,6 +2,8 @@
   <%= text_field_tag 'term', params[:term], placeholder: "Enter user's name or surname" %>
   <%= submit_tag 'Search!' %>
 <% end %>
+
+
 <br>
 <ul>
   <% @projects.each do |project| %>
@@ -13,7 +15,14 @@
   <% end %>
 </ul>
 
-<%= form_tag '' do %>
-  <%= label_tag 'to' %>
-  <%= select_tag 'to', nil, style: 'width: 100%' %>
-<% end %>
+<div class="books-search">
+  <input type="text" id="books-search-txt" autofocus>
+  <div class="results" id="books-search-results"></div>
+</div>
+
+
+<script>
+  $(function() {
+    new app.Lookups;
+  });
+</script>

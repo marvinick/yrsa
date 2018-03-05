@@ -8,7 +8,7 @@ class LookupsController < ApplicationController
       else
         @projects = Project.all
       end
-      format.json
+      format.json 
       format.html
     end
   end
