@@ -8,11 +8,11 @@
 
     <% if user_signed_in? %>
       <% if @account %>
-        <%= link_to account_lookups_path(@account) do %>
+        <%= link_to lookups_path(@account) do %>
           <i class="fa fa-search"> </i>
         <% end %>
       <% elsif current_account %>
-        <%= link_to account_lookups_path(current_account) do %>
+        <%= link_to lookups_path(current_account) do %>
           <i class="fa fa-search"> </i>
         <% end %>
       <% else %>
