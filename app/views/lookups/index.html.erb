@@ -1,8 +1,11 @@
-<%= form_tag lookups_path, method: :get do %>
-  <%= text_field_tag 'term', params[:term], placeholder: "Enter user's name or surname" %>
-  <%= submit_tag 'Search!' %>
-<% end %>
+<div class="books-search">
+  <%= form_tag lookups_path, method: :get do %>
+    <%= text_field_tag 'term', params[:term], id: "books-search-txt" %>
 
+    <%= submit_tag 'Search!', name: nil %>
+    <div class="results" id="books-search-results"></div>
+  <% end %>
+</div>
 
 <br>
 <ul>
@@ -14,12 +17,6 @@
     <% end %>
   <% end %>
 </ul>
-
-<div class="books-search">
-  <input type="text" id="books-search-txt" autofocus>
-  <div class="results" id="books-search-results"></div>
-</div>
-
 
 <script>
   $(function() {
