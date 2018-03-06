@@ -1,14 +1,24 @@
 class LookupsController < ApplicationController
   respond_to :html, :json
 
+  # def index
+  #   respond_to do |format|
+  #     if params[:term]
+  #       @projects = Project.search_by_full_name(params[:term]).with_pg_search_highlight
+  #     else
+  #       @projects = Project.all
+  #     end
+  #     format.json { render json: @projects.to_json }
+  #     format.html
+  #   end
+  # end
+
   def index
     respond_to do |format|
       if params[:term]
-        @projects = Project.search_by_full_name(params[:term]).with_pg_search_highlight
-      else
-        @projects = Project.all
+        @projects = PgSearch.multisearch(params[:term])
       end
-      format.json 
+      format.json { render json: @projects.to_json }
       format.html
     end
   end

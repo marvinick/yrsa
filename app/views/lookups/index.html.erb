@@ -8,15 +8,7 @@
 </div>
 
 <br>
-<ul>
-  <% @projects.each do |project| %>
-    <% if project.respond_to?(:pg_search_highlight) %>
-      <%= project.pg_search_highlight.html_safe %>
-    <% else %>
-      <%= project.title %>
-    <% end %>
-  <% end %>
-</ul>
+
 
 <script>
   $(function() {
