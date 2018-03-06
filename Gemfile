@@ -23,7 +23,6 @@ gem "twitter-bootstrap-rails"
 gem 'font-awesome-sass'
 
 #form
-gem "cocoon"
 gem 'simple_form'
 
 #notification / activity
@@ -43,14 +42,9 @@ gem 'money'
 #search / sorting
 gem 'pg_search'
 gem 'jquery-ui-rails'
-gem 'select2-rails'
-gem 'underscore-rails'
 
-#upload images
+#images
 gem 'link_thumbnailer'
-gem 'paperclip'
-gem 'aws-sdk', '< 3.0'
-gem 'delayed_paperclip'
 
 #prograssive web app
 gem 'serviceworker-rails'

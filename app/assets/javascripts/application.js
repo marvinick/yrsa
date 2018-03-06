@@ -16,12 +16,9 @@
 //= require growlyflash
 //= require twitter/bootstrap
 //= require turbolinks
-//= require cocoon
 //= require sweetalert2
 //= require sweet-alert2-rails
 //= require jquery-ui/widgets/autocomplete
-//= require underscore
-//= require select2
 //= require lookups
 //= require_tree .
 
