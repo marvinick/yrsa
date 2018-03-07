@@ -2,26 +2,26 @@ class Project < ApplicationRecord
 
   include PgSearch
 
-  # pg_search_scope :search_by_full_name, against: [:title, :description],
-  #   using: {
-  #      tsearch: {
-  #        prefix: true,
-  #        highlight: {
-  #          start_sel: '<b style="background-color:yellow;">',
-  #          stop_sel: '</b>'
-  #        }
-  #      }
-  #    }
-  multisearchable against: [:title, :description],
+  pg_search_scope :search_by_full_name, against: [:title, :description],
     using: {
-      tsearch: {
-        prefix: true,
-        highlight: {
-          start_sel: '<b style="background-color:yellow;">',
-          stop_sel: '</b>'
-        }
-      }
-    }
+       tsearch: {
+         prefix: true,
+         highlight: {
+           start_sel: '<b style="background-color:yellow;">',
+           stop_sel: '</b>'
+         }
+       }
+     }
+  # multisearchable against: [:title],
+  #   using: {
+  #     tsearch: {
+  #       prefix: true,
+  #       highlight: {
+  #         start_sel: '<b style="background-color:yellow;">',
+  #         stop_sel: '</b>'
+  #       }
+  #     }
+  #   }
 
 
   belongs_to :account, optional: true

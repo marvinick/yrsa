@@ -19,12 +19,9 @@ app.Lookups.prototype = {
 
   _render: function(ul, item) {
     var markup = [
-
       '<span class="title">' + item.title + '</span>',
-      '<span class="author">' + item.description + '</span>',
-      '<span class="price">' + item.updated_at + '</span>',
-      '<span class="title">' + item.name + '</span>',
-      '<span class="title">' + item.content + '</span>',
+      '<span class="author">' + item.content + '</span>',
+      '<span class="price">' + item.updated_at + '</span>'
     ];
     return $('<li>')
       .append(markup.join(''))

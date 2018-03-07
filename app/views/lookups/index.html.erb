@@ -9,6 +9,26 @@
 
 <br>
 
+<% if params[:term] %>
+    <% if @pg_search_documents.present? %>
+
+      <% @pg_search_documents.each do |pg_search| %>
+        <% if pg_search.searchable.respond_to?(:title) %>
+          <li><%= link_to pg_search.searchable.title %> (project)</li>
+        <% elsif pg_search.searchable.respond_to?(:name)  %>
+          <li><%= link_to pg_search.searchable.name %> (item)</li>
+        <% end %>
+      <% end %>
+    <% else %>
+
+
+    <% end %>
+
+
+
+
+<% end %>
+
 
 <script>
   $(function() {
