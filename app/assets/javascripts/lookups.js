@@ -19,9 +19,11 @@ app.Lookups.prototype = {
 
   _render: function(ul, item) {
     var markup = [
-      '<span class="title">' + item.title + '</span>',
-      '<span class="author">' + item.content + '</span>',
-      '<span class="price">' + item.updated_at + '</span>'
+
+      '<span class="title">' + item.name + '</a></span>',
+      '<span class="title">' + item.content + '</a></span>',
+      '<span class="title">' + item.created_at + '</a></span>',
+
     ];
     return $('<li>')
       .append(markup.join(''))
@@ -29,7 +31,7 @@ app.Lookups.prototype = {
   },
 
   _select: function(e, ui) {
-    this._input.val(ui.item.title);
+    this._input.val(ui.item.name);
     return false;
   }
 };

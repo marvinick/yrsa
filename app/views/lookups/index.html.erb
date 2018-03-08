@@ -1,6 +1,6 @@
 <div class="books-search">
   <%= form_tag lookups_path, method: :get do %>
-    <%= text_field_tag 'term', params[:term], id: "books-search-txt" %>
+    <%= text_field_tag 'term', params[:term], id: "books-search-txt", autofocus: true %>
 
     <%= submit_tag 'Search!', name: nil %>
     <div class="results" id="books-search-results"></div>
@@ -21,11 +21,7 @@
       <% end %>
     <% else %>
 
-
     <% end %>
-
-
-
 
 <% end %>
 
