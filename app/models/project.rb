@@ -12,16 +12,16 @@ class Project < ApplicationRecord
   #        }
   #      }
   #    }
-  # multisearchable against: [:title],
-  #   using: {
-  #     tsearch: {
-  #       prefix: true,
-  #       highlight: {
-  #         start_sel: '<b style="background-color:yellow;">',
-  #         stop_sel: '</b>'
-  #       }
-  #     }
-  #   }
+  multisearchable against: [:title],
+    using: {
+      tsearch: {
+        prefix: true,
+        highlight: {
+          start_sel: '<b style="background-color:yellow;">',
+          stop_sel: '</b>'
+        }
+      }
+    }
 
 
   belongs_to :account, optional: true

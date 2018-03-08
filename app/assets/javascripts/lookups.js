@@ -22,7 +22,8 @@ app.Lookups.prototype = {
 
       '<span class="title">' + item.name + '</a></span>',
       '<span class="title">' + item.content + '</a></span>',
-      '<span class="title">' + item.created_at + '</a></span>',
+      '<span class="title">' + item.title + '</a></span>',
+      '<span class="title">' + item.description + '</a></span>',
 
     ];
     return $('<li>')
