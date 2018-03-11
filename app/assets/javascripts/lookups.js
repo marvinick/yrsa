@@ -18,14 +18,20 @@ app.Lookups.prototype = {
   },
 
   _render: function(ul, item) {
+
+    if (!item.name) {
+      item.name = '';
+    }
+    if (!item.title) {
+      item.title = '';
+    }
+
     var markup = [
 
       '<span class="title">' + item.name + '</a></span>',
-      '<span class="title">' + item.content + '</a></span>',
       '<span class="title">' + item.title + '</a></span>',
-      '<span class="title">' + item.description + '</a></span>',
-
     ];
+
     return $('<li>')
       .append(markup.join(''))
       .appendTo(ul);
