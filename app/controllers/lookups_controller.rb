@@ -17,7 +17,7 @@ class LookupsController < ApplicationController
 
     respond_to do |format|
       if params[:term]
-        @pg_search_documents = PgSearch.multisearch(params[:term]).where(:searchable_id => project_ids)
+        @pg_search_documents = PgSearch.multisearch(params[:term]).where(:searchable_id => project_ids).or(PgSearch.multisearch(params[:term]).where(:searchable_id => item_ids))
       end
       format.json { @pg_search_documents }
       format.html
