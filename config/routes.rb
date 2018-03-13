@@ -59,9 +59,7 @@
       end
     end
 
-
   end
-
   resources :lookups
 
   namespace :admin do

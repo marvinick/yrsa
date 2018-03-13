@@ -14,11 +14,10 @@ class LookupsController < ApplicationController
   # end
 
   def index
-    project_ids = current_account.projects.all
-    item_ids = set_project.items.all
+
     respond_to do |format|
       if params[:term]
-        @pg_search_documents = PgSearch.multisearch(params[:term]).where()
+        @pg_search_documents = PgSearch.multisearch(params[:term]).where(:searchable_id => project_ids)
       end
       format.json { @pg_search_documents }
       format.html
@@ -26,6 +25,30 @@ class LookupsController < ApplicationController
   end
 
   private
+
+  def project_ids
+    all_projects = []
+    current_user.all_accounts.each do |account|
+      account.projects.each do |project|
+        all_projects << project.id
+      end
+    end
+    all_projects
+  end
+  helper_method :project_ids
+
+  def item_ids
+    all_items = []
+    current_user.all_accounts.each do |account|
+      account.projects.each do |project|
+        project.items.each do |item|
+          all_items << item.id
+        end
+      end
+    end
+    all_items
+  end
+  helper_method :item_ids
 
   def set_project
     current_account.projects.find_by slug: params[:project_id]
