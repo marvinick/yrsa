@@ -21,9 +21,9 @@
           <% end %>
           <% if controller_name != "lookups" %>
             <% if @account %>
-              <li><%= link_to " lookup", lookups_path(@account), class: "fa fa-search" %></li>
+              <li><%= link_to " lookup", lookups_path(@account),  class: "fa fa-search" %></li>
             <% elsif current_account %>
-              <li><%= link_to " lookup", lookups_path(current_account), class: "fa fa-search" %></li>
+              <li><%= link_to " lookup", lookups_path(current_account),  class: "fa fa-search" %></li>
             <% end %>
           <% end %>
         <% end %>
@@ -54,4 +54,4 @@
   </div>
 </nav>
 
-<div id="product-modal" class="modal fade"></div>
+<div id="product-modal" class="modal"></div>

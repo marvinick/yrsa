@@ -14,7 +14,7 @@ class LookupsController < ApplicationController
   # end
 
   def index
-
+    
     respond_to do |format|
       if params[:term]
         @pg_search_documents = PgSearch.multisearch(params[:term]).where(:searchable_id => project_ids).or(PgSearch.multisearch(params[:term]).where(:searchable_id => item_ids))
@@ -35,7 +35,6 @@ class LookupsController < ApplicationController
     end
     all_projects
   end
-  helper_method :project_ids
 
   def item_ids
     all_items = []
@@ -48,7 +47,6 @@ class LookupsController < ApplicationController
     end
     all_items
   end
-  helper_method :item_ids
 
   def set_project
     current_account.projects.find_by slug: params[:project_id]

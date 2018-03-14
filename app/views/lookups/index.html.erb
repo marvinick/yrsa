@@ -1,35 +1,37 @@
-<div class="books-search">
-  <%= form_tag lookups_path, method: :get do %>
-    <%= text_field_tag 'term', params[:term], id: "books-search-txt", autofocus: true %>
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-body">
+      <div class="books-search">
+        <%= form_tag lookups_path, method: :get do %>
+          <%= text_field_tag 'term', params[:term], id: "books-search-txt", autofocus: true %>
 
-    <%= submit_tag 'Search!', name: nil %>
-    <div class="results" id="books-search-results"></div>
-  <% end %>
-</div>
-
-<br>
-
-<%= item_ids %>
-
-<% if params[:term] %>
-    <% if @pg_search_documents.present? %>
-
-      <% @pg_search_documents.each do |pg_search| %>
-        <% if pg_search.searchable.respond_to?(:title) %>
-          <li><%= link_to pg_search.searchable.title %> (project)</li>
-        <% elsif pg_search.searchable.respond_to?(:name)  %>
-          <li><%= link_to pg_search.searchable.name %> (item)</li>
+          <%= submit_tag 'Search!', name: nil %>
+          <div class="results" id="books-search-results"></div>
         <% end %>
+      </div>
+
+      <br>
+
+      <% if params[:term] %>
+          <% if @pg_search_documents.present? %>
+
+            <% @pg_search_documents.each do |pg_search| %>
+              <% if pg_search.searchable.respond_to?(:title) %>
+                <li><%= link_to pg_search.searchable.title %> (project)</li>
+              <% elsif pg_search.searchable.respond_to?(:name)  %>
+                <li><%= link_to pg_search.searchable.name %> (item)</li>
+              <% end %>
+            <% end %>
+          <% else %>
+
+          <% end %>
+
       <% end %>
-    <% else %>
-
-    <% end %>
-
-<% end %>
-
-
-<script>
-  $(function() {
-    new app.Lookups;
-  });
-</script>
+    </div>
+  </div>
+  <script>
+    $(function() {
+      new app.Lookups;
+    });
+  </script>
+</div>
