@@ -19,13 +19,7 @@
           <% if controller_name != "activities" %>
             <li><%= link_to " activity", activities_path, class: "fa fa-history" %></li>
           <% end %>
-          <% if controller_name != "lookups" %>
-            <% if @account %>
-              <li><%= link_to " lookup", lookups_path(@account),  class: "fa fa-search" %></li>
-            <% elsif current_account %>
-              <li><%= link_to " lookup", lookups_path(current_account),  class: "fa fa-search" %></li>
-            <% end %>
-          <% end %>
+          <li><%= link_to " lookup", lookups_path, remote: true, class: "fa fa-search" %></li>
         <% end %>
       </ul>
 
@@ -54,4 +48,4 @@
   </div>
 </nav>
 
-<div id="product-modal" class="modal"></div>
+<div id="product-modal" class="modal fade"></div>
