@@ -28,7 +28,9 @@
  @import "animate";
  @import "lookups";
 
- 
+ .modal-backdrop {
+    background: none;
+ }
 
 html, body {
   background-color: #f9f9f9;

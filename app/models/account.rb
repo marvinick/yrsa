@@ -1,4 +1,16 @@
 class Account < ApplicationRecord
+  include PgSearch
+  multisearchable against: [:name],
+    using: {
+      tsearch: {
+        prefix: true,
+        highlight: {
+          start_sel: '<b style="background-color:yellow;">',
+          stop_sel: '</b>'
+        }
+      }
+    }
+    
   belongs_to :owner, class_name: "User", optional: true
   accepts_nested_attributes_for :owner
 

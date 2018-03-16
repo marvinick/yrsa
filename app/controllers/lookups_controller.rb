@@ -3,11 +3,19 @@ class LookupsController < ApplicationController
 
   def index
     if params[:term]
-      @pg_search_documents = PgSearch.multisearch(params[:term]).where(:searchable_id => project_ids).or(PgSearch.multisearch(params[:term]).where(:searchable_id => item_ids))
+      @pg_search_documents = PgSearch.multisearch(params[:term]).where(:searchable_id => project_ids).or(PgSearch.multisearch(params[:term]).where(:searchable_id => item_ids)).or(PgSearch.multisearch(params[:term]).where(:searchable_id => account_ids))
     end
   end
 
   private
+
+  def account_ids
+    all_accounts = []
+    current_user.all_accounts.each do |account|
+      all_accounts << account.id
+    end
+    all_accounts
+  end
 
   def project_ids
     all_projects = []
