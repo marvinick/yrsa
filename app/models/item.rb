@@ -1,5 +1,6 @@
-class Item < ApplicationRecord
+require "link_thumbnailer"
 
+class Item < ApplicationRecord
   include PgSearch
   # pg_search_scope :search_by_full_name, against: [:name, :content],
   #   using: {
