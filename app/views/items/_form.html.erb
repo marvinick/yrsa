@@ -3,17 +3,11 @@
     <div class="row">
       <div class="col-md-8">
         <%= f.hidden_field :project_id %>
-        <div class="control">
-          <%= f.text_field :name, placeholder: 'name', autofocus: true, label: false, class: "input ", :maxlength => 25, :size => 40 %>
-        </div>
+        <%= f.text_field :name, placeholder: 'name', autofocus: true, label: false, class: "input ", :maxlength => 25, :size => 40 %>
         <br>
-        <div class="control">
-          <%= f.text_area :content, placeholder: 'content', label: false, autofocus: true, class: "input", :maxlength => 280, :size => 40  %>
-        </div>
+        <%= f.text_area :content, placeholder: 'content', label: false, autofocus: true, class: "input", :maxlength => 280, :size => 40  %>
         <br>
-        <!-- <div class="control">
-          <%= f.file_field :image, class:"btn btn-default"  %>
-        </div> -->
+        <%= f.text_field :link, placeholder: "add a url here for image", autofocus: true, class: "input" %>
       </div>
       <div class="col-md-1"></div>
       <div class="col-md-3">

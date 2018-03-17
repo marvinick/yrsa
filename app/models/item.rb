@@ -2,16 +2,7 @@ require "link_thumbnailer"
 
 class Item < ApplicationRecord
   include PgSearch
-  # pg_search_scope :search_by_full_name, against: [:name, :content],
-  #   using: {
-  #      tsearch: {
-  #        prefix: true,
-  #        highlight: {
-  #          start_sel: '<b style="background-color:yellow;">',
-  #          stop_sel: '</b>'
-  #        }
-  #      }
-  #    }
+  
   multisearchable against: [:name],
     using: {
       tsearch: {

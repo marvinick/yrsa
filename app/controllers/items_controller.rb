@@ -11,7 +11,7 @@ class ItemsController < BaseController
 
   def new
     @project = current_account.projects.find_by slug: params[:project_id]
-    @item = @project.items.build 
+    @item = @project.items.build
   end
 
   def create
@@ -56,7 +56,7 @@ class ItemsController < BaseController
   private
 
   def item_params
-    params.require(:item).permit(:term, :name, :content, :image, :project_id, :account_id, detail_ids: [], details_attributes: [:id, :name, :description, :value, :_destroy ])
+    params.require(:item).permit(:term, :name, :content, :image, :project_id, :link, :account_id, detail_ids: [], details_attributes: [:id, :name, :description, :value, :_destroy ])
   end
 
   def set_item
