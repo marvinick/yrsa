@@ -1,10 +1,14 @@
 <%= div_for @item do %>
   <div class="formy">
-    <% if @item.link.present? %>
-      <div class="col-md-6">
-        <%= image_tag LinkThumbnailer.generate(@item.link).images.first.src.to_s, class: "img-responsive" %>
-      </div>
-    <% end %>
+    <div class="col-md-6">
+      <% url = generate_url_attributes_preview(@item.link) %>
+
+      <% if !url.empty? %>
+        <%= image_tag(url, class: "img-responsive") %>
+      <% end %>
+
+    </div>
+
     <% if @project.user_id == current_user.id %>
       <%= link_to edit_account_project_item_path(current_account, set_project, @item), remote: true do  %>
         <span class="fa fa-ellipsis-h pull-right"></span>

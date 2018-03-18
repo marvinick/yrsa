@@ -60,7 +60,7 @@ LinkThumbnailer.configure do |config|
   # Note that LinkThumbnailer will only sort fetched images between each other.
   # Meaning that they could be a "better" image on the page.
   #
-  # config.image_limit = 5
+  config.image_limit = 3
 
   # Whether you want LinkThumbnailer to return image size and type or not.
   # Setting this value to false will increase performance since for each images, LinkThumbnailer
@@ -71,7 +71,7 @@ LinkThumbnailer.configure do |config|
   # Whether you want LinkThumbnailer to raise an exception if the Content-Type of the HTTP request
   # is not an html or xml.
   #
-  # config.raise_on_invalid_format = false
+  config.raise_on_invalid_format = true
 
   # Sets number of concurrent http connections that can be opened to fetch images informations such as size and type.
   #
