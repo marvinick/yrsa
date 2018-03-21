@@ -1,5 +1,6 @@
 class ReviewsController < BaseController
   include PublicActivity::StoreController
+  after_create :create_notifications
 
   before_action :set_item
   before_action :set_review, only: [:show, :edit, :update, :destroy]
@@ -49,6 +50,15 @@ class ReviewsController < BaseController
   def confirm; end
 
   private
+
+  def recipients
+  end
+
+  def create_notifications
+    recipients.each do |recipient|
+      Notification.creat(recipient: recipient, actor: self.user, action: 'posted', notifiable: self)
+    end
+  end
 
   def authorize_reviewer
     if @review.user_id != current_user.id

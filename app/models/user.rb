@@ -20,5 +20,6 @@ class User < ApplicationRecord
     owned_accounts + accounts
   end
 
-  has_many :notifications, foreign_key: :recipient_id 
+  has_many :notifications, foreign_key: :recipient_id
+  has_many :items
 end
