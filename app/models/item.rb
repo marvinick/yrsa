@@ -35,14 +35,4 @@ class Item < ApplicationRecord
   def to_param
     self.slug
   end
-
-  acts_as_notifiable :users,
-    targets: ->(item, key) {
-
-    }
-    # notifiable_path: notifiable_path
-
-  def project_notifiable_path
-    account_project_path
-  end
 end

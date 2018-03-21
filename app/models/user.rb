@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  acts_as_target
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -20,4 +19,6 @@ class User < ApplicationRecord
   def all_accounts
     owned_accounts + accounts
   end
+
+  has_many :notifications, foreign_key: :recipient_id 
 end

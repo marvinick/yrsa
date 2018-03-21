@@ -1,7 +1,6 @@
   Rails.application.routes.draw do
 
   devise_for :users
-  notify_to :users
 
   get "/home", to: "home#home", as: :home
 
