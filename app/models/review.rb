@@ -1,5 +1,6 @@
 class Review < ApplicationRecord
   include PublicActivity::Model
+  after_create :create_notifications
   # tracked owner: ->(controller, model) { controller && controller.current_user }
   tracked
 
@@ -10,5 +11,13 @@ class Review < ApplicationRecord
 
   belongs_to :item, optional: true
   serialize :properties, Hash
+
+  def recipients
+  end
+
+  def create_notifications
+    recipients.each do |recipient|
+      Notification.creat(recipient: recipient, actor: self.user, action: 'posted', notifiable: self)
+    end
+  end
 end
- 
