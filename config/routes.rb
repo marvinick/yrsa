@@ -76,4 +76,8 @@
   post "/stripe/webhook", to: "stripe_webhooks#receive"
 
   resources :activities
+  resources :notifications, only: [:index] do
+    post :mark_as_read, on: :collection
+    post :mark_as_read, on: :member
+  end
 end
