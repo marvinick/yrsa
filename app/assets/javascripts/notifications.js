@@ -21,6 +21,14 @@ $(function() {
       });
     };
 
+    Notifications.prototype.notificationClick = function(e) {
+       return $.ajax({
+         url: "/notifications/" + e.currentTarget.id + "/mark_as_read",
+         dataType: 'JSON',
+         method: 'POST'
+       });
+     };
+
     Notifications.prototype.handleSuccess = function(data) {
       var items;
       items = $.map(data, function(notification) {
@@ -28,6 +36,7 @@ $(function() {
       });
       $("[data-behavior='unread-count']").text(items.length);
       return $("[data-behavior='notification-items']").append(items);
+      $("[data-behavior='notification-link']").on('click', this.notificationClick);
     };
 
     return Notifications;
