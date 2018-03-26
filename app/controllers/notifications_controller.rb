@@ -15,6 +15,7 @@ class NotificationsController < ApplicationController
     end
 
     respond_to do |format|
+      format.js
       format.json { render json: { success: true } }
     end
   end
@@ -23,4 +24,5 @@ class NotificationsController < ApplicationController
 
   def set_notifications
     @notifications = Notification.where(recipient: current_user).unread
+  end
 end
