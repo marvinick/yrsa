@@ -5,19 +5,20 @@ class Review < ApplicationRecord
   tracked
 
   belongs_to :user
+  belongs_to :item, optional: true
 
   validates_presence_of :description
   validates_length_of :description, :minimum => 5, :maximum => 280, :allow_blank => false
 
-  belongs_to :item, optional: true
   serialize :properties, Hash
 
   def recipients
+    Project.users
   end
 
   def create_notifications
     recipients.each do |recipient|
-      Notification.creat(recipient: recipient, actor: self.user, action: 'posted', notifiable: self)
+      Notification.create(recipient: recipient, actor: self.user, action: 'posted', notifiable: self)
     end
   end
 end

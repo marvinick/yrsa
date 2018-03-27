@@ -1,4 +1,4 @@
-  Rails.application.routes.draw do
+Rails.application.routes.draw do
 
   devise_for :users
 
@@ -40,11 +40,7 @@
       resources :details
 
       resources :items do
-        resources :reviews do
-          member do
-            get :confirm
-          end
-        end
+        resources :reviews
         resources :details
       end
 
@@ -76,7 +72,7 @@
   post "/stripe/webhook", to: "stripe_webhooks#receive"
 
   resources :activities
-  
+
   resources :notifications, only: [:index] do
     post :mark_as_read, on: :collection
     post :mark_as_read, on: :member

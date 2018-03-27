@@ -12,3 +12,4 @@ json.array!(@pg_search_documents) do |pg_search|
     json.url root_url
   end
 end
+ 
