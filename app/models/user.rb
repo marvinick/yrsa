@@ -10,8 +10,6 @@ class User < ApplicationRecord
   has_many :memberships
   has_many :accounts, through: :memberships
 
-  has_many :reviews, dependent: :destroy \
-
   def owned_accounts
     Account.where(owner: self)
   end
@@ -21,5 +19,6 @@ class User < ApplicationRecord
   end
 
   has_many :notifications, foreign_key: :recipient_id
-  has_many :items
+  has_many :items, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 end

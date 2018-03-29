@@ -20,6 +20,7 @@ class Item < ApplicationRecord
   has_many :details, through: :detail_items
   has_many :details, dependent: :nullify
 
+  belongs_to :user
   has_many :reviews, dependent: :destroy
 
   validates_presence_of :name, length: {minimum: 5, maximum: 20}, allow_blank: false

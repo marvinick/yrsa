@@ -20,6 +20,7 @@
 //= require sweet-alert2-rails
 //= require jquery-ui/widgets/autocomplete
 //= require lookups
+//= require notifications
 //= require_tree .
 
 Growlyflash.defaults = $.extend(true, Growlyflash.defaults, {
