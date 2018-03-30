@@ -1,11 +1,11 @@
-class NotificationsController < BaseController
-  before_action :autheticate_user!
+class NotificationsController < ApplicationController
+  # before_action :autheticate_user!
   before_action :set_notifications
 
   respond_to :html, :json
 
   def index
-    @notifications = @target.notifications
+    # @notifications = @target.notifications
   end
 
   def mark_as_read

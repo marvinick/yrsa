@@ -1,23 +1,45 @@
-$ ->
-  class Notifications
-    constructor: ->
-      @getNewNotifications()
-      @notifications = $("[data-behavior='notifications']")
+var bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-      if @notifications.length > 0
-        @handleSuccess @notifications.data('notifications')
+$(function() {
+  var Notifications;
+  return Notifications = (function() {
+    function Notifications() {
+      this.handleSuccess = bind(this.handleSuccess, this);
+      this.getNewNotifications();
+      this.notifications = $("[data-behavior='notifications']");
+      if (this.notifications.length > 0) {
+        this.handleSuccess(this.notifications.data('notifications'));
+      }
+    }
 
-    getNewNotifications: ->
-      $.ajax(
-        url: '/notifications.json'
-        dataType: 'JSON'
-        method: 'GET'
-        success: @handleSuccess
-      )
+    Notifications.prototype.getNewNotifications = function() {
+      return $.ajax({
+        url: '/notifications.json',
+        dataType: 'JSON',
+        method: 'GET',
+        success: this.handleSuccess
+      });
+    };
 
-    handleSuccess: (data) =>
-      items = $.map data, (notification) ->
-        notifications.template
+    Notifications.prototype.notificationClick = function(e) {
+       return $.ajax({
+         url: "/notifications/" + e.currentTarget.id + "/mark_as_read",
+         dataType: 'JSON',
+         method: 'POST'
+       });
+     };
 
-      $("[data-behavior='unread-count']").text(items.length)
-      $("[data-behavior='notification-items']").append(items)
+    Notifications.prototype.handleSuccess = function(data) {
+      var items;
+      items = $.map(data, function(notification) {
+        return notifications.template;
+      });
+      $("[data-behavior='unread-count']").text(items.length);
+      return $("[data-behavior='notification-items']").append(items);
+      $("[data-behavior='notification-link']").on('click', this.notificationClick);
+    };
+
+    return Notifications;
+
+  })();
+});

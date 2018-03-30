@@ -1,5 +1,5 @@
 <li>
-  <%= link_to notification.notifiable, 'data-behavior': 'notification-link', id: notification.id do %>
+
     <div class="media">
       <div class="media-left media-middle">
         <!-- Maybe put the actor's avatar here
@@ -12,24 +12,24 @@
           <%= notification.created_at %>
         </span>
         <p>
-          <strong> 
-            <%= notification.actor.full_name %>
+          <strong>
+            <%= notification.actor %>
           </strong>
           <%= t("notifications.actions.#{notification.action}") %>
           a new
           <%= notification.notifiable.class.model_name.human.downcase %>
           in
           <strong>
-            <%= notification.notifiable.post.title %>
+            <%= notification.notifiable %>
           </strong>
         </p>
         <p class="small text-muted">
           <i>
-            <%= truncate(notification.notifiable.body, length: 100) %>
+            <%= truncate(notification.notifiable.description, length: 100) %>
           </i>
         </p>
       </div>
     </div>
-  <% end %>
+
 </li>
 <li class="divider"></li>
