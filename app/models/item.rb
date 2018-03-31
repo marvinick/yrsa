@@ -22,6 +22,7 @@ class Item < ApplicationRecord
 
   belongs_to :user
   has_many :reviews, dependent: :destroy
+  has_many :users, through: :reviews
 
   validates_presence_of :name, length: {minimum: 5, maximum: 20}, allow_blank: false
   validates :content, length: {minimum: 5, maximum: 280}, allow_blank: false

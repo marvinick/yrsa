@@ -2,7 +2,7 @@ class Review < ApplicationRecord
   include PublicActivity::Model
   # tracked owner: ->(controller, model) { controller && controller.current_user }
   tracked
-  
+
   after_create :create_notifications
 
   belongs_to :user
