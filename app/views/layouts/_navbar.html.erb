@@ -27,8 +27,8 @@
       <ul class="nav navbar-nav navbar-right">
 
         <% if user_signed_in? %>
-          <li class="dropdown" data-behavior="notifications">
-            <a aria-expanded="<%= false %>" class="dropdown-toggle" data-toggle="dropdown" role="button">
+          <li class="dropdown" data-behavior="notifications" data-notifications='<%= render template: "notifications/index", formats: [:json] %>'>
+            <a aria-expanded="<%= false %>" class="dropdown-toggle" data-toggle="dropdown" role="button" data-behavior="notifications-link">
               <span class="fa fa-bell"></span>
               <span class="badge" data-behavior="unread-count"></span>
             </a>
