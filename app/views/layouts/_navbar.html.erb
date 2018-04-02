@@ -25,24 +25,20 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-
+        <li class="nav-item btn-group" data-behavior="notifications" data-notifications='<%= render template: "notifications/index", formats: [:json] %>'>
+          <a class="dropdown-toggle nav-link" type="button" data-behavior="notifications-link" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="fa fa-bell" data-behavior="unread-count"></span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu1" data-behavior="notification-items">
+            <!--
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            -->
+          </div>
+        </li>
         <% if user_signed_in? %>
-          <li class="dropdown" data-behavior="notifications" data-notifications='<%= render template: "notifications/index", formats: [:json] %>'>
-            <a aria-expanded="<%= false %>" class="dropdown-toggle" data-toggle="dropdown" role="button" data-behavior="notifications-link">
-              <span class="fa fa-bell"></span>
-              <span class="badge" data-behavior="unread-count"></span>
-            </a>
-            <ul class="dropdown-menu" data-behavior="notification-items" id="notifications">
-              <li class="dropdown-header text-uppercase">Notification</li>
-              <% if current_user.notifications.unread.empty? %>
-                <li>
-                  <div class="container-fluid">
-                    <p class="text-center small">No new notifications</p>
-                  </div>
-                </li>
-              <% end %>
-            </ul>
-          </li>
+
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               <icon class="fa fa-user"></icon>

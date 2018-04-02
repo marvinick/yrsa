@@ -11,8 +11,9 @@
     <%= javascript_include_tag "jquery.barChart.js", "data-turbolinks-track" => false %>
     <%= javascript_include_tag 'jquery.raty.js', "data-turbolinks-track": false %>
     <%= javascript_include_tag 'lookups.js', "data-turbolinks-track": false %>
-  <link rel="manifest" href="/manifest.json" />
-<meta name="apple-mobile-web-app-capable" content="yes"></head>
+
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="apple-mobile-web-app-capable" content="yes"></head>
   <body>
     <% if user_signed_in? %>
       <%= render "layouts/navbar" %>
@@ -34,15 +35,13 @@
     <script>
 
       //star
-
       $('.star-rating').raty({
         path: '/assets/',
         readOnly: true,
         score: function() {
-              return $(this).attr('data-score');
+          return $(this).attr('data-score');
         }
       });
-
 
       //chart
       $('.barChart').barChart({
@@ -52,8 +51,6 @@
         rowClass: 'barChart__row',
         fillClass: 'barChart__barFill'
       });
-
-      
 
       //modal
       $('.button').click(function(){

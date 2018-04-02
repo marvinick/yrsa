@@ -1,7 +1,6 @@
 class NotificationsController < ApplicationController
   # before_action :autheticate_user!
   before_action :set_notifications
-
   respond_to :html, :json
 
   def index
@@ -9,7 +8,7 @@ class NotificationsController < ApplicationController
   end
 
   def mark_as_read
-    @notifications = Notification.where(recipient: current_user).unread
+
     @notifications.update_all(read_at: Time.zone.now)
     render json: {success: true}
     # if params[:id]
@@ -28,6 +27,6 @@ class NotificationsController < ApplicationController
   private
 
   def set_notifications
-    @notifications = Notification.where(recipient: current_user)
+    @notifications = Notification.where(recipient: current_user).unread
   end
 end

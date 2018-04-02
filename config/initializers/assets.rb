@@ -3,6 +3,7 @@
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( lookups.js )
+
 Rails.application.config.assets.precompile += %w( plans.js )
 Rails.application.config.assets.precompile += %w( jquery.raty.js )
 Rails.application.config.assets.precompile += %w( jquery.barChart.js )

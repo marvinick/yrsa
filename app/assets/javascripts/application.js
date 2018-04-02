@@ -18,7 +18,7 @@
 //= require turbolinks
 //= require sweetalert2
 //= require sweet-alert2-rails
-//= require jquery-ui/widgets/autocomplete
+//= require jquery-ui
 //= require lookups
 //= require notifications
 //= require_tree .
@@ -44,5 +44,4 @@ window.sweetAlertConfirmConfig = {
 };
 
 
-//cards/lists tab
 //= require serviceworker-companion
