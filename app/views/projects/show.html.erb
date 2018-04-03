@@ -1,13 +1,10 @@
 <% @title= @project.title %>
-<br>
-<div class="formy">
-	<div class="row">
-		<%= render "header" %>
 
-	</div>
-	<br>
+
+<div class="row">
+	<%= render "header" %>
 </div>
-<br>
+
 
 <% if @project.user_id == current_user.id %>
 <!-- <div class="formy"> -->

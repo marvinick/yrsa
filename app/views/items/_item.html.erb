@@ -2,13 +2,12 @@
   <div class="col-md-3 col-sm-3 col-xs-6">
     <div class="box">
       <h4><strong><%= truncate(item.name, length: 15) %></strong></h4>
-      <br>
-       
-      <br>
-      <h5 style="color:#afafaf;"><%= truncate(item.content, length: 100) %></h5>
-      <hr>
-      <p><small><%= time_ago_in_words(item.created_at) %> ago</small></p>
-      <p><small>updated <%= time_ago_in_words(item.updated_at) %> ago</small></p>
+      <% url = generate_url_attributes_preview(item.link) %>
+
+      <% if !url.empty? %>
+        <%= image_tag(url, class: "img-responsive") %>
+      <% end %>
+
     </div>
   </div>
 <% end %>

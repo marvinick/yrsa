@@ -16,6 +16,11 @@ class ReviewsController < BaseController
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     if @review.save
+
+      recipients.each do |recipient|
+        Notification.create(recipient: recipient, actor: current_user, action: 'posted', notifiable: @review)
+      end
+
       flash[:notice] = "You've submitted a review."
       redirect_to account_project_item_path(current_account, set_project, set_item)
     else
@@ -49,6 +54,14 @@ class ReviewsController < BaseController
   def confirm; end
 
   private
+
+  def recipients
+    recipients = []
+    set_project.users.each do |user|
+      recipients << user
+    end
+    recipients
+  end
 
   def authorize_reviewer
     if @review.user_id != current_user.id

@@ -3,8 +3,6 @@ class Review < ApplicationRecord
   # tracked owner: ->(controller, model) { controller && controller.current_user }
   tracked
 
-  after_create :create_notifications
-
   belongs_to :user
   belongs_to :item, optional: true
 
@@ -13,13 +11,4 @@ class Review < ApplicationRecord
 
   serialize :properties, Hash
 
-  def recipients
-    User.all
-  end
-
-  def create_notifications
-    recipients.each do |recipient|
-      Notification.create(recipient: recipient, actor: self.user, action: 'posted', notifiable: self)
-    end
-  end
 end

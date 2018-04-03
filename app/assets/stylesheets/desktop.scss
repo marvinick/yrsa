@@ -9,6 +9,18 @@
     float: right;
   }
 
+  .project_title {
+    font-size: 38px;
+    font-weight: bolder;
+  }
+
+  .project_description {
+    margin-top: -20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #afafaf;
+  }
+
   h1 {
   	font-size: 50px;
   	font-weight: boldest;
@@ -95,7 +107,7 @@
   .box {
     margin-left: 0px;
     margin-right: 0px;
-    min-height: 375px;
+    min-height: 200px;
     max-height: 375px;
     width: 100%;
     margin-top: 5px;
@@ -349,12 +361,14 @@
   }
 
   .navbar {
-    height: 70px;
+    height: 50px;
     float: none;
     margin: 0 auto;
     display: block;
     text-align: center;
-
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
   }
 
   .navbar > li {

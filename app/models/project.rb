@@ -2,16 +2,6 @@ class Project < ApplicationRecord
 
   include PgSearch
 
-  # pg_search_scope :search_by_full_name, against: [:title, :description],
-  #   using: {
-  #      tsearch: {
-  #        prefix: true,
-  #        highlight: {
-  #          start_sel: '<b style="background-color:yellow;">',
-  #          stop_sel: '</b>'
-  #        }
-  #      }
-  #    }
   multisearchable against: [:title],
     using: {
       tsearch: {
@@ -23,7 +13,7 @@ class Project < ApplicationRecord
       }
     }
 
-
+  validates_length_of :description, :maximum => 50, :allow_blank => true
   belongs_to :account, optional: true
 
   has_many :user_projects
