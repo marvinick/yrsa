@@ -1,12 +1,11 @@
 <div class="new-project-button">
   <div class="col-md-9 col-sm-6 col-xs-6">
-    <h3>
-      Items
+    <p class="item_list">
       <% if @project.user_id == current_user.id %>
-    		<%= link_to "add item", new_account_project_item_path(current_account, @project), remote: true, class: "btn btn-default" %>
+    		<%= link_to "+ New Item", new_account_project_item_path(current_account, @project), remote: true, class: "btn btn-success btn-lg" %>
     	<% end %>
-    
-    </h3>
+
+    </p>
 
   </div>
   <div class="col-md-3 col-sm-6 col-xs-6">

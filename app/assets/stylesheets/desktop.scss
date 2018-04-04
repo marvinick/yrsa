@@ -21,6 +21,35 @@
     color: #afafaf;
   }
 
+  .item_name {
+    font-size: 30px;
+    font-weight: bolder;
+  }
+
+  .item_description {
+    margin-top: -20px;
+    font-size: 16px;
+    color: grey;
+  }
+
+  .item_rating {
+    margin-top: -20px;
+  }
+
+  .item_list {
+    font-size: 25px;
+  }
+
+  .project_users {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .project_attributes {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
   h1 {
   	font-size: 50px;
   	font-weight: boldest;
@@ -45,7 +74,7 @@
    }
 
   .container {
-    max-width: 70%;
+    max-width: 80%;
     padding-bottom: 40px;
     margin-bottom: 80px;
   }
@@ -108,17 +137,18 @@
     margin-left: 0px;
     margin-right: 0px;
     min-height: 200px;
-    max-height: 375px;
     width: 100%;
     margin-top: 5px;
     padding-top: 15px;
     padding-bottom: 15px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 25px;
+    padding-right: 25px;
     border-radius: 5px;
     margin-bottom: 5px;
     margin-top: 5px;
     background-color: white;
+    border-style: solid;
+
   }
 
   .project-board {

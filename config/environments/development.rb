@@ -66,6 +66,6 @@ Rails.application.configure do
     :domain             => 'gmail.com', #you can also use google.com
     :authentication     => :plain,
     :user_name          => 'marvkipi@@gmail.com',
-    :password           => 'alpha8214'
+    :password           => 'delta8214!'
   }
 end

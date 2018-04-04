@@ -3,11 +3,6 @@
     <div class="box">
       <h4><strong><%= truncate(item.name, length: 15) %></strong></h4>
       <% url = generate_url_attributes_preview(item.link) %>
-
-      <% if !url.empty? %>
-        <%= image_tag(url, class: "img-responsive") %>
-      <% end %>
-
     </div>
   </div>
 <% end %>

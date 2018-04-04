@@ -4,7 +4,10 @@
 <div class="formy">
   <div class="row">
     <div class="col-md-5">
-
+      <% url = generate_url_attributes_preview(@item.link) %>
+      <% if !url.empty? %>
+        <%= image_tag(url, class: "img-responsive") %>
+      <% end %>
     </div>
     <div class="col-md-7">
         <%= render "header" %>

@@ -22,7 +22,7 @@ class AccountsController < ApplicationController
       redirect_to account_choose_plan_url(@account)
     else
       flash.now[:alert] = "Sorry, your account could not be created."
-      render :new
+      render :new 
     end
   end
 

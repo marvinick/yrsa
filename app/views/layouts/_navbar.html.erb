@@ -27,11 +27,11 @@
       <ul class="nav navbar-nav navbar-right">
 
         <% if user_signed_in? %>
-          <li class="nav-item btn-group" data-behavior="notifications" data-notifications='<%= render template: "notifications/index", formats: [:json] %>'>
+          <li class="dropdown" data-behavior="notifications">
             <a class="dropdown-toggle nav-link" type="button" data-behavior="notifications-link" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="fa fa-bell" data-behavior="unread-count"></span>
             </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu1" data-behavior="notification-items">
+            <div class="dropdown-menu"  data-behavior="notification-items">
               <% if current_user.notifications.unread.empty? %>
                 No notifications
               <% end %>

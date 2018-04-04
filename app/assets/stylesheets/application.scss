@@ -33,11 +33,17 @@
  }
 
 html, body {
-  background-color: #f9f9f9;
+  background-color: #f7f4ef;
   margin-top: 0px;
   overflow-x:hidden!important;
 }
 
+.navbar {
+  background-color: #f7f4ef;
+  font-size: 24px;
+  font-family: Helvetica, "Trebuchet MS", Verdana, sans-serif;
+  font-weight: bolder;
+}
 
 .link-to-text-color {
   color: #c4c4c4;
@@ -94,12 +100,7 @@ h2 span {
   -webkit-text-stroke: 0.5px;
 }
 
-.navbar {
-  background-color: #f9f9f9;
-  font-size: 24px;
-  font-family: Helvetica, "Trebuchet MS", Verdana, sans-serif;
-  font-weight: bolder;
-}
+
 
 .navbar a{
   color: black!important;

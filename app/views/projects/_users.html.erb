@@ -1,6 +1,4 @@
-<div class="row">
-  <h5><strong>Members</strong></h5>
-  <hr>
+<div class="project_users text-center">
   <% @project.users.each do |u| %>
     <% if u.email != current_user.email %>
       <li style="display:inline-block; float: left; margin-right:5px;">
@@ -8,6 +6,5 @@
       </li>
     <% end %>
   <% end %>
-  <br>
-  <%= link_to "Invite new user", new_account_project_invitation_path(current_account, @project), class: "btn btn-default pull-right" %>
+  <%= link_to "add / remove members", new_account_project_invitation_path(current_account, @project), class: "btn btn-default" %>
 </div>

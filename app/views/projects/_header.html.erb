@@ -1,5 +1,6 @@
 <%= div_for @project do %>
-  <div class="col-md-12 text-center">
+  <div class="col-md-2"></div>
+  <div class="col-md-8 text-center">
 
     <p class="project_title ">
       <% if @project.user_id == current_user.id %>
@@ -21,4 +22,5 @@
     	<% end %>
     <% end %>
   </div>
+  <div class="col-md-2"></div>
 <% end %>
