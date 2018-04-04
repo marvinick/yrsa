@@ -3,9 +3,20 @@
 <div class="formy">
 	<div class="row text-center">
 		<%= render "header" %>
+
+	</div>
+	<div class="row text-center">
 		<% if @project.user_id == current_user.id %>
-			<%= render "users" %>
-			<%= link_to "add details", new_account_project_detail_path(current_account, @project, @detail), remote: true, class: "new-detail-button btn btn-warning" %>
+			<div class="col-md-6">
+				<div class="box">
+			  	<%= render "details" %>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="box">
+					<%= render "users" %>
+				</div>
+			</div>
 		<% end %>
 	</div>
 
@@ -36,16 +47,9 @@
 </div>
 
 <div class="row">
-	<div id="cards" class="tabcontent">
+	<div class="col-md-12">
 		<%= render "cards" %>
 	</div>
-	<div id="lists" class="tabcontent">
-		<%= render "items_list" %>
-	</div>
-	<div id="simple-lists" class="tabcontent">
-		<%= render "simple_lists" %>
-	</div>
-</div>
 </div>
 
 <div id="product-modal" class="modal"></div>
