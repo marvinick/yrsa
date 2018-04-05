@@ -1,25 +1,39 @@
 <% @title = @item.name %>
-<br>
 
-<div class="formy">
+<%= link_to account_project_path(current_account, set_project) do  %>
+  <span class="fa fa-arrow-left"></span>
+<% end %>
+<br>
+<br>
+<div class="item_formy">
+
   <div class="row">
-    <div class="col-md-5">
-      <% url = generate_url_attributes_preview(@item.link) %>
-      <% if !url.empty? %>
-        <%= image_tag(url, class: "img-responsive") %>
-      <% end %>
-    </div>
-    <div class="col-md-7">
-        <%= render "header" %>
+    <div class="col-md-12">
+      <p class="item_name text-center">
+        <%= @item.name %>
+      </p>
+      <hr>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <% url = generate_url_attributes_preview(@item.link) %>
+      <% if !url.empty? %>
+        <%= image_tag(url, :size => '250x250') %>
+      <% end %>
+    </div>
+    <div class="col-md-8">
+      <%= render "header" %>
+    </div>
+  </div>
+
   <div class="row">
     <% if @item.reviews.present? %>
       <%= render "stats" %>
     <% end %>
   </div>
 </div>
-<br>
 
 <div class="row">
   <div class="col-md-1"></div>

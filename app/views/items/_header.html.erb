@@ -1,15 +1,13 @@
 <%= div_for @item do %>
-  <div class="formy">
-    <% if @project.user_id == current_user.id %>
-      <%= link_to edit_account_project_item_path(current_account, set_project, @item), remote: true do  %>
-        <span class="fa fa-ellipsis-h pull-right"></span>
+  <div class="item_box">
+    <p class="item_description">
+      <%= @item.content %>
+      <% if @project.user_id == current_user.id %>
+        <%= link_to edit_account_project_item_path(current_account, set_project, @item), remote: true do  %>
+          <span class="fa fa-ellipsis-h pull-right"></span>
+        <% end %>
       <% end %>
-    <% end %>
-
-    <p class="project_title_in_item"><%= link_to @project.title, account_project_path(current_account, set_project), class: "link-to-text-color" %></p>
-
-    <p class="item_name"><%= @item.name %></p>
-    <p class="item_description"><%= @item.content %></p>
+    </p>
 
     <% total = [] %>
     <% @item.reviews.each do |review| %>
@@ -29,7 +27,7 @@
     <% @item.details.each do |detail| %>
       <%= detail.name %>
     <% end %>
-    <hr>
+
     <h5><%= time_ago_in_words(@item.created_at) %> ago</h5>
   </div>
 
