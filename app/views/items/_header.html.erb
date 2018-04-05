@@ -1,34 +1,15 @@
 <%= div_for @item do %>
   <div class="item_box">
-    <p class="item_description">
-      <%= @item.content %>
-      <% if @project.user_id == current_user.id %>
-        <%= link_to edit_account_project_item_path(current_account, set_project, @item), remote: true do  %>
-          <span class="fa fa-ellipsis-h pull-right"></span>
-        <% end %>
+    <p class="item_detail"><%=  @item.details.count  %> attributes</p>
+    <div class="row">
+      <% @item.details.each do |detail| %>
+        <div class="col-md-6">
+          <li class="item_detail_list"><%= detail.name %></li>
+        </div>
       <% end %>
-    </p>
+     </div>
 
-    <% total = [] %>
-    <% @item.reviews.each do |review| %>
-      <% keys = [] %>
-      <% values = [] %>
-      <% review.properties.each do |name, value| %>
-        <% keys << name %>
-        <% values << value.to_i %>
-      <% end %>
-      <% total << (values.sum.to_f / keys.uniq.size).round rescue 0 %>
-    <% end %>
-    <div class="star-rating item_rating" data-score= <%= (total.sum.to_f / @item.reviews.count).round rescue 0 %>, style= "zoom:30%;" ></div>
-    <br>
-
-    <h5><strong><%=  @item.details.count  %> attributes</strong></h5>
-
-    <% @item.details.each do |detail| %>
-      <%= detail.name %>
-    <% end %>
-
-    <h5><%= time_ago_in_words(@item.created_at) %> ago</h5>
+    <p class="item_time">created <%= time_ago_in_words(@item.created_at) %> ago</p>
   </div>
 
 <% end %>

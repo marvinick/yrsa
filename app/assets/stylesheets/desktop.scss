@@ -44,7 +44,7 @@
 
   .item_box {
     background-color: #fcf9f7;
-    padding: 30px;
+    padding: 20px;
     border-radius: 15px;
   }
 
@@ -54,17 +54,32 @@
   }
 
   .item_description {
-    margin-top: -20px;
+    margin-top: -5px;
     font-size: 18px;
-    color: grey;
+    font-weight: lighter;
   }
 
   .item_rating {
-    margin-top: -20px;
+
   }
 
   .item_list {
     margin-bottom: -5px;
+  }
+
+  .item_detail {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .item_detail_list {
+    font-style: italic;
+    font-weight: 200;
+  }
+
+  .item_time {
+    margin-top: 20px;
+    font-size: 12px;
   }
 
   .project_users {
