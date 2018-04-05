@@ -12,14 +12,24 @@
   .project_title {
     font-size: 38px;
     font-weight: bolder;
-    
+
   }
 
   .project_description {
     margin-top: -20px;
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: 300;
+  }
+
+  .project_item_list {
+    font-size: 16px;
+    color: black;
     font-weight: bold;
-    color: #afafaf;
+
+  }
+
+  .item_image {
+
   }
 
   .item_name {
@@ -38,7 +48,7 @@
   }
 
   .item_list {
-    font-size: 25px;
+    margin-bottom: -5px;
   }
 
   .project_users {
@@ -49,6 +59,10 @@
   .project_attributes {
     font-size: 20px;
     font-weight: bold;
+  }
+
+  .preview_image {
+    max-height: inherit;
   }
 
   h1 {
@@ -75,7 +89,7 @@
    }
 
   .container {
-    max-width: 80%;
+    max-width:  80%;
     padding-bottom: 40px;
     margin-bottom: 80px;
   }
@@ -135,18 +149,15 @@
   }
 
   .box {
+    height: auto;
+    width: auto;
     margin-left: 0px;
     margin-right: 0px;
-    min-height: 200px;
-    width: 100%;
-    margin-top: 5px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 25px;
-    padding-right: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    padding: 15px;
     border-radius: 5px;
-    margin-bottom: 5px;
-    margin-top: 5px;
     background-color: white;
     border-style: solid;
     border-width: medium;

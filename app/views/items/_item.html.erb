@@ -1,8 +1,10 @@
 <%= link_to account_project_item_path(current_account, @project, item), class: 'link-to-text-color' do %>
   <div class="col-md-3 col-sm-3 col-xs-6">
     <div class="box">
-      <h4><strong><%= truncate(item.name, length: 15) %></strong></h4>
+      <p class="project_item_list text-center"><%= truncate(item.name, length: 15) %></p>
+      <hr>
       <% url = generate_url_attributes_preview(item.link) %>
+      <%= image_tag(url, :size => '172x150', class: "") %>
     </div>
   </div>
 <% end %>
