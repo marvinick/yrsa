@@ -10,15 +10,15 @@
   }
 
   .project_title {
-    font-size: 38px;
-    font-weight: bolder;
+    font-size: 40px;
+    font-weight: bold;
 
   }
 
   .project_description {
     margin-top: -20px;
-    font-size: 18px;
-    font-weight: 300;
+    font-size: 20px;
+
   }
 
   .project_item_list {
@@ -40,6 +40,7 @@
     padding-left: 50px;
     padding-right: 50px;
     background-color: white;
+    margin-top: 50px;
   }
 
   .item_box {
@@ -49,14 +50,15 @@
   }
 
   .item_name {
-    font-size: 32px;
+    font-size: 35px;
     font-weight: bolder;
   }
 
   .item_description {
     margin-top: -5px;
-    font-size: 18px;
-    font-weight: lighter;
+    font-size: 20px;
+    font-weight: normal;
+    color: #686868;
   }
 
   .item_rating {
@@ -70,6 +72,7 @@
   .item_detail {
     font-size: 18px;
     font-weight: bold;
+    margin-bottom: -10px;
   }
 
   .item_detail_list {
@@ -82,10 +85,42 @@
     font-size: 12px;
   }
 
-  .project_users {
-    font-size: 20px;
+  //details
+  .detail-name {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 5px;
+    border-radius: 15px;
+    background-color: #99d8f7;
+    font-size: 12px;
     font-weight: bold;
   }
+
+  .detail-list {
+    float: left;
+    overflow: auto;
+  }
+
+  //users
+  .user-list {
+    float: left;
+
+  }
+
+  .user-name {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 5px;
+    border-radius: 15px;
+    background-color: #ff8484;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
 
   .project_attributes {
     font-size: 20px;
@@ -163,22 +198,6 @@
      margin-bottom: 25px;
    }
 
-  .box2 {
-    margin-left: 0px;
-    margin-right: 0px;
-    height: auto;
-    width: 400px;
-    margin-top: 5px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 30px;
-    padding-right: 30px;
-    border-radius: 15px;
-    margin-bottom: 10px;
-    margin-top: 5px;
-    background-color: white;
-  }
-
   .box {
     height: auto;
     width: auto;
@@ -187,12 +206,16 @@
     margin-top: 10px;
     margin-bottom: 10px;
 
-    padding: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 30px;
     border-radius: 5px;
     background-color: white;
     border-style: solid;
     border-width: medium;
     border-color: #f7f5f2;
+
   }
 
   .project-board {
@@ -209,19 +232,6 @@
     border-style: solid;
     border-width: thin;
     border-color: #e2e2e2;
-  }
-
-  .item-view {
-    height: 100%;
-    width: 100%;
-    background-color: white;
-    border-radius: 15px;
-    padding: 15px 25px 50px 25px;
-    box-shadow: 0.5px 0.5px 0.5px 0.5px #fcfcfc;
-  }
-
-  .col-md-10 {
-    height: auto;
   }
 
   .stats {
@@ -291,7 +301,7 @@
     padding-left: 30px;
     padding-right: 30px;
     background-color: white;
-
+    margin-top: 40px;
   }
 
   .project-row {
@@ -435,6 +445,10 @@
   }
 
   .navbar {
+    background-color: #f7f5f2;
+    font-size: 24px;
+    font-family: Helvetica, "Trebuchet MS", Verdana, sans-serif;
+    
     height: 50px;
     float: none;
     margin: 0 auto;
@@ -443,6 +457,22 @@
     border: 0;
     -webkit-box-shadow: none;
     box-shadow: none;
+
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    opacity: 0.9;
+  }
+
+  .navbar a{
+    color: black!important;
+    font-variant: small-caps;
+  }
+
+  .navbar li {
+    color: black!important;
+    font-variant: small-caps;
   }
 
   .navbar > li {

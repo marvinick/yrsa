@@ -38,13 +38,6 @@ html, body {
   overflow-x:hidden!important;
 }
 
-.navbar {
-  background-color: #f7f5f2;
-  font-size: 24px;
-  font-family: Helvetica, "Trebuchet MS", Verdana, sans-serif;
-  font-weight: bolder;
-}
-
 .link-to-text-color {
   color: #c4c4c4;
 }
@@ -65,15 +58,6 @@ h4.test {
   display: inline;
 }
 
-h3 {
-  font-size: 20px;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: Helvetica, "Trebuchet MS", Verdana, sans-serif;
-  margin: 0;
-}
-
 ul, li {
   list-style-type: none;
 }
@@ -90,26 +74,9 @@ ul, li {
    color: grey;
 }
 
-h2 span {
-  background: #fcf8ed;
-  padding:0 10px;
-}
-
 .fa {
   color: #7a7a7a;
   -webkit-text-stroke: 0.5px;
-}
-
-
-
-.navbar a{
-  color: black!important;
-  font-variant: small-caps;
-}
-
-.navbar li {
-  color: black!important;
-  font-variant: small-caps;
 }
 
 .tile {
@@ -120,8 +87,8 @@ h2 span {
  }
 
 a:link {
-  text-decoration: none!important;
-  color: black!important;
+
+  text-decoration: none;
 }
 
 .box span {
@@ -270,7 +237,11 @@ input[type=radio]:checked + label {
 //buttons styling
 
 .btn-success {
-  background-color: #6bb271;
+  background-color: #47ad74;
+  border-radius: 20px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  font-size: 14px;
 }
 
 .btn-warning {

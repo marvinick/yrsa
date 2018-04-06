@@ -4,6 +4,7 @@ class InvitationsController < BaseController
   skip_before_action :authenticate_user!, only: [:accept, :accepted]
   skip_before_action :authorize_user!, only: [:accept, :accepted]
   before_action :authorize_owner!, except: [:accept, :accepted]
+  respond_to :html, :json
 
   def index
     @invitations = current_account.invitations.all

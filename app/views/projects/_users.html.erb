@@ -1,10 +1,13 @@
 <div class="project_users text-center">
   <% @project.users.each do |u| %>
     <% if u.email != current_user.email %>
-      <li style="display:inline-block; float: left; margin-right:5px;">
-        <h5><%= u.email %> <small><%= link_to "x", unfollow_account_project_user_path(current_account, @project, u), :method => 'delete', data: { confirm: "are you sure?"} %> </small></h5>
+      <li class="user-list">
+        <p class="user-name"><%= u.email %> <small><%= link_to "x", unfollow_account_project_user_path(current_account, @project, u), :method => 'delete', data: { confirm: "are you sure?"} %> </small></p>
       </li>
     <% end %>
   <% end %>
-  <%= link_to "members", new_account_project_invitation_path(current_account, @project), class: "btn btn-default" %>
+  <br>
+  <div class="row">
+    <%= link_to "members", new_account_project_invitation_path(current_account, @project), remote: true, class: "btn btn-default pull-right" %>
+  </div>
 </div>

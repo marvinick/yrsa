@@ -3,9 +3,9 @@
     <p class="item_detail"><%=  @item.details.count  %> attributes</p>
     <div class="row">
       <% @item.details.each do |detail| %>
-        <div class="col-md-6">
-          <li class="item_detail_list"><%= detail.name %></li>
-        </div>
+        <li class="detail-list">
+          <p class="detail-name"><%= detail.name %></p>
+        </li>
       <% end %>
      </div>
 

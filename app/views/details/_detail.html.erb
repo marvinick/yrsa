@@ -1,9 +1,11 @@
 <%= div_for detail do %>
   <div class="details">
-    <li style="display:inline-block; margin-right:5px;">
-      <h5 style="color:#efe464; font-weight:bold;"><%= detail.name %></h5>
-      <!-- <li><%= link_to "Edit", edit_account_project_detail_path(current_account, set_project, detail), remote: true %></li>
-      <%= link_to "(remove)", account_project_detail_path(current_account, set_project, detail), method: :delete, data: {confirm: "Are you sure?"}, remote: true %> -->
-    </li>
+    <ul>
+      <li class="detail-list">
+        <p class="detail-name"><%= detail.name %></p>
+        <!-- <li><%= link_to "Edit", edit_account_project_detail_path(current_account, set_project, detail), remote: true %></li>
+        <%= link_to "(remove)", account_project_detail_path(current_account, set_project, detail), method: :delete, data: {confirm: "Are you sure?"}, remote: true %> -->
+      </li>
+    </ul>
   </div>
 <% end %>

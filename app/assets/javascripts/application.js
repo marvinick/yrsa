@@ -23,6 +23,11 @@
 //= require notifications
 //= require_tree .
 
+$(document).ready(function() {
+    $(".dropdown-toggle").dropdown();
+});
+
+
 Growlyflash.defaults = $.extend(true, Growlyflash.defaults, {
   align:   'left',  // horizontal aligning (left, right or center)
   delay:   3000,     // auto-dismiss timeout (0 to disable auto-dismiss)

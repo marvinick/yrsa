@@ -1,16 +1,15 @@
 <% @title = @item.name %>
 
-
-
 <div class="item_formy">
-  <%= link_to account_project_path(current_account, set_project) do  %>
-    <span class="fa fa-arrow-left"></span>
-  <% end %>
-  <% if @project.user_id == current_user.id %>
-    <%= link_to edit_account_project_item_path(current_account, set_project, @item), remote: true do  %>
-      <span class="fa fa-ellipsis-h pull-right"></span>
+  <h5>
+    back to <%= link_to set_project.title,  account_project_path(current_account, set_project) %>
+
+    <% if @project.user_id == current_user.id %>
+      <%= link_to edit_account_project_item_path(current_account, set_project, @item), remote: true do  %>
+        <span class="fa fa-ellipsis-h pull-right"></span>
+      <% end %>
     <% end %>
-  <% end %>
+  </h5>
   <% total = [] %>
   <% @item.reviews.each do |review| %>
     <% keys = [] %>
@@ -26,7 +25,7 @@
     <div class="col-md-12">
       <p class="item_name">
         <%= @item.name %>
-        <span class="star-rating item_rating" data-score= <%= (total.sum.to_f / @item.reviews.count).round rescue 0 %>, style= "zoom:70%;" ></span>
+        <span class="star-rating item_rating" data-score= <%= (total.sum.to_f / @item.reviews.count).round rescue 0 %>, style= "zoom:50%;" ></span>
       </p>
       <p class="item_description">
         <%= @item.content %>
