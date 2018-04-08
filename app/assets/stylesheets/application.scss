@@ -234,24 +234,6 @@ input[type=radio]:checked + label {
     border: none;
 }
 
-//buttons styling
-
-.btn-success {
-  background-color: #47ad74;
-  border-radius: 20px;
-  padding-top: 7px;
-  padding-bottom: 7px;
-  font-size: 14px;
-}
-
-.btn-warning {
-  background-color: #d8c595;
-}
-
-.btn-warning:hover {
-  background-color: #d8c595;
-}
-
 //image overlay
 .product-image-overlay {
     position: fixed;

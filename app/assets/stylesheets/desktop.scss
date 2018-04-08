@@ -448,7 +448,7 @@
     background-color: #f7f5f2;
     font-size: 24px;
     font-family: Helvetica, "Trebuchet MS", Verdana, sans-serif;
-    
+
     height: 50px;
     float: none;
     margin: 0 auto;
@@ -537,13 +537,47 @@
 
   //buttons
   .btn-default {
-    margin: 10px 10px;
     background-color: white;
+    border-radius: 20px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-size: 14px;
+  }
+
+  .btn-success {
+    background-color: #47ad74;
+    border-radius: 20px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-size: 14px;
+  }
+
+  .btn-warning {
+    background-color: #fffb47;
+    border-radius: 20px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-size: 14px;
+  }
+
+  .btn-danger {
+    background-color: #ef2d4d;
+    border-radius: 20px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-size: 14px;
+  }
+
+  .btn-primary {
+    background-color: #92cbe8;
+    border-radius: 20px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-size: 14px;
   }
 
   .fa {
     font-size: 22px;
-
   }
 
   //checkbox
