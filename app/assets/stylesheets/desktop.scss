@@ -21,15 +21,23 @@
 
   }
 
-  .project_item_list {
-    font-size: 16px;
+  .project-item-list {
+    font-size: 13px;
     color: black;
-    font-weight: bold;
-
+    font-weight: bolder;
+    margin-top: 5px;
   }
 
-  .item_image {
+  .project-item-dates {
+    color: black;
+    font-size: 11px;
+    margin-top: -10px;
+  }
 
+  .item-image {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
   }
 
   //item-page
@@ -155,7 +163,7 @@
    }
 
   .container {
-    max-width:  80%;
+    width: 80%;
     padding-bottom: 40px;
     margin-bottom: 80px;
   }
