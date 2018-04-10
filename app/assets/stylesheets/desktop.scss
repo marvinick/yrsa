@@ -35,7 +35,7 @@
   }
 
   .project-box {
-    background-color: #f9f9f9;
+    background-color: #fcfaf7;
     min-height: 250px;
     width: auto;
     margin-left: 0px;
@@ -53,6 +53,7 @@
 
   .project-box-header {
     font-size: 20px;
+    font-weight: 600;
   }
 
   .project-item-list {
@@ -75,14 +76,14 @@
   }
 
   //item-page
-  .item_formy {
+  .item-formy {
     max-width: 100%;
     padding-top: 30px;
     padding-bottom: 30px;
     padding-left: 50px;
     padding-right: 50px;
     background-color: white;
-    margin-top: 50px;
+    margin-top: 4  0px;
   }
 
   .item_box {
@@ -165,7 +166,7 @@
 
   //boards
   .board-note {
-    font-size: 9px;
+    font-size: 16px;
   }
 
   .project_attributes {
