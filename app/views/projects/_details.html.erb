@@ -1,7 +1,8 @@
-
-  <div class="project_details text-center">
-    <%= render "details/index" %>
-    <div class="row">
-      <%= link_to "add", new_account_project_detail_path(current_account, @project, @detail), remote: true, class: "new-detail-button btn btn-default pull-right" %>
-    </div>
+<div class="project_details text-center">
+  <p class="project-box-header">Details</p>
+  <hr>
+  <%= render "details/index" %>
+  <div class="row">
+    <%= link_to "add", new_account_project_detail_path(current_account, @project, @detail), remote: true, class: "new-detail-button btn btn-default pull-right" %>
   </div>
+</div>

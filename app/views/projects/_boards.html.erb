@@ -1,10 +1,5 @@
-<div class="row">
-  <div class="board-show">
-      <h2>Messages board</h2>
-      <br>
-        <%= link_to "post message", new_account_project_board_path(current_account, @project), remote: true, class: "btn btn-default btn-lg" %>
-    <%= render "show_boards" %>
-  </div>
-</div>
-
-<div id="board-modal" class="modal"></div>
+<p class="project-box-header">Messages board</p>
+<hr>
+<% @project.boards.last(5).each do |board| %>
+  <p class="board-note"><%= board.note %></p>
+<% end %>

@@ -1,4 +1,10 @@
-<div class="row">
+<%= link_to account_project_path(current_account, set_project) do %>
+  <div class="formy-back">
+    <%= set_project.title %>
+  </div>
+<% end %>
+
+<div class="formy">
   <div class="review-header">
     <h2><span>announcement board</span></h2>
   </div>
@@ -12,12 +18,12 @@
       <% end %>
     </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="col-md-6 pull-right">
-    <div id="boards">
-      <%= render @boards %>
+  <div class="row">
+    <div class="col-md-6 pull-right">
+      <div id="boards">
+        <%= render @boards %>
+      </div>
     </div>
   </div>
 </div>

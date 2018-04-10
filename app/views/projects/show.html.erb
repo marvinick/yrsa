@@ -7,15 +7,22 @@
 
 	<div class="row text-center">
 		<% if @project.user_id == current_user.id %>
-			<div class="col-md-6">
-				<div class="box">
+			<div class="col-md-4">
+				<div class="project-box">
 			  	<%= render "details" %>
 				</div>
 			</div>
-			<div class="col-md-6">
-				<div class="box">
+			<div class="col-md-4">
+				<div class="project-box">
 					<%= render "users" %>
 				</div>
+			</div>
+			<div class='col-md-4'>
+				<%= link_to account_project_boards_path(current_account, @project, @boards) do %>
+					<div class="project-box">
+						<%= render "boards" %>
+					</div>
+				<% end %>
 			</div>
 		<% end %>
 	</div>
@@ -55,8 +62,3 @@
 <div id="product-modal" class="modal"></div>
 
 <%= render "footer" %>
-
-
-
-
-	  <!-- <li><%= link_to "board", account_project_boards_path(current_account, @project, @boards) %></li> -->
