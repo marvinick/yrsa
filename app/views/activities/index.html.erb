@@ -1,7 +1,7 @@
-<div class="row">
+
+<div class="formy row">
     <h1>Latest Activities</h1>
     <br>
-
     <% @activities.last(100).each do |activity| %>
       <div class="col-md-4">
         <% if activity.trackable %>
@@ -14,5 +14,4 @@
       </div>
     <% end %>
 
-  </div>
 </div>
