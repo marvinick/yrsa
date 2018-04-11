@@ -4,12 +4,21 @@
   </div>
 <% end %>
 <div class="formy">
+
+
   <div class="row">
-    <div class="my-details">
-      <%= render @details %>
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <h2 class="text-center">
+        Details
+        <%= link_to "add", new_account_project_detail_path(current_account, @project, @detail), remote: true, class: "new-detail-button btn btn-success btn-lg pull-left" %>
+      </h2>
+      <hr>
+      <div class="my-details">
+        <%= render @details %>
+      </div>
     </div>
-    <div class="row">
-      <%= link_to "add", new_account_project_detail_path(current_account, @project, @detail), remote: true, class: "new-detail-button btn btn-default pull-right" %>
-    </div>
+    <div class="col-md-1"></div>
+
   </div>
 </div>

@@ -56,6 +56,13 @@
     font-weight: 600;
   }
 
+  a.project-box-link {
+    color: black;
+    &:hover {
+       color: black;
+     }
+  }
+
   .project-item-list {
     font-size: 13px;
     color: black;
@@ -75,7 +82,7 @@
     margin-top: 10px;
   }
 
-  //item-page
+  //items
   .item-formy {
     max-width: 100%;
     padding-top: 30px;
@@ -84,7 +91,7 @@
     padding-right: 50px;
     background-color: white;
     margin-top: 4  0px;
-  
+
   }
 
   .item_box {
@@ -131,20 +138,17 @@
 
   //details
   .detail-name {
-    padding-top: 4px;
-    padding-bottom: 4px;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin: 5px;
-    border-radius: 15px;
-    background-color: white;
-    font-size: 16px;
+    font-size: 22px;
+  }
 
+  .detail-description {
+    font-size: 18px;
+    color: grey;
   }
 
   .detail-list {
-    float: left;
-    overflow: auto;
+    // float: left;
+    // overflow: auto;
   }
 
   //users

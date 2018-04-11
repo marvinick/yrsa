@@ -5,7 +5,7 @@ class DetailsController < BaseController
   respond_to :html, :json
 
   def index
-    @details = set_project.details.last(5)
+    @details = set_project.details.all
   end
 
   def new
