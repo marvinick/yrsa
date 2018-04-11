@@ -6,7 +6,7 @@ class ItemsController < BaseController
   respond_to :html, :json
 
   def index
-    @items = current_account.project.items.all
+    @items = set_project.items.all
   end
 
   def new
@@ -28,10 +28,6 @@ class ItemsController < BaseController
     end
   end
 
-  def index
-    @items = set_project.items.all
-    respond_with(@items)
-  end
 
   def show; end
 
@@ -64,9 +60,6 @@ class ItemsController < BaseController
   end
   helper_method :set_item
 
-  def set_item
-    @item = Item.find_by slug: params[:id]
-  end
 
 
   def set_project

@@ -1,0 +1,10 @@
+<%= link_to account_project_path(current_account, set_project) do %>
+  <div class="formy-back">
+    <%= set_project.title %>
+  </div>
+<% end %>
+<div class="formy">
+  <div class="my-details">
+    <%= render @details %>
+  </div>
+</div>

@@ -8,14 +8,20 @@
 	<div class="row text-center">
 		<% if @project.user_id == current_user.id %>
 			<div class="col-md-4">
-				<div class="project-box">
-			  	<%= render "details" %>
-				</div>
+				<%= link_to account_project_details_path(current_account, @project, @details) do %>
+					<div class="project-box">
+				  	<p class="project-box-header">Details</p>
+						<hr>
+					</div>
+				<% end %>
 			</div>
 			<div class="col-md-4">
-				<div class="project-box">
-					<%= render "users" %>
-				</div>
+				<%= link_to new_account_project_invitation_path(current_account, @project) do %>
+					<div class="project-box">
+						<p class="project-box-header">Members</p>
+						<hr>
+					</div>
+				<% end %>
 			</div>
 			<div class='col-md-4'>
 				<%= link_to account_project_boards_path(current_account, @project, @boards) do %>
@@ -25,6 +31,31 @@
 				<% end %>
 			</div>
 		<% end %>
+ 	 	<div class="col-md-4">
+			<%= link_to activities_path do %>
+				<div class="project-box">
+					<p class="project-box-header">Activities</p>
+					<hr>
+				</div>
+			<% end %>
+		</div>
+		<div class="col-md-4">
+			<%= link_to account_project_items_path(current_account, @project, @items) do %>
+				<div class="project-box">
+					<p class="project-box-header">Items</p>
+
+					<hr>
+				</div>
+			<% end %>
+		</div>
+		<div class="col-md-4">
+			<%= link_to account_project_items_path(current_account, @project, @items) do %>
+				<div class="project-box">
+					<p class="project-box-header">Challenge</p>
+					<hr>
+				</div>
+			<% end %>
+		</div>
 	</div>
   <br>
 <!-- <div class="formy"> -->
@@ -49,15 +80,7 @@
 		</div> -->
 <!-- </div> -->
 
-<div class="row">
-	<%= render "actions" %>
-</div>
 
-<div class="row">
-	<div class="col-md-12">
-		<%= render "cards" %>
-	</div>
-</div>
 
 <div id="product-modal" class="modal"></div>
 
