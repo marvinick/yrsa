@@ -56,11 +56,9 @@ class ItemsController < BaseController
   end
 
   def set_item
-    @item = set_project.items.find_by slug: params[:item_id]
+    @item = set_project.items.find_by slug: params[:id]
   end
   helper_method :set_item
-
-
 
   def set_project
     @project = current_account.projects.find_by slug: params[:project_id]
