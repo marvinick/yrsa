@@ -5,13 +5,14 @@
 		<%= render "header" %>
 	</div>
 
-	<div class="row text-center">
+	<div class="row">
 		<% if @project.user_id == current_user.id %>
 			<div class="col-md-4">
 				<%= link_to account_project_details_path(current_account, @project, @details), class:"project-box-link" do %>
 					<div class="project-box">
 				  	<p class="project-box-header">Details</p>
 						<hr>
+						<%= render "details" %>
 					</div>
 				<% end %>
 			</div>
