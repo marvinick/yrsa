@@ -191,8 +191,28 @@
   }
 
   //boards
+  .board-header {
+    font-size: 28px;
+    text-align: center;
+    font-weight: bolder;
+  }
+
   .board-note {
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: bold;
+
+  }
+
+  .board-form {
+    width: 100%;
+  }
+
+  .board-post {
+    background-color: #f7f5f2;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 25px;
+    width:500px;
   }
 
   .project_attributes {

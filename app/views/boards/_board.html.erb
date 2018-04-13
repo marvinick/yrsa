@@ -1,5 +1,7 @@
-<div class="box">
-  <h3><%= board.note %></h3>
-  <h6><%= board.user.email %></h6>
-  <h6><%= time_ago_in_words(board.created_at) %> ago</h6>
+<div class="<%= cycle('left', 'right') -%>">
+  <div class="board-post">
+    <p class="board-note"><%= board.note %></h3>
+    <p><%= board.user.email %></p>
+    <p><%= time_ago_in_words(board.created_at) %> ago</p>
+  </div>
 </div>

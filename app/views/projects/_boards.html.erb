@@ -1,6 +1,6 @@
 <p class="project-box-header">Messages board</p>
 <hr>
-<% @project.boards.last(5).each do |board| %>
+<% @project.boards.last(4).each do |board| %>
   <div class="project-box-preview">
     <p class="project-box-preview-text"><%= truncate(board.note, length: 40) %></p>
   </div>
