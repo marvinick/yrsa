@@ -1,8 +1,12 @@
 <%= form_for([current_account, @project], remote: true) do |f| %>
-  <div class="formly2" id="current-pane">
+  <div class="formly" id="current-pane">
     <%= render "shared/errors", obj: @project %>
     <div class="control">
-      <%= f.text_field :title, placeholder: 'title (new project)', label: false, class: "input ", :maxlength => 25, :size => 40 %>
+      <%= f.text_field :title, placeholder: 'title', label: false, class: "input ", :maxlength => 40 %>
+    </div>
+    <br>
+    <div class="control">
+      <%= f.text_area :description, placeholder: 'description', label: false, class: "input", :maxlength => 280, :size => 40  %>
     </div>
 
     <div class="row pull-right">

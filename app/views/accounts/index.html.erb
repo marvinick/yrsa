@@ -1,78 +1,69 @@
 <% @title= "aetomata - Home" %>
 
-<br>
-<br>
-<br>
 <% if user_signed_in? %>
   <% current_user.all_accounts.uniq.each do |account| %>
-    <div class="row">
-      <div class="col-md-1">
-        <% if account.stripe_subscription_id.present? %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              <icon class="fa fa-bars"></icon>
-            </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "edit", edit_account_path(account) %></li>
+    <div class="formy">
 
-              <li><%= link_to "billing", account_billing_path(account) %></li>
-
-              <li> <%= link_to "plans", account_choose_plan_url(account) %></li>
-            </ul>
-          </li>
-        <% end %>
-      </div>
-
-      <div class="col-md-10">
-        <h3>
-          <%= account.name %>
-            <% if account.owner.id == current_user.id %>
-              <% if account.stripe_subscription_id.blank? %>
-                <%= link_to account_choose_plan_url(account) do %>
-                  <div class="box">
-                    <h5 class="text-center">confirm first</h5>
-                  </div>
+      <div class="row">
+          <h2>
+            <div class="pull-left">
+            <%= account.name %>
+              <% if account.owner.id == current_user.id %>
+                <% if account.stripe_subscription_id.blank? %>
+                  <%= link_to account_choose_plan_url(account) do %>
+                    <div class="box">
+                      <h5 class="text-center">confirm first</h5>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <%= link_to "+ project", new_account_project_path(account), remote: true, class: "new-project-button btn btn-success btn-lg" %>
                 <% end %>
-              <% else %>
-                <h5 style="color:grey;"><strong><%= link_to "+ project", new_account_project_path(account), remote: true, class: "new-project-button link-to-text-color" %></strong></h5>
               <% end %>
-            <% end %>
+            </div>
+            <div class="pull-right">
+              <% if account.stripe_subscription_id.present? %>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <icon class="fa fa-bars"></icon>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-right">
+                    <li><%= link_to "edit", edit_account_path(account) %></li>
 
-        </h3>
+                    <li><%= link_to "billing", account_billing_path(account) %></li>
+
+                    <li> <%= link_to "plans", account_choose_plan_url(account) %></li>
+                  </ul>
+                </li>
+              <% end %>
+            </div>
+          </h2>
       </div>
-    </div>
+      <br>
+      <div class="row ">
+        <div class="my-projects">
+          <div class="row">
+          <% account.projects.each do |project| %>
+            <% if current_user.project_ids.include? project.id %>
 
-    <div class="row ">
-      <div class="col-md-1"></div>
-      <div class="col-md-10">
-        <div class="row">
-          <div class="my-projects">
-            <% account.projects.each do |project| %>
-              <% if current_user.project_ids.include? project.id %>
                 <%= link_to account_project_path(account, project) do %>
-                  <div class="col-md-2 col-sm-4 col-xs-6">
-                    <div class="account_box1 text-space ">
+
+                  <div class="col-md-3 col-sm-4 col-xs-6">
+                    <div class="account_project_box text-space ">
                       <h4><strong><%= truncate(project.title, length: 10) %></strong></h4>
                       <br>
                       <h5><%= project.items.size %> items </h5>
 
                     </div>
                   </div>
+
                 <% end %>
 
-              <% end %>
             <% end %>
+          <% end %>
           </div>
-            <!-- <% @projects =  account.projects.all %>
-            <div id="my-projects">
-              <%= render @projects %>
-            </div> -->
-         </div>
+        </div>              
       </div>
     </div>
-  </div>
-    <!-- <% current_user.all_accounts.each do |account| %>
-      <%= account.name %>
-    <% end %> -->
+
   <% end %>
 <% end %>

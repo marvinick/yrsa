@@ -1,5 +1,14 @@
-<%= form_for ([current_account, set_project, @detail]) do |f| %>
-    <% f.hidden_field :project_id %>
-    <li><%= f.text_field :name, placeholder: "", class: "detail-text" %>   <%= f.button "change", class: "btn btn-warning btn-xs" %> </li>
-
-<% end %>
+<div id="form1">
+  <%= form_for ([current_account, @project, @detail]), remote: true, html: {} do |f| %>
+    <div clas="formly" id="current-pane">
+      <% f.hidden_field :project_id %>
+      <%= f.text_field :name, placeholder: "name", class: "detail-text" %>
+      <br>
+      <%= f.text_field :description, placeholder: "description", class: "detail-text" %>
+      <br>
+      <%= f.button "add", class: "btn btn-success" %>
+      <button href="#current-pane" class="btn btn-xs" data-dismiss="alert" aria-label="close" id="hide">close</button>
+    </div>
+  <% end %>
+</div>
+ 

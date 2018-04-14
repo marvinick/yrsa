@@ -1,2 +1,6 @@
 $('form').hide();
 $('div#<%= dom_id(@detail) %>').replaceWith('<%= j render("form2") %>');
+$("#hide").click(function(){
+    $("#current-pane").hide();
+    $('div#<%= dom_id(@detail) %>').show();
+});
