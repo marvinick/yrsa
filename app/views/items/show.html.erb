@@ -1,62 +1,36 @@
 <% @title = @item.name %>
 
-<%= link_to account_project_path(current_account, set_project) do %>
-  <div class="formy-back">
-    <%= set_project.title %> > <%= link_to "items", account_project_items_path(current_account, set_project, @items) %>
-  </div>
-<% end %>
+<!-- # <%= link_to account_project_path(current_account, set_project) do %>
+#   <div class="formy-back">
+#     <%= set_project.title %> > <%= link_to "items", account_project_items_path(current_account, set_project, @items) %>
+#   </div>
+# <% end %> -->
 
-<div class="formy">
-  <h5>
-    <% if @project.user_id == current_user.id %>
-      <%= link_to edit_account_project_item_path(current_account, set_project, @item), remote: true do  %>
-        <span class="fa fa-ellipsis-h pull-right"></span>
-      <% end %>
-    <% end %>
-  </h5>
-  <% total = [] %>
-  <% @item.reviews.each do |review| %>
-    <% keys = [] %>
-    <% values = [] %>
-    <% review.properties.each do |name, value| %>
-      <% keys << name %>
-      <% values << value.to_i %>
-    <% end %>
-    <% total << (values.sum.to_f / keys.uniq.size).round rescue 0 %>
-  <% end %>
-
+<div class="item-formy">
   <div class="row">
-    <div class="col-md-12">
-      <p class="item_name">
-        <%= @item.name %>
-        <span class="star-rating item_rating" data-score= <%= (total.sum.to_f / @item.reviews.count).round rescue 0 %>, style= "zoom:50%;" ></span>
-      </p>
-      <p class="item_description">
-        <%= @item.content %>
-      </p>
-      <hr>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-4">
-      <% url = generate_url_attributes_preview(@item.link) %>
-      <% if !url.empty? %>
-        <%= image_tag(url, :size => '250x250') %>
+    <% total = [] %>
+    <% @item.reviews.each do |review| %>
+      <% keys = [] %>
+      <% values = [] %>
+      <% review.properties.each do |name, value| %>
+        <% keys << name %>
+        <% values << value.to_i %>
       <% end %>
-    </div>
-    <div class="col-md-8">
-      <%= render "header" %>
-    </div>
+      <% total << (values.sum.to_f / keys.uniq.size).round rescue 0 %>
+    <% end %>
+    <span class="star-rating item-rating" data-score= <%= (total.sum.to_f / @item.reviews.count).round rescue 0 %>, style= "zoom:35%;" ></span>
+
   </div>
+  <%= render "header" %>
+</div>
 
   <div class="row">
     <% if @item.reviews.present? %>
       <%= render "stats" %>
     <% end %>
   </div>
-</div>
 
+<br>
 <div class="row">
   <div class="col-md-1"></div>
   <div class="col-md-10">

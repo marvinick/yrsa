@@ -1,15 +1,24 @@
 <%= div_for @item do %>
-  <div class="item_box">
-    <p class="item_detail"><%=  @item.details.count  %> attributes</p>
-    <div class="row">
-      <% @item.details.each do |detail| %>
-        <li class="detail-list">
-          <p class="detail-name"><%= detail.name %></p>
-        </li>
-      <% end %>
-     </div>
 
-    <p class="item_time">created <%= time_ago_in_words(@item.created_at) %> ago</p>
-  </div>
+
+<div class="row">
+  <p class="item-name">
+    <%= @item.name %>
+    <% if @project.user_id == current_user.id %>
+      <%= link_to edit_account_project_item_path(current_account, set_project, @item), remote: true do  %>
+        <span class="fa fa-ellipsis-h pull-right"></span>
+      <% end %>
+    <% end %>
+  </p>
+
+  <p class="item-content"><%= @item.content %></p>
+</div>
+<div class="row">
+  <% @item.details.each do |detail| %>
+    <li class="detail-list">
+      <p class="detail-name"><%= detail.name %></p>
+    </li>
+  <% end %>
+ </div>
 
 <% end %>

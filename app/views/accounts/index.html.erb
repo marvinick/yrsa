@@ -1,42 +1,45 @@
 <% @title= "aetomata - Home" %>
-
+<br>
 <% if user_signed_in? %>
   <% current_user.all_accounts.uniq.each do |account| %>
     <div class="formy">
 
       <div class="row">
-          <h2>
-            <div class="pull-left">
-            <%= account.name %>
-              <% if account.owner.id == current_user.id %>
-                <% if account.stripe_subscription_id.blank? %>
-                  <%= link_to account_choose_plan_url(account) do %>
-                    <div class="box">
-                      <h5 class="text-center">confirm first</h5>
-                    </div>
-                  <% end %>
-                <% else %>
-                  <%= link_to "+ project", new_account_project_path(account), remote: true, class: "new-project-button btn btn-success btn-lg" %>
+        <div class="col-md-6">
+          <div class="row">
+            <p class="account-name pull-left"><%= account.name %>
+            <% if account.owner.id == current_user.id %>
+              <% if account.stripe_subscription_id.blank? %>
+                <%= link_to account_choose_plan_url(account) do %>
+                  <div class="box">
+                    <h5 class="text-center">confirm first</h5>
+                  </div>
                 <% end %>
+              <% else %>
+                <%= link_to "+ project", new_account_project_path(account), remote: true, class: "new-project-button btn btn-success btn-lg" %>
               <% end %>
-            </div>
-            <div class="pull-right">
-              <% if account.stripe_subscription_id.present? %>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    <icon class="fa fa-bars"></icon>
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-right">
-                    <li><%= link_to "edit", edit_account_path(account) %></li>
+            <% end %>
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <% if account.stripe_subscription_id.present? %>
+              <li class="dropdown pull-right">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  <icon class="fa fa-bars"></icon>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li><%= link_to "edit", edit_account_path(account) %></li>
 
-                    <li><%= link_to "billing", account_billing_path(account) %></li>
+                  <li><%= link_to "billing", account_billing_path(account) %></li>
 
-                    <li> <%= link_to "plans", account_choose_plan_url(account) %></li>
-                  </ul>
-                </li>
-              <% end %>
-            </div>
-          </h2>
+                  <li> <%= link_to "plans", account_choose_plan_url(account) %></li>
+                </ul>
+              </li>
+            <% end %>
+          </div>
+        </div>
       </div>
       <br>
       <div class="row ">
@@ -44,15 +47,12 @@
           <div class="row">
           <% account.projects.each do |project| %>
             <% if current_user.project_ids.include? project.id %>
-
-                <%= link_to account_project_path(account, project) do %>
-
+                <%= link_to account_project_path(account, project), class: "account-project-box-link" do %>
                   <div class="col-md-3 col-sm-4 col-xs-6">
-                    <div class="account_project_box text-space ">
-                      <h4><strong><%= truncate(project.title, length: 10) %></strong></h4>
-                      <br>
-                      <h5><%= project.items.size %> items </h5>
-
+                    <div class="account-project-box">
+                      <p class="account-project-box-title"><%= truncate(project.title, length: 10) %></p>
+                      <hr>
+                      <p class="account-project-box-sub"><%= project.items.size %> items </p>
                     </div>
                   </div>
 
@@ -61,7 +61,7 @@
             <% end %>
           <% end %>
           </div>
-        </div>              
+        </div>
       </div>
     </div>
 
