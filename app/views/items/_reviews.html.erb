@@ -1,40 +1,34 @@
-<div class="col-md-12">
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <h3>
-        <strong>Reviews</strong><small style="color:red;"> <%= render "current_user_review" %></small>
-      </h3>
-    </div>
-  </div>
-  <br>
-  <div class="row">
-    <% @item.reviews.order('created_at desc').each do |review| %>
-      <div class="col-md-12 col-sm-4 col-xs-12">
-        <div class="<%= cycle('left', 'right') -%>">
-          <%= link_to account_project_item_review_path(current_account, set_project, @item, review), remote: true do %>
-            <div class="review-formy">
+<div class="row">
+    <p class="review-header">Reviews</p>
+</div>
 
-                <% keys = [] %>
-                <% values = [] %>
+<div class="row">
+  <% @item.reviews.order('created_at desc').each do |review| %>
+    <div class="col-md-12 col-sm-4 col-xs-12">
+      <div class="<%= cycle('left', 'right') -%>">
+        <%= link_to account_project_item_review_path(current_account, set_project, @item, review), class: "review-box-link", remote: true do %>
+          <div class="review-box no-top-margin">
 
-                <% review.properties.each do |name, value| %>
-                  <% keys << name %>
-                  <% values << value.to_i %>
-                <% end %>
+              <% keys = [] %>
+              <% values = [] %>
 
-                <h2><div class="star-rating" data-score= <%= (values.sum.to_f / keys.uniq.size).round rescue 0 %>, style= "zoom:40%;" ></div></h2>
+              <% review.properties.each do |name, value| %>
+                <% keys << name %>
+                <% values << value.to_i %>
+              <% end %>
 
-                <% if review.description.present? %>
-                  <h4><%= review.description %></h4>
-                <% end %>
-              <hr>
-              <h5 style="color:grey" class="pull-left"><%= review.user.email %></h5>
-              <h5 style="color:grey" class="pull-right"><%= time_ago_in_words(review.created_at) %> ago</h5>
-            </div>
-          <% end %>
-        </div>
+              <h2><div class="star-rating" data-score= <%= (values.sum.to_f / keys.uniq.size).round rescue 0 %>, style= "zoom:40%;" ></div></h2>
 
+              <% if review.description.present? %>
+                <p class="review-description"><%= review.description %></p>
+              <% end %>
+            <hr>
+            <p class="review-footer pull-left"><%= review.user.email %></p>
+            <p class="review-footer pull-right"><%= time_ago_in_words(review.created_at) %> ago</p>
+          </div>
+        <% end %>
       </div>
-    <% end %>
-  </div>
+
+    </div>
+  <% end %>
 </div>
