@@ -1,10 +1,10 @@
 <% @title = @item.name %>
 
-<!-- # <%= link_to account_project_path(current_account, set_project) do %>
-#   <div class="formy-back">
-#     <%= set_project.title %> > <%= link_to "items", account_project_items_path(current_account, set_project, @items) %>
-#   </div>
-# <% end %> -->
+<%= link_to account_project_path(current_account, set_project) do %>
+  <div class="formy-back">
+     <p class="formy-back-title"><%= set_project.title %> > <%= link_to "items", account_project_items_path(current_account, set_project, @items) %></p>
+   </div>
+<% end %>
 
 <div class="item-formy">
   <div class="row">

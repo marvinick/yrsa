@@ -5,20 +5,19 @@
 <% end %>
 
 <div class="formy">
-  <p class="board-header">Post-it</p>
-
+  <p class="board-header">Announcement</p>
   <div class="row">
-    <div class="">
-      <div id="boards">
-        <%= render @boards %>
-      </div>
+    <div class="board-form">
+      <%= form_for ([current_account, set_project, @board]), remote: true, html: {} do |f| %>
+        <li><%= f.text_area :note, placeholder: "write something", class: "board-input", :size => 40  %></li>
+        <br>
+        <li><%= f.button "post", class: "btn btn-default btn-lg pull-right" %></li>
+      <% end %>
     </div>
   </div>
-  <div class="board-form">
-    <%= form_for ([current_account, set_project, @board]), remote: true, html: {} do |f| %>
-
-      <li><%= f.text_area :note, placeholder: "write something", class: "", :size => 40  %></li>
-      <li><%= f.button "add", class: "btn btn-warning btn-lg" %></li>
-    <% end %>
+  <div id="boards">
+    <div class="row">
+      <%= render @boards %>
+    </div>
   </div>
 </div>

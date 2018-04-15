@@ -91,6 +91,14 @@
 
   }
 
+  .project-box-preview-board {
+    background-color: #fffdaa;
+    padding:10px;
+    margin: 7px;
+    border-radius: 10px;
+
+  }
+
   .project-box-preview-text {
     font-size: 16px;
     font-weight: bold;
@@ -126,8 +134,7 @@
     padding-left: 70px;
     padding-right: 70px;
     background-color: white;
-    margin-top: 60px;
-
+    margin-top: 40px;
   }
 
   .item-box {
@@ -242,27 +249,57 @@
 
   //boards
   .board-header {
-    font-size: 28px;
+    font-size: 30px;
     text-align: center;
     font-weight: bolder;
+    margin-bottom: 30px;
   }
 
   .board-note {
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 20px;
+    font-weight: bolder;
+  }
 
+  .board-footer {
+    font-size: 10px;
+    font-style: italic;
+    position: absolute;
+    bottom: 10px;
+    font-weight: bolder;
   }
 
   .board-form {
-    width: 100%;
+    margin-bottom: 50px;
+    margin-left: 190px;
+    margin-right: 190px;
   }
 
-  .board-post {
-    background-color: #f7f5f2;
-    padding: 20px;
-    margin: 20px;
-    border-radius: 25px;
-    width:500px;
+  .board-input {
+    width:100%;
+  }
+
+  .board-box {
+    background-color: #fffdaa;
+    min-height: 220px;
+    width: auto;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 30px;
+    border-radius: 5px;
+    webkit-box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
+   -moz-box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
+   box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
+
+  }
+
+  .board-box:hover {
+    background-color: #e8e699;
   }
 
   //reviews
