@@ -177,6 +177,28 @@
   }
 
   //details
+  .details-header {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+  }
+
+  .detail-box {
+    background-color: white;
+
+    margin: 20px 150px 20px 150px;
+    padding: 20px 70px 20px 70px;
+    webkit-box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
+   -moz-box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
+   box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
+  }
+
+  .main-detail-name {
+    font-size: 20px;
+    font-weight: bolder;
+
+  }
+
   .detail-name {
     font-size: 14px;
     border-radius: 10px;
@@ -191,7 +213,7 @@
   }
 
   .detail-description {
-    font-size: 18px;
+    font-size: 16px;
     color: grey;
   }
 
@@ -294,13 +316,16 @@
     margin-left: 130px;
     margin-right: 130px;
     height: 50px;
-    margin-top:50px;
+    margin-top:60px;
     margin-bottom: -40px;
     background-color: white;
+    padding: 10px;
+  }
+
+  .formy-back-title {
     text-align: center;
     font-size: 22px;
     font-weight: bolder;
-    padding-top: 10px;
   }
 
   .project_attributes {

@@ -1,27 +1,24 @@
 <%= link_to account_project_path(current_account, set_project) do %>
   <div class="formy-back">
-    <%= set_project.title %>
+    <p class="formy-back-title"><%= set_project.title %></p>
   </div>
 <% end %>
 
 <div class="formy">
-
   <div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-10">
-      <h2 class="text-center">
-        Details
-        <%= link_to "add", new_account_project_detail_path(current_account, @project, @detail), remote: true, class: "btn btn-success btn-lg pull-left" %>
-      </h2>
-      <hr>
-      <div class="row text-center">
-        <div class="new-detail-button "></div>
-      </div>
-      <div class="my-details">
-        <%= render @details %>
-      </div>
+    <p class="details-header ">
+      Details
+      <%= link_to "add", new_account_project_detail_path(current_account, @project, @detail), remote: true, class: "btn btn-success btn-lg pull-right" %>
+    </p>
+    <hr>
+
+    <div class="row text-center">
+      <div class="new-detail-button "></div>
     </div>
-    <div class="col-md-1"></div>
+
+    <div class="my-details">
+      <%= render @details %>
+    </div>
 
   </div>
 </div>

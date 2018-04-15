@@ -1,17 +1,20 @@
 <%= div_for detail do %>
-<div class="row" id="detail-item">
-  <div class="col-md-1"></div>
-  <div class="col-md-10">
+<div class="detail-box">
+  <div class="row">
     <div class="pull-left">
-      <p class="detail-name"><%= detail.name %></p>
+      <p class="main-detail-name"><%= detail.name %></p>
       <p class="detail-description"><%= detail.description %></p>
     </div>
-    <div class="pull-right">
-        <%= link_to "Edit", edit_account_project_detail_path(current_account, set_project, detail), class:"btn btn-default btn-xs", remote: true %>
-        <%= link_to "remove", account_project_detail_path(current_account, set_project, detail), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-default btn-xs", remote: true %>
-    </div>
+    <li class="dropdown pull-right">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        <icon class="fa fa-ellipsis-h"></icon>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-right">
+        <li><%= link_to "Edit", edit_account_project_detail_path(current_account, set_project, detail), remote: true %></li>
+        <li><%= link_to "remove", account_project_detail_path(current_account, set_project, detail), method: :delete, data: {confirm: "Are you sure?"}, remote: true %></li>
+      </ul>
+    </li>
+
   </div>
-  <div class="col-md-1"></div>
 </div>
-<br>
 <% end %>
