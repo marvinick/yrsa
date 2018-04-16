@@ -1,32 +1,26 @@
 <%= div_for @item do %>
+  <div class="row">
+    <div class="col-md-3">
+      <% url = generate_url_attributes_preview(@item.link) %>
+      <%= image_tag(url, :size => '125x125', class: "item-image") %>
+    </div>
 
-
-<div class="row">
-  <div class="col-md-3">
-    <% url = generate_url_attributes_preview(@item.link) %>
-    <%= image_tag(url, :size => '125x125', class: "item-image") %>
-  </div>
-
-  <div class="col-md-9 nopadding">
-      <p class="item-name">
-        <%= @item.name %>
-        <% if @project.user_id == current_user.id %>
-          <%= link_to edit_account_project_item_path(current_account, set_project, @item), remote: true do  %>
-            <span class="fa fa-ellipsis-h pull-right"></span>
+    <div class="col-md-9 nopadding">
+        <p class="item-name">
+          <%= @item.name %>
+          <% if @project.user_id == current_user.id %>
+            <%= link_to edit_account_project_item_path(current_account, set_project, @item), remote: true do  %>
+              <span class="fa fa-ellipsis-h pull-right"></span>
+            <% end %>
           <% end %>
+        </p>
+
+        <p class="item-content"><%= @item.content %></p>
+        <% @item.details.each do |detail| %>
+          <li class="detail-list">
+            <p class="detail-name"><%= detail.name %></p>
+          </li>
         <% end %>
-      </p>
-
-      <p class="item-content"><%= @item.content %></p>
-      <% @item.details.each do |detail| %>
-        <li class="detail-list">
-          <p class="detail-name"><%= detail.name %></p>
-        </li>
-      <% end %>
+    </div>
   </div>
-</div>
-<div class="row">
-
- </div>
-
 <% end %>

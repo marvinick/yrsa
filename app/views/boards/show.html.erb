@@ -1,15 +1,18 @@
+<div class="formy-back">
+   <p class="formy-back-title"><%= link_to set_project.title, account_project_path(current_account, set_project) %> - <%= link_to "boards", account_project_boards_path(current_account, set_project, @boards) %> </p>
+ </div>
 
-  <%= link_to account_project_path(current_account, set_project) do %>
-    <div class="formy-back">
-       <p class="formy-back-title"><%= set_project.title %> </p>
-     </div>
-  <% end %>
+<div class="formy">
+  <div class="row">
+    <li class="dropdown pull-right">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        <icon class="fa fa-trash"></icon>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-right">
 
-  <div class="formy">
-    <div class="board-note-bubble">
-      <p class="board-note"><%= @board.note %></p>
-      <div class="pull-right">
-        <p>by <%= @board.user.email %>, <%= time_ago_in_words(@board.created_at) %> ago</p>
-      </div>
-    </div>
+        <li><%= link_to "remove", account_project_board_path(current_account, set_project, @board), method: :delete, data: {confirm: "Are you sure?"}, remote: true %></li>
+      </ul>
+    </li>
   </div>
+  <%= render "bubble" %>
+</div>

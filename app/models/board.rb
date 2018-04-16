@@ -5,7 +5,7 @@ class Board < ApplicationRecord
   belongs_to :item_id
 
   validates_presence_of :note
-  validates_length_of :note, :maximum => 280
+  validates_length_of :note, :maximum => 500
 
 
   def day

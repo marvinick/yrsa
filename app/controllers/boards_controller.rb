@@ -2,6 +2,7 @@ class BoardsController < BaseController
   before_action :set_project
   before_action :set_board, only: [:show, :edit, :update, :destroy]
   skip_before_action :authorize_owner!
+  respond_to :html, :json
 
   def new
     @project = current_account.projects.find_by slug: params[:project_id]
@@ -32,6 +33,7 @@ class BoardsController < BaseController
   def update
     if @board.update_attributes(board_params)
       flash[:notice] = "Board is updated."
+      redirect_to account_project_board_path(current_account, set_project, @board)
     else
       flash.now[:alert] = "Board is not saved."
     end
@@ -40,6 +42,7 @@ class BoardsController < BaseController
   def destroy
     @board.destroy
     flash[:notice] = "You have deleted the note."
+    redirect_to account_project_boards_path(current_account, set_project, @boards)
   end
 
   private

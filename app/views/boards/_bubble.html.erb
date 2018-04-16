@@ -1,0 +1,19 @@
+<%= div_for @board do %>
+  <div class="board-note-bubble">
+
+      <li class="dropdown pull-right">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          <span class="fa fa-ellipsis-h"></span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-right">
+          <li><%= link_to "Edit", edit_account_project_board_path(current_account, set_project, @board), remote: true %></li>
+
+        </ul>
+      </li>
+
+    <p class="board-note"><%= @board.note %></p>
+    <div class="pull-right">
+      <p>by <%= @board.user.email %>, <%= time_ago_in_words(@board.created_at) %> ago</p>
+    </div>
+  </div>
+<% end %>

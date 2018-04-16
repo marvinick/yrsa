@@ -1,2 +1,6 @@
-$("#board-modal").html("<%= escape_javascript(render 'edit') %>")
-$("#board-modal").modal("show")
+$('form').hide();
+$('div#<%= dom_id(@board) %>').replaceWith('<%= j render("form") %>');
+
+$("#hide").click(function(){
+  $('#current-pane').replaceWith('<%= j render("bubble") %>')
+});

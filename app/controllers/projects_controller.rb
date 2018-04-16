@@ -43,7 +43,7 @@ class ProjectsController < BaseController
   def update
     if @project.update(project_params)
       flash[:notice] = "The project is updated."
-        redirect_to account_project_path(@account, @project)
+      redirect_to account_project_path(@account, @project)
     else
       flash.now[:alert] = "Something is misssing."
       render "edit"

@@ -1,6 +1,6 @@
 class RespondsController < BaseController
   before_action :set_board
-  respond :html, :json
+  respond_to :html, :json
 
   def new
   end
