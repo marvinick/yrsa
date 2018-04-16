@@ -1,0 +1,15 @@
+
+  <%= link_to account_project_path(current_account, set_project) do %>
+    <div class="formy-back">
+       <p class="formy-back-title"><%= set_project.title %> </p>
+     </div>
+  <% end %>
+
+  <div class="formy">
+    <div class="board-note-bubble">
+      <p class="board-note"><%= @board.note %></p>
+      <div class="pull-right">
+        <p>by <%= @board.user.email %>, <%= time_ago_in_words(@board.created_at) %> ago</p>
+      </div>
+    </div>
+  </div>

@@ -1,6 +1,6 @@
 class BoardsController < BaseController
   before_action :set_project
-  before_action :set_board, only: [:edit, :update, :destroy]
+  before_action :set_board, only: [:show, :edit, :update, :destroy]
   skip_before_action :authorize_owner!
 
   def new
@@ -25,6 +25,8 @@ class BoardsController < BaseController
     @boards = set_project.boards.all.order("created_at desc")
   end
 
+  def show; end
+
   def edit; end
 
   def update
@@ -35,8 +37,6 @@ class BoardsController < BaseController
     end
   end
 
-
-
   def destroy
     @board.destroy
     flash[:notice] = "You have deleted the note."
@@ -45,7 +45,7 @@ class BoardsController < BaseController
   private
 
   def set_board
-    @board = Board.find(params[:id])
+    @board = set_project.boards.find(params[:id])
   end
 
   def set_project
@@ -54,7 +54,7 @@ class BoardsController < BaseController
   helper_method :set_project
 
   def board_params
-    params.require(:board).permit(:note, :user_id, :project_id)
+    params.require(:board).permit(:note, :respond, :user_id, :project_id)
   end
 
 end

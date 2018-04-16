@@ -1,10 +1,13 @@
-<div class="col-md-3">
-  <div class="board-box">
-    <p class="board-note"><%= board.note %></h3>
+<%= link_to account_project_board_path(current_account, set_project, board), class:"board-box-link" do %>
+  <div class="col-md-3">
+    <div class="board-box">
+      <p class="board-note"><%= board.note %></h3>
 
-    <div class="board-footer">
-      <p><%= board.user.email %> <%= time_ago_in_words(board.created_at) %> ago</p>
+      <div class="board-footer">
+        <p><%= board.user.email %></p>
+        <p><%= time_ago_in_words(board.created_at) %> ago</p>
+      </div>
+
     </div>
-
   </div>
-</div>
+<% end %>
