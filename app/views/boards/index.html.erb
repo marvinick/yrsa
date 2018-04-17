@@ -7,17 +7,20 @@
 <div class="formy">
   <p class="board-header">Announcement</p>
   <div class="row">
-    <div class="board-form">
-      <%= form_for ([current_account, set_project, @board]), remote: true, html: {} do |f| %>
-        <li><%= f.text_area :note, placeholder: "write something", class: "board-input", :size => 40  %></li>
-        <br>
-        <li><%= f.button "post", class: "btn btn-success btn-lg pull-right" %></li>
-      <% end %>
-    </div>
+    <%= link_to "+ project", new_account_project_board_path(current_account, set_project), remote: true, class: "new-board-button btn btn-success btn-lg" %>
+
   </div>
-  <div id="boards">
-    <div class="row">
+
+  <div class="row">
+    <div id="boards">
       <%= render @boards %>
+      <!-- <% @board_weeks.each do |month, boards| %>
+        <h2><%= month.strftime("%B %Y") %></h2>
+        <% boards.each do |board| %>
+          <li><%= board.note %></li>
+        <% end %>
+      <% end %> -->
     </div>
   </div>
+
 </div>

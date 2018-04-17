@@ -1,2 +1,6 @@
-$("#board-modal").html("<%= escape_javascript(render 'new') %>")
-$("#board-modal").modal("show")
+$('.new-board-button').after('<%= j render('form') %>');
+$('.new-board-button').hide();
+$("#hide").click(function(){
+    $("#current-pane").hide();
+    $('.new-board-button').show();
+});

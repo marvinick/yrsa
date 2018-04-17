@@ -22,8 +22,9 @@ class BoardsController < BaseController
   end
 
   def index
-    @board = set_project.boards.new
+    # @board = set_project.boards.new
     @boards = set_project.boards.all.order("created_at desc")
+    @board_weeks = @boards.group_by { |board| board.created_at.beginning_of_month }
   end
 
   def show; end
