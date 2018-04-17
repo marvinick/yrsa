@@ -1,7 +1,7 @@
 <%= link_to account_project_board_path(current_account, set_project, board), class:"board-box-link" do %>
   <div class="col-md-3">
     <div class="board-box">
-      
+
       <p class="board-note"><%= truncate(board.note, length:30) %></h3>
 
       <div class="board-footer">
@@ -12,3 +12,4 @@
     </div>
   </div>
 <% end %>
+ 

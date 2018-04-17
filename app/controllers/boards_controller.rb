@@ -24,7 +24,9 @@ class BoardsController < BaseController
   def index
     # @board = set_project.boards.new
     @boards = set_project.boards.all.order("created_at desc")
-    @board_weeks = @boards.group_by { |board| board.created_at.beginning_of_month }
+    @board_weeks = @boards.group_by { |board| board.created_at.beginning_of_week(:sunday) }
+    # @board_weeks = @boards.group_by_week { |board| board.created_at.compact }.count
+
   end
 
   def show; end

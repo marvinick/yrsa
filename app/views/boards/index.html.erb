@@ -13,13 +13,16 @@
 
   <div class="row">
     <div id="boards">
-      <%= render @boards %>
-      <!-- <% @board_weeks.each do |month, boards| %>
-        <h2><%= month.strftime("%B %Y") %></h2>
-        <% boards.each do |board| %>
-          <li><%= board.note %></li>
-        <% end %>
-      <% end %> -->
+      <!-- <%= render @boards %> -->
+      <% @board_weeks.each do |day, boards| %>
+      <div class="row">
+          
+        <h2 class="text-center"><%= day.strftime("%B %d %Y") %></h2>
+
+        <%= render boards %>
+      </div>
+      <% end %>
+
     </div>
   </div>
 
