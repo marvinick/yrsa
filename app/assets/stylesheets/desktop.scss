@@ -113,6 +113,15 @@
 
   }
 
+  .project-box-preview-member {
+    background-color: #f2e6e8;
+    padding:5px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+  }
+
   .project-box-preview-text {
     font-size: 16px;
     font-weight: bold;
@@ -375,6 +384,13 @@
     color: grey;
   }
 
+  //users
+  .invitation-header {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: underline;
+  }
 
   .left {
     float: left;
@@ -404,11 +420,6 @@
     font-weight: bolder;
   }
 
-  .project_attributes {
-    font-size: 20px;
-    font-weight: bold;
-  }
-
   .preview_image {
     max-height: inherit;
   }
@@ -420,21 +431,11 @@
     margin: 20px 20px;
   }
 
-  .row h4, h5, h6 {
-    font-weight: 100;
-  }
-
   .check_box {
     font-size: 18px;
     color: grey;
   }
 
-   .row {
-     padding-top: 5px;
-     padding-left: 0px;
-     padding-right: 0px;
-     height: 100%;
-   }
 
   .container {
 
@@ -466,19 +467,6 @@
   .mobile-user {
     display: none;
   }
-
-  .big {
-     display:block;
-     width: 400px;
-     height: 300px;
-     background-color: white;
-     cursor:pointer;
-     padding-left: 20px;
-     padding-top: 100px;
-     padding-right: 20px;
-     margin-top: 25px;
-     margin-bottom: 25px;
-   }
 
   .box {
     height: auto;
@@ -531,31 +519,6 @@
     border-style: inset;
   }
 
-  .boxy {
-    height: 50%;
-    width: 100%;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 1px;
-    padding-right: 1px;
-    border-style: none;
-  }
-
-  .boxyy {
-    height: auto;
-    width: 100%;
-    margin-top: 20px;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    padding-left: 30px;
-    padding-right: 30px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    background-color: white;
-  }
-
   .formly {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -579,19 +542,6 @@
     box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
   }
 
-  .project-row {
-    padding-left: 15px;
-    padding-bottom: 50px;
-  }
-
-  .comment {
-    padding: 20px 20px 20px 20px;
-    margin-bottom: 20px;
-  }
-
-  .board-show {
-    background-color: white;
-  }
 
   .modal-dialog {
     background-color: white;
@@ -624,10 +574,9 @@
 
   .input, select textarea {
     width: 100%;
-    height: 100%;
-    font-size: 15px;
-    margin-right: 15px;
-    margin-left: 10px;
+    height: 40px;
+    font-size: 22px;
+    margin: 5px;
     font-weight: 500;
     resize: none;
     background-color: #f7f7f7;
@@ -635,22 +584,11 @@
   }
 
   input::placeholder {
-    color: #d8d8d8;
+
   }
 
   .input-text > input::placeholder {
     color: #d8d8d8;
-  }
-
-  .detail-text, select textarea {
-    width: 50%;
-    height: 30px;
-    font-size: 15px;
-    font-weight: bolder;
-    border-top: none;
-    border-right: none;
-    border-left: none;
-
   }
 
   .navbar {

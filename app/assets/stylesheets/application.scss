@@ -90,20 +90,6 @@ a:link {
   text-decoration: none;
 }
 
-.box span {
-  width:100%;
-  height:100%;
-  position:absolute;
-  z-index:2;
-}
-
-.boxy span {
-  width:100%;
-  height:100%;
-  position:absolute;
-  z-index:2;
-}
-
 
 .input, select, textarea {
   border-top: none;
@@ -162,10 +148,6 @@ tr:nth-child(even){
   background-color: #f2f2f2
 }
 
-.hli {
-   border:2px solid black;
-}
-
 hr {
   height: 1px;
   color: #e8e8e8; /* old IE */
@@ -189,10 +171,6 @@ input[type=radio]:checked + label {
   color: #ffeb21;
 }
 
-.landing-image h3 {
-  color: grey;
-  font-weight: lighter;
-}
 
 //tabs view
 /* Style the tab */
@@ -293,13 +271,6 @@ table caption {
     display: none;
   }
 }
-
-.p {
-  text-align: center;
-  padding-top: 140px;
-  font-size: 14px;
-}
-
 
 .modal-content {
   background-color: white!important;

@@ -1,2 +1,6 @@
-$("#product-modal").html("<%= escape_javascript(render 'invitations/new') %>")
-$("#product-modal").modal("show")
+$(".new-invitation-button").after('<%= j render('new') %>');
+$('.new-invitation-button').hide();
+$("#hide").click(function(){
+    $("#current-pane").hide();
+    $('.new-invitation-button').show();
+});

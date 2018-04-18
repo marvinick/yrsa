@@ -1,3 +1,17 @@
-<%= link_to "Invite", new_account_invitation_path(@account) %>
+<%= link_to account_project_path(current_account, @project) do %>
+  <div class="formy-back">
+    <%= @project.title %>
+  </div>
+<% end %>
 
- 
+<div class="formy">
+  <div class="row">
+    <p class="invitation-header">members</p>
+    <%= link_to "Invite", new_account_project_invitation_path(current_account, @project, @invitation), class: "new-invitation-button btn btn-default", remote: true %>
+  </div>
+
+  <div class="row">
+    <div id="invitations"></div>
+    <%= render "users/index" %>
+  </div>
+</div>

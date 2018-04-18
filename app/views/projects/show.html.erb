@@ -28,10 +28,18 @@
 				<% end %>
 			</div>
 			<div class="col-md-4">
-				<%= link_to new_account_project_invitation_path(current_account, @project), class:"project-box-link" do %>
+				<%= link_to account_project_invitations_path(current_account, @project, @invitations), class:"project-box-link" do %>
 					<div class="project-box">
 						<p class="project-box-header">Members</p>
 						<hr>
+						<% @project.users.last(4).each do |user| %>
+				      <% if user.email != current_account.owner.email %>
+				        <div class="project-box-preview-member">
+				          <%= user.email %>
+				        </div>
+				        <br>
+				      <% end %>
+				    <% end %>
 					</div>
 				<% end %>
 			</div>

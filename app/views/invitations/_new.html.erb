@@ -1,0 +1,12 @@
+<div class='row' id="current-pane">
+  <%= form_for([current_account, @project, @invitation], remote: true) do |f| %>
+  <%= render "shared/errors", obj: @invitation %>
+    <%= f.hidden_field :account_id %>
+    <%= f.hidden_field :project_id, :value => @invitation.project_id %>
+    <div>
+      <%= f.text_field :email, class: "input", placeholder: "enter email to invite" %>
+    </div>
+    <%= f.submit "Invite User", class: "btn btn-default btn-lg" %>
+      <button href="#current-pane" class="btn btn-xs" data-dismiss="alert" aria-label="close" id="hide">close</button>
+  <% end %> </div>
+</div>
