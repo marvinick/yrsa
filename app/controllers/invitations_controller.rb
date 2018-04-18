@@ -11,6 +11,7 @@ class InvitationsController < BaseController
   end
 
   def new
+    @users = current_account.users.all
     @invitation = @project.invitations.build
   end
 

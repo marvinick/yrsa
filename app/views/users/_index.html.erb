@@ -1,0 +1,19 @@
+<div class="row text-center">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <% @project.users.each do |user| %>
+      <% if user.email != current_account.owner.email %>
+        <div class="formy">
+            <div class="pull-left">
+                <h5><%= user.email %></h5>
+            </div>
+            <div class="pull-right">
+              <%= link_to "Remove", account_project_user_path(current_account, @project, user), method: :delete, data: { confirm: "Are you sure you want to remove this user?" }, class: "btn btn-xs btn-danger" %>
+            </div>
+        </div>
+        <br>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="col-md-3"></div>
+</div>
