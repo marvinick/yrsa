@@ -5,7 +5,7 @@
 
 	<div class="row text-center">
 		<%= render "header" %>
-	</div> 
+	</div>
 
 	<div class="row">
 		<% if @project.user_id == current_user.id %>
@@ -15,6 +15,15 @@
 				  	<p class="project-box-header">Details</p>
 						<hr>
 						<%= render "details" %>
+					</div>
+				<% end %>
+			</div>
+			<div class="col-md-4">
+				<%= link_to account_project_items_path(current_account, @project, @items), class:"project-box-link" do %>
+					<div class="project-box">
+						<p class="project-box-header">Items</p>
+						<hr>
+						<%= render "cards" %>
 					</div>
 				<% end %>
 			</div>
@@ -42,15 +51,7 @@
 				</div>
 			<% end %>
 		</div>
-		<div class="col-md-4">
-			<%= link_to account_project_items_path(current_account, @project, @items), class:"project-box-link" do %>
-				<div class="project-box">
-					<p class="project-box-header">Items</p>
 
-					<hr>
-				</div>
-			<% end %>
-		</div>
 		<div class="col-md-4">
 			<%= link_to account_project_items_path(current_account, @project, @items), class:"project-box-link" do %>
 				<div class="project-box">

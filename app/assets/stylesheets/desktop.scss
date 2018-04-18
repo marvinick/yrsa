@@ -59,7 +59,6 @@
     margin-right: 0px;
     margin-top: 10px;
     margin-bottom: 10px;
-
     padding-top: 15px;
     padding-bottom: 15px;
     padding-left: 15px;
@@ -88,7 +87,22 @@
     padding:10px;
     margin: 7px;
     border-radius: 10px;
+  }
 
+  .project-box-preview-item {
+    background-color: #f7f4ed;
+    min-height: 110px;
+    width: 100%;
+    font-size: 12px;
+    padding: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    webkit-box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
+   -moz-box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
+   box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
   }
 
   .project-box-preview-board {
@@ -248,6 +262,14 @@
   }
 
   //boards
+  .board-week-header {
+    font-size: 26px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: -20px;
+    text-decoration: underline;
+  }
+
   .board-header {
     font-size: 30px;
     text-align: center;
@@ -256,7 +278,7 @@
   }
 
   .board-note {
-    
+
     font-size: 20px;
     font-weight: bolder;
   }
@@ -288,7 +310,7 @@
     background-color: white;
     min-height: 220px;
     width: auto;
-    margin-left: 20px;
+    margin-left: 0px;
     margin-right: 20px;
     margin-top: 20px;
     margin-bottom: 20px;

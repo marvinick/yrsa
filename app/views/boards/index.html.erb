@@ -1,8 +1,11 @@
-<%= link_to account_project_path(current_account, set_project) do %>
-  <div class="formy-back">
-    <p class="formy-back-title"><%= set_project.title %></p>
-  </div>
-<% end %>
+
+  <%= link_to account_project_path(current_account, set_project) do %>
+
+    <div class="formy-back">
+      <p class="formy-back-title"><%= set_project.title %></p>
+    </div>
+  <% end %>
+
 
 <div class="formy">
   <p class="board-header">Announcement</p>
@@ -13,16 +16,14 @@
 
   <div class="row">
     <div id="boards">
-      <!-- <%= render @boards %> -->
       <% @board_weeks.each do |day, boards| %>
-      <div class="row">
-          
-        <h2 class="text-center"><%= day.strftime("%B %d %Y") %></h2>
 
-        <%= render boards %>
-      </div>
+          <p class="board-week-header"><%= day.strftime("%B %d %Y") %></h2>
+          <div class="row">
+            <%= render boards %>
+          </div>
+
       <% end %>
-
     </div>
   </div>
 

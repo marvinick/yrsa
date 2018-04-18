@@ -1,5 +1,9 @@
 <div class="row">
-  <%= render "items/index" %>
+  <% @project.items.last(4).each do |item| %>
+    <div class="col-sm-6">
+      <div class="project-box-preview-item">
+        <%= item.name %>
+      </div>
+    </div>
+  <% end %>
 </div>
-
- 
