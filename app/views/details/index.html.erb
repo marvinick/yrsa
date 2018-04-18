@@ -11,14 +11,10 @@
       <%= link_to "add", new_account_project_detail_path(current_account, @project, @detail), remote: true, class: "btn btn-success btn-lg pull-right" %>
     </p>
     <hr>
-
     <div class="row text-center">
       <div class="new-detail-button "></div>
     </div>
-
-    <div class="my-details">
-      <%= render @details %>
-    </div>
-
+    <div class="my-details"></div>
+    <%= render @details %>
   </div>
 </div>
