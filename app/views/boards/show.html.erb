@@ -1,3 +1,4 @@
+<% @title= truncate(@board.note, length:20) %>
 <div class="formy-back">
    <p class="formy-back-title"><%= link_to set_project.title, account_project_path(current_account, set_project) %> - <%= link_to "boards", account_project_boards_path(current_account, set_project, @boards) %> </p>
  </div>

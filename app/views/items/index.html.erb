@@ -1,17 +1,23 @@
+<% @title= "Project: " + set_project.title + " - items"  %>
+
 <%= link_to account_project_path(current_account, set_project) do %>
   <div class="formy-back">
     <p class="formy-back-title"><%= set_project.title %></p>
   </div>
 <% end %>
 <div class="formy">
-  <div class="my-items row">
-    <% if @items.present? %>
-      <%= render @items %>
-
-    <% else %>
-      <div class="text-center">
-        <h3>No items yet</h3>
-      </div>
-    <% end %>
+  <p class="items-header">
+    Items
+    <%= link_to "Add Item", new_account_project_item_path(current_account, set_project, @item), class: "new-item-button btn btn-success", remote: true %>
+  </p>
+  <br>
+  <div class="row">
+    <div class="my-items"></div>
+      <% if @items.present? %>
+        <%= render @items %>
+      <% else %>
+        <h3 class="text-center">No items yet</h3>
+      <% end %>
+    </div>
   </div>
 </div>

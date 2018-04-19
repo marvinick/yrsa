@@ -90,7 +90,7 @@
   }
 
   .project-box-preview-item {
-    background-color: #e6f2d5;
+    background-color: white;
     min-height: 110px;
     width: 100%;
     font-size: 12px;
@@ -164,6 +164,23 @@
     background-color: #fcf9f7;
     padding: 20px;
     border-radius: 15px;
+  }
+
+  .items-header {
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+
+  }
+
+  .item {
+
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 20px;
+    webkit-box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
+   -moz-box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
+   box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
   }
 
   .item-name {
