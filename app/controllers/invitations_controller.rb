@@ -7,7 +7,7 @@ class InvitationsController < BaseController
   respond_to :html, :json
 
   def index
-    @invitations = current_account.invitations.all
+    @invitations = @project.invitations.all.reverse
   end
 
   def new
@@ -56,6 +56,13 @@ class InvitationsController < BaseController
 
     flash[:notice] = "You have joined the #{current_account.name} account."
     redirect_to root_url
+  end
+
+  def destroy
+    @invitation = Invitation.find_by!(token: params[:id])
+    @invitation.destroy
+    flash[:notice] = "Succesfuly canceled invitation."
+    redirect_to account_project_invitations_path(current_account, @project, @invitations)
   end
 
   private

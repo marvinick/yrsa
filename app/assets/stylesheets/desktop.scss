@@ -90,7 +90,7 @@
   }
 
   .project-box-preview-item {
-    background-color: #f7f4ed;
+    background-color: #e6f2d5;
     min-height: 110px;
     width: 100%;
     font-size: 12px;
@@ -392,6 +392,25 @@
     text-decoration: underline;
   }
 
+  .invitation-box {
+    font-size: 16px;
+    padding:10px;
+    margin:5px;
+    border-radius: 15px;
+    background-color: #f7f5f2;
+  }
+
+  .invitation-form {
+    margin: auto;
+    width:40%;
+  }
+
+  .members-subheader {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+
   .left {
     float: left;
   }
@@ -418,6 +437,7 @@
     text-align: center;
     font-size: 22px;
     font-weight: bolder;
+    text-decoration: underline;
   }
 
   .preview_image {
