@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180416010432) do
+ActiveRecord::Schema.define(version: 20180420054634) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,8 +94,8 @@ ActiveRecord::Schema.define(version: 20180416010432) do
     t.string   "name"
     t.text     "content"
     t.integer  "project_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(version: 20180416010432) do
     t.boolean  "image_processing"
     t.string   "link"
     t.integer  "user_id"
+    t.boolean  "is_private",         default: true
   end
 
   create_table "memberships", force: :cascade do |t|
