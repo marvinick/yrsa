@@ -231,13 +231,12 @@
   }
 
   .detail-box {
-    background-color: white;
-
+    background-color: #f9faff;
     margin: 20px 150px 20px 150px;
     padding: 20px 70px 20px 70px;
     webkit-box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
-   -moz-box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
-   box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
+    -moz-box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
+    box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
   }
 
   .main-detail-name {
