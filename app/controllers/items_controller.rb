@@ -10,7 +10,6 @@ class ItemsController < BaseController
   end
 
   def new
-    @project = current_account.projects.find_by slug: params[:project_id]
     @item = @project.items.build
   end
 

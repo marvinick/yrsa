@@ -1,14 +1,13 @@
-<div id="form1">
+<div id="invitation-form">
   <%= form_for ([current_account, @project, @detail]), remote: true, html: {} do |f| %>
-    <div clas="formly" id="current-pane">
+    <div clas="invitation-form" id="current-pane">
       <% f.hidden_field :project_id %>
-      <%= f.text_field :name, placeholder: "name", class: "detail-text" %>
+      <%= f.text_field :name, placeholder: "name", class: "input" %>
       <br>
-      <%= f.text_field :description, placeholder: "description", class: "detail-text" %>
+      <%= f.text_field :description, placeholder: "description", class: "input" %>
       <br>
       <%= f.button "add", class: "btn btn-success" %>
       <button href="#current-pane" class="btn btn-xs" data-dismiss="alert" aria-label="close" id="hide">close</button>
     </div>
   <% end %>
 </div>
- 

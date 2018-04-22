@@ -16,7 +16,7 @@ class BoardsController < BaseController
     if @board.save
       respond_to do |format|
         format.js {}
-        # flash[:notice] = "You've posted on the board."
+        flash[:notice] = "You've posted on the board."
       end
     end
   end
