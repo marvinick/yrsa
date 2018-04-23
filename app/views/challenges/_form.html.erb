@@ -1,19 +1,20 @@
 <%= form_for ([current_account, @project, @challenge]), remote: true, html: {} do |f| %>
   <div class="formly" id="current-pane">
-    <div class="row">
-      <div class="col-md-12">
-        <%= f.hidden_field :project_id %>
-        <%= f.text_field :name, placeholder: 'name', autofocus: true, label: false, class: "input ", :maxlength => 25, :size => 40 %>
-        <br>
-        <%= f.text_area :description, placeholder: 'content', label: false, autofocus: true, class: "input", :maxlength => 280, :size => 40  %>
-
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12 pull-right">
-        <%= f.submit "add item", class:"btn btn-success" %>
-        <button href="#current-pane" class="btn btn-xs" data-dismiss="alert" aria-label="close" id="hide">close</button>
-      </div>
-    </div>
+    <%= f.hidden_field :project_id %>
+    <%= f.text_field :name, placeholder: 'name', autofocus: true, label: false, class: "input ", :maxlength => 25, :size => 40 %>
+    <br>
+    <%= f.text_area :description, placeholder: 'content', label: false, autofocus: true, class: "input", :maxlength => 280, :size => 40  %>
+    <br>
+    <%= f.text_field :due_date, id:"due-date", class: "input" %>
+    <br>
+    <br>
+    <%= f.submit "create challenge", class:"btn btn-success" %>
+    <button href="#current-pane" class="btn btn-xs" data-dismiss="alert" aria-label="close" id="hide">close</button>
   </div>
 <% end %>
+
+<script>
+  $(function (){
+    $('#due-date').datepicker();
+  });
+</script>

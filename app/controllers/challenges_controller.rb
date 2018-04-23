@@ -5,7 +5,8 @@ class ChallengesController < BaseController
   respond_to :hmtl, :json
 
   def index
-    @challenges = @project.challenges.all
+    @challenges = @project.challenges.order("due_date")
+    @challenge_weeks = @challenges.group_by { |challenge| challenge.due_date.beginning_of_week(:sunday) }
   end
 
   def new

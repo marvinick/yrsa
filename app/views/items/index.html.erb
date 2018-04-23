@@ -8,10 +8,11 @@
 <div class="formy">
   <p class="items-header">
     Items
-    <%= link_to "Add Item", new_account_project_item_path(current_account, set_project, @item), class: "new-item-button btn btn-success", remote: true %>
+    <%= link_to "Add Item", new_account_project_item_path(current_account, set_project, @item), class: " og-item-button btn btn-success pull-left", remote: true %>
   </p>
-  <br>
+  <hr>
   <div class="row">
+    <div class="new-item-button"></div>
     <div class="my-items"></div>
       <% if @items.present? %>
         <%= render @items %>

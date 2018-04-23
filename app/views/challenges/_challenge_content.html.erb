@@ -1,6 +1,10 @@
 <%= div_for @challenge do %>
 <div class="formy">
   <p class="challenge-name"><%= @challenge.name %></p>
+  <p class="challenge-description"><%= @challenge.description %></p>
+  <% if @challenge.due_date.present? %>
+    <p class="challenge-description"><%= @challenge.due_date.strftime("%B %d, %Y") %></p>
+  <% end %>
   <li class="dropdown pull-right">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
       <icon class="fa fa-ellipsis-h"></icon>

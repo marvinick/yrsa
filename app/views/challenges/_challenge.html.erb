@@ -1,8 +1,11 @@
 <div class="col-md-6">
-  <%= link_to account_project_challenge_path(current_account, @project, challenge) do %>
+  <%= link_to account_project_challenge_path(current_account, @project, challenge), class:"board-box-link" do %>
     <div class="challenge-box">
       <p class="challenge-name"><%= challenge.name %></p>
       <p class="challenge-description"><%= challenge.description %></p>
+      <% if challenge.due_date.present? %>
+        <p class="challenge-description"><%= challenge.due_date.strftime("%B %d, %Y") %></p>
+      <% end %>
     </div>
   <% end %>
 </div>

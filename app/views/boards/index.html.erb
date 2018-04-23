@@ -9,13 +9,13 @@
 
 
 <div class="formy">
-  <p class="board-header">Announcement</p>
+  <p class="board-header">
+    Announcement
+    <%= link_to "New", new_account_project_board_path(current_account, set_project), remote: true, class: "og-board-button btn btn-success btn-lg" %>
+  </p>
+  <hr>
   <div class="row">
-    <%= link_to "+ project", new_account_project_board_path(current_account, set_project), remote: true, class: "new-board-button btn btn-success btn-lg" %>
-
-  </div>
-
-  <div class="row">
+    <div class="new-board-button"></div>
     <% @board_weeks.each do |day, boards| %>
       <p class="board-week-header"><%= day.strftime("%B %d %Y") %></h2>
         <div class="row">
