@@ -122,6 +122,13 @@
     text-align: center;
   }
 
+  .project-box-preview-challenge {
+    background-color: #d8f2d7;
+    padding:10px;
+    margin: 7px;
+    border-radius: 10px;
+  }
+
   .project-box-preview-text {
     font-size: 16px;
     font-weight: bold;
@@ -454,6 +461,31 @@
     font-size: 22px;
     font-weight: bolder;
     text-decoration: underline;
+  }
+
+  //challenges
+  .challenge-box {
+    padding: 10px;
+    margin: 20px;
+    webkit-box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
+    -moz-box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
+    box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
+  }
+
+  .challenges-header {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .challenge-name {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .challenge-description {
+    font-size: 15px;
+
   }
 
   .preview_image {

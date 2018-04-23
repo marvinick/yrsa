@@ -1,0 +1,14 @@
+<%= div_for @challenge do %>
+<div class="formy">
+  <p class="challenge-name"><%= @challenge.name %></p>
+  <li class="dropdown pull-right">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+      <icon class="fa fa-ellipsis-h"></icon>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-right">
+      <li><%= link_to "edit", edit_account_project_challenge_path(current_account, @project, @challenge), remote: true %>
+      <li><%= link_to "remove", account_project_challenge_path(current_account, @project, @challenge), method: :delete, data: {confirm: "Are you sure?"}, remote: true %></li>
+    </ul>
+  </li>
+</div>
+<% end %>

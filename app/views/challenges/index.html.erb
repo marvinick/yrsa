@@ -1,0 +1,17 @@
+<% @title= "Project: " + @project.title + " - challenges"  %>
+
+<%= link_to account_project_path(current_account, @project) do %>
+  <div class="formy-back">
+    <p class="formy-back-title"><%= @project.title %></p>
+  </div>
+<% end %>
+<div class="formy">
+  <p class="challenges-header">
+    Challenges
+    <%= link_to 'create a challenge', new_account_project_challenge_path(current_account, @project, @challenge), class:"btn btn-default new-challenge-button", remote: true %>
+  </p>
+  <div class="row">
+    <div id="challenges"></div>
+    <%= render @challenges %>
+  </div>
+</div>

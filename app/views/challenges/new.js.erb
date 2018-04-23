@@ -1,0 +1,6 @@
+$('.new-challenge-button').after('<%= j render('form') %>');
+$('.new-challenge-button').hide();
+$("#hide").click(function(){
+    $("#current-pane").hide();
+    $('.new-challenge-button').show();
+});

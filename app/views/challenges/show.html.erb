@@ -1,0 +1,5 @@
+<% @title= truncate(@challenge.name) %>
+<div class="formy-back">
+   <p class="formy-back-title"><%= link_to @project.title, account_project_path(current_account, @project) %> - <%= link_to "challenges", account_project_challenges_path(current_account, @project, @challenges) %> </p>
+ </div>
+  <%= render "challenge_content" %>

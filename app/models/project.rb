@@ -27,6 +27,8 @@ class Project < ApplicationRecord
 
   has_many :invitations
 
+  has_many :challenges
+
   # def as_json(options={})
   #   super(methods: [:email])
   # end

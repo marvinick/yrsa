@@ -52,8 +52,9 @@ Rails.application.routes.draw do
           patch :accepted
         end
       end
+
+      resources :challenges
     end
-  
   end
 
   resources :lookups

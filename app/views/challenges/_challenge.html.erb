@@ -1,0 +1,8 @@
+<div class="col-md-6">
+  <%= link_to account_project_challenge_path(current_account, @project, challenge) do %>
+    <div class="challenge-box">
+      <p class="challenge-name"><%= challenge.name %></p>
+      <p class="challenge-description"><%= challenge.description %></p>
+    </div>
+  <% end %>
+</div>
