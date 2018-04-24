@@ -154,8 +154,6 @@
     margin-top: -10px;
   }
 
-
-
   //items
   .item-formy {
     max-width: 100%;
@@ -181,7 +179,7 @@
   }
 
   .item {
-
+    margin-top: 20px;
     margin-bottom: 20px;
     background-color: white;
     padding: 20px;
@@ -589,15 +587,14 @@
   }
 
   .formly {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 25px;
-    margin-right: 25px;
-    padding-top: 25px;
-    padding-bottom: 25px;
+
+    width: 75%;
+    margin:auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 60px;
     background-color: white;
-    padding-left: 90px;
-    padding-right: 90px;
     border-style: solid;
     border-width: thin;
     border-color: #e2dfd9;
@@ -643,7 +640,7 @@
     border-top: none;
     border-right: none;
     border-left: none;
-    background-color: #cecece;
+    background-color: white;
   }
 
   .input, select textarea {
@@ -653,16 +650,40 @@
     margin: 5px;
     font-weight: 500;
     resize: none;
-    background-color: #f7f7f7;
+    background-color: white;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
 
+  .extra-input, select textarea {
+    width: 100%;
+    height: 35px;
+    font-size: 16px;
+    margin: 5px;
+    font-weight: 300;
+    resize: none;
+    background-color: white;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+
+  .extra-input::placeholder {
+    font-weight: lighter;
+    font-size: 16px;
   }
 
   input::placeholder {
-
+    font-weight: bold;
   }
 
   .input-text > input::placeholder {
     color: #d8d8d8;
+  }
+
+  .input, select, textarea {
+
   }
 
   .navbar {
@@ -741,11 +762,6 @@
 
   //style
 
-  label {
-    font-size: 18px;
-    font-weight: 900;
-  }
-
   .navbar-nav.navbar-center {
     position: absolute;
     left: 50%;
@@ -797,50 +813,54 @@
     font-size: 22px;
   }
 
-  //checkbox
-  // input[type=checkbox] {
-  //   transform: scale(2);
-  // }
+  //detail selection in item's form
+  /* Hide the browser's default checkbox */
+  .detail-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
 
-  .container2 {
-    display: block;
+  
+  .detail-container {
+    display: inline-block;
+
     position: absolute;
     padding-left: 35px;
     margin-bottom: 12px;
     cursor: pointer;
-
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
   }
 
-  /* Hide the browser's default checkbox */
-  .container2 input {
-      position: absolute;
-      opacity: 0;
-      cursor: pointer;
+  label {
+    font-size: 14px;
+    font-weight: bold;
   }
 
   /* Create a custom checkbox */
   .checkmark {
+      display: inline;
       position: absolute;
+      float: left;
       top: 0;
       left: 0px;
-      right: 30px;
-      height: 25px;
-      width: 25px;
+      right: 10px;
+      height: 20px;
+      width: 20px;
       background-color: #eee;
   }
 
   /* On mouse-over, add a grey background color */
-  .container2:hover input ~ .checkmark {
-      background-color: #ccc;
+  .detail-container:hover input ~ .checkmark {
+    background-color: #ccc;
   }
 
   /* When the checkbox is checked, add a blue background */
-  .container2 input:checked ~ .checkmark {
-      background-color: #7edb69;
+  .detail-container input:checked ~ .checkmark {
+    background-color: #7edb69;
   }
 
   /* Create the checkmark/indicator (hidden when not checked) */
@@ -851,14 +871,14 @@
   }
 
   /* Show the checkmark when checked */
-  .container2 input:checked ~ .checkmark:after {
-      display: block;
+  .detail-container input:checked ~ .checkmark:after {
+    display: block;
   }
 
   /* Style the checkmark/indicator */
-  .container2 .checkmark:after {
-      left: 9px;
-      top: 5px;
+  .detail-container .checkmark:after {
+      left: 6px;
+      top: 3px;
       width: 5px;
       height: 10px;
       border: solid white;

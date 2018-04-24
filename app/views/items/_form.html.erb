@@ -1,33 +1,32 @@
 <%= form_for ([current_account, set_project, @item]), remote: true, html: {} do |f| %>
   <div class="formly" id="current-pane">
     <div class="row">
-      <div class="col-md-8">
-        <%= f.hidden_field :project_id %>
-        <%= f.text_field :name, placeholder: 'name', autofocus: true, label: false, class: "input ", :maxlength => 25, :size => 40 %>
+      <%= f.hidden_field :project_id %>
+      <%= f.text_field :name, placeholder: 'name the item', autofocus: true, label: false, class: "input ", :maxlength => 25, :size => 40 %>
+      <br>
+      <%= f.text_field :content, placeholder: 'description', label: false, autofocus: true, class: "extra-input", :maxlength => 280, :size => 40  %>
+      <br>
+      <%= f.text_field :link, placeholder: "link from instagram or others for your image", autofocus: true, class: "extra-input" %>
+    </div>
+    <br>
+    <div class="row">
+      <%= f.collection_check_boxes :detail_ids, set_project.details.all, :id, :name, :item_wrapper_class => 'checkbox-inline' do |cb| %>
+        <div class="col-md-3">
+        <label class="detail-container">
+          <%= cb.label %>
+          <%= cb.check_box %>
+          <span class="checkmark"></span>
+        </label>
         <br>
-        <%= f.text_area :content, placeholder: 'content', label: false, autofocus: true, class: "input", :maxlength => 280, :size => 40  %>
         <br>
-        <%= f.text_field :link, placeholder: "add a url here for image", autofocus: true, class: "input" %>
-      </div>
-      <div class="col-md-1"></div>
-      <div class="col-md-3">
-        <h4>attributes</h4>
-        <br>
-        <%= f.collection_check_boxes :detail_ids, set_project.details.all, :id, :name, :item_wrapper_class => '' do |cb| %>
-          <label class="container2">
-            <%= cb.label %>
-            <%= cb.check_box %>
-            <span class="checkmark"></span>
-          </label>
-          <br>
-          <br>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
+
     </div>
     <div class="row">
-      <div class="col-md-8 pull-right">
+      <div class="pull-right">
         <%= f.submit "add item", class:"btn btn-success" %>
-        <button href="#current-pane" class="btn btn-xs" data-dismiss="alert" aria-label="close" id="hide">close</button>
+        <button href="#current-pane" class="btn btn-default" data-dismiss="alert" aria-label="close" id="hide">close</button>
       </div>
     </div>
   </div>
