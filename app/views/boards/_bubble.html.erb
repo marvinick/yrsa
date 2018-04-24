@@ -11,7 +11,7 @@
         </ul>
       </li>
 
-    <p class="board-note"><%= @board.note %></p>
+    <p class="board-note"><%= sanitize @board.note %></p>
     <div class="pull-right">
       <p>by <%= @board.user.email %>, <%= time_ago_in_words(@board.created_at) %> ago</p>
     </div>

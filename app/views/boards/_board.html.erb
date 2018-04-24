@@ -3,7 +3,7 @@
   <div class="col-md-3">
     <div class="board-box">
 
-      <p class="board-note"><%= truncate(board.note, length:30) %></h3>
+      <p class="board-note"><%= sanitize truncate(board.note, length:30) %></h3>
 
       <div class="board-footer">
         <p><%= board.user.email %></p>
