@@ -2,19 +2,19 @@
   <div class="formly" id="current-pane">
     <%= render "shared/errors", obj: @project %>
     <div class="control">
-      <%= f.text_field :title, placeholder: 'title', label: false, class: "input ", :maxlength => 40 %>
+      <%= f.text_field :title, placeholder: 'title', label: false, class: "input", :maxlength => 40 %>
     </div>
-    <br>
     <div class="control">
-      <%= f.text_area :description, placeholder: 'description', label: false, class: "input", :maxlength => 280, :size => 40  %>
+      <%= f.text_area :description, placeholder: 'description', label: false, class: "extra-input", :maxlength => 280, :size => 40  %>
+    </div>
+    <div class="row">
+      <div class="pull-right">
+        <%= f.submit "add project", class:"btn btn-default" %>
+        <button href="#current-pane" class="btn btn-default" data-dismiss="alert" aria-label="close" id="hide">
+          close
+        </button>
+      </idv>
     </div>
 
-    <div class="row pull-right">
-      <%= f.submit "add project", class:"btn btn-default btn-xs" %>
-      <button href="#current-pane" class="btn btn-xs" data-dismiss="alert" aria-label="close" id="hide">close</button>
-
-    </div>
-    <br>
-    <br>
   </div>
 <% end %>

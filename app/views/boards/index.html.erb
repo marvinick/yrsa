@@ -18,8 +18,8 @@
     <div class="new-board-button"></div>
     <% @board_weeks.each do |day, boards| %>
       <p class="board-week-header"><%= day.strftime("%B %d %Y") %></h2>
+        <div id="boards"></div>
         <div class="row">
-          <div id="boards"></div>
           <%= render boards %>
         </div>
       <% end %>

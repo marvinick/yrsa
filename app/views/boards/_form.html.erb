@@ -1,10 +1,15 @@
 
 <%= form_for ([current_account, set_project, @board]), remote: true, html: {} do |f| %>
-  <div class="invitation-form" id="current-pane">
+  <div class="formly" id="current-pane">
     <% f.hidden_field :project_id %>
-    <%= f.text_field :note, placeholder: "name", class: "input-text" %>
+    <%= f.text_area :note, placeholder: "name", class: "input", id:"board-note" %>
+    <trix-editor input= "board-note">
     <br>
-    <%= f.button "add", class: "btn btn-success" %>
-    <button href="#current-pane" class="btn btn-xs" data-dismiss="alert" aria-label="close" id="hide">close</button>
+    <div class="row">
+      <div class="pull-right">
+        <%= f.button "add", class: "btn btn-success" %>
+        <button href="#current-pane" class="btn btn-default" data-dismiss="alert" aria-label="close" id="hide">close</button>
+      </div>
+    </div>
   </div>
 <% end %>

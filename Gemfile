@@ -43,8 +43,9 @@ gem 'money'
 gem 'pg_search'
 gem 'jquery-ui-rails'
 
-#images
+#upload
 gem 'link_thumbnailer'
+gem "trix"
 
 #prograssive web app
 gem 'serviceworker-rails'
