@@ -18,7 +18,7 @@ class ItemsController < BaseController
     if @item.save
       respond_to do |f|
         f.html { redirect_to account_project_items_path(current_account, set_project, @items)}
-        f.js
+        f.json { render :show, status: :created, location: @item }
       end
       flash[:notice] = "An item is created."
     else
@@ -27,18 +27,19 @@ class ItemsController < BaseController
     end
   end
 
-
   def show; end
 
   def edit; end
 
   def update
-    if @item.update_attributes(item_params)
-      flash[:notice] = "You have updated the item."
-       redirect_to [current_account, set_project, @item]
-    else
-      flash.now[:alert] = "Something's wrong."
-      render "edit"
+    respond_to do |f|
+      if @item.update_attributes(item_params)
+        f.html { redirect_to [current_account, set_project, @item], notice: "You have updated the item." }
+        f.json { render :show, status: :ok, location: @item}
+      else
+        flash.now[:alert] = "Something's wrong."
+        render "edit"
+      end
     end
   end
 

@@ -78,4 +78,6 @@ Rails.application.routes.draw do
     post :mark_as_read, on: :collection
     # post :mark_as_read, on: :member
   end
+
+  resources :photos
 end

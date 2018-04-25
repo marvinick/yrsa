@@ -1,7 +1,7 @@
 <%= div_for @item do %>
   <div class="row">
     <div class="col-md-3">
-      
+
       <%= image_tag @item.image, class: "item-image" %>
     </div>
 
@@ -15,7 +15,7 @@
           <% end %>
         </p>
 
-        <p class="item-content"><%= @item.content %></p>
+        <p class="item-content"><%= sanitize @item.content %></p>
         <% @item.details.each do |detail| %>
           <li class="detail-list">
             <p class="detail-name"><%= detail.name %></p>

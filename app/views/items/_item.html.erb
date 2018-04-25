@@ -3,7 +3,7 @@
     <div class="item">
       <div class="row">
         <div class="col-md-8">
-          <p class="project-item-list"><%= truncate(item.name, length: 15) %></p>
+          <p class="project-item-list"><%= sanitize truncate(item.name, length: 15) %></p>
           <p class="project-item-dates"><%= time_ago_in_words(item.updated_at) %> ago</p>
         </div>
         <div class="col-md-4">
