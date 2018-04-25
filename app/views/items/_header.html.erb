@@ -1,8 +1,8 @@
 <%= div_for @item do %>
   <div class="row">
     <div class="col-md-3">
-      <% url = generate_url_attributes_preview(@item.link) %>
-      <%= image_tag(url, :size => '125x125', class: "item-image") %>
+      
+      <%= image_tag @item.image, class: "item-image" %>
     </div>
 
     <div class="col-md-9 nopadding">

@@ -46,6 +46,8 @@ gem 'jquery-ui-rails'
 #upload
 gem 'link_thumbnailer'
 gem "trix"
+gem 'aws-sdk'
+gem 'paperclip'
 
 #prograssive web app
 gem 'serviceworker-rails'

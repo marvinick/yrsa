@@ -7,6 +7,8 @@
       <%= f.text_field :content, placeholder: 'description', label: false, autofocus: true, class: "extra-input", :maxlength => 280, :size => 40  %>
       <br>
       <%= f.text_field :link, placeholder: "link from instagram or others for your image", autofocus: true, class: "extra-input" %>
+      <br>
+      <%= f.file_field :image %>
     </div>
     <br>
     <div class="row">

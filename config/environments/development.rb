@@ -68,4 +68,6 @@ Rails.application.configure do
     :user_name          => 'marvkipi@@gmail.com',
     :password           => 'delta8214!'
   }
+
+  
 end

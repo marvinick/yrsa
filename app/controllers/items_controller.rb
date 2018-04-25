@@ -17,13 +17,13 @@ class ItemsController < BaseController
     @item = Item.new(item_params)
     if @item.save
       respond_to do |f|
-        f.html { redirect_to account_project_path(current_account, set_project)}
+        f.html { redirect_to account_project_items_path(current_account, set_project, @items)}
         f.js
       end
       flash[:notice] = "An item is created."
     else
       flash.now[:alert] = "Something is wrong."
-      render "new"
+      redirect_to account_project_items_path(current_account, set_project, @items)
     end
   end
 
