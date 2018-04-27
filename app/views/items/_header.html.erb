@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-3">
 
-      <%= image_tag @item.image, class: "item-image" %>
+
     </div>
 
     <div class="col-md-9 nopadding">
@@ -15,7 +15,7 @@
           <% end %>
         </p>
 
-        <p class="item-content"><%= sanitize @item.content %></p>
+        <div class="item-content2"><%= sanitize @item.content  %></div>
         <% @item.details.each do |detail| %>
           <li class="detail-list">
             <p class="detail-name"><%= detail.name %></p>

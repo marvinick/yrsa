@@ -1,5 +1,3 @@
-require "link_thumbnailer"
-
 class Item < ApplicationRecord
   include PgSearch
 
@@ -14,8 +12,8 @@ class Item < ApplicationRecord
       }
     }
 
-  has_attached_file :image, :styles => { :medium => "300x300#", :thumb => "200x200#" }
-  validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png"] }
+  # has_attached_file :image, :styles => { :medium => "300x300#", :thumb => "200x200#" }
+  # validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png"] }
 
   belongs_to :project, optional: true
 
@@ -28,7 +26,7 @@ class Item < ApplicationRecord
   has_many :users, through: :reviews
 
   validates_presence_of :name, length: {minimum: 5, maximum: 20}, allow_blank: false
-  validates :content, length: {minimum: 5, maximum: 280}, allow_blank: false
+  validates :content, length: {minimum: 5}, allow_blank: false
   validates_uniqueness_of :name
 
   before_save :generate_slug

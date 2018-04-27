@@ -13,7 +13,9 @@
 
   <div class="field">
     <%= form.label :image %>
-    <%= form.file_field :image, id: :photo_image %>
+    <%= form.file_field :image, id:"item-content" %>
+    <trix-editor input= "item-content"></trix-editor>
+
   </div>
 
   <div class="actions">

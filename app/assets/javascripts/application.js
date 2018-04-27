@@ -12,7 +12,8 @@
 //
 
 //= require jquery
-//= require jquery_ujs
+
+//= require rails-ujs
 //= require growlyflash
 //= require twitter/bootstrap
 //= require turbolinks
@@ -48,6 +49,4 @@ window.sweetAlertConfirmConfig = {
   confirmButtonText: 'yes I am',
   cancelButtonText: "cancel"
 };
-
-
 //= require serviceworker-companion

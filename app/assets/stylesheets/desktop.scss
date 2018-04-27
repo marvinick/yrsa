@@ -192,9 +192,11 @@
     font-size: 22px;
   }
 
-  .item-content {
+  .item-content2 {
     margin-top: -10px;
     font-size: 16px;
+    width: inherit;
+    height: 50%;
   }
 
   .item-image {
@@ -636,7 +638,7 @@
     padding-bottom: 10px;
     font-weight: 500;
     margin: 5px;
-    resize: none;
+
     border-top: none;
     border-right: none;
     border-left: none;
@@ -649,7 +651,7 @@
     font-size: 22px;
     margin: 5px;
     font-weight: 500;
-    resize: none;
+
     background-color: white;
     border-top: none;
     border-left: none;
@@ -662,7 +664,7 @@
     font-size: 16px;
     margin: 5px;
     font-weight: 300;
-    resize: none;
+
     background-color: white;
     border-top: none;
     border-left: none;
@@ -821,7 +823,7 @@
     cursor: pointer;
   }
 
-  
+
   .detail-container {
     display: inline-block;
 

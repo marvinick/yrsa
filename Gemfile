@@ -5,18 +5,20 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 5.0.4'
+gem 'rails', '~> 5.0.7'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.2'
+gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks', github: 'rails/turbolinks'
 gem 'jbuilder', '~> 2.5'
 gem 'rack'
 gem "responders"
 gem 'record_tag_helper', '~> 1.0'
+gem 'rails-ujs'
+gem 'serviceworker-rails'
 
 #frontend
 gem "twitter-bootstrap-rails"
@@ -27,7 +29,7 @@ gem 'simple_form'
 
 #notification / activity
 gem 'growlyflash'
-gem 'rails-assets-sweetalert2', '~> 5.1.1', source: 'https://rails-assets.org'
+gem 'rails-assets-sweetalert2'
 gem 'sweet-alert2-rails'
 gem 'public_activity'
 
@@ -46,11 +48,11 @@ gem 'jquery-ui-rails'
 #upload
 gem 'link_thumbnailer'
 gem "trix"
-gem 'aws-sdk'
+gem 'aws-sdk-s3'
 gem 'paperclip'
+gem 'shrine'
 
-#prograssive web app
-gem 'serviceworker-rails'
+
 
 group :development, :test do
   gem 'byebug', platform: :mri
