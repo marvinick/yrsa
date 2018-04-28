@@ -29,8 +29,7 @@ gem 'simple_form'
 
 #notification / activity
 gem 'growlyflash'
-gem 'rails-assets-sweetalert2'
-gem 'sweet-alert2-rails'
+
 gem 'public_activity'
 
 #authentication
@@ -46,10 +45,9 @@ gem 'pg_search'
 gem 'jquery-ui-rails'
 
 #upload
-gem 'link_thumbnailer'
+
 gem "trix"
 gem 'aws-sdk-s3'
-gem 'paperclip'
 gem 'shrine'
 
 

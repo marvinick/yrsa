@@ -17,8 +17,7 @@
 //= require growlyflash
 //= require twitter/bootstrap
 //= require turbolinks
-//= require sweetalert2
-//= require sweet-alert2-rails
+
 //= require jquery-ui
 //= require trix
 //= require lookups

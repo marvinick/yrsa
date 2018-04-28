@@ -13,7 +13,7 @@
           <% end %>
         </p>
 
-        <div class="item-content"><%= sanitize @item.content  %></div>
+        <div class="item-content trix-content"><%= sanitize @item.content  %></div>
         <% @item.details.each do |detail| %>
           <li class="detail-list">
             <p class="detail-name"><%= detail.name %></p>
