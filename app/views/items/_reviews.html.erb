@@ -6,7 +6,7 @@
   <% @item.reviews.order('created_at desc').each do |review| %>
     <div class="col-md-12 col-sm-4 col-xs-12">
       <div class="<%= cycle('left', 'right') -%>">
-        <%= link_to account_project_item_review_path(current_account, set_project, @item, review), class: "review-box-link", remote: true do %>
+        <%= link_to account_project_item_review_path(current_account, @project, @item, review), class: "review-box-link", remote: true do %>
           <div class="review-box no-top-margin">
 
             <% keys = [] %>

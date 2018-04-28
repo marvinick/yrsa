@@ -1,8 +1,8 @@
 <% @title = @item.name %>
 
-<%= link_to account_project_path(current_account, set_project) do %>
+<%= link_to account_project_path(current_account, @project) do %>
   <div class="formy-back">
-     <p class="formy-back-title"><%= set_project.title %> > <%= link_to "items", account_project_items_path(current_account, set_project, @items) %></p>
+     <p class="formy-back-title"><%= @project.title %> > <%= link_to "items", account_project_items_path(current_account, @project, @items) %></p>
    </div>
 <% end %>
 
@@ -45,7 +45,5 @@
   </div>
   <div class="col-md-1"></div>
 </div>
-
-
 
 <div id="product-modal" class="modal"></div>

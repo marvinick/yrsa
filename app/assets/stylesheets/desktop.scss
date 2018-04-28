@@ -1,102 +1,6 @@
 //desktop
  @media only screen and (min-width: 1026px) {
 
-   .trix-content {
-     line-height: 1.5;
-
-     * {
-       box-sizing: border-box;
-     }
-
-     h1 {
-       font-size: 1.2em;
-       line-height: 1.2;
-       margin: 0;
-     }
-
-     blockquote {
-       margin: 0 0 0 0.3em;
-       padding: 0 0 0 0.6em;
-       border-left: 0.3em solid #ccc;
-     }
-
-     pre {
-       display: inline-block;
-       width: 100%;
-       vertical-align: top;
-       font-family: monospace;
-       font-size: 0.9em;
-       margin: 0;
-       padding: 0.5em;
-       white-space: pre;
-       background-color: #eee;
-       overflow-x: auto;
-     }
-
-     ul, ol, li {
-       margin: 0;
-       padding: 0;
-
-       li {
-         margin-left: 1em;
-       }
-     }
-
-     img {
-       max-width: 500px;
-       height: auto;
-     }
-
-     a[data-trix-attachment] {
-       color: inherit;
-       text-decoration: none;
-
-       &:hover,
-       &:visited:hover {
-         color: inherit;
-       }
-     }
-
-     .attachment {
-       display: inline-block;
-       position: relative;
-       max-width: 50%;
-       margin: 0;
-       padding: 0;
-     }
-
-     .attachment__caption {
-       padding: 0;
-       text-align: center;
-
-       .attachment__name + .attachment__size {
-         &::before {
-           content: ' · ';
-         }
-       }
-     }
-
-     .attachment--preview {
-       width: 100%;
-       text-align: center;
-
-       .attachment__caption {
-         color: #666;
-         font-size: 0.9em;
-         line-height: 1.2;
-       }
-     }
-
-     .attachment--file {
-       color: #333;
-       line-height: 1;
-       margin: 0 2px 2px 0;
-       padding: 0.4em 1em;
-       border: 1px solid #bbb;
-       border-radius: 5px;
-     }
-   }
-
   //accounts
   .account-project-box {
     height: auto;
@@ -984,4 +888,112 @@
       -ms-transform: rotate(45deg);
       transform: rotate(45deg);
   }
+
+  //trix
+  trix-editor {
+    border: 1px solid #bbb;
+    border-radius: 3px;
+    margin: 0;
+    padding: 0.4em 0.6em;
+    min-height: 5em;
+    min-height:250px;
+    outline: none;
+  }
+
+  .trix-content {
+    line-height: 1.5;
+
+    * {
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 1.2em;
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    blockquote {
+      margin: 0 0 0 0.3em;
+      padding: 0 0 0 0.6em;
+      border-left: 0.3em solid #ccc;
+    }
+
+    pre {
+      display: inline-block;
+      width: 100%;
+      vertical-align: top;
+      font-family: monospace;
+      font-size: 0.9em;
+      margin: 0;
+      padding: 0.5em;
+      white-space: pre;
+      background-color: #eee;
+      overflow-x: auto;
+    }
+
+    ul, ol, li {
+      margin: 0;
+      padding: 0;
+
+      li {
+        margin-left: 1em;
+      }
+    }
+
+    img {
+      max-width: 500px;
+      height: auto;
+    }
+
+    a[data-trix-attachment] {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover,
+      &:visited:hover {
+        color: inherit;
+      }
+    }
+
+    .attachment {
+      display: inline-block;
+      position: relative;
+      max-width: 50%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .attachment__caption {
+      padding: 0;
+      text-align: center;
+
+      .attachment__name + .attachment__size {
+        &::before {
+          content: ' · ';
+        }
+      }
+    }
+
+    .attachment--preview {
+      width: 100%;
+      text-align: center;
+
+      .attachment__caption {
+        color: #666;
+        font-size: 0.9em;
+        line-height: 1.2;
+      }
+    }
+
+    .attachment--file {
+      color: #333;
+      line-height: 1;
+      margin: 0 2px 2px 0;
+      padding: 0.4em 1em;
+      border: 1px solid #bbb;
+      border-radius: 5px;
+    }
+  }
+
 }

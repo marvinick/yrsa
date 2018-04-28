@@ -1,3 +1,3 @@
 $('form').hide();
-$('#boards').append("<%= j render partial: 'board', locals: { board: @board } %>");
+$('#boards').append("<%= j render (@board) %>");
 $('.new-board-button').show();

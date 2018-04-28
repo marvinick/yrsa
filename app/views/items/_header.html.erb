@@ -7,7 +7,7 @@
         <p class="item-name">
           <%= @item.name %>
           <% if @project.user_id == current_user.id %>
-            <%= link_to edit_account_project_item_path(current_account, set_project, @item), remote: true do  %>
+            <%= link_to edit_account_project_item_path(current_account, @project, @item), remote: true do  %>
               <span class="fa fa-ellipsis-h pull-right"></span>
             <% end %>
           <% end %>

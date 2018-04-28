@@ -6,7 +6,7 @@ class ItemsController < BaseController
   respond_to :html, :json
 
   def index
-    @items = set_project.items.all
+    @items = @project.items.all
   end
 
   def new
@@ -17,12 +17,12 @@ class ItemsController < BaseController
     @item = Item.new(item_params)
     if @item.save
       respond_to do |f|
-        f.html { redirect_to [current_account, set_project, @item], notice: "Item is created." }
+        f.html { redirect_to [current_account, @project, @item], notice: "Item is created." }
         f.json { render :show, status: :created, location: @item }
       end
     else
       flash.now[:alert] = "Something is wrong."
-      redirect_to account_project_items_path(current_account, set_project, @items)
+      redirect_to account_project_items_path(current_account, @project, @items)
     end
   end
 
@@ -33,7 +33,7 @@ class ItemsController < BaseController
   def update
     respond_to do |f|
       if @item.update_attributes(item_params)
-        f.html { redirect_to [current_account, set_project, @item], notice: "You have updated the item." }
+        f.html { redirect_to [current_account, @project, @item], notice: "You have updated the item." }
         f.json { render :show, status: :ok, location: @item}
       else
         flash.now[:alert] = "Something's wrong."
@@ -45,7 +45,7 @@ class ItemsController < BaseController
   def destroy
     @item.destroy
     flash[:notice] = "You have deleted your item."
-    redirect_to account_project_items_path(current_account, set_project, @items)
+    redirect_to account_project_items_path(current_account, @project, @items)
   end
 
   private
@@ -55,14 +55,10 @@ class ItemsController < BaseController
   end
 
   def set_item
-    @item = set_project.items.find_by slug: params[:id]
+    @item = Item.find_by slug: params[:id]
   end
-  helper_method :set_item
 
   def set_project
     @project = current_account.projects.find_by slug: params[:project_id]
-    # Project.find_by slug: params[:id]
   end
-  helper_method :set_project
-
 end

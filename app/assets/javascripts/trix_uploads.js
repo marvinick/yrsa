@@ -36,6 +36,11 @@ function uploadAttachment(attachment) {
   return xhr.send(form);
 }
 
+//disable accepting dropped files
+document.addEventListener("trix-file-accept", function(event) {
+  event.preventDefault()
+});
+
 // Listen for the Trix attachment event to trigger upload
 document.addEventListener("trix-attachment-add", function(event) {
   var attachment = event.attachment;

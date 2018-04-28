@@ -1,14 +1,14 @@
-<% @title= "Project: " + set_project.title + " - items"  %>
+<% @title= "Project: " + @project.title + " - items"  %>
 
-<%= link_to account_project_path(current_account, set_project) do %>
+<%= link_to account_project_path(current_account, @project) do %>
   <div class="formy-back">
-    <p class="formy-back-title"><%= set_project.title %></p>
+    <p class="formy-back-title"><%= @project.title %></p>
   </div>
 <% end %>
 <div class="formy">
   <p class="items-header">
     Items
-    <%= link_to "Add Item", new_account_project_item_path(current_account, set_project, @item), class: " og-item-button btn btn-success pull-left", remote: true %>
+    <%= link_to "Add Item", new_account_project_item_path(current_account, @project, @item), class: " og-item-button btn btn-success pull-left", remote: true %>
   </p>
   <hr>
   <div class="row">

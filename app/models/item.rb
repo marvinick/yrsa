@@ -29,6 +29,8 @@ class Item < ApplicationRecord
   validates :content, length: {minimum: 5}, allow_blank: false
   validates_uniqueness_of :name
 
+  has_many :photos, dependent: :destroy
+
   before_save :generate_slug
 
   def generate_slug

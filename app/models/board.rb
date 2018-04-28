@@ -4,9 +4,10 @@ class Board < ApplicationRecord
   belongs_to :detail_id
   belongs_to :item_id
 
-  validates_presence_of :note
-  validates_length_of :note, :maximum => 500
+  has_many :photos, dependent: :destroy
 
+  validates_presence_of :note
+  validates :note, length: {minimum: 5}, allow_blank: false
 
   def day
     self.created_at.strftime('%B %d, %Y')

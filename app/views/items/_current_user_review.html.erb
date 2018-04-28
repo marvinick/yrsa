@@ -2,5 +2,5 @@
   You've submitted a review
 <% else %>
 
-  <%= link_to "Rate it", new_account_project_item_review_path(current_account, set_project, set_item), remote: true,  class:"btn btn-lg btn-default" %>
+  <%= link_to "Rate it", new_account_project_item_review_path(current_account, @project, @item), remote: true,  class:"btn btn-lg btn-default" %>
 <% end %>

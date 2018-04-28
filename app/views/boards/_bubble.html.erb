@@ -6,12 +6,12 @@
           <span class="fa fa-ellipsis-h"></span>
         </a>
         <ul class="dropdown-menu dropdown-menu-right">
-          <li><%= link_to "Edit", edit_account_project_board_path(current_account, set_project, @board), remote: true %></li>
+          <li><%= link_to "Edit", edit_account_project_board_path(current_account, @project, @board), remote: true %></li>
 
         </ul>
       </li>
 
-    <p class="board-note"><%= sanitize @board.note %></p>
+    <div class="board-note trix-content"><%= sanitize @board.note %></div>
     <div class="pull-right">
       <p>by <%= @board.user.email %>, <%= time_ago_in_words(@board.created_at) %> ago</p>
     </div>

@@ -1,4 +1,4 @@
-<%= form_for([current_account, set_project, @item], remote: true) do |f| %>
+<%= form_for([current_account, @project, @item], remote: true) do |f| %>
   <div class="formly" id="current-pane">
     <div class="row">
       <%= f.hidden_field :project_id %>
@@ -11,7 +11,7 @@
     </div>
     <br>
     <div class="row">
-      <%= f.collection_check_boxes :detail_ids, set_project.details.all, :id, :name, :item_wrapper_class => '' do |cb| %>
+      <%= f.collection_check_boxes :detail_ids, @project.details.all, :id, :name, :item_wrapper_class => '' do |cb| %>
         <div class="col-md-3">
           <label class="detail-container">
             <%= cb.label %>
@@ -30,7 +30,7 @@
       <div class="pull-right">
 
         <button href="#current-pane" class="btn btn-default" data-dismiss="alert" aria-label="close" id="hide">close</button>
-        <!-- <%= link_to "cancel", account_project_item_path(current_account, set_project, @item), class: "btn btn-default" %> -->
+        <!-- <%= link_to "cancel", account_project_item_path(current_account, @project, @item), class: "btn btn-default" %> -->
         <%= f.submit "edit item", class:"btn btn-success" %>
       </div>
     </div>

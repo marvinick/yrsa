@@ -5,28 +5,27 @@ class BoardsController < BaseController
   respond_to :html, :json
 
   def new
-    @project = current_account.projects.find_by slug: params[:project_id]
     @board = @project.boards.new
   end
 
   def create
     @board = Board.new(board_params)
-    @board.project_id = set_project.id
+    @board.project_id = @project.id
     @board.user_id = current_user.id
     if @board.save
-      respond_to do |format|
-        format.js {}
-        flash[:notice] = "You've posted on the board."
+      respond_to do |f|
+        f.html { redirect_to [current_account, @project, @board], notice: "Board is created." }
+        f.json { render :show, status: :created, location: @board }
       end
+    else
+      flash.now[:alert] = "Something is wrong."
+      redirect_to account_project_boards_path(current_account, @project, @boards)
     end
   end
 
   def index
-    # @board = set_project.boards.new
-    @boards = set_project.boards.all.order("created_at desc")
+    @boards = @project.boards.all.order("created_at desc")
     @board_weeks = @boards.group_by { |board| board.created_at.beginning_of_week(:sunday) }
-    # @board_weeks = @boards.group_by_week { |board| board.created_at.compact }.count
-
   end
 
   def show; end
@@ -36,7 +35,7 @@ class BoardsController < BaseController
   def update
     if @board.update_attributes(board_params)
       flash[:notice] = "Board is updated."
-      redirect_to account_project_board_path(current_account, set_project, @board)
+      redirect_to account_project_board_path(current_account, @project, @board)
     else
       flash.now[:alert] = "Board is not saved."
     end
@@ -45,19 +44,18 @@ class BoardsController < BaseController
   def destroy
     @board.destroy
     flash[:notice] = "You have deleted the note."
-    redirect_to account_project_boards_path(current_account, set_project, @boards)
+    redirect_to account_project_boards_path(current_account, @project, @boards)
   end
 
   private
 
   def set_board
-    @board = set_project.boards.find(params[:id])
+    @board = @project.boards.find(params[:id])
   end
 
   def set_project
-    Project.find_by slug: params[:project_id]
+    @project = current_account.projects.find_by slug: params[:project_id]
   end
-  helper_method :set_project
 
   def board_params
     params.require(:board).permit(:note, :respond, :user_id, :project_id)

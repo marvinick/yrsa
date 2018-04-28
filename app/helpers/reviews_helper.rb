@@ -40,7 +40,7 @@ module ReviewsHelper
   #separate each pair and turn them in array
   def keys_and_values
     keys_values = []
-    set_item.reviews.each do |review|
+    @item.reviews.each do |review|
       review.properties.each do |k,v|
         keys_values << k
         keys_values << + v.to_i
@@ -59,7 +59,7 @@ module ReviewsHelper
   #how many times a "key" got each "value" e.g a name "height" got 5 times of value "4", 2 times of value "1", 3 times of value "5", etc
   def count_value_frequency
     frequency = []
-    set_item.reviews.each do |review|
+    @item.reviews.each do |review|
       review.properties.each do |k, v|
         frequency << k
         frequency << v
