@@ -7,9 +7,7 @@
       <%= f.hidden_field :content, placeholder: 'description', label: false, autofocus: true, id:"item-content", class: "extra-input", :maxlength => 279.9, :size => 40  %>
       <br>
       <trix-editor input= "item-content" class="trix-content"></trix-editor>
-
-
-      <!-- <%= f.text_field :link, placeholder: "link from instagram or others for your image", autofocus: true, class: "extra-input" %> -->
+      <%= f.file_field :image, class: "dropzone" %>
       <br>
 
     </div>

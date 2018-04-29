@@ -13,6 +13,7 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
+ *= require dropzone/dropzone
  *= require_self
  *= require jquery-ui/datepicker
 
@@ -28,7 +29,7 @@
  @import "toggle";
  @import "animate";
  @import "lookups";
- 
+
 
  .modal-backdrop {
     background: none;

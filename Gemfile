@@ -45,10 +45,11 @@ gem 'pg_search'
 gem 'jquery-ui-rails'
 
 #upload
-
 gem "trix"
 gem 'aws-sdk-s3'
 gem 'shrine'
+gem 'paperclip', '~> 4.2.0'
+gem 'dropzonejs-rails', '~> 0.4.16'
 
 
 

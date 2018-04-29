@@ -17,16 +17,16 @@ module Yrsa
 
     # config.active_record.raise_in_transactional_callbacks = true
 
-      # config.paperclip_defaults = {
-      #     :storage => :s3,
-      #     :s3_host_name => 's3-us-east-2.amazonaws.com',
-      #     :s3_region => ENV['AWS_REGION'],
-      #     :s3_credentials => {
-      #         :bucket => ENV['AWS_BUCKET'],
-      #         :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-      #         :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-      #     }
-      # }
+      config.paperclip_defaults = {
+          :storage => :s3,
+          :s3_host_name => 's3-us-east-2.amazonaws.com',
+          :s3_region => ENV['AWS_REGION'],
+          :s3_credentials => {
+              :bucket => ENV['AWS_BUCKET'],
+              :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+              :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+          }
+      }
 
     config.time_zone = 'Pacific Time (US & Canada)'
     config.active_record.default_timezone = :local
