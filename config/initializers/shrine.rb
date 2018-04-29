@@ -14,3 +14,4 @@ Shrine.storages = {
   cache: Shrine::Storage::S3.new(prefix: "cache", **s3_options),
   store: Shrine::Storage::S3.new(prefix: "store", **s3_options),
 }
+ 

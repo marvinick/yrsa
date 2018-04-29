@@ -50,8 +50,7 @@ gem 'aws-sdk-s3'
 gem 'shrine'
 gem 'paperclip', '~> 4.2.0'
 gem 'dropzonejs-rails', '~> 0.4.16'
-
-
+gem 'aws-sdk', '< 2.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri

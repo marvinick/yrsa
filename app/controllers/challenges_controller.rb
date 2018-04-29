@@ -48,7 +48,7 @@ class ChallengesController < BaseController
   private
 
   def challenge_params
-    params.require(:challenge).permit(:name, :description, :due_date, :project_id, :user_id)
+    params.require(:challenge).permit(:picture, :name, :description, :due_date, :project_id, :user_id)
   end
 
   def set_project

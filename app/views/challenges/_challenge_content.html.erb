@@ -1,5 +1,6 @@
 <%= div_for @challenge do %>
 <div class="formy">
+  <%= image_tag @challenge.picture, class: "img-responsive" %>
   <p class="challenge-name"><%= @challenge.name %></p>
   <p class="challenge-description"><%= @challenge.description %></p>
   <% if @challenge.due_date.present? %>

@@ -4,7 +4,8 @@ class Board < ApplicationRecord
   belongs_to :detail_id
   belongs_to :item_id
 
-  has_many :photos, dependent: :destroy
+  has_attached_file :photo, :styles => { :medium => "300x300#", :thumb => "200x200#" }
+  validates_attachment :photo, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png"] }
 
   validates_presence_of :note
   validates :note, length: {minimum: 5}, allow_blank: false

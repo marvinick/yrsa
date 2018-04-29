@@ -10,7 +10,7 @@
 
         </ul>
       </li>
-
+    <%= image_tag @board.photo, class: "img-responsive" %> 
     <div class="board-note trix-content"><%= sanitize @board.note %></div>
     <div class="pull-right">
       <p>by <%= @board.user.email %>, <%= time_ago_in_words(@board.created_at) %> ago</p>

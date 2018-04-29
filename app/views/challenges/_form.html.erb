@@ -1,4 +1,4 @@
-<%= form_for ([current_account, @project, @challenge]), remote: true, html: {} do |f| %>
+<%= form_for([current_account, @project, @challenge], remote: true) do |f| %>
   <div class="formly" id="current-pane">
     <div class="row">
       <%= f.hidden_field :project_id %>
@@ -7,6 +7,9 @@
       <%= f.text_field :description, placeholder: 'content', label: false, autofocus: true, class: "extra-input", :maxlength => 280, :size => 40  %>
       <br>
       <%= f.text_field :due_date, placeholder: "due dates" , id:"due-date", class: "extra-input" %>
+      <br>
+      <%= f.file_field :picture, class: "dropzone" %>
+      <br>
     </div>
     <br>
     <div class="row">

@@ -58,7 +58,7 @@ class BoardsController < BaseController
   end
 
   def board_params
-    params.require(:board).permit(:note, :respond, :user_id, :project_id)
+    params.require(:board).permit(:note, :respond, :user_id, :project_id, :photo)
   end
 
 end
