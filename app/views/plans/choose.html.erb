@@ -4,13 +4,13 @@
 
 
         <%= render "plan_picker" %>
-      
+
     </div>
     <% if current_account.stripe_subscription_id.present? %>
       <hr>
       <div class="text-center text-danger">
         <small>
-          <%= link_to "Cancel your subscription", account_cancel_subscription_path, method: :delete, data: { confirm: "Are you sure you would like to cancel your subscription?"} %>
+          <%= link_to "Cancel your subscription", account_cancel_subscription_path, method: :delete, data: { confirm: "Are you sure you would like to cancel your subscription?"}, class: "btn btn-danger" %>
         </small>
       </div>
     <% end %>

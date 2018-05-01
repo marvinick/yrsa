@@ -1,29 +1,25 @@
-<div class="row text-center">
-  <div class="col-md-12">
-    <h1><%= link_to @account.name, account_path(@account) %></h1>
-  </div>
+<div class="formy-back">
+  <p class="formy-back-title"><%= link_to @account.name, account_path(@account) %></p>
 </div>
 
-<div class="row text-center">
-  <div class='boxy'>
-    <h3>Edit account</h3>
-    <br>
-    <%= form_for @account do |account| %>
-      <%= account.fields_for :owner do |owner| %>
-        <div class="control">
-          <%= owner.text_field :email, class: "input text-center", placeholder: "email " %>
-        </div>
-        <br>
-        <div class="control">
-          <%= owner.text_field :password, class: "input text-center", placeholder: "password" %>
-        </div>
-        <br>
+<div class='formy'>
+  <p class="formy-back-title">Edit account</p>
+  <br>
+  <%= form_for @account do |account| %>
+    <%= account.fields_for :owner do |owner| %>
+      <div class="control">
+        <%= owner.text_field :email, class: "extra-input", placeholder: "email " %>
+      </div>
+      <br>
+      <div class="control">
+        <%= owner.text_field :password, class: "extra-input", placeholder: "password" %>
+      </div>
+      <br>
 
-      <% end %>
-
-      <%= account.submit "update", class: "btn btn-info btn-lg" %>
-      <%= link_to 'cancel', accounts_path(@account), class: "btn btn-info btn-lg" %>
     <% end %>
-  </div>
-
+    <div class="pull-right">
+      <%= account.submit "update", class: "btn btn-success" %>
+      <%= link_to 'cancel', accounts_path(@account), class: "btn btn-default" %>
+    </div>
+  <% end %>
 </div>

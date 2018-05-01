@@ -1,11 +1,9 @@
-<div class="row text-center">
-  <div class="col-md-12">
-    <h1><%= link_to "home", root_url %></h1>
-  </div>
+<div class="formy-back">
+  <p class="formy-back-title"><%= link_to "home", root_url %></p>
 </div>
 
 <br>
-<div class="row">
+<div class="formy">
   <%= form_for(current_account, url: account_choose_plan_url) do |account| %>
     <% if current_account.stripe_subscription_id.blank? %>
 
@@ -14,22 +12,7 @@
           <label class="formy">
             <%= account.radio_button :plan_id, plan.id, data: { behavior: "submit-on-click" }, class:"radiohidden"%>
             <h1><%= account.label "plan_id_#{plan.id}", plan.name %> (<%= money(plan.amount) %>)</h1> <br>
-            <h3>Welcome, beta users, to this unfinished project :)</h3>
 
-            <h3>As you will see, there are a lot more work to be done. Expect errors, redundancies, typos and ugly layouts</h3>
-            <h3>Obviously we don't want the public to get their hands on this . .  .yet</h3>
-            <h3>As you're going through the flow, try to focus on the followings steps:</h3>
-            <br>
-            <h4 style="color: red;">- invite other users (use your other emails)</h4>
-            <h4 style="color: red;">- create a project</h4>
-            <h4 style="color: red;">- create attributes from within the project</h4>
-            <h4 style="color: red;">- and then create few items (select attributes while you're at it)</h4>
-            <h4 style="color: red;">- review the items, based on the attributes you added on the previous step</h4>
-            <h4 style="color: red;">- accept your own invitations as "other users" and review the same items</h4>
-            <h4 style="color: red;">- and that's it . . . see if this project has the potential for real world users</h4>
-            <h4 style="color: red;">- as it may take few additional months to be 100% ready</h4>
-            <br>
-            <h1 class="text-center">Tap to continue</h1>
           </label>
         <% end %>
       <% end %>
@@ -39,13 +22,13 @@
       <% @plans.each do |plan| %>
         <% if current_account.over_limit_for?(plan) %>
           <% if plan.name == "Silver" %>
-            <label class="boxy">
+            <label class="box">
               <%= account.radio_button :plan_id, plan.id, data: { name: plan.name, amount: plan.amount}, disabled:"disabled" %>
               <%= account.label "plan_id_#{plan.id}", plan.name %>
               <%= money(plan.amount) %> <br>
             </label>
           <% elsif plan.name == "Starter" %>
-            <label class="boxy">
+            <label class="box">
               <%= account.radio_button :plan_id, plan.id, data: { name: plan.name, amount: plan.amount}, disabled:"disabled" %>
               <%= account.label "plan_id_#{plan.id}", plan.name %>
               <%= money(plan.amount) %> <br>
@@ -53,13 +36,13 @@
           <% end %>
         <% else %>
           <% if plan.name == "Silver" %>
-            <label class="boxy">
+            <label class="box">
               <%= account.radio_button :plan_id, plan.id, data: { name: plan.name, amount: plan.amount} %>
               <%= account.label "plan_id_#{plan.id}", plan.name %>
               <%= money(plan.amount) %> <br>
             </label>
           <% elsif plan.name == "Starter" %>
-            <label class="boxy">
+            <label class="box">
               <%= account.radio_button :plan_id, plan.id, data: { name: plan.name, amount: plan.amount} %>
               <%= account.label "plan_id_#{plan.id}", plan.name %>
               <%= money(plan.amount) %> <br>
@@ -69,8 +52,8 @@
       <% end %>
 
       <div id="payment-form"></div>
-      <%= account.submit "Submit", class: "btn btn-default btn-lg", id: "checkout-btn" %>
-      <%= link_to "Cancel", accounts_path(current_account), class: "btn btn-lg btn-default" %>
+      <%= account.submit "Submit", class: "btn btn-default", id: "checkout-btn" %>
+      <%= link_to "Cancel", accounts_path(current_account), class: "btn btn-default" %>
     <% end %>
   <% end %>
 </div>
