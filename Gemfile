@@ -49,6 +49,7 @@ gem 'aws-sdk-s3'
 gem 'shrine'
 gem 'paperclip', '~> 4.2.0'
 gem 'aws-sdk', '< 2.0'
+gem 'dropzonejs-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri

@@ -6,6 +6,8 @@
   <p class="formy-back-title">Edit account</p>
   <br>
   <%= form_for @account do |account| %>
+    <%= account.text_field :name, placeholder: "enter account's name", class: "extra-input" %>
+    <br>
     <%= account.fields_for :owner do |owner| %>
       <div class="control">
         <%= owner.text_field :email, class: "extra-input", placeholder: "email " %>

@@ -22,7 +22,7 @@ class AccountsController < ApplicationController
       redirect_to account_choose_plan_url(@account)
     else
       flash.now[:alert] = "Sorry, your account could not be created."
-      render :new 
+      render :new
     end
   end
 
@@ -55,7 +55,6 @@ class AccountsController < ApplicationController
   def set_account
     @account = Account.find_by slug: params[:id]
   end
-  helper_method :set_account
 
   def account_params
     params.require(:account).permit(:name,
@@ -70,5 +69,4 @@ class AccountsController < ApplicationController
   def set_project
     @account.projects.find_by slug: params[:project_id]
   end
-  helper_method :set_project
 end

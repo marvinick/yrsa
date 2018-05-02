@@ -1,36 +1,24 @@
-<br>
-<br>
-<div class="row text-center">
-  <h1>Create account</h1>
-  <br>
-  <br>
-  <br>
-  <div class="col-md-3"></div>
-  <div class="col-md-6">
-    <div class='boxy'>
-      <%= form_for(@account) do |account| %>
-        <div class="control">
-          <%= account.text_field :name, placeholder: "enter account's name", class: "input text-center" %>
-        </div>
+<div class="formy-back">
+  <p class="formy-back-title"><%= link_to "never mind        . . .", new_user_session_path %></p>
+</div>
+<div class="formy">
+  <p class="account-signup-title">new account</p>
+  <div class="formly">
+    <%= form_for(@account) do |account| %>
+      <%= account.text_field :name, placeholder: "name", class: "extra-input" %>
+      <br>
+      <%= account.fields_for :owner do |owner| %>
+          <%= owner.text_field :email, class: "extra-input", placeholder: "email " %>
         <br>
-        <%= account.fields_for :owner do |owner| %>
-          <div class="control">
-            <%= owner.text_field :email, class: "input text-center", placeholder: "email " %>
-          </div>
-          <br>
-          <div class="control">
-            <%= owner.password_field :password, class: "input text-center", placeholder: "password" %>
-          </div>
-          <br>
-          <div class="control">
-            <%= owner.password_field :password_confirmation, class: "input text-center", placeholder: "confirm password" %>
-          </div>
-          <br>
-        <% end %>
-        <%= link_to "sign in", new_user_session_path, class: "btn btn-default btn-lg pull-left" %>
-        <%= account.button "Next", class: "btn btn-default btn-lg pull-right" %>
+          <%= owner.password_field :password, class: "extra-input", placeholder: "password" %>
+        <br>
+          <%= owner.password_field :password_confirmation, class: "extra-input", placeholder: "confirm password" %>
+        <br>
       <% end %>
-    </div>
+      <br>
+      <div class="row">
+        <%= account.button "Next", class: "btn btn-success pull-right" %>
+      </div>
+    <% end %>
   </div>
-  <div class="col-md-3"></div>
 </div>

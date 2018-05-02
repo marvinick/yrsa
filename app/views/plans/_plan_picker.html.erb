@@ -1,62 +1,62 @@
-<div class="formy-back">
-  <p class="formy-back-title"><%= link_to "home", root_url %></p>
-</div>
+<%= form_for(current_account, url: account_choose_plan_url) do |account| %>
+  <% if current_account.stripe_subscription_id.blank? %>
 
-<br>
-<div class="formy">
-  <%= form_for(current_account, url: account_choose_plan_url) do |account| %>
-    <% if current_account.stripe_subscription_id.blank? %>
-
-      <% @plans.each do |plan| %>
-        <% if plan.name == "Basic" %>
-          <label class="formy">
-            <%= account.radio_button :plan_id, plan.id, data: { behavior: "submit-on-click" }, class:"radiohidden"%>
-            <h1><%= account.label "plan_id_#{plan.id}", plan.name %> (<%= money(plan.amount) %>)</h1> <br>
-
-          </label>
-        <% end %>
+    <% @plans.each do |plan| %>
+      <% if plan.name == "Basic" %>
+        <label class="plan-box">
+          <%= account.radio_button :plan_id, plan.id, data: { behavior: "submit-on-click" }, class:"radiohidden"%>
+          <h1><%= account.label "plan_id_#{plan.id}", plan.name %> (<%= money(plan.amount) %>)</h1> <br>
+        </label>
       <% end %>
+    <% end %>
 
-    <% else %>
+  <% else %>
 
+    <div class="row">
       <% @plans.each do |plan| %>
-        <% if current_account.over_limit_for?(plan) %>
-          <% if plan.name == "Silver" %>
-            <label class="box">
-              <%= account.radio_button :plan_id, plan.id, data: { name: plan.name, amount: plan.amount}, disabled:"disabled" %>
-              <%= account.label "plan_id_#{plan.id}", plan.name %>
-              <%= money(plan.amount) %> <br>
-            </label>
-          <% elsif plan.name == "Starter" %>
-            <label class="box">
-              <%= account.radio_button :plan_id, plan.id, data: { name: plan.name, amount: plan.amount}, disabled:"disabled" %>
-              <%= account.label "plan_id_#{plan.id}", plan.name %>
-              <%= money(plan.amount) %> <br>
-            </label>
+        <div class="col-md-6">
+          <% if current_account.over_limit_for?(plan) %>
+            <% if plan.name == "Silver" %>
+              <label class="plan-box">
+                <%= account.radio_button :plan_id, plan.id, data: { name: plan.name, amount: plan.amount}, disabled:"disabled" %>
+                <%= account.label "plan_id_#{plan.id}", plan.name %>
+                <%= money(plan.amount) %> <br>
+              </label>
+            <% elsif plan.name == "Starter" %>
+              <label class="plan-box">
+                <%= account.radio_button :plan_id, plan.id, data: { name: plan.name, amount: plan.amount}, disabled:"disabled" %>
+                <%= account.label "plan_id_#{plan.id}", plan.name %>
+                <%= money(plan.amount) %> <br>
+              </label>
+            <% end %>
+          <% else %>
+            <% if plan.name == "Silver" %>
+              <label class="plan-box">
+                <%= account.radio_button :plan_id, plan.id, data: { name: plan.name, amount: plan.amount} %>
+                <%= account.label "plan_id_#{plan.id}", plan.name %>
+                <%= money(plan.amount) %> <br>
+              </label>
+            <% elsif plan.name == "Starter" %>
+              <label class="plan-box">
+                <%= account.radio_button :plan_id, plan.id, data: { name: plan.name, amount: plan.amount} %>
+                <%= account.label "plan_id_#{plan.id}", plan.name %>
+                <%= money(plan.amount) %> <br>
+              </label>
+            <% end %>
           <% end %>
-        <% else %>
-          <% if plan.name == "Silver" %>
-            <label class="box">
-              <%= account.radio_button :plan_id, plan.id, data: { name: plan.name, amount: plan.amount} %>
-              <%= account.label "plan_id_#{plan.id}", plan.name %>
-              <%= money(plan.amount) %> <br>
-            </label>
-          <% elsif plan.name == "Starter" %>
-            <label class="box">
-              <%= account.radio_button :plan_id, plan.id, data: { name: plan.name, amount: plan.amount} %>
-              <%= account.label "plan_id_#{plan.id}", plan.name %>
-              <%= money(plan.amount) %> <br>
-            </label>
-          <% end %>
-        <% end %>
+        </div>
       <% end %>
+    </div>
 
-      <div id="payment-form"></div>
+    <div id="payment-form"></div>
+
+    <div class="pull-right">
       <%= account.submit "Submit", class: "btn btn-default", id: "checkout-btn" %>
       <%= link_to "Cancel", accounts_path(current_account), class: "btn btn-default" %>
-    <% end %>
+    </div>
   <% end %>
-</div>
+<% end %>
+
 
 <script>
   $(document).on("click", "[data-behavior=submit-on-click]", function() {
