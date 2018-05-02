@@ -10,15 +10,7 @@
           <div class="row">
             <p class="account-name pull-left"><%= account.name %>
             <% if account.owner.id == current_user.id %>
-              <% if account.stripe_subscription_id.blank? %>
-                <%= link_to account_choose_plan_url(account) do %>
-                  <div class="box">
-                    <h5 class="text-center">confirm first</h5>
-                  </div>
-                <% end %>
-              <% else %>
                 <%= link_to "+ project", new_account_project_path(account), remote: true, class: "og-project-button btn btn-success btn-lg" %>
-              <% end %>
             <% end %>
             </p>
           </div>
@@ -37,7 +29,7 @@
                 </ul>
               </li>
             <% end %>
-          </div> 
+          </div>
         </div>
       </div>
       <div class="row">

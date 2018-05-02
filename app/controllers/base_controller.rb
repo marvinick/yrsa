@@ -23,6 +23,11 @@ class BaseController < ApplicationController
   end
   helper_method :owner?
 
+  def basic_account?
+    current_account.is_basic
+  end
+  helper_method :basic_account?
+
   private
 
   def subscription_required!
@@ -55,7 +60,9 @@ class BaseController < ApplicationController
     flash[:alert] = "This account is currently disabled due to an unpaid subscription."
     if owner?
       flash[:alert] = "Please update your payment details to re-activate your subscription."
-      redirect_to billing_url
+      # redirect_to account_billing_url
+      redirect_to root_url
+
     else
       flash[:alert] += " Please contact the account owner."
       redirect_to root_url

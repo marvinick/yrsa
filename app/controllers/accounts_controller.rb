@@ -13,13 +13,13 @@ class AccountsController < ApplicationController
   def create
     @account = Account.new(account_params)
     if @account.save
-      customer = Stripe::Customer.create(
-        description: @account.name,
-        email: @account.owner.email
-      )
-      @account.update_column(:stripe_customer_id, customer.id)
+      # customer = Stripe::Customer.create(
+      #   description: @account.name,
+      #   email: @account.owner.email
+      # )
+      # @account.update_column(:stripe_customer_id, customer.id)
       sign_in(@account.owner)
-      redirect_to account_choose_plan_url(@account)
+      redirect_to root_url
     else
       flash.now[:alert] = "Sorry, your account could not be created."
       render :new
