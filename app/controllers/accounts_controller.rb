@@ -1,6 +1,6 @@
 class AccountsController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create]
-  before_action :set_account, only: [:edit, :update, :show]
+  before_action :set_account, only: [:edit, :update, :show, :upgrade]
   respond_to :html, :json
 
   def index; end
@@ -49,6 +49,15 @@ class AccountsController < ApplicationController
     @projects = @account.projects.all
     respond_with(@projects)
   end
+
+  def upgrade
+    #click a link
+    #check if there a payment source
+    #redirect to payment detail
+    #click next will be taken to pick a plan
+    #redirect back to account index 
+  end
+
 
   private
 

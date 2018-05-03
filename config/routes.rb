@@ -30,6 +30,11 @@ Rails.application.routes.draw do
       to: "billings#update_payment_details",
       as: :update_payment_details
 
+    member do
+      patch "/billing/update_details",
+      as: :upgrade
+    end
+
     resources :projects do
       resources :users, only: [:index, :destroy, :new, :create] do
         member do
