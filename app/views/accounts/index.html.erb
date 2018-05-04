@@ -10,7 +10,11 @@
           <div class="row">
             <p class="account-name pull-left"><%= account.name %>
             <% if account.owner.id == current_user.id %>
+              <% if !account.stripe_subscription_id.blank? %>
                 <%= link_to "+ project", new_account_project_path(account), remote: true, class: "og-project-button btn btn-success btn-lg" %>
+              <% else %>
+                <%= link_to "sign first", account_choose_plan_url(account) %>
+              <% end %>
             <% end %>
             </p>
           </div>

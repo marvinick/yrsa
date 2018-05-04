@@ -1,5 +1,4 @@
 class ProjectsController < BaseController
-
   before_action :set_account
   before_action :set_project, only: [:show, :edit, :update, :destroy, :unfollow]
   before_action :check_plan_limit, only: [:new, :create]

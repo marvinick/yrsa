@@ -1,5 +1,4 @@
 class BaseController < ApplicationController
-
   before_action :authenticate_user!
   before_action :authorize_user!
   before_action :authorize_owner!
@@ -54,7 +53,7 @@ class BaseController < ApplicationController
       redirect_to root_url
     end
   end
- 
+
   def active_subscription_required!
     return if !current_account.stripe_customer_id.blank? || current_account.stripe_subscription_status == "active"
     flash[:alert] = "This account is currently disabled due to an unpaid subscription."
