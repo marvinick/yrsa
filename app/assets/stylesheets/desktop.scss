@@ -1,20 +1,30 @@
 //desktop
  @media only screen and (min-width: 1026px) {
 
+  //plans
+  .plan-box {
+    height: auto;
+    width: 100%;
+    background-color: white;
+    padding: 50px;
+    margin-right: 80px;
+    margin-left: 20px;
+  }
+
+  .plan-box:hover {
+    background-color: #efece8;
+    cursor: pointer;
+  }
+
+  .plan-picker-content {
+    font-size: 16px;
+  }
+
   //accounts
   .account-signup-title {
     font-size: 30px;
     text-align: center;
     margin-bottom: 20px;
-  }
-
-  .plan-box {
-    height: 200px;
-    width: inherit;
-    border-style: solid;
-    border-width: thin;
-    padding: 50px;
-    margin: 30px;
   }
 
   .account-project-box {
@@ -621,14 +631,13 @@
     padding-top: 35px;
     padding-right: 80px;
     padding-bottom: 50px;
-    padding-left: 80px;
+    padding-left: 50px;
     background-color: white;
     margin-top: 40px;
     webkit-box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
     -moz-box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
     box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
   }
-
 
   .modal-dialog {
     background-color: white;

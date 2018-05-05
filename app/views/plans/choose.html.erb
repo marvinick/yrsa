@@ -1,7 +1,3 @@
-<div class="formy-back">
-  <p class="formy-back-title"><%= link_to current_account.name, root_url %></p>
-</div>
-
 <div class="formy">
   <% if current_account.stripe_subscription_id.present? %>
     <li class="dropdown pull-right">
