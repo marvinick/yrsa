@@ -19,6 +19,7 @@ gem "responders"
 gem 'record_tag_helper', '~> 1.0'
 gem 'rails-ujs'
 gem 'serviceworker-rails'
+gem 'webpacker'
 
 #frontend
 gem "twitter-bootstrap-rails"
