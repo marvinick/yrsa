@@ -1,8 +1,8 @@
 <div class="formy-back">
   <div class="col-md-12 text-center">
-    <p class="formy-back-title"><%= link_to "accounts", accounts_path(current_account) %></p>
+    <p class="formy-back-title"><%= link_to current_account.owner.email, accounts_path(current_account) %></p>
     <br>
-    <p class="formy-back-title">Payment details for <%= current_account.owner.email %></p>
+    <p class="formy-back-title">payment info</p>
     <br>
   </div>
 </div>
@@ -23,32 +23,44 @@
 
 
 <div class="formy">
-<%= form_tag account_update_payment_details_path(current_account), method: 'post', id: 'payment-form' do %>
-  <span class="payment-errors"></span>
+<%= javascript_include_tag "https://js.stripe.com/v2/" %>
+  <script>
+    Stripe.setPublishableKey('#{Rails.application.secrets.stripe_publishable_key}');
+  </script>
+  <div class="payment-form">
+    <%= form_tag account_update_payment_details_path(current_account), method: :put do %>
+      <%= label_tag "Card Number", nil, required: true %>
+      <div class="control-group">
+        <div class="controls">
+          <%= text_field_tag :card_number, nil, class: "extra-input", "data-stripe" => "number" %>
+        </div>
+      </div>
+      <br>
+      <%= label_tag "Card Verification", nil, required: true %>
+      <div class="control-group">
+        <div class="controls">
+          <%= text_field_tag :card_verification, nil, class: "card-input-verification", "data-stripe" => "cvv" %>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
 
-  <div class="form-row">
-    <label>
-      <span>Card Number</span>
-      <input type="text" size="20" data-stripe="number" class="input"/>
-    </label>
+        <%= label_tag "Card Expires", nil, required: true %>
+        <div class="row">
+          <div class="col-md-8">
+            <%= select_tag :exp_month, options_for_select(Date::MONTHNAMES.compact.each_with_index.map { |name,i| ["#{i+1} - #{name}", i+1] }), include_blank: false, "data-stripe" => "exp-month", class: "form-control" %>
+          </div>
+          <div class="col-md-4">
+            <%= select_tag :exp_year, options_for_select((Date.today.year..(Date.today.year+10)).to_a), include_blank: false, "data-stripe" => "exp-year", class: "form-control" %>
+          </div>
+
+
+        </div>
+        <br>
+        <div class="actions">
+          <button class="btn btn-success">Submit</button>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <br>
-  <div class="form-row">
-    <label>
-      <span>CVC</span>
-      <input type="text" size="4" data-stripe="cvc" class="input"/>
-    </label>
-  </div>
-  <br>
-  <div class="form-row">
-    <label>
-      <span>Expiration (MM/YYYY)</span>
-      <input type="text" size="2" data-stripe="exp-month" class="input"/>
-    </label>
-    <span> / </span>
-    <input type="text" size="4" data-stripe="exp-year" class="input"/>
-  </div>
-  <br>
-  <button type="submit" class="btn btn-default">Submit Payment</button>
-<% end %>
 </div>
