@@ -1,28 +1,21 @@
 <div class="formy-back">
   <div class="col-md-12 text-center">
-    <p class="formy-back-title"><%= link_to current_account.owner.email, accounts_path(current_account) %></p>
+    <p class="formy-back-title"><%= link_to current_account.name, accounts_path(current_account) %></p>
     <br>
     <p class="formy-back-title">payment info</p>
     <br>
   </div>
 </div>
 
-<!-- <div class="row">
-  <div class="col-md-3"></div>
-  <div class="col-md-6">
-    <div class="formy">
-      <%= form_tag account_update_payment_details_path(current_account), method: :put do %>
-        <input type="hidden" id="email" value="<%= current_account.owner.email %> "/>
-        <%= submit_tag "Update Payment Details", class: "btn btn-lg btn-default", id: "payment-btn" %>
-      <% end %>
-    </div>
-  </div>
-  <div class="col-md-3"></div> -->
-
-<!-- </div> -->
-
-
 <div class="formy">
+  <%= form_tag account_update_payment_details_path(current_account), method: :put do %>
+    <input type="hidden" id="email" value="<%= current_account.owner.email %> "/>
+    <%= submit_tag "Update Payment Details", class: "btn btn-lg btn-default", id: "payment-btn" %>
+  <% end %>
+</div>
+
+
+<!-- <div class="formy">
 <%= javascript_include_tag "https://js.stripe.com/v2/" %>
   <script>
     Stripe.setPublishableKey('#{Rails.application.secrets.stripe_publishable_key}');
@@ -63,4 +56,7 @@
       <% end %>
     </div>
   </div>
-</div>
+</div> -->
+
+<script src="https://checkout.stripe.com/checkout.js"></script>
+<%= javascript_include_tag "accounts/billing" %>
