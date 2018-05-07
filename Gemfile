@@ -34,7 +34,6 @@ gem 'public_activity'
 
 #authentication
 gem "devise"
-gem "omniauth-google-oauth2"
 
 #paymentsubscription
 gem 'stripe'
@@ -47,7 +46,6 @@ gem 'jquery-ui-rails'
 #upload
 gem "trix"
 gem 'aws-sdk-s3'
-gem 'shrine'
 gem 'paperclip', '~> 4.2.0'
 gem 'aws-sdk', '< 2.0'
 gem 'dropzonejs-rails'
