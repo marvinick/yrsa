@@ -22,7 +22,7 @@ class Account < ApplicationRecord
   has_many :projects
   has_many :subscription_events
 
-  belongs_to :plan, optional: true
+  belongs_to :plan
 
   def subscribed?
     stripe_subscription_id.present?
