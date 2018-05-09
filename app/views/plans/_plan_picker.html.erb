@@ -2,14 +2,12 @@
   <% if current_account.stripe_subscription_id.blank? %>
 
     <% @plans.each do |plan| %>
-      <% if plan.name == "Basic" %>
-
-          <label class="plan-box">
-            <%= account.radio_button :plan_id, plan.id, data: { behavior: "submit-on-click" }, class:"radiohidden"%>
-            <li><%= account.label "plan_id_#{plan.id}", plan.name %></li>
-            <%= render "welcome" %>
-          </label>
-
+      <% if plan.id == 3 %>
+        <label class="plan-box">
+          <%= account.radio_button :plan_id, plan.id, data: { behavior: "submit-on-click" }, class:"radiohidden"%>
+          <li><%= account.label "plan_id_#{plan.id}", plan.name %></li>
+          <%= render "welcome" %>
+        </label>
       <% end %>
     <% end %>
   <% else %>

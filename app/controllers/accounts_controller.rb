@@ -19,6 +19,12 @@ class AccountsController < ApplicationController
       )
       @account.update_column(:stripe_customer_id, customer.id)
       sign_in(@account.owner)
+
+      #assin basic plan upon signup
+      # customer = Stripe::Customer.retrieve(@account.stripe_customer_id)
+      # plan = Plan.find(3)
+      # @account.plan_id = plan.id
+
       redirect_to account_choose_plan_url(@account)
     else
       flash.now[:alert] = "Sorry, your account could not be created."
