@@ -5,13 +5,17 @@
   <p class="account-signup-title">new account</p>
   <div class="formly">
     <%= form_for(@account) do |account| %>
+      <%= account.label :name %>
       <%= account.text_field :name, placeholder: "name", class: "extra-input" %>
       <br>
       <%= account.fields_for :owner do |owner| %>
+          <%= owner.label :email %>
           <%= owner.text_field :email, class: "extra-input", placeholder: "email " %>
         <br>
+          <%= owner.label :password %>
           <%= owner.password_field :password, class: "extra-input", placeholder: "password" %>
         <br>
+          <%= owner.label :password_confirmation %>
           <%= owner.password_field :password_confirmation, class: "extra-input", placeholder: "confirm password" %>
         <br>
       <% end %>

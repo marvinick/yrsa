@@ -5,7 +5,7 @@ describe StripePlanFetcher do
   let(:faux_plan) do
     double("Plan",
             id: "starter",
-            name: "Starter",
+            nickname: "Starter",
             amount: 995)
   end
 
