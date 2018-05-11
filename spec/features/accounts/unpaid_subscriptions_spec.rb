@@ -2,13 +2,13 @@ require "rails_helper"
 
 RSpec.feature "Unpaid subscriptions" do
   let(:account) do
-    FactoryGirl.create(:account, :subscribed, stripe_subscription_status: "unpaid")
+    FactoryBot.create(:account, :subscribed, stripe_subscription_status: "unpaid")
   end
 
-  let(:project) { FactoryGirl.create(:project) }
+  let(:project) { FactoryBot.create(:project) }
 
   context "a user for the account" do
-    let(:user) { FactoryGirl.create(:user) }
+    let(:user) { FactoryBot.create(:user) }
 
     before do
       account.projects << project

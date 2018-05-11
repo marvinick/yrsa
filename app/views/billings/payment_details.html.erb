@@ -14,7 +14,8 @@
   <% end %>
 </div>
 
-
+<script src="https://checkout.stripe.com/checkout.js"></script>
+<%= javascript_include_tag "accounts/billing" %>
 <!-- <div class="formy">
 <%= javascript_include_tag "https://js.stripe.com/v2/" %>
   <script>
@@ -57,6 +58,3 @@
     </div>
   </div>
 </div> -->
-
-<script src="https://checkout.stripe.com/checkout.js"></script>
-<%= javascript_include_tag "accounts/billing" %>

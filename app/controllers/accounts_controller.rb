@@ -42,8 +42,9 @@ class AccountsController < ApplicationController
       )
       @account.update_column(:stripe_customer_id, customer.id)
       reset_session
-      # redirect_to root_url
-      redirect_to account_path(@account)
+      flash[:notice] = "You've updated the account."
+      redirect_to root_url
+      # redirect_to account_path(@account)
 
     else
       flash.now[:alert] = "Something's wrong."
