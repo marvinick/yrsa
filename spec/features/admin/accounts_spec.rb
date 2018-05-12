@@ -6,7 +6,7 @@ feature "Admin account dashboard" do
   end
 
   let!(:account) do
-    FactoryGirl.create(:account, :subscribed, plan: starter_plan)
+    FactoryBot.create(:account, :subscribed, plan: starter_plan)
   end
 
   let!(:subscription_event) do
@@ -19,7 +19,7 @@ feature "Admin account dashboard" do
 
   context "as an admin" do
     let!("admin") do
-      FactoryGirl.create(:user, admin: true)
+      FactoryBot.create(:user, admin: true)
     end
 
     before do
@@ -40,7 +40,7 @@ feature "Admin account dashboard" do
     end
 
     scenario "looks at unpaid accounts" do
-      unpaid_account = FactoryGirl.create(
+      unpaid_account = FactoryBot.create(
         :account, :subscribed,
         stripe_subscription_status: "unpaid",
         plan:starter_plan
@@ -56,7 +56,7 @@ feature "Admin account dashboard" do
   end
 
   context "as a user" do
-    let!(:user) { FactoryGirl.create(:user)}
+    let!(:user) { FactoryBot.create(:user)}
 
     before do
       login_as(user)

@@ -1,12 +1,20 @@
-require "rails_helper"
+require 'rails_helper'
 
-feature "Subscriptions are required" do
-  let!(:account) { FactoryGirl.create(:account) }
-
+feature 'Subscriptions are required' do
+  let!(:account) { FactoryBot.create(:account) }
   context "as an account owner" do
     before do
       login_as(account.owner)
+
     end
 
-    scenario "account owner must select a plan" do
-      expect(page.current_url).to eq(w)
+    scenario "Account owner must select a plan" do
+      visit root_url
+      expect(page.current_url).to eq(account_choose_plan_url)
+      within(".flash_alert") do
+        message = "You must subscribe to a plan before you can use your account."
+        expect(page).to have_content(message)
+      end
+    end
+  end
+end

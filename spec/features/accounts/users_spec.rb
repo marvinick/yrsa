@@ -1,8 +1,8 @@
 require "rails_helper"
 
 feature "Users" do
-  let(:account) { FactoryGirl.create(:account)}
-  let(:user) { FactoryGirl.create(:user) }
+  let(:account) { FactoryBot.create(:account)}
+  let(:user) { FactoryBot.create(:user) }
 
   before do
     account.users << user
@@ -13,7 +13,7 @@ feature "Users" do
 
     scenario "it can remove a user" do
       visit root_url
-      visit projects_path
+      visit accounts_path
       click_link "Users"
       expect(page).to have_content(account.owner.email)
       expect(page).to have_content(user.email)
@@ -30,14 +30,15 @@ feature "Users" do
 
     scenario "it does not see the users link" do
       visit root_url
-      visit projects_path
+      visit accounts_path
       expect { find_link("Users") }.to raise_error(Capybara::ElementNotFound)
     end
 
     scenario "cannot go to the users page" do
       visit root_url
-      visit projects_path
-      visit users_path
+      visit accounts_path
+      visit account_project_path
+      visit account_project_users_path
       expect(page).to have_content("Only an owner of the account can do that.")
     end
   end

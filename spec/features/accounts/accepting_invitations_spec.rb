@@ -4,7 +4,7 @@ feature "Accepting invitations" do
   include EmailSpec::Helpers
   include EmailSpec::Matchers
 
-  let(:account) { FactoryGirl.create(:account) }
+  let(:account) { FactoryBot.create(:account) }
   let(:invitation) do
     Invitation.create(
       account: account,
@@ -35,7 +35,7 @@ feature "Accepting invitations" do
 
     visit accept_link
     click_link "Sign in as an existing user"
-    user = FactoryGirl.create(:user)
+    user = FactoryBot.create(:user)
     fill_in "Email", with: user.email
     fill_in "Password", with: "password"
     click_button "Log in"

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe PlansController, type: :controller do
   context "as an account owner" do
-    let!(:account) { FactoryGirl.create(:account)}
+    let!(:account) { FactoryBot.create(:account)}
 
     let!(:starter_plan) do
       Plan.create(
@@ -28,7 +28,7 @@ RSpec.describe PlansController, type: :controller do
       allow(controller).to receive(:current_account).and_return(account)
 
       account.plan = silver_plan
-      account.projects << FactoryGirl.create_list(:project, 20)
+      account.projects << FactoryBot.create_list(:project, 20)
       account.save
     end
 

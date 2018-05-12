@@ -4,7 +4,7 @@ feature "Inviting users" do
   include EmailSpec::Helpers
   include EmailSpec::Matchers
 
-  let(:account) { FactoryGirl.create(:account)}
+  let(:account) { FactoryBot.create(:account)}
 
   before do
     login_as(account.owner)

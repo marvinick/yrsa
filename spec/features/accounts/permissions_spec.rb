@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "Account permissions" do
-  let(:account) { FactoryGirl.create(:account) }
+  let(:account) { FactoryBot.create(:account) }
 
   scenario "cannot access the account if not owner or a user" do
     visit root_url
@@ -22,7 +22,7 @@ feature "Account permissions" do
   end
   #
   context "a user of the account" do
-    let(:user) { FactoryGirl.create(:user) }
+    let(:user) { FactoryBot.create(:user) }
     before do
       account.users << user
       login_as(user)
@@ -35,7 +35,7 @@ feature "Account permissions" do
   end
 
   context "an unauthorized user" do
-    let(:user) { FactoryGirl.create(:user) }
+    let(:user) { FactoryBot.create(:user) }
     before do
       login_as(user)
     end

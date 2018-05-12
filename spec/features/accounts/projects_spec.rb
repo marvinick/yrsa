@@ -1,12 +1,12 @@
 require "rails_helper"
 
 feature "Projects" do
-  let!(:account_a) { FactoryGirl.create(:account) }
-  let!(:account_b) { FactoryGirl.create(:account) }
+  let!(:account_a) { FactoryBot.create(:account) }
+  let!(:account_b) { FactoryBot.create(:account) }
 
   before do
-    FactoryGirl.create(:project, title: "Account A's project", account: account_a )
-    FactoryGirl.create(:project, title: "Account B's project", account: account_b )
+    FactoryBot.create(:project, title: "Account A's project", account: account_a )
+    FactoryBot.create(:project, title: "Account B's project", account: account_b )
   end
 
   context "index" do

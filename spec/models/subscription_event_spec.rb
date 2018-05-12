@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe SubscriptionEvent, type: :model do
   let!(:account) do
-    FactoryGirl.create(:account,
+    FactoryBot.create(:account,
       stripe_subscription_id: "sub_001",
       stripe_customer_id: "cus_001"
     )
