@@ -13,7 +13,7 @@ class BaseController < ApplicationController
   end
 
   def current_account
-    @current_account ||= Account.find_by slug: params[:account_id]
+    @current_account ||= Account.find(params[:account_id])
   end
   helper_method :current_account
 

@@ -82,7 +82,7 @@ class ProjectsController < BaseController
   end
 
   def set_account
-    @account = Account.find_by slug: params[:account_id]
+    @account = Account.find(params[:account_id])
   end
 
   def set_project
