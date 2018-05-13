@@ -1,5 +1,4 @@
-<script src="https://checkout.stripe.com/checkout.js"></script>
-<%= javascript_include_tag "billing" %>
+
 <div class="formy-back">
   <div class="col-md-12 text-center">
     <p class="formy-back-title"><%= link_to current_account.name, accounts_path(current_account) %></p>
@@ -12,11 +11,13 @@
 <div class="formy">
   <%= form_tag account_update_payment_details_path(current_account), method: :put do %>
     <input type="hidden" id="email" value="<%= current_account.owner.email %> "/>
-    <%= submit_tag "Update Payment Details", class: "btn btn-lg btn-default", id: "payment-btn" %>
+    <%= submit_tag "Update Payment Details", class: "btn btn-default", id: "payment-btn" %>
   <% end %>
 </div>
 
 
+<script src="https://checkout.stripe.com/checkout.js"></script>
+<%= javascript_include_tag "billing" %>
 
 
 <!-- <div class="formy">

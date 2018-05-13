@@ -6,3 +6,4 @@ Rails.configuration.stripe = {
 }
 
 Stripe.api_key = "sk_test_A3A8doK3iZYOYpOslfFLufri"
+ 
