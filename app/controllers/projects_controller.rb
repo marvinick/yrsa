@@ -86,7 +86,7 @@ class ProjectsController < BaseController
   end
 
   def set_project
-    @project = current_account.projects.find_by slug: params[:id]
+    @project = current_account.projects.find(params[:id])
     rescue ActiveRecord::RecordNotFound
       flash[:alert] = "Project not found."
       redirect_to root_url

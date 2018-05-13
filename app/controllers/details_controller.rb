@@ -50,7 +50,7 @@ class DetailsController < BaseController
   end
 
   def set_project
-    @project = current_account.projects.find_by slug: params[:project_id]
+    @project = current_account.projects.find(params[:project_id])
   end
   helper_method :set_project
 end
