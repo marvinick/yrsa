@@ -29,6 +29,6 @@ feature "Accounts" do
     # expect(account.stripe_subscription_id).to be_present
     expect(page.current_url).to eq(account_choose_plan_url(account))
     expect(account.plan).to eq(plan)
-    
+
   end
 end

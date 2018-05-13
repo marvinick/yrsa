@@ -14,14 +14,13 @@ feature "Subscriptions" do
   end
 
   let(:plan) { Plan.create(name: "starter", stripe_id: "starter")}
-  let(:account) { FactoryGirl.create(:account) }
+  let(:account) { FactoryBot.create(:account) }
 
   before do
     subscription = customer.subscriptions.create(plan: "starter")
     account.stripe_customer_id = customer.id
     account.stripe_subscription_id = subscription.id
     account.save
-
     login_as(account.owner)
   end
 

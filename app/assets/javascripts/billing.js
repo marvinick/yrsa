@@ -1,6 +1,6 @@
 $(document).ready(function () {
   var handler = StripeCheckout.configure({
-    key: 'pk_test_LLU9HECjsQymV98V9d9GUxLS', image: '/images/logo.png', locale: 'auto', token: function(token) {
+    key: 'pk_test_LLU9HECjsQymV98V9d9GUxLS', image: '', locale: 'auto', token: function(token) {
       $('form').append("<input type='hidden' name='token' value='" + token.id + \"' />")
       $('form').submit();
     }

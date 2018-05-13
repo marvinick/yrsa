@@ -21,7 +21,7 @@ describe "Switching accounts" do
   it "can switch between accounts" do
     visit root_url
 
-    click_link "Yrsa"
+    click_link "Eagor"
     expect(page.current_url).to eq(root_url)
     click_link "Account #2"
     expect(page.current_url).to eq(root_url)
