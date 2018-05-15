@@ -65,7 +65,7 @@ class ProjectsController < BaseController
       session[:return_to] = request.fullpath
       message = "You have reached your plan's limit."
       message += "You need to upgrade your plan to add more projects."
-      flash[:alert] = message
+      flash.now[:alert] = message
       redirect_to account_choose_plan_path
     end
   end
