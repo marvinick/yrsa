@@ -54,7 +54,7 @@ class BoardsController < BaseController
   end
 
   def set_project
-    @project = current_account.projects.find_by slug: params[:project_id]
+    @project = current_account.projects.find(params[:project_id])
   end
 
   def board_params

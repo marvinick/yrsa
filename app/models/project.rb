@@ -1,4 +1,5 @@
 class Project < ApplicationRecord
+  before_create :generate_random_id
 
   include PgSearch
 
@@ -28,6 +29,12 @@ class Project < ApplicationRecord
   has_many :invitations
 
   has_many :challenges
+
+  def generate_random_id
+    begin
+      self.id = SecureRandom.random_number(1_000_0000)
+    end while Project.where(id: self.id).exists?
+  end
 
   # def as_json(options={})
   #   super(methods: [:email])
