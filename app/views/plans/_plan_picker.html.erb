@@ -1,7 +1,8 @@
 <%= form_for(current_account, url: account_choose_plan_url) do |account| %>
   <% if current_account.stripe_subscription_id.blank? %>
-    <% if plan.id == 3 %>
+
       <% @plans.each do |plan| %>
+      <% if plan.id == 3 %>
         <label class="plan-box">
           <%= account.radio_button :plan_id, plan.id, data: { behavior: "submit-on-click" }, class:"radiohidden"%>
           <li><%= account.label "plan_id_#{plan.id}", plan.name %></li>

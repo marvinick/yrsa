@@ -1,4 +1,6 @@
 class Account < ApplicationRecord
+  before_create :generate_random_id
+
   include PgSearch
   multisearchable against: [:name],
     using: {
@@ -30,6 +32,12 @@ class Account < ApplicationRecord
 
   def over_limit_for?(plan)
     projects.count > plan.projects_allowed rescue 0
+  end
+
+  def generate_random_id
+    begin
+      self.id = SecureRandom.random_number(1_000_0000)
+    end while Account.where(id: self.id).exists?
   end
 
   # before_save :generate_slug

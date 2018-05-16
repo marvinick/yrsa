@@ -88,7 +88,7 @@ class ReviewsController < BaseController
   helper_method :set_item
 
   def set_project
-    current_account.projects.find_by slug: params[:project_id]
+    current_account.projects.find(params[:project_id])
   end
   helper_method :set_project
 

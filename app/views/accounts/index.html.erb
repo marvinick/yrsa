@@ -37,24 +37,23 @@
         </div>
       </div>
       <div class="row">
-        <li><%= link_to "billing", account_billing_path(account) %></li>
         <div class="new-project-button"></div>
         <br>
         <div class="my-projects">
           <div class="row">
-          <% account.projects.each do |project| %>
-            <% if current_user.project_ids.include? project.id %>
-                <%= link_to account_project_path(account, project), class: "account-project-box-link" do %>
-                  <div class="col-md-3 col-sm-4 col-xs-6">
-                    <div class="account-project-box">
-                      <p class="account-project-box-title"><%= truncate(project.title, length: 10) %></p>
-                      <hr>
-                      <p class="account-project-box-sub"><%= project.items.size %> items </p>
+            <% account.projects.each do |project| %>
+              <% if current_user.project_ids.include? project.id %>
+                  <%= link_to account_project_path(account, project), class: "account-project-box-link" do %>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                      <div class="account-project-box">
+                        <p class="account-project-box-title"><%= truncate(project.title, length: 10) %></p>
+                        <hr>
+                        <p class="account-project-box-sub"><%= project.items.size %> items </p>
+                      </div>
                     </div>
-                  </div>
+                <% end %>
               <% end %>
             <% end %>
-          <% end %>
           </div>
         </div>
       </div>
