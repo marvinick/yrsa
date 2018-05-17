@@ -1,7 +1,7 @@
 <div class="modal-dialog">
   <div class="modal-content">
 
-    <%= form_for([current_account, set_project, set_item, @review], remote: true)  do |f| %>
+    <%= form_for([current_account, @project, @item, @review], remote: true)  do |f| %>
       <div class="modal-body">
         <h4 class="text-center">rate attributes</h4>
         <hr>

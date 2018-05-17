@@ -2,7 +2,7 @@ module ReviewsHelper
 
   def count_details
     keys = []
-    set_item.reviews.each do |review|
+    @item.reviews.each do |review|
       review.properties.each_key do |k|
         keys << k
       end
@@ -16,7 +16,7 @@ module ReviewsHelper
 
   def show_value
     values = []
-    set_item.reviews.each do |review|
+    @item.reviews.each do |review|
       review.properties.each_value do |v|
         values << v.to_i
       end
@@ -28,7 +28,7 @@ module ReviewsHelper
   def each_review_rating
     keys = []
     values = []
-    set_item.reviews.each do |review|
+    @item.reviews.each do |review|
       review.properties.each do |k,v|
         keys << k
         values << v.to_i

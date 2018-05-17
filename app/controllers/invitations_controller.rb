@@ -68,11 +68,11 @@ class InvitationsController < BaseController
   private
 
   def set_project
-    @project = current_account.projects.find_by slug: params[:project_id]
+    @project = current_account.projects.find(params[:project_id])
   end
 
   def set_account
-    @account = Account.find_by slug: params[:account_id]
+    @account = Account.find(params[:account_id])
   end
 
   def invitation_params

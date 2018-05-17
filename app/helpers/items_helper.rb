@@ -13,7 +13,7 @@ module ItemsHelper
   end
 
   def total_reviews
-    set_item.reviews.count
+    @item.reviews.count
   end
 
   #real counting begin

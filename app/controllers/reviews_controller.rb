@@ -80,17 +80,14 @@ class ReviewsController < BaseController
   def set_review
     @review = @item.reviews.find(params[:id])
   end
-  helper_method :set_review
 
   def set_item
     @item = set_project.items.find_by slug: params[:item_id]
   end
-  helper_method :set_item
 
   def set_project
-    current_account.projects.find(params[:project_id])
+    @project = current_account.projects.find(params[:project_id])
   end
-  helper_method :set_project
 
   def check_review_limit
     if set_review.user_id == current
