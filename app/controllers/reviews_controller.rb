@@ -83,10 +83,16 @@ class ReviewsController < BaseController
 
   def set_item
     @item = set_project.items.find_by slug: params[:item_id]
+    rescue ActiveRecord::RecordNotFound
+      flash[:alert] = "cannot find that item."
+      redirect_to account_project_path(current_account, @project)
   end
 
   def set_project
     @project = current_account.projects.find(params[:project_id])
+    rescue ActiveRecord::RecordNotFound
+      flash[:alert] = "Project not found."
+      redirect_to root_url
   end
 
   def check_review_limit

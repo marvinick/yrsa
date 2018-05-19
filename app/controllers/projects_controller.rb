@@ -28,6 +28,9 @@ class ProjectsController < BaseController
   def index
     @projects = current_account.projects.all
     respond_with(@projects)
+  rescue ActiveRecord::RecordNotFound
+    flash[:alert] = "Project not found."
+    redirect_to root_url
   end
 
   def show
@@ -82,6 +85,9 @@ class ProjectsController < BaseController
 
   def set_account
     @account = Account.find(params[:account_id])
+    rescue ActiveRecord::RecordNotFound
+      flash[:alert] = "Unauthorized access."
+      redirect_to root_url
   end
 
   def set_project

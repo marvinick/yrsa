@@ -1,4 +1,6 @@
-<% @title = @item.name %>
+<% if @item.present? %>
+  <% @title = @item.name %>
+
 
 <%= link_to account_project_path(current_account, @project) do %>
   <div class="formy-back">
@@ -47,3 +49,4 @@
 </div>
 
 <div id="product-modal" class="modal"></div>
+<% end %>

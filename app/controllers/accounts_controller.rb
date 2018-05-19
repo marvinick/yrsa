@@ -70,6 +70,9 @@ class AccountsController < ApplicationController
 
   def set_account
     @account = Account.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      flash[:alert] = "Account not found."
+      redirect_to account_path(@account)
   end
 
   def account_params

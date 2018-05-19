@@ -21,7 +21,7 @@ class PlansController < BaseController
     redirect_to root_url
 
     rescue Stripe::InvalidRequestError
-      flash[:alert] = "No payment source."
+      flash[:alert] = "Please update your payment details first before upgrading your plan to Pro."
       redirect_to account_billing_path(current_account)
   end
 

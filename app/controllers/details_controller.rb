@@ -51,6 +51,9 @@ class DetailsController < BaseController
 
   def set_project
     @project = current_account.projects.find(params[:project_id])
+    rescue ActiveRecord::RecordNotFound
+      flash[:alert] = "cannot find that project."
+      redirect_to account_project_path(current_account, @project)
   end
   helper_method :set_project
 end
