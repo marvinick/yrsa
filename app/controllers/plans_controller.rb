@@ -1,6 +1,7 @@
 class PlansController < BaseController
   skip_before_action :subscription_required!
   skip_before_action :check_stripe_subscription_id?
+  rescue_from Stripe::InvalidRequestError, with: :stripe_error_handling
 
   def choose
     @plans = Plan.order(:amount)
@@ -19,10 +20,6 @@ class PlansController < BaseController
     current_account.save
     flash[:notice] = "Your account has been created."
     redirect_to root_url
-
-    rescue Stripe::InvalidRequestError
-      flash[:alert] = "Please update your payment details first before upgrading your plan to Pro."
-      redirect_to account_billing_path(current_account)
   end
 
   def cancel
@@ -54,5 +51,12 @@ class PlansController < BaseController
 
     flash[:notice] = "You have changed to the #{plan.name} plan."
     redirect_to root_url
+  end
+
+  private
+
+  def stripe_error_handling
+    flash[:alert] = "Please update your payment details first before upgrading your plan to Pro."
+    redirect_to account_billing_path(current_account)
   end
 end

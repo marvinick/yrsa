@@ -14,9 +14,7 @@ class BaseController < ApplicationController
 
   def current_account
     @current_account ||= Account.find(params[:account_id])
-    rescue ActiveRecord::RecordNotFound
-      flash[:alert] = "Account not found."
-      redirect_to account_path(@account)
+    
   end
   helper_method :current_account
 

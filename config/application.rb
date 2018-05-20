@@ -12,13 +12,14 @@ module Yrsa
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+    config.exceptions_app = self.routes
     config.action_controller.permit_all_parameters = true
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
 
     # config.active_record.raise_in_transactional_callbacks = true
 
       config.paperclip_defaults = {
-          :storage => :s3, 
+          :storage => :s3,
           :s3_host_name => 's3-us-east-2.amazonaws.com',
           :s3_region => ENV['AWS_REGION'],
           :s3_credentials => {
