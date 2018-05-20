@@ -12,7 +12,9 @@ module Yrsa
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+    #rack application to handle routing error
     config.exceptions_app = self.routes
+
     config.action_controller.permit_all_parameters = true
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
 

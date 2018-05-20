@@ -18,10 +18,6 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def routing_error
-    redirect_to root_url
-  end
-
   def record_not_found
     flash[:alert] = "Unauthorized access."
     redirect_to root_url
