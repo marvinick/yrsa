@@ -60,6 +60,10 @@ class ProjectsController < BaseController
     end
   end
 
+  def archive
+    @project.udpate_attribute!(:displayed, false)
+  end
+
   private
 
   def check_plan_limit

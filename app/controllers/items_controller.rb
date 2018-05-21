@@ -7,7 +7,7 @@ class ItemsController < BaseController
 
   def index
     @items = @project.items.all
-    
+
   end
 
   def new
@@ -41,7 +41,7 @@ class ItemsController < BaseController
         render "edit"
       end
     end
-  end
+  end 
 
   def destroy
     @item.destroy
@@ -56,16 +56,10 @@ class ItemsController < BaseController
   end
 
   def set_item
-    @item = Item.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-      flash[:alert] = "Item not found."
-      redirect_to account_project_items_path(current_account, @project, @items)
+    @item = @project.items.find_by slug: params[:id]
   end
 
   def set_project
     @project = current_account.projects.find(params[:project_id])
-    rescue ActiveRecord::RecordNotFound
-      flash[:alert] = "Project not found."
-      redirect_to account_project_path(current_account, @project)
   end
 end

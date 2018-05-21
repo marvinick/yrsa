@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180502145555) do
+ActiveRecord::Schema.define(version: 20180521025439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -182,6 +182,7 @@ ActiveRecord::Schema.define(version: 20180502145555) do
     t.integer "user_id"
     t.boolean "is_public"
     t.string "slug"
+    t.boolean "displayed"
     t.index ["author_id"], name: "index_projects_on_author_id"
   end
 
