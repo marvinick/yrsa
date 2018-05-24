@@ -22,6 +22,7 @@
 //= require lookups
 //= require notifications
 //= require dropzone
+//= require subscriptions
 //= require_tree .
 
 
