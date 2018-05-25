@@ -35,6 +35,16 @@ Rails.application.routes.draw do
       as: :upgrade
     end
 
+    #subscriptions alternative 
+    resources :subscriptions, only: [:new, :create] do
+      scope module: 'subscriptions' do
+        collection do
+          resource :unsubscribe, only: :destroy
+          resource :resubscribe, only: :new
+        end
+      end
+    end
+
     resources :projects do
       resources :users, only: [:index, :destroy, :new, :create] do
         member do
