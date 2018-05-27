@@ -24,6 +24,7 @@ gem 'webpacker'
 #frontend
 gem "twitter-bootstrap-rails"
 gem 'font-awesome-sass'
+gem 'will_paginate'
 
 #form
 gem 'simple_form'
