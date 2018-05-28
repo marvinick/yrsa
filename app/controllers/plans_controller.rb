@@ -24,7 +24,10 @@ class PlansController < BaseController
 
   def cancel
     customer = Stripe::Customer.retrieve(current_account.stripe_customer_id)
-    subscription = customer.subscriptions.retrieve(current_account.stripe_subscription_id).delete
+    subscription = customer.subscriptions.retrieve(current_account.stripe_subscription_id).delete(at_period_end: true)
+    #addition from drifting ruby
+    # expires_at = Time.at(subscription.current_period_end)
+    # current_account.update_column(:stripe_subscription_id, nil, expires_at: expires_at)
     if subscription.status == "canceled"
       current_account.update_column(:stripe_subscription_id, nil)
       flash[:notice] = "Your subscription has been cancelled."

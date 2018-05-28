@@ -1,8 +1,19 @@
 //desktop
  @media only screen and (min-width: 1026px) {
 
-  //billings
+  //sheet
+  .sheet {
+    max-width: 100%;
+    padding-top: 35px;
+    padding-right: 20px;
+    padding-bottom: 50px;
+    padding-left: 20px;
+    background-color: #f9f9f9;
+    margin-top: 40px;
+  }
 
+
+  //billings
   .card-input-verification {
     width: 30%;
     height: 35px;
@@ -97,7 +108,7 @@
 
   .project-box {
     background-color: white;
-    min-height: 350px;
+    height: 250px;
     width: auto;
     margin-left: 0px;
     margin-right: 0px;
@@ -114,7 +125,7 @@
   }
 
   .project-box-header {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 600;
     text-align: center;
   }
@@ -137,7 +148,7 @@
     background-color: white;
     min-height: 110px;
     width: 100%;
-    font-size: 12px;
+    font-size: 9px;
     padding: 20px;
     margin-left: 0px;
     margin-right: 0px;
@@ -162,7 +173,7 @@
     padding:5px;
     border-radius: 10px;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 9px;
     text-align: center;
   }
 
@@ -174,14 +185,14 @@
   }
 
   .project-box-preview-text {
-    font-size: 16px;
+    font-size: 9px;
     font-weight: bold;
   }
 
   .project-box-preview-subtext {
     margin-top: -15px;
     margin-bottom: 0px;
-    font-size: 15px;
+    font-size: 8px;
     font-weight: lighter;
   }
 
