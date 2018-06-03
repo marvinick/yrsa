@@ -35,15 +35,35 @@ class PlansController < BaseController
     end
   end
 
+  def unsubscribe
+    customer = Stripe::Customer.retrieve(current_account.stripe_customer_id)
+    subscription = customer.subscriptions.retrieve(current_account.stripe_subscription_id).delete(at_period_end: true)
+    expires_at = Time.at(subscription.current_period_end)
+    if subscription.status == "canceled"
+      current_account.update_column(:stripe_subscription_id, nil)
+      flash[:notice] = "Your subscription has been cancelled."
+      redirect_to root_path, notice: "You have cancelled your subscription. You will have access until #{l  current_user.expires_at.to_date, format: :long}."
+    end
+  end
+
+  def resubscribe
+    subscription = current_account.stripe_customer.subscriptions.first
+    if subscription.save
+      current_account.update(stripe_subscription_id: subscription.id, expires_at: nil)
+      flash.notice = "Thanks for resubscribing!"
+    else
+      flash.alert = "There was a problem resubscribing!"
+    end
+    redirect_to root_path
+  end
+
   def switch
     plan = Plan.find(params[:plan_id])
-
     if current_account.over_limit_for?(plan)
       flash[:alert] = "You cannot switch to that plan." + " Your account is over that plan's limit."
       redirect_to account_choose_plan_path
       return
     end
-
     plan = Plan.find(params[:plan_id])
     customer = Stripe::Customer.retrieve(current_account.stripe_customer_id)
     subscription = customer.subscriptions.retrieve(current_account.stripe_subscription_id)
