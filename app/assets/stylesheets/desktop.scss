@@ -663,7 +663,9 @@
     padding-left: 50px;
     background-color: white;
     margin-top: 40px;
-    
+    -webkit-box-shadow: 2px 4px 25px -8px rgba(0,0,0,0.26);
+-moz-box-shadow: 2px 4px 25px -8px rgba(0,0,0,0.26);
+box-shadow: 2px 4px 25px -8px rgba(0,0,0,0.26);
   }
 
   .modal-dialog {
