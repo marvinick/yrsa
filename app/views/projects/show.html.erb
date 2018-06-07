@@ -1,11 +1,8 @@
 <% @title= @project.title %>
-<br>
 
-<div class="sheet">
 
-	<div class="row text-center">
+
 		<%= render "header" %>
-	</div>
 
 	<div class="row">
 		<% if @project.user_id == current_user.id %>
@@ -13,7 +10,6 @@
 				<%= link_to account_project_details_path(current_account, @project, @details), class:"project-box-link" do %>
 					<div class="project-box">
 				  	<p class="project-box-header">Details</p>
-						<hr>
 						<%= render "details" %>
 					</div>
 				<% end %>
@@ -22,7 +18,6 @@
 				<%= link_to account_project_items_path(current_account, @project, @items), class:"project-box-link" do %>
 					<div class="project-box">
 						<p class="project-box-header">Items</p>
-						<hr>
 						<%= render "cards" %>
 					</div>
 				<% end %>
@@ -31,7 +26,7 @@
 				<%= link_to account_project_invitations_path(current_account, @project, @invitations), class:"project-box-link" do %>
 					<div class="project-box">
 						<p class="project-box-header">Members</p>
-						<hr>
+
 						<% @project.users.last(4).each do |user| %>
 				      <% if user.email != current_account.owner.email %>
 				        <div class="project-box-preview-member">
@@ -55,7 +50,7 @@
 			<%= link_to activities_path, class:"project-box-link" do %>
 				<div class="project-box">
 					<p class="project-box-header">Activities</p>
-					<hr>
+
 				</div>
 			<% end %>
 		</div>
@@ -64,7 +59,7 @@
 			<%= link_to account_project_challenges_path(current_account, @project, @challenges), class:"project-box-link" do %>
 				<div class="project-box">
 					<p class="project-box-header">Challenges</p>
-					<hr>
+		
 					<% @project.challenges.last(4).each do |c| %>
 					  <div class="project-box-preview-challenge">
 					    <p class="project-box-preview-text"><%= c.name %></p>
@@ -75,7 +70,7 @@
 			<% end %>
 		</div>
 	</div>
-</div>
+
 
 <br>
 

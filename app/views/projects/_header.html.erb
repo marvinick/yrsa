@@ -1,27 +1,25 @@
+
 <%= div_for @project do %>
-  <div class="col-md-2"></div>
-  <div class="col-md-8 text-center">
 
-    <p class="project_title ">
-      <% if @project.user_id == current_user.id %>
-        <%= link_to edit_account_project_path(current_account, @project), remote: true do %>
-          <span class="fa fa-bars"></span>
-        <% end %>
+  <p class="project-title ">
+
+    <%= @project.title %>
+    <% if @project.user_id == current_user.id %>
+      <%= link_to edit_account_project_path(current_account, @project), remote: true do %>
+        <span class="fa fa-bars"></span>
       <% end %>
-      <%= @project.title %>
-    </p>
-    <p class="project_description"><%= @project.description %></h4>
-
-    <% if current_user.id != current_account.owner.id %>
-    	<% @project.users.each do |u| %>
-    		<% if u.email == current_user.email %>
-    			<li style="display:inline-block; float: left; margin-right:5px;">
-    				<h5><%= link_to "remove myself", unfollow_account_project_user_path(current_account, @project, u), :method => 'delete', data: { confirm: "are you sure?"}, class: "btn btn-danger" %> </small></h5>
-    			</li>
-    		<% end %>
-    	<% end %>
     <% end %>
-  </div>
-  <div class="col-md-2"></div>
+  </p>
+  <p class="project-description"><%= @project.description %></h4>
+
+  <% if current_user.id != current_account.owner.id %>
+  	<% @project.users.each do |u| %>
+  		<% if u.email == current_user.email %>
+  			<li style="display:inline-block; float: left; margin-right:5px;">
+  				<h5><%= link_to "remove myself", unfollow_account_project_user_path(current_account, @project, u), :method => 'delete', data: { confirm: "are you sure?"}, class: "btn btn-danger" %> </small></h5>
+  			</li>
+  		<% end %>
+  	<% end %>
+  <% end %>
+
 <% end %>
- 
