@@ -1,16 +1,19 @@
 
 <%= div_for @project do %>
 
-  <p class="project-title ">
 
-    <%= @project.title %>
-    <% if @project.user_id == current_user.id %>
-      <%= link_to edit_account_project_path(current_account, @project), remote: true do %>
-        <span class="fa fa-bars"></span>
-      <% end %>
-    <% end %>
-  </p>
-  <p class="project-description"><%= @project.description %></h4>
+    <p class="project-title ">
+      <%= @project.title %>
+
+        <% if @project.user_id == current_user.id %>
+          <%= link_to edit_account_project_path(current_account, @project), remote: true do %>
+            <span class="fa fa-ellipsis-h"></span>
+          <% end %>
+        <% end %>
+
+    </p>
+    <p class="project-description"><%= @project.description %></h4>
+
 
   <% if current_user.id != current_account.owner.id %>
   	<% @project.users.each do |u| %>

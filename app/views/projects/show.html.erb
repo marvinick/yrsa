@@ -1,8 +1,9 @@
 <% @title= @project.title %>
 
-
-
+	<div class="project-header">
 		<%= render "header" %>
+	</div>
+
 
 	<div class="row">
 		<% if @project.user_id == current_user.id %>
@@ -10,7 +11,10 @@
 				<%= link_to account_project_details_path(current_account, @project, @details), class:"project-box-link" do %>
 					<div class="project-box">
 				  	<p class="project-box-header">Details</p>
-						<%= render "details" %>
+						<p class="project-box-description">
+							Build the categories of of which you want the item rated for
+						</p>
+						<!-- <%= render "details" %> -->
 					</div>
 				<% end %>
 			</div>
@@ -18,7 +22,10 @@
 				<%= link_to account_project_items_path(current_account, @project, @items), class:"project-box-link" do %>
 					<div class="project-box">
 						<p class="project-box-header">Items</p>
-						<%= render "cards" %>
+						<p class="project-box-description">
+							Here you can create the items and link them with the available categories
+						</p>
+						<!-- <%= render "cards" %> -->
 					</div>
 				<% end %>
 			</div>
@@ -26,15 +33,17 @@
 				<%= link_to account_project_invitations_path(current_account, @project, @invitations), class:"project-box-link" do %>
 					<div class="project-box">
 						<p class="project-box-header">Members</p>
-
-						<% @project.users.last(4).each do |user| %>
+						<p class="project-box-description">
+							Invite one person or 100 people. Decide who gets to rate the your product.
+						</p>
+						<!-- <% @project.users.last(4).each do |user| %>
 				      <% if user.email != current_account.owner.email %>
 				        <div class="project-box-preview-member">
 				          <%= user.email %>
 				        </div>
 				        <br>
 				      <% end %>
-				    <% end %>
+				    <% end %> -->
 					</div>
 				<% end %>
 			</div>
@@ -42,6 +51,10 @@
 				<%= link_to account_project_boards_path(current_account, @project, @boards), class:"project-box-link" do %>
 					<div class="project-box">
 						<%= render "boards" %>
+						<p class="project-box-description">
+							Make your announcement surrounding your products.
+						</p>
+
 					</div>
 				<% end %>
 			</div>
@@ -50,7 +63,9 @@
 			<%= link_to activities_path, class:"project-box-link" do %>
 				<div class="project-box">
 					<p class="project-box-header">Activities</p>
-
+					<p class="project-box-description">
+						See what's you and others have done so far
+					</p>
 				</div>
 			<% end %>
 		</div>
@@ -59,12 +74,14 @@
 			<%= link_to account_project_challenges_path(current_account, @project, @challenges), class:"project-box-link" do %>
 				<div class="project-box">
 					<p class="project-box-header">Challenges</p>
-		
-					<% @project.challenges.last(4).each do |c| %>
+					<p class="project-box-description">
+						Think of this section as product request from your members. What they want you to make them in the future. Set a goal and due date.
+					</p>
+					<!-- <% @project.challenges.last(4).each do |c| %>
 					  <div class="project-box-preview-challenge">
 					    <p class="project-box-preview-text"><%= c.name %></p>
 					  </div>
-					<% end %>
+					<% end %> -->
 
 				</div>
 			<% end %>

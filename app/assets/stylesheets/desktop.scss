@@ -97,13 +97,18 @@
 
   //projects
 
-  .project-title {
+  .project-header {
     margin-top: 80px;
-    font-size: 32px;
+  }
+
+  .project-title {
+    text-align: center;
+    font-size: 30px;
     font-weight: bolder;
   }
 
   .project-description {
+    text-align: center;
     margin-top: -20px;
     font-size: 16px;
     font-weight: bold;
@@ -132,8 +137,15 @@
     font-size: 16px;
     font-weight: 600;
     text-align: center;
-    background-color: #fffdb7;
+    background-color: #f7f7f2;
     padding: 10px;
+  }
+
+  .project-box-description {
+    font-size: 15px;
+    text-align: center;
+    padding: 15px;
+    color: grey;
   }
 
   a.project-box-link {
@@ -515,6 +527,9 @@
     margin-bottom: -40px;
     background-color: white;
     padding: 10px;
+    border-style: solid;
+    border-width: thin;
+    border-color: #cccccc;
   }
 
   .formy-back-title {
@@ -778,11 +793,6 @@ box-shadow: 2px 4px 25px -8px rgba(0,0,0,0.26);
   .navbar > li {
     display: inline-block;
     float:none;
-  }
-
-  .project-header {
-    background-color: white;
-
   }
 
   .dropdown-container {

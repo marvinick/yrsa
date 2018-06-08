@@ -16,9 +16,7 @@
       <ul class="nav navbar-nav navbar-center">
         <% if user_signed_in? %>
           <li> <%= link_to " home", root_url, class: "fa fa-home" %></li>
-          <% if controller_name != "activities" %>
-            <li><%= link_to " activity", activities_path, class: "fa fa-history" %></li>
-          <% end %>
+          
           <li><%= link_to " lookup", lookups_path, remote: true, class: "fa fa-search" %></li>
         <% end %>
 
