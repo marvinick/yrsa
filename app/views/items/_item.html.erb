@@ -1,17 +1,9 @@
-<% cache item do %>
+
   <div class="col-md-4">
     <%= link_to account_project_item_path(current_account, @project, item), class: 'link-to-text-color' do %>
       <div class="item">
-        <div class="row">
-          <div class="col-md-8">
-            <p class="project-item-list"><%= sanitize truncate(item.name, length: 15) %></p>
-            <p class="project-item-dates"><%= time_ago_in_words(item.updated_at) %> ago</p>
-          </div>
-          <div class="col-md-4">
-            <%= image_tag('missing.png', :size => '100x50', class: "item-image") %>
-          </div>
-        </div>
+        <p class="project-item-list"><%= sanitize truncate(item.name, length: 15) %></p>
+        <p class="project-item-dates"><%= time_ago_in_words(item.updated_at) %> ago</p>
       </div>
     <% end %>
   </div>
-<% end %>

@@ -215,10 +215,10 @@
   }
 
   .project-item-list {
-    font-size: 13px;
-    color: black;
+    font-size: 16px;
+    text-align: center;
     font-weight: bolder;
-    margin-top: 5px;
+  color: black;
   }
 
   .project-item-dates {
@@ -252,17 +252,20 @@
   }
 
   .item {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px;
     background-color: white;
     padding: 20px;
-    webkit-box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
-   -moz-box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
-   box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
+    border-style: solid;
+    border-width: thin;
+    border-color: #cccccc;
+    height: 200px;
   }
 
   .item-name {
-    font-size: 22px;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+
   }
 
   .item-content2 {
