@@ -32,20 +32,16 @@ module ProjectsHelper
     @project.items.count
   end
 
-  def details_count
-    each_item_details = []
-    @project.items.each do |item|
-      each_item_details << item.details.count
-    end
-    each_item_details.sum
+  def details
+    @project.details.count
   end
 
   def invitations
-    invitations = []
-    current_account.invitations.each do |invitation|
-      invitations << invitation.email
-    end
-    invitations.uniq
+    @project.invitations.count
+  end
+
+  def announcements
+    @project.boards.count
   end
 
 end

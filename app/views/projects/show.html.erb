@@ -14,7 +14,8 @@
 						<p class="project-box-description">
 							Build the categories of of which you want the item rated for
 						</p>
-						<!-- <%= render "details" %> -->
+						<p class="project-elements-count"><%= details%></p>
+						<p class="project-elements-description">categories</p>
 					</div>
 				<% end %>
 			</div>
@@ -41,25 +42,24 @@
 						<p class="project-box-description">
 							Invite one person or 100 people. Decide who gets to rate the your product.
 						</p>
-						<!-- <% @project.users.last(4).each do |user| %>
-				      <% if user.email != current_account.owner.email %>
-				        <div class="project-box-preview-member">
-				          <%= user.email %>
-				        </div>
-				        <br>
-				      <% end %>
-				    <% end %> -->
+						<% if invitations.present? %>
+							<p class="project-elements-count"><%= invitations %></p>
+						<% else %>
+							<p class="project-elements-count">0</p>
+						<% end %>
+						<p class="project-elements-description">invitation(s)</p>
 					</div>
 				<% end %>
 			</div>
 			<div class='col-md-4'>
 				<%= link_to account_project_boards_path(current_account, @project, @boards), class:"project-box-link" do %>
 					<div class="project-box">
-						<%= render "boards" %>
+						<p class="project-box-header">Messages board</p>
 						<p class="project-box-description">
 							Make your announcement surrounding your products.
 						</p>
-
+						<p class="project-elements-count"><%= announcements %></p>
+						<p class="project-elements-description">announcement(s)</p>
 					</div>
 				<% end %>
 			</div>
