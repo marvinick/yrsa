@@ -15,9 +15,18 @@
 
       <ul class="nav navbar-nav navbar-center">
         <% if user_signed_in? %>
-          <li> <%= link_to " home", root_url, class: "fa fa-home" %></li>
-          
-          <li><%= link_to " lookup", lookups_path, remote: true, class: "fa fa-search" %></li>
+          <li>
+            <%= link_to root_url do %>
+              <span class="fa fa-home "></span>
+            <% end %>
+
+          </li>
+
+          <li>
+            <%= link_to lookups_path, remote: true do %>
+              <span class="fa fa-search "></span>
+            <% end %>
+          </li>
         <% end %>
 
       </ul>

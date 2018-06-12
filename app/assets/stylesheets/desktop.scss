@@ -129,7 +129,7 @@
   }
 
   .project-rating {
-    
+
     text-align: center;
 
   }
@@ -786,7 +786,7 @@ box-shadow: 2px 4px 25px -8px rgba(0,0,0,0.26);
   }
 
   .navbar {
-    background-color: white;
+    background-color: #f2f2f2;
     font-size: 24px;
     font-family: Helvetica, "Trebuchet MS", Verdana, sans-serif;
     height: 50px;
@@ -799,16 +799,20 @@ box-shadow: 2px 4px 25px -8px rgba(0,0,0,0.26);
     top: 0;
     width: 100%;
     z-index: 1000;
-    opacity: 0.9;
+  }
+
+  .fa {
+    color: #47ad74!important;
+    font-size: 25px;
   }
 
   .navbar a{
-    color: black!important;
+    color: #90ef7c!important;
     font-variant: small-caps;
   }
 
   .navbar li {
-    color: black!important;
+    color: #f7bb42!important;
     font-variant: small-caps;
   }
 
@@ -903,9 +907,7 @@ box-shadow: 2px 4px 25px -8px rgba(0,0,0,0.26);
     font-size: 14px;
   }
 
-  .fa {
-    font-size: 22px;
-  }
+
 
   //detail selection in item's form
   /* Hide the browser's default checkbox */
