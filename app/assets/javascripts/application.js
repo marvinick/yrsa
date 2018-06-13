@@ -15,7 +15,7 @@
 
 //= require rails-ujs
 //= require growlyflash
-//= require twitter/bootstrap
+
 //= require turbolinks
 //= require jquery-ui
 //= require trix

@@ -22,9 +22,10 @@ gem 'serviceworker-rails'
 gem 'webpacker'
 
 #frontend
-gem "twitter-bootstrap-rails"
+# gem "twitter-bootstrap-rails"
 gem 'font-awesome-sass'
 gem 'will_paginate'
+gem 'bootstrap', '~> 4.1.1'
 
 #form
 gem 'simple_form'
