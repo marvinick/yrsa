@@ -1,10 +1,10 @@
 <div class="project_users text-center">
   <p class="project-box-header">Members</p>
   <hr>
-  <% @project.users.each do |u| %>
-    <% if u.email != current_user.email %>
+  <% @project.users.each do |user| %>
+    <% if user.email != current_user.email %>
       <li class="user-list">
-        <p class="user-name"><%= u.email %> <small><%= link_to "x", unfollow_account_project_user_path(current_account, @project, u), :method => 'delete', data: { confirm: "are you sure?"} %> </small></p>
+        <p class="user-name"><%= user.email %> <small><%= link_to "x", unfollow_account_project_user_path(current_account, @project, u), :method => 'delete', data: { confirm: "are you sure?"} %> </small></p>
       </li>
     <% end %>
   <% end %>

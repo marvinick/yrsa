@@ -1,0 +1,152 @@
+@media only screen and (min-width: 1026px) {
+  .project-header {
+    margin-top: 80px;
+  }
+
+  .project-title {
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+  .project-description {
+    font-family: Tahoma, Geneva, sans-serif;
+    margin-top: -20px;
+    font-size: 16px;
+
+
+  }
+
+  .project-elements-count {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+  }
+
+  .project-elements-description {
+    text-align: center;
+    font-size: 18px;
+    font-weight: lighter;
+    margin-top: -20px;
+  }
+
+  .project-rating {
+
+    text-align: center;
+
+  }
+
+  .project-box {
+    background-color: white;
+    height: 350px;
+    width: auto;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: thin;
+     ;
+    border-color: white #cccccc #cccccc;
+  }
+
+  .project-box-header {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .project-box-description {
+    font-size: 15px;
+    text-align: center;
+    color: grey;
+    margin-bottom: 20px;
+  }
+
+  .project-box-details-preview {
+
+    display: inline;
+    background-color: yellow;
+    padding: 7px;
+    border-radius: 10px;
+    font-size: 12px;
+  }
+
+  a.project-box-link {
+    color: black;
+    &:hover {
+       color: black;
+     }
+  }
+
+  .project-box-preview {
+    background-color: #f9faff;
+    padding:10px;
+    margin: 7px;
+    border-radius: 10px;
+  }
+
+  .project-box-preview-item {
+    background-color: #77b58c;
+    display: inline;
+    border-radius: 10px;
+    font-size: 12px;
+    padding: 7px;
+    margin: 5px;
+  }
+
+  .project-box-preview-board {
+    background-color: #f7f4ef;
+    padding:10px;
+    margin: 7px;
+    border-radius: 10px;
+
+  }
+
+  .project-box-preview-member {
+    background-color: #f2e6e8;
+    padding:5px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 9px;
+    text-align: center;
+  }
+
+  .project-box-preview-challenge {
+    background-color:  #d8f2d7;
+    padding:10px;
+    margin: 7px;
+    border-radius: 10px;
+  }
+
+  .project-box-preview-text {
+    font-size: 9px;
+    font-weight: bold;
+  }
+
+  .project-box-preview-subtext {
+    margin-top: -15px;
+    margin-bottom: 0px;
+    font-size: 8px;
+    font-weight: lighter;
+  }
+
+  .project-item-list {
+    font-size: 16px;
+    text-align: center;
+    font-weight: bolder;
+  color: black;
+  }
+
+  .project-item-dates {
+    color: black;
+    font-size: 9px;
+    margin-top: -10px;
+  }
+}

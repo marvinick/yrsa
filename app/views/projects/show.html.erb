@@ -16,6 +16,8 @@
 						</p>
 						<p class="project-elements-count"><%= details%></p>
 						<p class="project-elements-description">categories</p>
+						<br>
+						<%= render "details" %>
 					</div>
 				<% end %>
 			</div>
@@ -28,6 +30,7 @@
 						</p>
 						<p class="project-elements-count"><%= all_items %></p>
 						<p class="project-elements-description">item(s)</p>
+						<%= render "cards" %>
 						<footer>
 							<p class="project-rating"><%= project_rating %></p>
 						</footer>

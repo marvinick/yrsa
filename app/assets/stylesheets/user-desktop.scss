@@ -1,0 +1,45 @@
+@media only screen and (min-width: 1026px) {
+  //users
+  .user-list {
+    float: left;
+  }
+
+  .user-name {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 5px;
+    border-radius: 15px;
+    background-color: white;
+    font-size: 16px;
+
+  }
+
+  //users
+  .invitation-header {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  .invitation-box {
+    font-size: 16px;
+    padding:10px;
+    margin:5px;
+    border-radius: 15px;
+    background-color: #f7f5f2;
+  }
+
+  .invitation-form {
+    margin: auto;
+    width:40%;
+  }
+
+  .members-subheader {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+}

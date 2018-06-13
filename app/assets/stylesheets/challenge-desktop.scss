@@ -1,0 +1,28 @@
+@media only screen and (min-width: 1026px) {
+
+  //challenges
+  .challenge-box {
+    background-color:  #d8f2d7;
+    padding: 10px;
+    margin: 20px;
+    webkit-box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
+    -moz-box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
+    box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
+  }
+
+  .challenges-header {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .challenge-name {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .challenge-description {
+    font-size: 15px;
+
+  }
+}

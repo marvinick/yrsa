@@ -25,11 +25,16 @@
  @import "mobile";
  @import "desktop";
  @import "tablet";
- @import "growlyflash";
  @import "toggle";
  @import "animate";
  @import "lookups";
  @import "subscriptions";
+ @import "project-desktop";
+ @import "item-desktop";
+ @import "account-desktop";
+ @import "user-desktop";
+ @import "challenge-desktop";
+ @import "board-desktop";
 
 
  .modal-backdrop {
@@ -37,7 +42,8 @@
  }
 
 html, body {
-  background-color: #f2f2f2;
+  font-family: Tahoma, Geneva, sans-serif;
+  background-color: #f4f4f2;
   margin-top: 0px;
   overflow-x:hidden!important;
 }
