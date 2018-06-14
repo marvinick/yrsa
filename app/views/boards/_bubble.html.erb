@@ -2,7 +2,7 @@
   <div class="board-note-bubble">
 
       <li class="dropdown pull-right">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
           <span class="fa fa-ellipsis-h"></span>
         </a>
         <ul class="dropdown-menu dropdown-menu-right">
@@ -10,7 +10,7 @@
 
         </ul>
       </li>
-    <%= image_tag @board.photo, class: "img-responsive" %> 
+    <%= image_tag @board.photo, class: "img-responsive" %>
     <div class="board-note trix-content"><%= sanitize @board.note %></div>
     <div class="pull-right">
       <p>by <%= @board.user.email %>, <%= time_ago_in_words(@board.created_at) %> ago</p>

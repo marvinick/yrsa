@@ -127,7 +127,7 @@
     text-decoration: underline;
   }
 
-  
+
   .preview_image {
     max-height: inherit;
   }
@@ -326,42 +326,6 @@ box-shadow: 2px 4px 25px -8px rgba(0,0,0,0.26);
 
   }
 
-  .navbar {
-    background-color: #f4f4f2;
-    font-size: 24px;
-    font-family: Helvetica, "Trebuchet MS", Verdana, sans-serif;
-    height: 50px;
-    float: none;
-    margin: 0;
-    display: block;
-    text-align: center;
-    border: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-  }
-
-  .fa {
-    color: #d6d6d6;
-    font-size: 25px;
-  }
-
-  .navbar a{
-    color: #d6d6d6!important;
-    font-variant: small-caps;
-  }
-
-  .navbar li {
-    color: #d6d6d6!important;
-    font-variant: small-caps;
-  }
-
-  .navbar > li {
-    display: inline-block;
-    float:none;
-  }
-
   .dropdown-container {
     position: relative;
   }
@@ -401,11 +365,7 @@ box-shadow: 2px 4px 25px -8px rgba(0,0,0,0.26);
 
   //style
 
-  .navbar-nav.navbar-center {
-    position: absolute;
-    left: 50%;
-    transform: translatex(-50%);
-  }
+
 
   //buttons
   .btn-default {
