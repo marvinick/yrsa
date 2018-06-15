@@ -9,15 +9,17 @@
 		<% if @project.user_id == current_user.id %>
 			<div class="col-md-4">
 				<%= link_to account_project_details_path(current_account, @project, @details), class:"project-box-link" do %>
-					<div class="project-box">
-				  	<p class="project-box-header">Details</p>
-						<p class="project-box-description">
-							Build the categories of of which you want the item rated for
-						</p>
-						<p class="project-elements-count"><%= details%></p>
-						<p class="project-elements-description">categories</p>
-						<br>
-						<%= render "details" %>
+					
+					<div class="card">
+					  <div class="card-header">
+					   Details
+					  </div>
+					  <div class="card-body">
+							<p class="card-text">Build the categories of of which you want the item rated for.</p>
+					    <h5 class="card-title"><%= details%></h5>
+							<p class="card-text">categories.</p>
+					    <%= render "details" %>
+					  </div>
 					</div>
 				<% end %>
 			</div>
