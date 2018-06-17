@@ -44,4 +44,8 @@ module ProjectsHelper
     @project.boards.count
   end
 
+  def challenges
+    @project.challenges.count
+  end 
+
 end

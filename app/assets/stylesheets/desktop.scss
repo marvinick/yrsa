@@ -1,6 +1,43 @@
 //desktop
  @media only screen and (min-width: 1026px) {
 
+   .navbar-center {
+     text-align: center;
+   }
+
+   .fab {
+     font-size: 24px!important;
+   }
+
+   .fas {
+     font-size: 24px!important;
+     color: #5a9b55;
+   }
+
+  .navbar-brand {
+    margin-left: -10px!important;
+  }
+
+   .card {
+     margin-top: 10px!important;
+     margin-bottom: 10px!important;
+   }
+
+   .card-header {
+     background-color: white;
+     text-align: center;
+     font-size: 15px;
+     font-weight: bold;
+     color: #444444;
+   }
+
+   .card-text {
+     color: #444444;
+     font-size: 13px;
+     font-weight: 300;
+   }
+
+
   //sheet
   .sheet {
     max-width: 100%;
@@ -111,20 +148,18 @@
     margin-left: 130px;
     margin-right: 130px;
     height: 50px;
-    margin-top:60px;
+    margin-top: 30px;
     margin-bottom: -40px;
     background-color: white;
     padding: 10px;
-    border-style: solid;
-    border-width: thin;
-    border-color: #cccccc;
+
   }
 
   .formy-back-title {
     text-align: center;
-    font-size: 22px;
-    font-weight: bolder;
-    text-decoration: underline;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
   }
 
 
@@ -145,11 +180,6 @@
   }
 
 
-  .container {
-
-    padding-bottom: 40px;
-    margin-bottom: 80px;
-  }
 
   .container-fluid {
     max-width: 95%;
@@ -248,10 +278,10 @@
     padding-bottom: 50px;
     padding-left: 50px;
     background-color: white;
-    margin-top: 40px;
-    -webkit-box-shadow: 2px 4px 25px -8px rgba(0,0,0,0.26);
--moz-box-shadow: 2px 4px 25px -8px rgba(0,0,0,0.26);
-box-shadow: 2px 4px 25px -8px rgba(0,0,0,0.26);
+    margin-top: 30px;
+    -webkit-box-shadow: -1px 2px 34px -9px rgba(0,0,0,0.6);
+    -moz-box-shadow: -1px 2px 34px -9px rgba(0,0,0,0.6);
+    box-shadow: -1px 2px 34px -9px rgba(0,0,0,0.6);
   }
 
   .modal-dialog {

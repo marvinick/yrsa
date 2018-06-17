@@ -1,7 +1,6 @@
 
 <%= div_for @project do %>
 
-
     <p class="project-title ">
       <%= @project.title %>
 
@@ -13,7 +12,7 @@
 
     </p>
     <p class="project-description"><%= @project.description %></h4>
-      
+
 
   <% if current_user.id != current_account.owner.id %>
   	<% @project.users.each do |u| %>

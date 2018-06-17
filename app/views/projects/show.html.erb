@@ -11,7 +11,7 @@
 				<%= link_to account_project_details_path(current_account, @project, @details), class:"project-box-link" do %>
 
 					<div class="card">
-					  <div class="card-header card-header-details">
+					  <div class="card-header">
 					   Details
 					  </div>
 					  <div class="card-body">
@@ -25,75 +25,85 @@
 			</div>
 			<div class="col-md-4">
 				<%= link_to account_project_items_path(current_account, @project, @items), class:"project-box-link" do %>
-					<div class="project-box">
-						<p class="project-box-header">Items</p>
-						<p class="project-box-description">
-							Here you can create the items and link them with the available categories
-						</p>
-						<p class="project-elements-count"><%= all_items %></p>
-						<p class="project-elements-description">item(s)</p>
-						<%= render "cards" %>
-						<footer>
-							<p class="project-rating"><%= project_rating %></p>
-						</footer>
-						<!-- <%= render "cards" %> -->
+					<div class="card">
+						<div class="card-header">
+						 Items
+						</div>
+						<div class="card-body">
+							<p class="card-text">	Here you can create the items and link them with the available categories</p>
+							<h5 class="card-title"><%= all_items %></h5>
+							<p class="card-text">item(s)</p>
+							<%= render "cards" %>
+						</div>
 					</div>
+
 				<% end %>
 			</div>
 			<div class="col-md-4">
 				<%= link_to account_project_invitations_path(current_account, @project, @invitations), class:"project-box-link" do %>
-					<div class="project-box">
-						<p class="project-box-header">Members</p>
-						<p class="project-box-description">
-							Invite one person or 100 people. Decide who gets to rate the your product.
-						</p>
-						<% if invitations.present? %>
-							<p class="project-elements-count"><%= invitations %></p>
-						<% else %>
-							<p class="project-elements-count">0</p>
-						<% end %>
-						<p class="project-elements-description">invitation(s)</p>
+				<div class="card">
+					<div class="card-header">
+					 Invitations
 					</div>
+					<div class="card-body">
+						<p class="card-text">Invite one person or 100 people. Decide who gets to rate the your product.</p>
+						<h5 class="card-title"><%= invitations %></h5>
+						<p class="card-text">invitations(s)</p>
+
+					</div>
+				</div>
+		
 				<% end %>
 			</div>
 			<div class='col-md-4'>
 				<%= link_to account_project_boards_path(current_account, @project, @boards), class:"project-box-link" do %>
-					<div class="project-box">
-						<p class="project-box-header">Messages board</p>
-						<p class="project-box-description">
-							Make your announcement surrounding your products.
-						</p>
-						<p class="project-elements-count"><%= announcements %></p>
-						<p class="project-elements-description">announcement(s)</p>
+					<div class="card">
+						<div class="card-header">
+						 Announcements
+						</div>
+						<div class="card-body">
+							<p class="card-text">ake your announcement surrounding your products.</p>
+							<h5 class="card-title"><%= announcements %></h5>
+							<p class="card-text">announcements.</p>
+
+						</div>
 					</div>
+
 				<% end %>
 			</div>
 		<% end %>
+
  	 	<div class="col-md-4">
 			<%= link_to activities_path, class:"project-box-link" do %>
-				<div class="project-box">
-					<p class="project-box-header">Activities</p>
-					<p class="project-box-description">
-						See what's you and others have done so far
-					</p>
+				<div class="card">
+					<div class="card-header">
+					 Activities
+					</div>
+					<div class="card-body">
+						<p class="card-text">See what's you and others have done so far.</p>
+						<h5 class="card-title"><%= details %></h5>
+						<p class="card-text">activities</p>
+
+					</div>
 				</div>
+
 			<% end %>
 		</div>
 
 		<div class="col-md-4">
 			<%= link_to account_project_challenges_path(current_account, @project, @challenges), class:"project-box-link" do %>
-				<div class="project-box">
-					<p class="project-box-header">Challenges</p>
-					<p class="project-box-description">
-						Think of this section as product request from your members. What they want you to make them in the future. Set a goal and due date.
-					</p>
-					<!-- <% @project.challenges.last(4).each do |c| %>
-					  <div class="project-box-preview-challenge">
-					    <p class="project-box-preview-text"><%= c.name %></p>
-					  </div>
-					<% end %> -->
+				<div class="card">
+					<div class="card-header">
+					 Challenges
+					</div>
+					<div class="card-body">
+						<p class="card-text">Think of this section as product request from your members. What they want you to make them in the future. Set a goal and due date.</p>
+						<h5 class="card-title"><%= challenges %></h5>
+						<p class="card-text">challenges.</p>
 
+					</div>
 				</div>
+
 			<% end %>
 		</div>
 	</div>
