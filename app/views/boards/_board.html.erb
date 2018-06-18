@@ -1,15 +1,12 @@
-
+<div class="col-md-4">
 <%= link_to account_project_board_path(current_account, @project, board), class:"board-box-link" do %>
-  <div class="col-md-3">
+
     <div class="board-box">
+      <p class="board-note"><%= sanitize truncate(board.note, length: 100) %></p>
 
-      <p class="board-note"><%= truncate(sanitize board.note, length:30) %></h3>
-
-      <div class="board-footer">
         <p><%= board.user.email %></p>
         <p><%= time_ago_in_words(board.created_at) %> ago</p>
-      </div>
 
     </div>
-  </div>
 <% end %>
+</div>

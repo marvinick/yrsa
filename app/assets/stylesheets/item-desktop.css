@@ -33,9 +33,8 @@
   }
 
   .item-name {
-    font-size: 25px;
-    font-weight: bold;
-    text-align: center;
+    font-size: 22px;
+    font-weight: bolder;
 
   }
 
@@ -57,23 +56,84 @@
 
   }
 
-  .item_list {
-    margin-bottom: -5px;
+  .item-exit {
+    font-size: 12px;
+    color: grey;
+    text-decoration: underline;
   }
 
-  .item_detail {
+  .item-detail {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: -10px;
   }
 
-  .item_detail_list {
+  .item-detail-list {
     font-style: italic;
     font-weight: 200;
   }
 
-  .item_time {
+  .item-time {
     margin-top: 20px;
     font-size: 12px;
   }
+
+  .item-attributes {
+    margin-left: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+
+  .review-header {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .review-box {
+    width: 300px;
+    padding-top: 10px;
+    padding-bottom: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: white;
+    margin-top: 20px;
+    webkit-box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
+    -moz-box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
+    box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
+  }
+
+  a.review-box-link {
+    color: black;
+  }
+
+  .review-description {
+    font-size: 14px;
+
+    }
+
+  .review-footer {
+    font-size: 12px;
+    color: grey;
+  }
+
+
+  .left {
+    float: left;
+  }
+
+  .right {
+    float: right;
+  }
+
+  .no-top-margin {
+     margin-top: 10px !important;
+  }
+
+  .stat-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #595959;
+  }
+
 }

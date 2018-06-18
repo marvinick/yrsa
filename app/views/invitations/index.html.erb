@@ -7,19 +7,17 @@
 <% end %>
 
 <div class="formy">
-  <div class="row text-center">
-    <p class="invitation-header">members</p>
-
-    <%= link_to "Invite", new_account_project_invitation_path(current_account, @project, @invitation), class: "new-invitation-button btn btn-success", remote: true %>
-  </div>
-  <br>
+  <p class="items-header">
+  Members
+  <%= link_to "+ Send", new_account_project_invitation_path(current_account, @project, @invitation), class: "new-invitation-button btn btn-success", remote: true %>
+  <hr>
   <div class="row">
     <div class="col-md-6">
-      <p class="members-subheader">Members</p>
+      <p class="members-subheader">Accepted</p>
       <%= render "users/index" %>
     </div>
     <div class="col-md-6">
-      <p class="members-subheader">Sent invites</p>
+      <p class="members-subheader">Sent</p>
       <div id="invitations"></div>
       <%= render @invitations %>
     </div>

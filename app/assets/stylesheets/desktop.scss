@@ -1,17 +1,42 @@
 //desktop
  @media only screen and (min-width: 1026px) {
 
-   .navbar-center {
-     text-align: center;
+   
+
+   .img-height {
+     height: 350px;
+     padding: 20px;
+   }
+
+   .hr-part {
+     width: 75%;
+     margin-top: 20px;
+     margin-bottom: 20px;
+   }
+
+   .jumbotron-background {
+     background-color: white;
+     margin-top: 30px;
+     padding-top: 30px;
+     padding-bottom: 30px;
+   }
+
+   .navbar-white {
+     background-color: white!important;
    }
 
    .fab {
-     font-size: 24px!important;
+     font-size: 30px!important;
+     color: grey!important;
    }
 
    .fas {
      font-size: 24px!important;
-     color: #5a9b55;
+     color: #79c473;
+   }
+
+   .fa-box-preview {
+     font-size: 16px!important;
    }
 
   .navbar-brand {
@@ -21,6 +46,7 @@
    .card {
      margin-top: 10px!important;
      margin-bottom: 10px!important;
+     border: none;
    }
 
    .card-header {
@@ -97,52 +123,6 @@
     overflow: auto;
   }
 
-  //reviews
-  .review-header {
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    text-decoration: underline;
-  }
-  .review-box {
-    width: 300px;
-    padding-top: 10px;
-    padding-bottom: 40px;
-    padding-left: 20px;
-    padding-right: 20px;
-    background-color: white;
-    margin-top: 20px;
-    webkit-box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
-    -moz-box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
-    box-shadow: 1px 1px 23px -9px rgba(0,0,0,0.32);
-  }
-
-  a.review-box-link {
-    color: black;
-  }
-
-  .review-description {
-    font-size: 14px;
-
-  }
-
-  .review-footer {
-    font-size: 12px;
-    color: grey;
-  }
-
-
-  .left {
-    float: left;
-  }
-
-  .right {
-    float: right;
-  }
-
-  .no-top-margin {
-     margin-top: 10px !important;
-  }
 
   .formy-back {
     margin-left: 130px;
@@ -167,12 +147,6 @@
     max-height: inherit;
   }
 
-  h1 {
-  	font-size: 50px;
-  	font-weight: boldest;
-  	line-height: 26.4px;
-    margin: 20px 20px;
-  }
 
   .check_box {
     font-size: 18px;
@@ -190,12 +164,6 @@
     margin: 5px 0;
     content: "";
     line-height:22px;
-  }
-
-  hr {
-    padding: 0px;
-    margin-top: 5px;
-    margin-bottom: 15px;
   }
 
   .landing-image {

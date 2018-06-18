@@ -1,24 +1,26 @@
-<% @title= "Project: " + @project.title + " - items"  %>
+<div class="container">
+  <% @title= "Project: " + @project.title + " - items"  %>
 
-<%= link_to account_project_path(current_account, @project) do %>
-  <div class="formy-back">
-    <p class="formy-back-title"><%= @project.title %></p>
-  </div>
-<% end %> 
-<div class="formy">
-  <p class="items-header">
-    Items
-    <%= link_to "Add Item", new_account_project_item_path(current_account, @project, @item), class: " og-item-button btn btn-success pull-left", remote: true %>
-  </p>
-  <hr>
-  <div class="row">
-    <div class="new-item-button"></div>
-    <div class="my-items"></div>
-      <% if @items.present? %>
-        <%= render @items %>
-      <% else %>
-        <h3 class="text-center">No items yet</h3>
-      <% end %>
+  <%= link_to account_project_path(current_account, @project) do %>
+    <div class="formy-back">
+      <p class="formy-back-title"><%= @project.title %></p>
+    </div>
+  <% end %>
+  <div class="formy">
+    <p class="items-header">
+      Items
+      <%= link_to "+ New", new_account_project_item_path(current_account, @project, @item), class: " og-item-button btn btn-success pull-left", remote: true %>
+    </p>
+    <hr>
+    <div class="row">
+      <div class="new-item-button"></div>
+      <div class="my-items"></div>
+        <% if @items.present? %>
+          <%= render @items %>
+        <% else %>
+          <h3 class="text-center">No items yet</h3>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

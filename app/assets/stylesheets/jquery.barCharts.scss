@@ -8,11 +8,11 @@
     width: 100%;
 }
 
-    .barChart__row:after {
-        content: " ";
-        display: table;
-        clear: both;
-    }
+.barChart__row:after {
+    content: " ";
+    display: table;
+    clear: both;
+}
 
 .barChart__label {
     float: left;
@@ -30,7 +30,7 @@
     display: block;
     overflow: hidden;
     background: #fff8ef;
-    height: 30px;
+    height: 15px;
 }
 
 .barChart__barFill {

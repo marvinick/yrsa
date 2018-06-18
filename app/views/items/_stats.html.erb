@@ -1,59 +1,48 @@
-<div class="col-md-6 col-sm-6">
-  <div class="item-formy no-top-margin">
-    <h4><strong>Attributes</strong></h4>
-    <br>
-    <div class="stats-row">
 
-      <% if total_keys_and_values.present? %>
-        <% total_keys_and_values.sort.each do |k,v| %>
-          <div class="barChart">
+    <p class="stat-title">Attributes</p>
+    <% if total_keys_and_values.present? %>
+      <% total_keys_and_values.sort.each do |k,v| %>
+        <div class="barChart">
 
-            <div class="barChart__row" data-value="100">
-              <div class="col-md-1 col-sm-1">
-                <li><span class="barChart__label"><%= k %></span></li>
-              </div>
-              <div class="col-md-1 col-sm-1 col-xs-1"></div>
-              <div class="col-md-9 col-sm-8">
-                <div class="barChart__row" data-value= <%= ((v.to_f / show_value) * 100).round(0) rescue 0 %> >
-                  <span class="barChart__value"><h5><small><%= ((v.to_f / show_value) * 100).round(0) rescue 0 %>%</small></h5></span>
-                  <span class="barChart__bar"><span class="barChart__barFill"></span></span>
-                </div>
+          <div class="barChart__row" data-value="100">
+            <div class="col-md-1">
+              <li><span class="barChart__label"><%= k %></span></li>
+            </div>
+
+            <div class="col-md-9">
+              <div class="barChart__row" data-value= <%= ((v.to_f / show_value) * 100).round(0) rescue 0 %> >
+                <span class="barChart__value"><h5><small><%= ((v.to_f / show_value) * 100).round(0) rescue 0 %>%</small></h5></span>
+                <span class="barChart__bar"><span class="barChart__barFill"></span></span>
               </div>
             </div>
           </div>
-        <% end %>
+
+        </div>
       <% end %>
-    </div>
-  </div>
-</div>
+    <% end %>
 
-  <div class="col-md-6 col-sm-6">
-    <div class="item-formy no-top-margin">
-      <h4><strong>Values</strong></h4>
-      <br>
-      <div class="stats-row">
-        <% if each_review_value.present? %>
-          <% each_review_value.sort.each do |k,v| %>
-            <div class="barChart">
-              <div class="barChart__row" data-value="100">
-                <div class="col-md-1 col-sm-1">
-                  <% if k != 0 %>
-                    <span class="barChart__label"><%= k %> <%= image_tag('star-on.png', style: "zoom:50%;") %></span>
 
-                </div>
-                <div class="col-md-1 col-sm-1 col-xs-1"></div>
-                <div class="col-md-9 col-sm-8">
+    <br>
+    <p class="stat-title">Values</p>
+    <% if each_review_value.present? %>
+      <% each_review_value.sort.each do |k,v| %>
+        <div class="barChart">
+          <div class="barChart__row" data-value="100">
+            <div class="col-md-1 col-sm-1">
+              <% if k != 0 %>
+                <span class="barChart__label"><%= k %> <%= image_tag('star-on.png', style: "zoom:50%;") %></span>
 
-                    <div class="barChart__row" data-value= <%= ((v.to_f / count_values.to_f) * 100).to_i rescue 0 %> >
-                      <span class="barChart__value"><h5><small><%= ((v.to_f / count_values.to_f) * 100).to_i rescue 0 %>%</small></h5></span>
-                      <span class="barChart__bar"><span class="barChart__barFill"></span></span>
-                    </div>
-                  <% end %>
-                </div>
-              </div>
             </div>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-  </div>
+            
+            <div class="col-md-9 col-sm-8">
+
+                <div class="barChart__row" data-value= <%= ((v.to_f / count_values.to_f) * 100).to_i rescue 0 %> >
+                  <span class="barChart__value"><h5><small><%= ((v.to_f / count_values.to_f) * 100).to_i rescue 0 %>%</small></h5></span>
+                  <span class="barChart__bar"><span class="barChart__barFill"></span></span>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>

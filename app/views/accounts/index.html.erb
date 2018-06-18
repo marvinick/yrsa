@@ -5,6 +5,7 @@
 <% if user_signed_in? %>
   <% current_user.all_accounts.uniq.each do |account| %>
     <div class="formy">
+
       <div class="row">
         <div class="col-md-6">
           <div class="row">
@@ -36,27 +37,28 @@
           </div>
         </div>
       </div>
+      <br>
       <div class="row">
         <div class="new-project-button"></div>
         <br>
-        <div class="my-projects">
-          <div class="row">
-            <% account.projects.each do |project| %>
-              <% if current_user.project_ids.include? project.id %>
-                  <%= link_to account_project_path(account, project), class: "account-project-box-link" do %>
-                    <div class="col-md-3 col-sm-4 col-xs-6">
-                      <div class="account-project-box">
-                        <p class="account-project-box-title"><%= truncate(project.title, length: 10) %></p>
-                        <hr>
-                        <p class="account-project-box-sub"><%= project.items.size %> items </p>
-                      </div>
-                    </div>
-                <% end %>
+
+        <% account.projects.each do |project| %>
+          <% if current_user.project_ids.include? project.id %>
+
+            <div class="col-md-4 account-project-zero-margin">
+              <%= link_to account_project_path(account, project), class: "account-project-box-link" do %>
+              <div class="account-project-box">
+                <p class="account-project-box-title"><%= truncate(project.title, length: 10) %></p>
+                <hr>
+                <p class="account-project-box-sub"><%= project.items.size %> items </p>
+              </div>
               <% end %>
-            <% end %>
-          </div>
-        </div>
+            </div>
+
+          <% end %>
+        <% end %>
       </div>
+
     </div>
   <% end %>
 <% end %>
