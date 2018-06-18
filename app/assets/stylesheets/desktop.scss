@@ -1,7 +1,9 @@
 //desktop
  @media only screen and (min-width: 1026px) {
 
-   
+   .white-background {
+     background-color: white;
+   }
 
    .img-height {
      height: 350px;
@@ -16,13 +18,20 @@
 
    .jumbotron-background {
      background-color: white;
-     margin-top: 30px;
-     padding-top: 30px;
-     padding-bottom: 30px;
+     margin-top: 20px;
+     padding-right: 80px!important;
+     padding-left: 80px!important;
+   }
+
+   .jumbotron-background-2 {
+     background-color: white;
+     padding-right: 80px!important;
+     padding-left: 80px!important;
    }
 
    .navbar-white {
      background-color: white!important;
+     border-color: #afafaf;
    }
 
    .fab {
@@ -46,7 +55,7 @@
    .card {
      margin-top: 10px!important;
      margin-bottom: 10px!important;
-     border: none;
+
    }
 
    .card-header {

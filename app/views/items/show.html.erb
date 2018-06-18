@@ -4,7 +4,10 @@
 
     <div class="jumbotron jumbotron-background">
       <div class="row">
-        <div class="col-md-7">
+        <div class="col-md-4">
+          <%= image_tag @item.image, class: "img-fluid" %>
+        </div>
+        <div class="col-md-8">
           <p class="item-exit"><%= link_to "items", account_project_items_path(current_account, @project, @items) %></p>
           <p class="item-name">
             <%= @item.name %>
@@ -14,34 +17,28 @@
               <% end %>
             <% end %>
           </p>
-          <p ><%= sanitize @item.content %></p>
-
+          <p class="item-content"><%= sanitize @item.content %></p>
           <%= render "overall-rating" %>
-          <hr>
-          <% if @item.reviews.present? %>
-            <%= render "stats" %>
-          <% end %>
-          <hr>
 
-          <% if @item.reviews.present? %>
-            <%= render "reviews" %>
-          <% else %>
-            <div class="boxyy text-center">
-              <h2 style="color:grey;">No reviews yet</h2>
-              <%= render "current_user_review" %>
-            </div>
-          <% end %>
         </div>
 
-
-
-        <div class="col-md-5">
-          <%= image_tag @item.image, class: "img-fluid img-height" %>
-        </div>
       </div>
+      
     </div>
 
 
+    <% if @item.reviews.present? %>
+      <%= render "stats" %>
+    <% end %>
+    <hr>
 
+    <% if @item.reviews.present? %>
+      <%= render "reviews" %>
+    <% else %>
+      <div class="boxyy text-center">
+        <h2 style="color:grey;">No reviews yet</h2>
+        <%= render "current_user_review" %>
+      </div>
+    <% end %>
     <div id="product-modal" class="modal"></div>
   <% end %>
