@@ -1,5 +1,5 @@
 
-  <%= div_for detail do %>
+  <!-- <%= div_for detail do %>
     <div class="detail-box">
       <div class="row">
         <div class="pull-left">
@@ -18,4 +18,12 @@
 
       </div>
     </div>
-  <% end %>
+  <% end %> -->
+<%= div_for detail do %>
+  <tr>
+    
+    <td><%= detail.name %></td>
+    <td><%= detail.description %></td>
+    <td>@mdo</td>
+  </tr>
+<% end %>

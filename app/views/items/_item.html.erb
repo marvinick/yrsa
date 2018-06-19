@@ -1,9 +1,17 @@
+<div class="col-md-3">
+  <%= link_to account_project_item_path(current_account, @project, item), class: 'link-to-text-color' do %>
+    <div class="card">
+      <% if item.image.present? %>
+        <%= image_tag item.image, class: "img-fluid" %>
+      <% else %>
+        <%= image_tag("missing.png", class: "img-fluid") %>
+      <% end %>
 
-  <div class="col-md-4">
-    <%= link_to account_project_item_path(current_account, @project, item), class: 'link-to-text-color' do %>
-      <div class="item">
-        <p class="project-item-list"><%= sanitize truncate(item.name, length: 15) %></p>
-        <p class="project-item-dates"><%= time_ago_in_words(item.updated_at) %> ago</p>
+      <div class="card-body">
+        <h5 class="card-title"><%= sanitize truncate(item.name, length: 15) %></h5>
+        <p class="card-text"><%= truncate(item.content, length: 100) %> </p>
+        <p class="card-text"><small class="text-muted"><%= time_ago_in_words(item.updated_at) %> ago</small></p>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
+</div>

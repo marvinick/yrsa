@@ -1,21 +1,29 @@
-<% @title= set_project.title + " - details"  %>
 
-<%= link_to account_project_path(current_account, set_project) do %>
-  <div class="formy-back">
-    <p class="formy-back-title"><%= set_project.title %></p>
-  </div>
-<% end %>
 
-<div class="formy">
+<div class="card">
 
-  <p class="details-header ">
-    Details
-    <%= link_to "+ New", new_account_project_detail_path(current_account, @project, @detail), remote: true, class: "btn btn-success btn-lg pull-left" %>
-  </p>
-  <hr>
-  <div class="row">
-    <div class="new-detail-button"></div>
-    <div class="my-details"></div>
-    <%= render @details %>
+  <div class="card-body">
+    <p class="card-text">back to <%= link_to set_project.title, account_project_path(current_account, set_project) %></p>
+    <h5 class="card-title">Details</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+  <%= link_to "+ New", new_account_project_detail_path(current_account, @project, @detail), remote: true, class: "btn btn-success btn-lg pull-left" %>
   </div>
 </div>
+
+<div class="new-detail-button"></div>
+<div class="my-details"></div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @details %>
+
+  </tbody>
+</table>
