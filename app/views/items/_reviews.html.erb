@@ -1,26 +1,31 @@
 
-<p class="review-header">Reviews</p>
+<p class="review-header ">Reviews</p>
 
 
 <% @item.reviews.order('created_at desc').each do |review| %>
+  <div class="card w-75">
+    <div class="card-body">
+      <%= link_to account_project_item_review_path(current_account, @project, @item, review), class: "review-box-link", remote: true do %>
 
-  <%= link_to account_project_item_review_path(current_account, @project, @item, review), class: "review-box-link", remote: true do %>
+        <% keys = [] %>
+        <% values = [] %>
+        <% review.properties.each do |name, value| %>
+          <% keys << name %>
+          <% values << value.to_i %>
+        <% end %>
+        <p class="review-footer pull-left"><%= review.user.email %></p>
+        <div class="star-rating" data-score= <%= (values.sum.to_f / keys.uniq.size).round rescue 0 %>, style= "zoom:40%;" ></div>
 
-    <% keys = [] %>
-    <% values = [] %>
-    <% review.properties.each do |name, value| %>
-      <% keys << name %>
-      <% values << value.to_i %>
-    <% end %>
+        <% if review.description.present? %>
+          <p class="review-description"><%= review.description %></p>
+        <% end %>
+      <% end %>
 
-    <div class="star-rating" data-score= <%= (values.sum.to_f / keys.uniq.size).round rescue 0 %>, style= "zoom:40%;" ></div>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted"><%= time_ago_in_words(review.created_at) %> ago</small>
+    </div>
 
-    <% if review.description.present? %>
-      <p class="review-description"><%= review.description %></p>
-    <% end %>
-    <p class="review-footer pull-left"><%= review.user.email %></p>
-    <p class="review-footer pull-right"><%= time_ago_in_words(review.created_at) %> ago</p>
-    <hr class="hr-part">
-  <% end %>
+  </div>
 
 <% end %>
