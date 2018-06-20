@@ -1,12 +1,14 @@
 <div class="col-md-4">
 <%= link_to account_project_board_path(current_account, @project, board), class:"board-box-link" do %>
 
-    <div class="board-box">
-      <p class="board-note"><%= sanitize truncate(board.note, length: 100) %></p>
-
-        <p><%= board.user.email %></p>
-        <p><%= time_ago_in_words(board.created_at) %> ago</p>
-
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= board.user.email %></h5>
+      <p class="card-text"><%= sanitize truncate(board.note, length: 100) %></p>
     </div>
+    <div class="card-footer">
+      <small class="text-muted"><%= time_ago_in_words(board.created_at) %> ago</small>
+    </div>
+  </div>
 <% end %>
 </div>

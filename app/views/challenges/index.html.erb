@@ -1,24 +1,24 @@
 <% @title= "Project: " + @project.title + " - challenges"  %>
-
-<%= link_to account_project_path(current_account, @project) do %>
-  <div class="formy-back">
-    <p class="formy-back-title"><%= @project.title %></p>
-  </div>
-<% end %>
-<div class="formy">
-  <p class="challenges-header">
-    Challenges
+<div class="card w-50 centered">
+  <div class="card-body">
+    <h5 class="card-title">Challenges</h5>
+    <p class="card-text"><%= link_to @project.title, account_project_path(current_account, @project) %></p>
     <%= link_to '+ New', new_account_project_challenge_path(current_account, @project, @challenge), class:"btn btn-success og-challenge-button", remote: true %>
-  </p>
-  <hr>
-  <div class="row">
-    <div class="new-challenge-button"></div>
-    <% @challenge_weeks.each do |week, challenges| %>
+  </div>
+</div>
+
+<div class="new-challenge-button"></div>
+<div class="deck">
+  <div id="challenges"></div>
+  <%= render @challenges %>
+</div>
+
+
+    <!-- <% @challenge_weeks.each do |week, challenges| %>
       <p class="board-week-header"><%= week.strftime("%B %d %Y") %></p>
       <div class="row">
         <div id="challenges"></div>
         <%= render challenges %>
       </div>
     <% end %>
-  </div>
-</div>
+   -->

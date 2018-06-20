@@ -1,25 +1,34 @@
 <% @title= @project.title + " - users"  %>
 
-<%= link_to account_project_path(current_account, @project) do %>
-  <div class="formy-back">
-    <p class="formy-back-title"><%= @project.title %></p>
-  </div>
-<% end %>
 
-<div class="formy">
-  <p class="items-header">
-  Members
+<div class="card">
+  <div class="card-body">
+    <h3 class="card-title">People</h3>
+    <p class="card-text">back to <%= link_to @project.title, account_project_path(current_account, @project) %></p>
+
+  </div>
+</div>
   <%= link_to "+ Send", new_account_project_invitation_path(current_account, @project, @invitation), class: "new-invitation-button btn btn-success", remote: true %>
-  <hr>
-  <div class="row">
-    <div class="col-md-6">
-      <p class="members-subheader">Accepted</p>
-      <%= render "users/index" %>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Members</h5>
+        <p class="card-text">People who accepted your invitations and now have access to do rate, post a challenge and comment on your announcements.</p>
+        <%= render "users/index" %>
+      </div>
     </div>
-    <div class="col-md-6">
-      <p class="members-subheader">Sent</p>
-      <div id="invitations"></div>
-      <%= render @invitations %>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Invitations</h5>
+        <p class="card-text">The invitations you sent, pending acceptance. Once accepted, they will become members.</p>
+
+        <div id="invitations"></div>
+
+        <%= render @invitations %>
+      </div>
     </div>
   </div>
 </div>

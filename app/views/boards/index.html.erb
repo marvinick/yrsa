@@ -1,20 +1,7 @@
 <% @title= @project.title + " - announcements"  %>
 
-<%= link_to account_project_path(current_account, @project) do %>
 
-  <div class="formy-back">
-    <p class="formy-back-title"><%= @project.title %></p>
-  </div>
-<% end %>
-
-
-<div class="formy">
-  <p class="board-header">
-    Announcement
-    <%= link_to "+ New", new_account_project_board_path(current_account, @project), remote: true, class: "og-board-button btn btn-success btn-lg" %>
-  </p>
-  <hr>
-  <div class="row">
+  <!-- <div class="row">
     <div class="new-board-button"></div>
     <% @board_weeks.each do |day, boards| %>
       <p class="board-week-header"><%= day.strftime("%B %d %Y") %></h2>
@@ -24,6 +11,24 @@
         </div>
       <% end %>
     </div>
-  </div>
+  </div> -->
 
+
+
+<div class="container">
+  <div class="card w-50 centered text-center">
+
+    <div class="card-body">
+      <h5 class="card-title">Announcements</h5>
+      <p class="card-text">back to <%= link_to @project.title, account_project_path(current_account, @project) %></p>
+      <%= link_to "+ New", new_account_project_board_path(current_account, @project), remote: true, class: "og-board-button btn btn-success btn-lg" %>
+    </div>
+  </div>
+  <div class="new-board-button"></div>
+
+  <div class="card-deck">
+    <div id="boards"></div>
+    <%= render @boards %>
+
+  </div>
 </div>
