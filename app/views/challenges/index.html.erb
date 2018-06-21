@@ -1,24 +1,17 @@
 <% @title= "Project: " + @project.title + " - challenges"  %>
-<div class="card w-50 centered">
-  <div class="card-body">
-    <h5 class="card-title">Challenges</h5>
-    <p class="card-text"><%= link_to @project.title, account_project_path(current_account, @project) %></p>
+
+<br>
+  <h4 class="card-title">
+    <strong>Challenges</strong>
     <%= link_to '+ New', new_account_project_challenge_path(current_account, @project, @challenge), class:"btn btn-success og-challenge-button", remote: true %>
-  </div>
-</div>
+  </h4>
+  <h6 >With supporting text below as a natural lead-in to additional content.</h6>
+  <p class="card-text">back to <%= link_to @project.title, account_project_path(current_account, @project) %></p>
+<hr>
 
 <div class="new-challenge-button"></div>
-<div class="deck">
+
   <div id="challenges"></div>
-  <%= render @challenges %>
-</div>
-
-
-    <!-- <% @challenge_weeks.each do |week, challenges| %>
-      <p class="board-week-header"><%= week.strftime("%B %d %Y") %></p>
-      <div class="row">
-        <div id="challenges"></div>
-        <%= render challenges %>
-      </div>
-    <% end %>
-   -->
+  <div class="row">
+    <%= render @challenges %>
+  </div>

@@ -3,6 +3,18 @@
 
    .centered {
      margin: auto;
+     background-color: inherit;
+     border: none;
+
+   }
+
+   .bg-inherit {
+     background-color: inherit;
+     border: none;
+   }
+
+   .same-line {
+     display: inline-block;
    }
 
    .white-background {

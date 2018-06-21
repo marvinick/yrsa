@@ -12,23 +12,22 @@
       <% end %>
     </div>
   </div> -->
-
-
-
-<div class="container">
-  <div class="card w-50 centered text-center">
-
-    <div class="card-body">
-      <h5 class="card-title">Announcements</h5>
-      <p class="card-text">back to <%= link_to @project.title, account_project_path(current_account, @project) %></p>
+  <br>
+    <h4 class="card-title">
+      <strong>Announcements</strong>
       <%= link_to "+ New", new_account_project_board_path(current_account, @project), remote: true, class: "og-board-button btn btn-success btn-lg" %>
-    </div>
-  </div>
+    </h4>
+    <h6 >With supporting text below as a natural lead-in to additional content.</h6>
+    <p class="card-text">back to <%= link_to @project.title, account_project_path(current_account, @project) %></p>
+  <hr>
+
+
+
+
   <div class="new-board-button"></div>
 
-  <div class="card-deck">
+  <div class="row">
     <div id="boards"></div>
     <%= render @boards %>
 
   </div>
-</div>
