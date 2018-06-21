@@ -398,11 +398,17 @@
   }
 
   .btn-success {
-    background-color: #47ad74;
+    background-color: #79c473;
     border-radius: 20px;
     padding-top: 7px;
     padding-bottom: 7px;
     font-size: 14px;
+    border-color: #79c473;
+  }
+
+  .btn-success:focus, .btn-success:hover {
+    background-color: #79c473;
+    border-color: #79c473;
   }
 
   .btn-warning {

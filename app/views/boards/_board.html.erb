@@ -1,5 +1,5 @@
 <div class="col-md-4">
-<%= link_to account_project_board_path(current_account, @project, board), class:"board-box-link" do %>
+<%= link_to account_project_board_path(current_account, @project, board), class:"board-box-link", remote: true do %>
 
   <div class="card">
     <div class="card-body">
@@ -12,3 +12,5 @@
   </div>
 <% end %>
 </div>
+
+<div id="product-modal" class="modal"></div>

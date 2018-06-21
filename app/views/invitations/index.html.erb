@@ -3,12 +3,12 @@
 <br>
   <h4 class="card-title">
     <strong>People</strong>
-    <%= link_to "+ Send", new_account_project_invitation_path(current_account, @project, @invitation), class: "new-invitation-button btn btn-success", remote: true %>
+    <%= link_to "+ Send", new_account_project_invitation_path(current_account, @project, @invitation), class: "btn btn-success", remote: true %>
   </h4>
   <h6 >With supporting text below as a natural lead-in to additional content.</h6>
   <p class="card-text">back to <%= link_to @project.title, account_project_path(current_account, @project) %></p>
 <hr>
-
+<div class="new-invitation-button"></div>
 
 <div class="row">
   <div class="col-sm-6">
