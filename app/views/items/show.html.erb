@@ -6,21 +6,17 @@
     <div class="card">
       <%= image_tag @item.image, class: "img-fluid" %>
       <div class="card-body">
+        <h5 class="card-title"><%= @item.name %></h5>
+        <%= render "overall-rating" %>
+        <p class="card-text"><%= sanitize @item.content %></p>
         <p class="card-text">back to <%= link_to "items", account_project_items_path(current_account, @project, @items) %></p>
 
       </div>
     </div>
   </div>
   <div class="col-sm-9">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title"><%= @item.name %></h5>
-        <%= render "overall-rating" %>
-        <p class="card-text"><%= sanitize @item.content %></p>
-      </div>
-    </div>
-    <br>
-    <p class="review-header ">Stats</p>
+
+    
     <div class="row">
       <div class="col-sm-6">
         <div class="card">
