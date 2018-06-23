@@ -48,6 +48,9 @@
    .navbar-white {
      background-color: white!important;
      border-color: #afafaf;
+     -webkit-box-shadow: 1px 2px 17px -3px rgba(184,184,184,1);
+-moz-box-shadow: 1px 2px 17px -3px rgba(184,184,184,1);
+box-shadow: 1px 2px 17px -3px rgba(184,184,184,1);
    }
 
    .fab {
@@ -275,7 +278,7 @@
     border-width: medium;
   }
 
-  
+
 
   .input-text, select textarea {
     width: 100%;
