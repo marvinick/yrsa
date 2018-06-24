@@ -1,31 +1,15 @@
-<% set_item.details.each do |detail| %>
-  <div class=" text-center">
-    <h3><%= detail.name %></h3>
-    <br>
-    <%= f.collection_radio_buttons detail.name,
-        [
-          [1],
-          [2],
-          [3],
-          [4],
-          [5]
-        ],
-        :last, :first, item_wrapper_tag: true, boolean_style: :inline do |b| %>
-      <div class="pretty p-icon p-toggle p-plain ">
-        <label>
-          <%= b.radio_button %>
-          <div class="state p-off">
-            <i class="icon fa fa-meh-o"></i>
-            <%= b.label %>
-          </div>
-          <div class="state p-on p-warning-o">
-            <i class="icon fa fa-smile-o"></i>
-            <%= b.label %>
-          </div>
-        </label>
-      </div>
-    <% end %>
-  </div>
+<% @item.details.each do |detail| %>
+
+  <h6><strong><%= detail.name %></strong></h6>
+  <div id="star-rating_<%= detail.id %>"></div>
   <br>
-  <br>
+  <script>
+    $("#star-rating_<%= detail.id %>").each(function() {
+      $(this).raty({
+        path: '/assets/',
+        scoreName: 'review[properties[<%= detail.name %>]',
+        score: 'review[properties]'
+      });
+    });
+  </script>
 <% end %>

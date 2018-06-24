@@ -10,8 +10,8 @@
       <div class="h6"><%= sanitize @board.note %></div>
     </div>
     <div class="modal-footer">
-      <p>by <%= @board.user.email %>,
-      <%= time_ago_in_words(@board.created_at) %> ago</p>
+      <p>by <%= @board.user.email %></p>
+      <%= time_ago_in_words(@board.created_at) %> ago
     </div>
   </div>
 </div>

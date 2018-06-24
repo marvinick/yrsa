@@ -1,30 +1,29 @@
 <div class="modal-dialog">
   <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLongTitle"><strong>Rate and Review</strong></h5>
 
-    <%= form_for([current_account, @project, @item, @review], remote: true)  do |f| %>
-      <div class="modal-body">
-        <h4 class="text-center">rate attributes</h4>
-        <hr>
+    </div>
+
+    <div class="modal-body">
+      <%= form_for([current_account, @project, @item, @review], remote: true)  do |f| %>
         <%= render "shared/errors", obj: @review %>
         <%= f.hidden_field :item_id %>
         <%= f.hidden_field :id %>
 
         <%= f.fields_for :properties, OpenStruct.new(@review.properties) do |builder| %>
-          <%= render "rating_field2", f: builder %>
-
+          <%= render "rating_field", f: builder %>
         <% end %>
-        <br>
-        <div class="control">
-          <h4>in your own words</h4>
-          <br>
-          <%= f.text_area :description, class:"input", placeholder: "note" %>
+
+        <%= f.text_area :description, class: "input", placeholder: "write something to add more details" %>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= f.submit "submit review", class: "btn btn-success " %>
         </div>
-        <br>
-        <div class="text-center">
-          <%= f.submit "rate", class: "btn btn-default btn-lg " %>
-          <button href="#current-pane" class="btn btn-default btn-xs" data-dismiss="modal" aria-label="close" id="hide">close</button>
-        </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
+
+
   </div>
 </div>

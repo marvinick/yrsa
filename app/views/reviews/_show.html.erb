@@ -1,55 +1,44 @@
-<div class="modal-dialog">
+<div class="modal-dialog modal-sm">
   <div class="modal-content">
-    <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-10">
-        <div class="boxyy">
-          <% keys = [] %>
-          <% values = [] %>
-          <% if @review.description.present? %>
-            <h4><%= @review.description %> </h4>
-          <% end %>
-          <hr>
-          <% @review.properties.each do |name, value| %>
-          <% keys << name %>
-          <% values << value.to_i %>
-            <div class="col-md-6 col-sm-9 col-xs-6">
-              <h4><%= name %>  </h4>
-            </div>
-            <div class="col-md-6 col-sm-3 col-xs-6">
-              <div class="pull-right">
-                <div class="star-rating" data-score= <%= value %>, style= "zoom:30%;" ></div>
 
-              </div>
-            </div>
-            <br>
-            <br>
+    <div class="modal-body">
+      <% keys = [] %>
+      <% values = [] %>
 
-          <% end %>
+      <% @review.properties.each do |name, value| %>
+      <% keys << name %>
+      <% values << value.to_i %>
 
-          <h2 class="text-center"><strong><%= (values.sum.to_f / keys.uniq.size).round rescue 0 %> <%= image_tag('star-on.png', style: "zoom:50%;") %> </strong></h2>
-          <hr>
-          <h6 style="color:grey"><strong><%= @review.user.email %></strong> - <%= time_ago_in_words(@review.created_at) %> ago</h6>
-          <% if current_user.id == @review.user_id %>
+        <h6><strong><%= name %></strong>  </h6>
+        <div class="star-rating" data-score= <%= value %>, style= "zoom:90%;" ></div>
+        <br>
+      <% end %>
 
-
-            <br>
-            <%= link_to "edit", edit_account_project_item_review_path(current_account, @project, @item, @review), remote: true, class: "btn btn-xs btn-success" %>
-            <%= link_to "remove", [current_account, @project, @item, @review], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "btn btn-xs btn-danger pull-right" %>
-          <% end %>
-        </div>
-      </div>
-      <div class="col-md-1"></div>
+      <% if @review.description.present? %>
+        <h6>"<strong><%= @review.description %></strong> "</h6>
+      <% end %>
+      <br>
+      <h5 class="text-right"><strong>Overall rating <%= (values.sum.to_f / keys.uniq.size).round rescue 0 %> <%= image_tag('star-on.png') %></strong></h5>
     </div>
+
+
+      <div class="modal-footer">
+        <h6 class="text-left"><small><%= @review.user.email %> - <%= time_ago_in_words(@review.created_at) %> ago </small></h6>
+        <% if current_user.id == @review.user_id %>
+          <%= link_to "edit", edit_account_project_item_review_path(current_account, @project, @item, @review), remote: true, class: "btn btn-xs btn-success" %>
+          <%= link_to "remove", [current_account, @project, @item, @review], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "btn btn-xs btn-danger text-right" %>
+        <% end %>
+      </div>
+
   </div>
 </div>
 
 <script>
-$('.star-rating').raty({
-  path: '/assets/',
-  readOnly: true,
-  score: function() {
-        return $(this).attr('data-score');
-  }
-});
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
 </script>

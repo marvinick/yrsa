@@ -13,10 +13,12 @@ class BoardsController < BaseController
     @board.project_id = @project.id
     @board.user_id = current_user.id
     if @board.save
-      respond_to do |f|
-        f.html { redirect_to [current_account, @project, @board], notice: "Board is created." }
-        f.json { render :show, status: :created, location: @board }
-      end
+      redirect_to account_project_boards_path(current_account, @project, @boards)
+      flash[:notice] =  "Board is created."
+      # respond_to do |f|
+      #   f.html { redirect_to [current_account, @project, @boards], notice: "Board is created." }
+      #   f.json { render :show, status: :created, location: @board }
+      # end
     else
       flash.now[:alert] = "Something is wrong."
       redirect_to account_project_boards_path(current_account, @project, @boards)

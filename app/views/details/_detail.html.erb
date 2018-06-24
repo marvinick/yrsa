@@ -28,8 +28,9 @@
       <%= link_to edit_account_project_detail_path(current_account, @project, detail), remote: true do %>
         <span class="fas fa-edit"></span>
       <% end %>
-      <%= link_to "remove", account_project_detail_path(current_account, set_project, detail), method: :delete, data: {confirm: "Are you sure?"}, remote: true %>
-    <div class="new-detail-button"></div>
+      <%= link_to account_project_detail_path(current_account, set_project, detail), method: :delete, data: {confirm: "Are you sure?"}, remote: true do %>
+        <i class="fas fa-trash"></i>
+      <% end %>
     </td>
   </tr>
 <% end %>

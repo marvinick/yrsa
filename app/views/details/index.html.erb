@@ -8,19 +8,23 @@
   <p class="card-text">back to <%= link_to @project.title, account_project_path(current_account, @project) %></p>
 <hr>
 
+
+<div class="new-detail-button"></div>
 <div class="my-details"></div>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
 
-      <th scope="col">Name</th>
-      <th scope="col">Description</th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= render @details %>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @details %>
 
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>
