@@ -4,13 +4,11 @@
       <%= f.hidden_field :project_id %>
       <%= f.text_field :name, placeholder: 'name the item', autofocus: true, label: false, class: "input ", :maxlength => 25, :size => 40 %>
       <br>
-      <%= f.hidden_field :content, placeholder: 'description', label: false, autofocus: true, id:"item-content", class: "extra-input", :maxlength => 279.9, :size => 40  %>
+      <%= f.text_area :content, placeholder: 'description', label: false, autofocus: true, id:"item-content", class: "input", :maxlength => 279.9, :size => 40  %>
       <br>
-      <trix-editor input= "item-content" class="trix-content"></trix-editor>
       <br>
-      <%= f.file_field :image, class: "dropzone" %>
+      <%= f.file_field :image %>
       <br>
-
     </div>
     <br>
     <div class="row">
@@ -28,9 +26,9 @@
 
     </div>
     <div class="row">
-      <div class="pull-right">
+      <div class="text-right">
         <%= f.submit "create item", class:"btn btn-success" %>
-        <button href="#current-pane" class="btn btn-default" data-dismiss="alert" aria-label="close" id="hide">close</button>
+        <button href="#current-pane" class="btn btn-warning" data-dismiss="alert" aria-label="close" id="hide">close</button>
       </div>
     </div>
   </div>
