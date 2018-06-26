@@ -32,16 +32,14 @@ class ItemsController < BaseController
   def edit; end
 
   def update
-    respond_to do |f|
-      if @item.update_attributes(item_params)
-        f.html { redirect_to [current_account, @project, @item], notice: "You have updated the item." }
-        f.json { render :show, status: :ok, location: @item}
-      else
-        flash.now[:alert] = "Something's wrong."
-        render "edit"
-      end
+    if @item.update_attributes(item_params)
+      flash[:notice] =  "You have updated the item."
+      redirect_to account_project_item_path(current_account, @project, @item)
+    else
+      flash.now[:alert] = "Something's wrong."
+      render "edit"
     end
-  end 
+  end
 
   def destroy
     @item.destroy

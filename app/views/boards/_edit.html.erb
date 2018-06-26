@@ -1,1 +1,21 @@
-<%= render "form" %>
+<div class="modal-dialog modal-lg">
+  <div class="modal-content modal-styling">
+    <div class="modal-header">
+      <h5 class="modal-title"><strong>Edit</strong> </h5>
+    </div>
+    <%= form_for([current_account, @project, @board], remote: true) do |f| %>
+      <div class="modal-body">
+
+        <% f.hidden_field :project_id %>
+        <%= f.hidden_field :note, placeholder: "enter", class: "input", id:"board-note" %>
+        <trix-editor input= "board-note" class="trix-content"></trix-editor>
+        <br>
+        <%= f.file_field :photo %>
+        <br>
+      </div>
+      <div class="modal-footer">
+        <%= f.button "edit announcement", class: "btn btn-success" %>
+      </div>
+    <% end %>
+  </div>
+</div>

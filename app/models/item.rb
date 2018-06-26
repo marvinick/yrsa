@@ -26,10 +26,8 @@ class Item < ApplicationRecord
   has_many :users, through: :reviews
 
   validates_presence_of :name, length: {minimum: 5, maximum: 20}, allow_blank: false
-  validates :content, length: {minimum: 5}, allow_blank: false
+  validates :content, length: {minimum: 5}
   validates_uniqueness_of :name
-
-  has_many :photos, dependent: :destroy
 
   before_save :generate_slug
 

@@ -1,5 +1,5 @@
 
-<% @title = @item.name %>
+<% @title = @project.title + " - " + @item.name %>
 <br>
 <div class="row">
 
@@ -15,7 +15,7 @@
         </h5>
         <%= render "overall-rating" %>
         <p class="card-text"><%= sanitize @item.content %></p>
-        <p class="card-text">back to <%= link_to "items", account_project_items_path(current_account, @project, @items) %></p>
+        <p class="card-text"><small>back to <%= link_to "items", account_project_items_path(current_account, @project, @items) %></small></p>
       </div>
     </div>
 
@@ -23,7 +23,6 @@
 
   <div class="col-sm-9">
     <%= render "stats" %>
-
 
     <br>
     <% if @item.reviews.present? %>
@@ -40,3 +39,4 @@
 
 
 <div id="product-modal" class="modal"></div>
+<div id="item-modal" class="modal"></div>

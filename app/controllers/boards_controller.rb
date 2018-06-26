@@ -37,7 +37,7 @@ class BoardsController < BaseController
   def update
     if @board.update_attributes(board_params)
       flash[:notice] = "Board is updated."
-      redirect_to account_project_board_path(current_account, @project, @board)
+      redirect_to account_project_boards_path(current_account, @project, @boards)
     else
       flash.now[:alert] = "Board is not saved."
     end

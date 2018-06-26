@@ -35,7 +35,7 @@ class ReviewsController < BaseController
   def show; end
 
   def edit; end
-
+ 
   def update
     if @review.update_attributes(review_params)
       flash[:notice] = "You've updated the review."
