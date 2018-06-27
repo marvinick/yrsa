@@ -15,7 +15,7 @@
 <br>
   <h4 class="card-title">
     <strong>Announcements</strong>
-    <%= link_to "+ New", new_account_project_board_path(current_account, @project), remote: true, class: "og-board-button btn btn-success btn-lg" %>
+    <%= link_to "+ New", new_account_project_board_path(current_account, @project), remote: true, class: "og-board-button btn btn-success btn-sm" %>
   </h4>
   <h6 >With supporting text below as a natural lead-in to additional content.</h6>
   <p class="card-text">back to <%= link_to @project.title, account_project_path(current_account, @project) %></p>

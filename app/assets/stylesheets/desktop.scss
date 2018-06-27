@@ -58,11 +58,20 @@
    }
 
    .fa-edit {
-     font-size: 15px!important;
+     font-size: 13px!important;
+   }
+
+   .fa-cog {
+     font-size: 13px!important;
+   }
+
+   .fa-toolbox {
+     font-size: 13px!important;
+     color: grey;
    }
 
    .fa-trash {
-     font-size: 15px!important;
+     font-size: 13px!important;
    }
 
    .fab {
@@ -266,8 +275,8 @@
   }
 
   .formly {
-    width: 75%;
-    margin:auto;
+    width: 50%;
+    margin: 20px 0 20px 0;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 40px;
@@ -279,14 +288,12 @@
   }
 
   .formy {
-    max-width: 100%;
-    padding-top: 35px;
-    padding-right: 80px;
-    padding-bottom: 50px;
-    padding-left: 50px;
+    width: 75%;
+    margin: 20px 0 20px 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
     background-color: white;
-    margin-top: 30px;
-    border-width: medium;
+    border-bottom: solid #e2dfd9 1px;
   }
 
 
@@ -379,58 +386,17 @@
     padding-bottom: 50px;
   }
 
-  //style
-
-
-
   //buttons
-  .btn-default {
-    background-color: white;
-    border-radius: 20px;
-    padding-top: 7px;
-    padding-bottom: 7px;
-    font-size: 14px;
-  }
+
 
   .btn-success {
     background-color: #79c473;
-    border-radius: 20px;
-    padding-top: 7px;
-    padding-bottom: 7px;
-    font-size: 14px;
-    border-color: #79c473;
   }
 
   .btn-success:focus, .btn-success:hover {
     background-color: #79c473;
     border-color: #79c473;
   }
-
-  .btn-warning {
-    background-color: #fffb47;
-    border-radius: 20px;
-    padding-top: 7px;
-    padding-bottom: 7px;
-    font-size: 14px;
-  }
-
-  .btn-danger {
-    background-color: #ef2d4d;
-    border-radius: 20px;
-    padding-top: 7px;
-    padding-bottom: 7px;
-    font-size: 14px;
-  }
-
-  .btn-primary {
-    background-color: #92cbe8;
-    border-radius: 20px;
-    padding-top: 7px;
-    padding-bottom: 7px;
-    font-size: 14px;
-  }
-
-
 
   //detail selection in item's form
   /* Hide the browser's default checkbox */

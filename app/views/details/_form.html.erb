@@ -6,12 +6,13 @@
       <br>
       <%= f.text_field :description, placeholder: "description", class: "extra-input" %>
       <br>
-      <div class="row">
-        <div class="pull-right">
-          <%= f.button "add", class: "btn btn-success" %>
-          <button href="#current-pane" class="btn btn-default" data-dismiss="alert" aria-label="close" id="hide">close</button>
-        </div>
+      <br>
+
+      <div class="text-right">
+        <button href="#current-pane" class="btn btn-warning" data-dismiss="alert" aria-label="close" id="hide">close</button>
+        <%= f.button "add", class: "btn btn-success" %>
       </div>
+
     </div>
   <% end %>
 </div>

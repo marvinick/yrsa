@@ -5,7 +5,7 @@ class DetailsController < BaseController
   respond_to :html, :json
 
   def index
-    @details = set_project.details.all
+    @details = @project.details.all.order('created_at DESC')
   end
 
   def new

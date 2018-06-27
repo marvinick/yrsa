@@ -10,7 +10,7 @@
         <h5 class="card-title">
           <strong><%= @item.name %></strong>
           <%= link_to edit_account_project_item_path(current_account, @project, @item), remote: true do %>
-            <i class="fas fa-trash"></i>
+            <i class="fas fa-cog"></i>
           <% end %>
         </h5>
         <%= render "overall-rating" %>
