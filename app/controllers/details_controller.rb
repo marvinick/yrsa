@@ -14,10 +14,9 @@ class DetailsController < BaseController
 
   def create
     @detail = @project.details.new(detail_params)
-    @detail.save
-    respond_to do |f|
-      f.html { redirect_to account_project_path(current_account, @project) }
-      f.js
+    if @detail.save
+      flash[:notice] = "#{@detail.name} has just been added."
+      redirect_to account_project_details_path(current_account, @project, @details)
     end
   end
 
@@ -27,8 +26,8 @@ class DetailsController < BaseController
 
   def update
     if @detail.update(detail_params)
-      redirect_to account_project_details_path(current_account, set_project, @details)
-      flash[:notice] = "you just updated a detail"
+      flash[:notice] = "you just updated #{@detail.name}"
+      redirect_to account_project_details_path(current_account, @project, @details)
     end
   end
 
@@ -54,5 +53,5 @@ class DetailsController < BaseController
       flash[:alert] = "cannot find that project."
       redirect_to account_project_path(current_account, @project)
   end
-  helper_method :set_project
+
 end

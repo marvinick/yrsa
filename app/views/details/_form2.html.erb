@@ -1,17 +1,23 @@
-<div id="current-pane">
-  <%= form_for([current_account, @project, @detail], remote: true) do |f| %>
-    <div class="formly" >
-      <% f.hidden_field :project_id %>
-      <%= f.text_field :name, placeholder: "name", class: "input" %>
-      <br>
-      <%= f.text_field :description, placeholder: "description", class: "extra-input" %>
-      <br>
-      <div class="row">
-        <div class="pull-right">
-          <%= f.button "add", class: "btn btn-success" %>
-          <button href="#current-pane" class="btn btn-xs" data-dismiss="alert" aria-label="close" id="hide">close</button>
-        </div>
-      </div>
+<div class="modal-dialog">
+  <div class="modal-content modal-styling">
+    <div class="modal-header">
+      <h5 class="modal-title"><strong>Edit</strong> </h5>
     </div>
-  <% end %>
+    <%= form_for([current_account, @project, @detail]) do |f| %>
+      <div class="modal-body" >
+        <% f.hidden_field :project_id %>
+        <div class="form-group">
+          <%= f.text_field :name, placeholder: "name", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :description, placeholder: "description", class: "form-control" %>
+        </div>
+        
+      </div>
+
+      <div class="modal-footer">
+        <%= f.button "add", class: "btn btn-success" %>
+      </div>
+    <% end %>
+  </div>
 </div>
