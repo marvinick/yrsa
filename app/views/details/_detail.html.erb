@@ -1,14 +1,16 @@
-<div class="col-md-2">
+<div class="col-md-6">
 <%= div_for detail do %>
 
-  <div class="card paper-bg">
-    <div class="card-body">
-      <h6 class="card-title"><%= detail.name %></h6>
+  <div class="card">
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h6 class="mb-1"><strong><%= detail.name %></strong></h6>
+        <small><%= time_ago_in_words(detail.created_at) %> ago</small>
+      </div>
+      <p class="mb-1"><small><%= detail.description %>.</small></p>
+      <small><%= link_to "edit", edit_account_project_detail_path(current_account, @project, detail), remote: true %></small>
+      <small><%= link_to "remove", account_project_detail_path(current_account, set_project, detail), method: :delete, data: {confirm: "Are you sure?"}, remote: true %></small>
 
-      <p class="card-text"><%= detail.description %></p>
-
-      <%= link_to "edit", edit_account_project_detail_path(current_account, @project, detail), class: "card-link", remote: true %>
-      <%= link_to "remove", account_project_detail_path(current_account, set_project, detail), class: "card-link", method: :delete, data: {confirm: "Are you sure?"}, remote: true %>
     </div>
   </div>
 
