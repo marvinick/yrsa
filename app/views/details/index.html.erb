@@ -1,6 +1,7 @@
 <% @title = @project.title + " - Details" %>
 
 <br>
+
 <h4 class="card-title">
   <strong>Details</strong>
   <%= link_to "+ New", new_account_project_detail_path(current_account, @project, @detail), remote: true, class: "btn btn-success btn-sm detail-button" %>
@@ -8,8 +9,8 @@
 <div class="new-detail-button"></div>
 <h6 >With supporting text below as a natural lead-in to additional content.</h6>
 <p class="card-text">back to <%= link_to @project.title, account_project_path(current_account, @project) %></p>
-
 <hr>
-
 <div class="my-details"></div>
-<%= render @details %>
+<div class="row">
+  <%= render @details %>
+</div>

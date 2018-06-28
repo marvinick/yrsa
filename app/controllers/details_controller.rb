@@ -34,9 +34,8 @@ class DetailsController < BaseController
 
   def destroy
     @detail.destroy
-    respond_to do |f|
-      f.js
-    end
+    flash[:notice] = "#{@detail.name} has just been deleted."
+    redirect_to account_project_details_path(current_account, @project, @details)
   end
 
   private
