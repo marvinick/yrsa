@@ -1,12 +1,11 @@
-<div class="col-md-4">
-  <%= link_to account_project_challenge_path(current_account, @project, challenge), class:"board-box-link" do %>
-    <div class="card">
-      <%= image_tag challenge.picture, class: "img-responsive" %>
-      <p class="challenge-name"><%= challenge.name %></p>
-      <p class="challenge-description"><%= challenge.description %></p>
-      <% if challenge.due_date.present? %>
-        <p class="challenge-description"><%= challenge.due_date.strftime("%B %d, %Y") %></p>
-      <% end %>
-    </div>
-  <% end %>
-</div>
+<li>
+<%= link_to account_project_challenge_path(current_account, @project, challenge), class:"board-box-link" do %>
+    <%= image_tag challenge.picture, class: "img-responsive" %>
+    <p class="challenge-name"><%= challenge.name %></p>
+    <p class="challenge-description"><%= challenge.description %></p>
+    <% if challenge.due_date.present? %>
+      <p class="challenge-description"><%= challenge.due_date.strftime("%B %d, %Y") %></p>
+    <% end %>
+
+<% end %>
+</li>
