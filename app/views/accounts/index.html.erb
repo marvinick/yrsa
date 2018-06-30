@@ -4,26 +4,27 @@
 
 <% if user_signed_in? %>
   <% current_user.all_accounts.uniq.each do |account| %>
-    <div class="formy">
+
 
       <div class="row">
         <div class="col-md-6">
-          <div class="row">
-            <p class="account-name pull-left"><%= account.name %>
+
+            <p class="account-name">
+            <%= account.name %>
             <% if account.owner.id == current_user.id %>
               <% if !account.stripe_subscription_id.blank? %>
-                <%= link_to "+ project", new_account_project_path(account), remote: true, class: "og-project-button btn btn-success btn-lg" %>
+                <%= link_to "+ project", new_account_project_path(account), remote: true, class: "og-project-button btn btn-success" %>
               <% else %>
                 <%= link_to "sign first", account_choose_plan_url(account) %>
               <% end %>
             <% end %>
             </p>
-          </div>
+
         </div>
         <div class="col-md-6">
-          <div class="row">
+
             <% if account.stripe_subscription_id.present? %>
-              <li class="dropdown pull-right">
+              <li class="dropdown text-right">
                 <a href="#"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                   <icon class="fa fa-bars"></icon>
                 </a>
@@ -34,10 +35,11 @@
                 </ul>
               </li>
             <% end %>
-          </div>
+
         </div>
       </div>
       <br>
+
       <div class="row">
         <div class="new-project-button"></div>
         <br>
@@ -45,20 +47,24 @@
         <% account.projects.each do |project| %>
           <% if current_user.project_ids.include? project.id %>
 
-            <div class="col-md-4 account-project-zero-margin">
+            <div class="col-md-4">
               <%= link_to account_project_path(account, project), class: "account-project-box-link" do %>
-              <div class="account-project-box">
-                <p class="account-project-box-title"><%= truncate(project.title, length: 10) %></p>
-                <hr>
-                <p class="account-project-box-sub"><%= project.items.size %> items </p>
-              </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= truncate(project.title, length: 20) %></h5>
+                    <p class="card-text"><%= project.items.size %> items </p>
+                    <br>
+                    <%= link_to "Go", account_project_path(account, project), class: "btn btn-primary" %>
+
+                  </div>
+                </div>
               <% end %>
+
             </div>
 
           <% end %>
         <% end %>
       </div>
 
-    </div>
   <% end %>
 <% end %>

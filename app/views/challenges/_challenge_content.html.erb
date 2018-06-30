@@ -1,15 +1,18 @@
 <%= div_for @challenge do %>
-<div class="card w-75 centered">
-  <%= image_tag @challenge.picture, class: "img-fluid" %>
-  <p class="challenge-name"><%= @challenge.name %></p>
-  <p class="challenge-description"><%= @challenge.description %></p>
-  <% if @challenge.due_date.present? %>
-    <p class="challenge-description"><%= @challenge.due_date.strftime("%B %d, %Y") %></p>
-  <% end %>
+  <div class="card w-75 centered">
+    <%= image_tag @challenge.picture, class: "img-fluid" %>
+    <p class="challenge-name"><%= @challenge.name %></p>
+    <p class="challenge-description"><%= @challenge.description %></p>
+    <% if @challenge.due_date.present? %>
+      <p class="challenge-description"><%= @challenge.due_date.strftime("%B %d, %Y") %></p>
+    <% end %>
 
+    <li>
+      <%= link_to "edit", edit_account_project_challenge_path(current_account, @project, @challenge), remote: true %>
+    </li>
+    <li>
+      <%= link_to "remove", account_project_challenge_path(current_account, @project, @challenge), method: :delete, data: {confirm: "Are you sure?"}, remote: true %>
+    </li>
 
-      <li><%= link_to "edit", edit_account_project_challenge_path(current_account, @project, @challenge), remote: true %>
-      <li><%= link_to "remove", account_project_challenge_path(current_account, @project, @challenge), method: :delete, data: {confirm: "Are you sure?"}, remote: true %></li>
-
-</div>
+  </div>
 <% end %>
