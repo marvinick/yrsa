@@ -1,7 +1,6 @@
 <% @title= "aetomata - Home" %>
 
 <br>
-
 <% if user_signed_in? %>
   <% current_user.all_accounts.uniq.each do |account| %>
 
@@ -54,7 +53,7 @@
                     <h5 class="card-title"><%= truncate(project.title, length: 20) %></h5>
                     <p class="card-text"><%= project.items.size %> items </p>
                     <br>
-                    <%= link_to "Go", account_project_path(account, project), class: "btn btn-primary" %>
+                    <%= link_to "Go", account_project_path(account, project), class: "btn btn-primary btn-block" %>
 
                   </div>
                 </div>

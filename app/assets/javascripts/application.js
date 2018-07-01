@@ -26,6 +26,10 @@
 //= require subscriptions
 //= require_tree .
 
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+
 
 Growlyflash.defaults = $.extend(true, Growlyflash.defaults, {
   align:   'left',  // horizontal aligning (left, right or center)
