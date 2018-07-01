@@ -2,35 +2,30 @@
 
 <br>
 
-<a tabindex="0" class="btn btn-lg btn-danger" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</a>
 
-<div class="col-md-3 mr-auto">
-  <button id="new-project—button" class="btn btn-primary mr-auto">New</button>
-  <div id="new-project-popover" class="project-popover is-hidden" >
+<!-- <a tabindex="0"
+  class='btn btn-danger has-popover'
+  data-html='true'
+  data-toggle='popover'
+  data-placement="bottom"
+  data-trigger="focus"
+  data-container="body"
 
-    <%= form_for([current_account, @project, @detail], remote: true) do |f| %>
+  title='Dismissible popover'
+  data-content= '<%= render :partial => 'form' %>'>
+  Dismissible popover
+</a> -->
 
-        <% f.hidden_field :project_id %>
-        <div class="form-group">
-          <%= f.text_field :name, placeholder: "name", class: "form-control" %>
-        </div>
-        <br>
-        <div class="form-control">
-          <%= f.text_field :description, placeholder: "description", class: "form-control" %>
-        </div>
-        <br>
-        <br>
+<div class="container">
+    <h3>Popover Example</h3>
+    <p>Popovers are not CSS-only plugins, and must therefore be initialized with jQuery: select the specified element and call the popover() method.</p>
+    <a href="#" id="tglr" class="popover-toggle" title="Popover Header">Toggle popover</a>
 
-        <div class="text-right">
-          <button id="cancel-project-popover" class="btn btn-secondary">Cancel</button>
-          <%= f.button "add", class: "btn btn-success" %>
-        </div>
+    <div id="customdiv" style="display: none">
+      <%= render "form" %>
+    </div>
+ </div>
 
-    <% end %>
-
-
-  </div>
-</div>
 
 <br>
 <br>

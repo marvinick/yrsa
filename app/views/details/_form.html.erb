@@ -1,18 +1,12 @@
-<div id="current-pane">
-  <%= form_for([current_account, @project, @detail]) do |f| %>
-    <div class="formly" >
-      <% f.hidden_field :project_id %>
-      <%= f.text_field :name, placeholder: "name", class: "input" %>
-      <br>
-      <%= f.text_field :description, placeholder: "description", class: "extra-input" %>
-      <br>
-      <br>
-
-      <div class="text-right">
-        <button href="#current-pane" class="btn btn-warning" data-dismiss="alert" aria-label="close" id="hide">close</button>
-        <%= f.button "add", class: "btn btn-success" %>
-      </div>
-
+<%= form_for([current_account, @project, @detail]) do |f| %>
+    <% f.hidden_field :project_id %>
+    <%= f.text_field :name, placeholder: 'name', class: 'input' %>
+    <br>
+    <%= f.text_field :description, placeholder: 'description', class: 'extra-input' %>
+    <br>
+    <br>
+    <div >
+      <button href='#current-pane' class='btn btn-warning btn-sm' id='hide'>close</button>
+      <%= f.button 'add', class: 'btn btn-success btn-sm' %>
     </div>
-  <% end %>
-</div>
+<% end %>
