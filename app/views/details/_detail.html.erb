@@ -1,19 +1,40 @@
 <div class="col-md-6">
-<%= div_for detail do %>
-
   <div class="card">
     <div class="list-group-item list-group-item-action flex-column align-items-start">
       <div class="d-flex w-100 justify-content-between">
         <h6 class="mb-1"><strong><%= detail.name %></strong></h6>
         <small><%= time_ago_in_words(detail.created_at) %> ago</small>
+
       </div>
       <p class="mb-1"><small><%= detail.description %>.</small></p>
-      <small><%= link_to "edit", edit_account_project_detail_path(current_account, @project, detail), remote: true %></small>
+      <!-- <small><%= link_to "edit", edit_account_project_detail_path(current_account, @project, detail), remote: true %></small> -->
+      <button id="edit_detail_<%= detail.id %>" class="popover-toggle btn btn-sm btn-success" title="edit detail" data-placement="right" >Edit</button>
+
+      <div class="is-hidden" id="edit-detail_<%= detail.id %>" >
+        <%= form_for([current_account, @project, detail]) do |f| %>
+          <% f.hidden_field :project_id %>
+          <%= f.text_field :name, placeholder: 'name', class: 'input' %>
+          <br>
+          <%= f.text_field :description, placeholder: 'description', class: 'extra-input' %>
+          <br>
+          <%= f.button 'edit', class: 'btn btn-success btn-sm' %>
+        <% end %>
+
+        <script>
+          $(function(){
+            $('#edit_detail_<%= detail.id %>').popover({
+              html : true,
+              content: function() {
+                return $('#edit-detail_<%= detail.id %>').html();
+              }
+            });
+          });
+        </script>
+      </div>
       <small><%= link_to "remove", account_project_detail_path(current_account, @project, detail), method: :delete, data: {confirm: "Are you sure?"}, remote: true %></small>
 
     </div>
   </div>
 
 
-<% end %>
 </div>

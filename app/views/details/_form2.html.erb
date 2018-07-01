@@ -1,23 +1,16 @@
-<div class="modal-dialog">
-  <div class="modal-content modal-styling">
-    <div class="modal-header">
-      <h5 class="modal-title"><strong>Edit</strong> </h5>
-    </div>
-    <%= form_for([current_account, @project, @detail]) do |f| %>
-      <div class="modal-body" >
-        <% f.hidden_field :project_id %>
-        <div class="form-group">
-          <%= f.text_field :name, placeholder: "name", class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= f.text_field :description, placeholder: "description", class: "form-control" %>
-        </div>
-        
-      </div>
 
-      <div class="modal-footer">
-        <%= f.button "add", class: "btn btn-success" %>
-      </div>
+<div id="customdiv_<%= @detail.id %>">
+    <%= form_for([current_account, @project, detail]) do |f| %>
+
+    <% f.hidden_field :project_id %>
+    <%= f.text_field :name, placeholder: 'name', class: 'input' %>
+    <br>
+    <%= f.text_field :description, placeholder: 'description', class: 'extra-input' %>
+    <br>
+    <br>
+    <div >
+
+      <%= f.button 'add', class: 'btn btn-success btn-sm' %>
+    </div>
     <% end %>
-  </div>
 </div>
