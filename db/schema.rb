@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180521025439) do
+ActiveRecord::Schema.define(version: 20180702151542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,14 @@ ActiveRecord::Schema.define(version: 20180521025439) do
     t.string "picture_content_type"
     t.integer "picture_file_size"
     t.datetime "picture_updated_at"
+  end
+
+  create_table "consents", force: :cascade do |t|
+    t.string "name"
+    t.boolean "mandatory"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "detail_items", id: :serial, force: :cascade do |t|
@@ -214,6 +222,16 @@ ActiveRecord::Schema.define(version: 20180521025439) do
     t.index ["account_id"], name: "index_subscription_events_on_account_id"
   end
 
+  create_table "user_consents", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "consent_id"
+    t.boolean "agreed"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["consent_id"], name: "index_user_consents_on_consent_id"
+    t.index ["user_id"], name: "index_user_consents_on_user_id"
+  end
+
   create_table "user_projects", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.integer "project_id"
@@ -248,4 +266,6 @@ ActiveRecord::Schema.define(version: 20180521025439) do
   add_foreign_key "memberships", "users"
   add_foreign_key "projects", "users", column: "author_id"
   add_foreign_key "subscription_events", "accounts"
+  add_foreign_key "user_consents", "consents"
+  add_foreign_key "user_consents", "users"
 end

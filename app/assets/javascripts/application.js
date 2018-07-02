@@ -27,18 +27,6 @@
 //= require_tree .
 
 
-
-
-$(function(){
-    $('#tglr').popover({
-      html : true,
-      content: function() {
-        return $('#customdiv').html();
-      }
-  });
-});
-
-
 Growlyflash.defaults = $.extend(true, Growlyflash.defaults, {
   align:   'left',  // horizontal aligning (left, right or center)
   delay:   3000,     // auto-dismiss timeout (0 to disable auto-dismiss)
