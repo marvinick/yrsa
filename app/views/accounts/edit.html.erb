@@ -11,15 +11,16 @@
 <div class='formly'>
   <br>
   <%= form_for @account do |account| %>
-    <%= account.text_field :name, placeholder: "enter account's name", class: "extra-input" %>
+    <%= account.text_field :name, placeholder: "enter account's name", class: "input" %>
+    <br>
     <br>
     <%= account.fields_for :owner do |owner| %>
       <div class="control">
-        <%= owner.text_field :email, class: "extra-input", placeholder: "email " %>
+        <%= owner.text_field :email, class: "input", placeholder: "email " %>
       </div>
       <br>
       <div class="control">
-        <%= owner.text_field :password, class: "extra-input", placeholder: "password" %>
+        <%= owner.text_field :password, class: "input", placeholder: "password" %>
       </div>
       <br>
 

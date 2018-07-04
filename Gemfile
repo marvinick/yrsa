@@ -19,6 +19,7 @@ gem 'record_tag_helper', '~> 1.0'
 gem 'rails-ujs'
 gem 'serviceworker-rails'
 gem 'webpacker'
+gem 'omniauth-google-oauth2'
 
 #frontend
 gem 'font-awesome-sass'
