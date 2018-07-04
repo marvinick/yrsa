@@ -1,9 +1,14 @@
-<div class="formy-back">
-  <p class="formy-back-title"><%= link_to @account.name, root_path %></p>
-</div>
+<br>
+<h4 class="card-title">
+  <strong>Edit Account</strong>
+</h4>
+<h6 >With supporting text below as a natural lead-in to additional content.</h6>
 
-<div class='formy'>
-  <p class="formy-back-title">Edit account</p>
+<p class="card-text">back to <%= link_to "Home", accounts_path(@accounts) %></p>
+
+<hr>
+
+<div class='formly'>
   <br>
   <%= form_for @account do |account| %>
     <%= account.text_field :name, placeholder: "enter account's name", class: "extra-input" %>
@@ -21,7 +26,7 @@
     <% end %>
     <div class="pull-right">
       <%= account.submit "update", class: "btn btn-success" %>
-      <%= link_to 'cancel', accounts_path(@account), class: "btn btn-default" %>
+      <%= link_to 'cancel', accounts_path(@account), class: "btn btn-warning" %>
     </div>
   <% end %>
 </div>

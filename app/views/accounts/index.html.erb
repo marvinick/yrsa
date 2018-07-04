@@ -23,7 +23,7 @@
         <div class="col-md-6">
 
             <% if account.stripe_subscription_id.present? %>
-              <li class="dropdown text-right">
+              <li class="popover-toggle">
                 <a href="#"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                   <icon class="fa fa-bars"></icon>
                 </a>
@@ -53,7 +53,7 @@
                     <h5 class="card-title"><%= truncate(project.title, length: 20) %></h5>
                     <p class="card-text"><%= project.items.size %> items </p>
                     <br>
-                    <%= link_to "Go", account_project_path(account, project), class: "btn btn-primary btn-block" %>
+                    <%= link_to "Go", account_project_path(account, project), class: "btn btn-success btn-block" %>
 
                   </div>
                 </div>
