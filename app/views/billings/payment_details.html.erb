@@ -1,14 +1,16 @@
+<br>
+<h5 class="card-title">
+  <strong>Billing info</strong>
+</h5>
+<h6 >Add or edit your payment information.</h6>
 
-<div class="formy-back">
-  <div class="col-md-12 text-center">
-    <p class="formy-back-title"><%= link_to current_account.name, accounts_path(current_account) %></p>
-    <br>
-    <p class="formy-back-title">payment info</p>
-    <br>
-  </div>
-</div>
+<p class="card-text">back to <%= link_to "Home", accounts_path(@accounts) %></p>
 
-<div class="formy">
+<hr>
+
+
+
+<div class="formly">
   <%= form_tag account_update_payment_details_path(current_account), method: :put do %>
     <input type="hidden" id="email" value="<%= current_account.owner.email %> "/>
     <%= submit_tag "Update Payment Details", class: "btn btn-default", id: "payment-btn" %>

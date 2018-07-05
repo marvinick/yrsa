@@ -31,14 +31,12 @@
    }
 
   .paper-bg {
-    background-color: #f9f6ea;
+    background-color: #f7f6f4;
+    padding-top: 15px!important;
+    padding-bottom: 15px!important;
   }
 
-   .same-line {
-     display: inline-block;
-   }
-
-   .white-background {
+   .white-bg {
      background-color: white;
    }
 
@@ -366,20 +364,9 @@
     color: #d8d8d8;
   }
 
-  .dropdown-container {
-    position: relative;
-  }
 
-  .dropdown-menu {
-    position: absolute;
-    top: 100%; /* Bottom of button */
-    right: 0;
-    margin: auto;
-    background-color: #fcfcfc;
-    font-size: 15px;
-    opacity: 0.8;
-    width: auto;
-  }
+
+
 
   .dropdown-menu > li > a:hover {
     background-color: grey;

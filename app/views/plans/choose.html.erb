@@ -1,4 +1,14 @@
-<div class="formy">
+<br>
+<h5 class="card-title">
+  <strong>Plans</strong>
+</h5>
+<h6>Select a plan that best fist your project(s).</h6>
+
+<p class="card-text">back to <%= link_to "Home", accounts_path(@accounts) %></p>
+
+<hr>
+
+<div class="formly">
   <% if current_account.stripe_subscription_id.present? %>
     <li class="dropdown pull-right">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
