@@ -1,20 +1,9 @@
-<div class="row">
+<div class="row way-down-center">
 
-  <div class="col-md-12 mobile-user">
-    <% if !user_signed_in? %>
-      <%= link_to "sign up", new_account_path, class:"btn btn-default pull-right" %>
-      <%= link_to "sign in", new_user_session_path, class: "btn btn-default pull-left" %>
-    <% end %>
+  <div class="card-body">
+    <h3 class="card-title font-weight-bold">Welcome to Aetomata</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
-  <br>
-  <br>
-  <br>
-  <div class="col-md-2"></div>
-
-  <div class="col-md-8 text-center">
-    <%= render "landing" %>
-  </div>
-  <div class="col-md-2"></div>
 </div>
-
-<div id="signup-modal" class="modal"></div>
+<br>

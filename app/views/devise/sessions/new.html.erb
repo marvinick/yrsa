@@ -1,20 +1,24 @@
 
-<br>
-  <div class="row">
-  <div class="col-sm-7">
-    <div class="card white-bg">
-      <div class="card-body">
-        <h5 class="card-title font-weight-bold">Welcome to Aetomata</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-5">
-    <div class="card white-bg">
-      <div class="card-body">
-        <h5 class="card-title">Sign in</h5>
-      </div>
+<div class="text-center way-down-center">
+  <div class="form-signin">
+    <% image_tag "missing.png", class: "img-fluid" %>
 
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= f.text_field :email, required: true, autofocus: true, class: "form-control", placeholder: "email" %>
+      <%= f.password_field :password, required: false, class: "form-control", placeholder: "password" %>
+      <%= f.submit "sign in", class: "btn btn-block btn-primary btn-sm" %>
+    <% end %>
+    <br>
+    <br>
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+        <br>
+        <br>
+        <p class="black-link"><%= link_to "sign up", new_account_path %></p>
+        <%= render "devise/shared/links" %>
+      </label>
     </div>
+    <p class="mt-5 mb-3 text-muted">&copy; 2018</p>
   </div>
+</div>

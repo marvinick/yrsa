@@ -30,8 +30,8 @@
 
       <li class="nav-item dropdown">
         <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <icon class="fab fa-twitter" />
-        </a>
+          <icon class="far fa-address-card" />
+        <!-- </a> -->
 
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <% if user_signed_in? %>
@@ -45,20 +45,7 @@
               <%= link_to "logout", destroy_user_session_path, method: :delete %>
             </div>
           <% else %>
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-              <%= f.text_field :email, required: true, autofocus: true, class: "", placeholder: "email" %>
-              <br>
-              <br>
-              <%= f.password_field :password, required: false, class: "", placeholder: "password" %>
-              <br>
-              <br>
-
-              <%= f.button :submit, class: "btn btn-block btn-success btn-sm" %>
-
-
-            <% end %>
-            <%= link_to "sign up", new_account_path, class:"btn btn-default" %>
-            <%= render "devise/shared/links" %>
+            <p class="black-link"><%= link_to "sign in", new_user_session_path %></p>
           <% end %>
         </div>
       </li>

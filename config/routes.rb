@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
+  root to: "accounts#index"
+
   devise_for :users
 
   get "/home", to: "home#home", as: :home
 
-  root to: "accounts#index"
+
 
   get "/accounts/new", to: "accounts#new", as: :new_account
   post "/accounts", to: "accounts#create", as: :accounts
@@ -35,7 +37,7 @@ Rails.application.routes.draw do
       as: :upgrade
     end
 
-    #subscriptions alternative 
+    #subscriptions alternative
     resources :subscriptions, only: [:new, :create] do
       scope module: 'subscriptions' do
         collection do
