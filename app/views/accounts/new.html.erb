@@ -1,31 +1,17 @@
-<br>
-<br>
-<br>
-<br>
-<div class="formy-back">
-  <p class="text-center"><%= link_to "never mind", new_user_session_path %></p>
-</div>
-<br>
-<br>
+<div class="way-down-center">
+  <div class="form-signin way-down-center">
+    <h1 class="h3 mb-3 font-weight-normal">Sign up</h1>
+    <p>Build form controls with floating labels via the <code>:placeholder-shown</code> pseudo-element. <a href="https://caniuse.com/#feat=css-placeholder-shown">Works in latest Chrome, Safari, and Firefox.</a></p>
+    <%= form_for(@account) do |account| %>
+      <%= account.text_field :name, placeholder: "name", class: "form-control" %>
+      <br>
+      <%= account.fields_for :owner do |owner| %>
+          <%= owner.text_field :email, class: "form-control", placeholder: "email " %>
+          <%= owner.password_field :password, class: "form-control", placeholder: "password" %>
+          <%= owner.password_field :password_confirmation, class: "form-control", placeholder: "confirm password" %>
+      <% end %>
 
-  
-<div class="signup-formly">
-  <%= form_for(@account) do |account| %>
-    <%= account.label :name %>
-    <%= account.text_field :name, placeholder: "name", class: "input" %>
-    <br>
-    <%= account.fields_for :owner do |owner| %>
-        <%= owner.label :email %>
-        <%= owner.text_field :email, class: "input", placeholder: "email " %>
-      <br>
-        <%= owner.label :password %>
-        <%= owner.password_field :password, class: "input", placeholder: "password" %>
-      <br>
-        <%= owner.label :password_confirmation %>
-        <%= owner.password_field :password_confirmation, class: "input", placeholder: "confirm password" %>
-      <br>
+        <%= account.button "Hit it", class: "btn btn-success btn-block" %>
     <% end %>
-    <br>
-      <%= account.button "Signup", class: "btn btn-success text-right" %>
-  <% end %>
+  </div>
 </div>

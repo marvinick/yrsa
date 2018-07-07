@@ -6,8 +6,6 @@ Rails.application.routes.draw do
 
   get "/home", to: "home#home", as: :home
 
-
-
   get "/accounts/new", to: "accounts#new", as: :new_account
   post "/accounts", to: "accounts#create", as: :accounts
 
