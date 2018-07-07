@@ -16,12 +16,12 @@
     <%= javascript_pack_tag "application" %>
   </head>
   <body>
-    <% if user_signed_in? %>
+
       <%= render "layouts/navbar" %>
-    <% end %>
+    
     <div class="container">
       <%= yield %>
-    </div>  
+    </div>
 
     <% if user_signed_in? %>
       <% unless controller_name == "home" %>

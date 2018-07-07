@@ -1,50 +1,20 @@
-<div class="row">
-  <div class="col-md-12 text-center">
-    <!-- <div class="tab pull-left">
-      <button class="tablinks" onclick="openCity(event, 'cards')" id="defaultOpen"><span class="fa fa-home"></span></button>
-    </div>
-    <div class="tab pull-right">
-      <button class="tablinks" onclick="openCity(event, 'lists')"><span class="fa fa-sign-in"></span></button>
-    </div> -->
 
-  <!-- <div id="cards" class="tabcontent"> -->
-    <br>
-    <br>
-    <%= render "home/landing" %>
-  <!-- </div> -->
-
-  <!-- <div id="lists" class="tabcontent"> -->
-    <br>
-    <br>
-    <h2>sign in</h2>
-    <br>
-    <div class="row">
-      <div class="col-md-3"></div>
-      <div class="col-md-6">
-        <div class="boxy text-center">
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
-              <div class="control">
-                <%= f.text_field :email, required: true, autofocus: true, class: "input text-center", placeholder: "email" %>
-              </div>
-              <br>
-              <div class="control">
-                <%= f.password_field :password, required: false, class: "input text-center", placeholder: "password" %>
-              </div>
-            <br>
-            <br>
-            <div class="control ">
-              <%= f.button :submit, class: "btn btn-lg btn-success" %>
-
-            </div>
-          <% end %>
-          <br>
-          <hr>
-          <%= link_to "sign up", new_account_path, class:"btn btn-default pull-right" %>
-          <%= render "devise/shared/links" %>
-        </div>
+<br>
+  <div class="row">
+  <div class="col-sm-7">
+    <div class="card white-bg">
+      <div class="card-body">
+        <h5 class="card-title font-weight-bold">Welcome to Aetomata</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
-      <div class="col-md-3"></div>
     </div>
-  <!-- </div> -->
-</div>
+  </div>
+  <div class="col-sm-5">
+    <div class="card white-bg">
+      <div class="card-body">
+        <h5 class="card-title">Sign in</h5>
+      </div>
+
+    </div>
+  </div>
