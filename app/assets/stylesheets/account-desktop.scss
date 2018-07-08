@@ -25,16 +25,16 @@
 
   //plans
   .plan-box {
-    height: auto;
     width: 100%;
     background-color: white;
-    padding: 50px;
-    margin-right: 80px;
-    margin-left: 20px;
+    padding: 30px;
+    border-color: #a0a0a0;
+    border-width: thin;
+
   }
 
   .plan-box:hover {
-    background-color: #efece8;
+    background-color: #f7f7f7;
     cursor: pointer;
   }
 

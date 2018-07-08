@@ -1,21 +1,22 @@
-
-
 <%= form_for(current_account, url: account_choose_plan_url) do |account| %>
-  <% if current_account.stripe_subscription_id.blank? %>
 
-      <% @plans.each do |plan| %>
-      <% if plan.id == 3 %>
-        <label class="plan-box">
-          <%= account.radio_button :plan_id, plan.id, data: { behavior: "submit-on-click" }, class:"radiohidden"%>
-          <li><%= account.label "plan_id_#{plan.id}", plan.name %></li>
-          <%= render "welcome" %>
-        </label>
+  <div class="row">
+    <% if current_account.stripe_subscription_id.blank? %>
+
+        <% @plans.each do |plan| %>
+        <% if plan.id == 3 %>
+          <label class="plan-box">
+            <%= account.radio_button :plan_id, plan.id, data: { behavior: "submit-on-click" }, class:"radiohidden"%>
+            <li><%= account.label "plan_id_#{plan.id}", plan.name %></li>
+            <%= render "welcome" %>
+          </label>
+        <% end %>
       <% end %>
-    <% end %>
-  <% else %>
+
+    <% else %>
 
       <% @plans.each do |plan| %>
-
+      <div class="col-md-4">
         <% if current_account.over_limit_for?(plan) %>
           <% if plan.name == "Pro" %>
             <label class="plan-box">
@@ -32,34 +33,41 @@
           <% end %>
         <% else %>
           <% if plan.name == "Pro" %>
-            <label class="plan-box">
-              <%= account.radio_button :plan_id, plan.id, data: { name: plan.name, amount: plan.amount} %>
-              <%= account.label "plan_id_#{plan.id}", plan.name %>
-              <%= money(plan.amount) %> <br>
-            </label>
+            <div class="card">
+              <label class="plan-box">
+                <%= account.radio_button :plan_id, plan.id, data: { name: plan.name, amount: plan.amount} %>
+                <%= account.label "plan_id_#{plan.id}", plan.name %>
+                <br>
+                <h6 class="font-weight-bold"><%= money(plan.amount) + " / mo" %></h6>
+                <hr>
+                <h6 class="font-weight-light">unlimited</h6>
+              </label>
+            </div>
           <% elsif plan.name == "Starter" %>
-            <label class="plan-box">
-              <%= account.radio_button :plan_id, plan.id, data: { name: plan.name, amount: plan.amount} %>
-              <%= account.label "plan_id_#{plan.id}", plan.name %>
-              <%= money(plan.amount) %> <br>
-            </label>
+            <div class="card">
+              <label class="plan-box">
+                <%= account.radio_button :plan_id, plan.id, data: { name: plan.name, amount: plan.amount} %>
+                <%= account.label "plan_id_#{plan.id}", plan.name %>
+                <hr>
+                <%= money(plan.amount) %> <br>
+              </label>
+            </div>
           <% end %>
         <% end %>
+      </div>
       <% end %>
 
+    <% end %>
+  </div>
 
-    <div id="payment-form"></div>
+  <div class="text-center half-way-down-center">
+    <%= account.submit "Submit", class: "btn btn-primary", id: "checkout-btn" %>
+    <%= link_to "Cancel", accounts_path(current_account), class: "btn btn-danger" %>
+  </div>
 
-    <div class="pull-right">
-      <%= account.submit "Submit", class: "btn btn-default", id: "checkout-btn" %>
-      <%= link_to "Cancel", accounts_path(current_account), class: "btn btn-default" %>
-    </div>
-  <% end %>
 <% end %>
 
-
-
-
+<div id="payment-form"></div>
 <script>
   $(document).on("click", "[data-behavior=submit-on-click]", function() {
     $form = $(this).closest('form'); // select the form
