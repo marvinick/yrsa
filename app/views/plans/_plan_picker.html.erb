@@ -1,3 +1,5 @@
+
+
 <%= form_for(current_account, url: account_choose_plan_url) do |account| %>
   <% if current_account.stripe_subscription_id.blank? %>
 
@@ -54,6 +56,8 @@
     </div>
   <% end %>
 <% end %>
+
+
 
 
 <script>
