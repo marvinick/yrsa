@@ -1,7 +1,7 @@
 <% @title = "aetomata - sign in" %>
 <div class="text-center way-down-center">
   <div class="form-signin">
-    <% image_tag "missing.png", class: "img-fluid" %>
+    <%= image_tag "missing.png", class: "img-fluid" %>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <%= f.text_field :email, required: true, autofocus: true, class: "form-control", placeholder: "email" %>

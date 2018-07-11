@@ -1,6 +1,6 @@
 <% @title= "aetomata - Home" %>
 
-<br> 
+<br>
 
 <% if user_signed_in? %>
   <% current_user.all_accounts.uniq.each do |account| %>
@@ -29,7 +29,7 @@
       <p>This is the account that you created, where you have the freedom to create projects, categories, invite people etc.</p>
 
       <hr class="my-4">
-
+      <div class="new-project-button"></div>
       <div class="row">
         <% account.projects.each do |project| %>
           <% if current_user.project_ids.include? project.id %>

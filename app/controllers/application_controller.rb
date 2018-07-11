@@ -5,6 +5,15 @@ class ApplicationController < ActionController::Base
 
   include PublicActivity::StoreController
 
+  def flash_class(level)
+    case level
+        when :notice then "alert alert-info"
+        when :success then "alert alert-success"
+        when :error then "alert alert-error"
+        when :alert then "alert alert-error"
+    end
+  end
+
   def current_account
     nil
   end
@@ -16,4 +25,6 @@ class ApplicationController < ActionController::Base
     flash[:alert] = "Unauthorized access."
     redirect_to root_url
   end
+
+
 end

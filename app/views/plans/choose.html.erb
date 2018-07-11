@@ -16,13 +16,36 @@
     </li>
     <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It's built with default Bootstrap components and utilities with little customization.</p>
     <p class="card-text">back to <%= link_to "Home", accounts_path(@accounts) %></p>
+    <%= render "plan_picker" %>
   <% else %>
     <h2> Accept agreement </h2>
+    <%= form_for(current_account, url: account_choose_plan_url) do |account| %>
+
+      <% @plans.each do |plan| %>
+        <% if plan.id == 3 %>
+
+          <label class="plan-box">
+
+            <div class="card w-75 centered">
+              <div class="card-body">
+                <%= account.radio_button :plan_id, plan.id, data: { behavior: "submit-on-click" }, class:"radiohidden"%>
+
+                <h5 class="card-title"><%= account.label "plan_id_#{plan.id}", plan.name %></h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+
+              </div>
+            </div>
+          </label>
+        <% end %>
+      <% end %>
+      <div class="text-center half-way-down-center">
+        <%= account.submit "Submit", class: "btn btn-primary", id: "checkout-btn" %>
+        <%= link_to "Cancel", accounts_path(current_account), class: "btn btn-danger" %>
+      </div>
+    <% end %>
   <% end %>
 </div>
-
-<%= render "plan_picker" %>
-
 
 <script src="https://checkout.stripe.com/checkout.js"></script>
 <%= javascript_include_tag "plans" %>
