@@ -30,12 +30,12 @@ class AccountsController < ApplicationController
 
   def update
     if @account.update(account_params)
-      # customer = Stripe::Customer.create(
-      #   description: @account.name,
-      #   email: @account.owner.email
-      # )
-      # @account.update_column(:stripe_customer_id, customer.id)
-      # reset_session
+      customer = Stripe::Customer.retrieve(
+        description: @account.name,
+        email: @account.owner.email
+      )
+      @account.update_column(:stripe_customer_id, customer.id)
+      reset_session
       flash[:notice] = "You've updated the account."
       redirect_back(fallback_location: root_path)
     else

@@ -13,18 +13,10 @@
 
 <div id="challenges"></div>
 
-<div class="row">
-  <% @project.challenges.each do |challenge| %>
-    <div class="col-md-12">
-      <%= link_to account_project_challenge_path(current_account, @project, challenge) do %>
-        <div class="card centered">
-          <p class="challenge-name"><%= challenge.name %></p>
-          <p class="challenge-description"><%= challenge.description %></p>
-          <% if challenge.due_date.present? %>
-            <p class="challenge-description"><%= challenge.due_date.strftime("%B %d, %Y") %></p>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+<% if @challenges.present? %>
+  <%= render @challenges %>  
+<% else %>
+  <h4 class="text-center way-down-center font-weight-bold">Nothing yet</h4>
+<% end %>
+
 </div>
