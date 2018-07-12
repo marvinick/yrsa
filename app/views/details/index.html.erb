@@ -17,9 +17,16 @@
 <hr>
 
 <div class="my-details"></div>
-<div class="row">
-  <%= render @details %>
-</div>
+<% if @details.present? %>
+  <div class="row">
+    <%= render @details %>
+  </div>
+<% else %>
+
+  <h5 class="font-weight-bold way-down-center text-center">Nothing yet</h5>
+
+<% end %>
+
 
 <div id="detail-modal" class="modal"></div>
 

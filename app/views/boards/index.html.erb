@@ -23,9 +23,16 @@
 
 <div class="new-board-button"></div>
 
-<div class="row">
-  <div id="boards"></div>
-  <%= render @boards %>
-</div>
+
+<div id="boards"></div>
+
+<% if @boards.present? %>
+  <div class="row">
+    <%= render @boards %>
+  </div>
+<% else %>
+  <h4 class="font-weight-bold way-down-center text-center">Nothing yet</h4>
+<% end %>
+
 
 <div id="board-modal" class="modal"></div>
