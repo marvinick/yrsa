@@ -35,7 +35,7 @@ class AccountsController < ApplicationController
         email: @account.owner.email
       )
       @account.update_column(:stripe_customer_id, customer.id)
-      reset_session
+
       flash[:notice] = "You've updated the account."
       redirect_back(fallback_location: root_path)
     else
