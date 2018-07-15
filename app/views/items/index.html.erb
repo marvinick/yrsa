@@ -1,16 +1,17 @@
 <% @title = @project.title + " - items" %>
+
 <br>
+
+<div class="bottom-padding">
   <h4 class="card-title">
     <strong>Items</strong>
     <%= link_to "+ New", new_account_project_item_path(current_account, @project, @item), class: " og-item-button btn btn-success", remote: true %>
   </h4>
   <h6 >With supporting text below as a natural lead-in to additional content.</h6>
   <p class="card-text">back to <%= link_to @project.title, account_project_path(current_account, @project) %></p>
-<hr>
-<div class="new-item-button"></div>
-<div class="my-items"></div>
-
-
+  <hr>
+  <div class="new-item-button"></div>
+  <div class="my-items"></div>
 
   <% if @items.present? %>
   <div class='row'>
@@ -19,3 +20,4 @@
   <% else %>
     <h4 class="text-center way-down-center font-weight-bold">No items yet</h4>
   <% end %>
+</div>

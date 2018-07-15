@@ -34,7 +34,7 @@
             <div class="barChart">
               <div class="barChart__row" data-value="100">
                 <h6 class="card-text"><%= k rescue 0 %> <%= image_tag('star-on.png', style: "zoom:50%;") %></h6>
-
+                
                 <div class="barChart__row" data-value= <%= ((v.to_f / count_values.to_f) * 100).to_i rescue 0 %> >
                   <span class="barChart__value"><p class="card-text"><%= ((v.to_f / count_values.to_f) * 100).to_i rescue 0 %></p></span>
                   <span class="barChart__bar"><span class="barChart__barFill"></span>

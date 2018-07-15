@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container bottom-padding">
 	<% @title= @project.title %>
 
 		<div class="project-header">
@@ -11,7 +11,7 @@
 				<div class="col-md-4">
 					<%= link_to account_project_details_path(current_account, @project, @details), class:"project-box-link" do %>
 
-						<div class="card">
+						<div class="card bg-shadow">
 						  <div class="card-header">
 								<i class="fas fa-book fa-box-preview"></i>
 						   Details
@@ -27,7 +27,7 @@
 				</div>
 				<div class="col-md-4">
 					<%= link_to account_project_items_path(current_account, @project, @items), class:"project-box-link" do %>
-						<div class="card">
+						<div class="card bg-shadow">
 							<div class="card-header">
 							<i class="fas fa-newspaper fa-box-preview"></i>
 							 Items
@@ -44,7 +44,7 @@
 				</div>
 				<div class="col-md-4">
 					<%= link_to account_project_invitations_path(current_account, @project, @invitations), class:"project-box-link" do %>
-					<div class="card">
+					<div class="card bg-shadow">
 						<div class="card-header">
 							<i class="fas fa-people-carry fa-box-preview "></i>
 						 Invitations
@@ -61,7 +61,7 @@
 				</div>
 				<div class='col-md-4'>
 					<%= link_to account_project_boards_path(current_account, @project, @boards), class:"project-box-link" do %>
-						<div class="card">
+						<div class="card bg-shadow">
 							<div class="card-header">
 								<i class="fas fa-bullhorn fa-box-preview"></i>
 							 Announcements
@@ -80,7 +80,7 @@
 
 	 	 	<div class="col-md-4">
 				<%= link_to activities_path, class:"project-box-link" do %>
-					<div class="card">
+					<div class="card bg-shadow">
 						<div class="card-header">
 							<i class="fas fa-bell fa-box-preview" ></i>
 						 Activities
@@ -99,7 +99,7 @@
 
 			<div class="col-md-4">
 				<%= link_to account_project_challenges_path(current_account, @project, @challenges), class:"project-box-link" do %>
-					<div class="card">
+					<div class="card bg-shadow">
 						<div class="card-header">
 							<i class="fas fa-bullseye fa-box-preview"></i>
 						 Challenges
