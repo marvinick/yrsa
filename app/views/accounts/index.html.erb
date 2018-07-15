@@ -13,8 +13,14 @@
           </a>
           <div class="dropdown-menu dropdown-menu-right">
             <% if account.owner.id == current_user.id %>
-              <% if !account.stripe_subscription_id.blank? %>
-                <p class="dropdown-item"><%= link_to "+ project", new_account_project_path(account), remote: true, class: "og-project-button btn btn-success btn-sm" %></p>
+              <% if account.plan_id == 3 %>
+                <p class="dropdown-item">
+                  <%= link_to "upgrade your account", account_choose_plan_url(account) %>
+                </p>
+              <% elsif !account.stripe_subscription_id.blank?  %>
+                <p class="dropdown-item">
+                  <%= link_to "+ project", new_account_project_path(account), remote: true, class: "og-project-button btn btn-success btn-sm" %>
+                </p>
               <% else %>
                 <p class="dropdown-item"> <%= link_to "sign first", account_choose_plan_url(account) %></p>
               <% end %>

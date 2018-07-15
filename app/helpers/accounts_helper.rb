@@ -1,4 +1,5 @@
 module AccountsHelper
+
   def projects_in_account
     @account.projects.count
   end
