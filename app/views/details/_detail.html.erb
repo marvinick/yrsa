@@ -7,7 +7,7 @@
     </div>
     <p class="mb-1"><small><%= detail.description %>.</small></p>
     <!-- <small><%= link_to "edit", edit_account_project_detail_path(current_account, @project, detail), remote: true %></small> -->
-    <button id="edit_detail_<%= detail.id %>" class="popover-toggle btn btn-sm btn-success"  title="edit detail" data-placement="right" >Edit</button>
+    <button id="edit_detail_<%= detail.id %>" class="popover-toggle btn btn-sm btn-primary outline"  title="edit detail" data-placement="right" >Edit</button>
 
     <div class="is-hidden" id="edit-detail_<%= detail.id %>" >
       <%= form_for([current_account, @project, detail]) do |f| %>
@@ -16,7 +16,7 @@
         <br>
         <%= f.text_field :description, placeholder: 'description', class: 'extra-input' %>
         <br>
-        <%= f.button 'edit', class: 'btn btn-success btn-sm' %>
+        <%= f.button 'edit', class: 'btn btn-primary' %>
       <% end %>
 
       <script>
@@ -30,7 +30,8 @@
         });
       </script>
     </div>
-    <small><%= link_to "remove", account_project_detail_path(current_account, @project, detail), method: :delete, data: {confirm: "Are you sure?"}, remote: true %></small>
+
+    <%= link_to "remove", account_project_detail_path(current_account, @project, detail), class:"btn btn-sm btn-danger outline", method: :delete, data: {confirm: "Are you sure?"}, remote: true %>
 
   </div>
 </div>
