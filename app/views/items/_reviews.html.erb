@@ -2,7 +2,7 @@
 <p class="review-header ">Reviews</p>
 
 <% @item.reviews.order('created_at desc').each do |review| %>
-  <div class="card w-75">
+  <div class="card w-75 bg-shadow">
     <div class="card-body">
       <%= link_to account_project_item_review_path(current_account, @project, @item, review), class: "review-box-link", remote: true do %>
 

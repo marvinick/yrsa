@@ -1,34 +1,36 @@
 <% @title= @project.title + " - users"  %>
 
 <br>
+<div class="bottom-padding">
   <h4 class="card-title">
     <strong>People</strong>
     <%= link_to "+ Send", new_account_project_invitation_path(current_account, @project, @invitation), class: "btn btn-success", remote: true %>
   </h4>
   <h6 >With supporting text below as a natural lead-in to additional content.</h6>
   <p class="card-text">back to <%= link_to @project.title, account_project_path(current_account, @project) %></p>
-<hr>
-<div class="new-invitation-button"></div>
+  <hr>
+  <div class="new-invitation-button"></div>
 
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Members</h5>
-        <p class="card-text">People who accepted your invitations and now have access to do rate, post a challenge and comment on your announcements.</p>
-        <%= render "users/index" %>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card bg-shadow">
+        <div class="card-body">
+          <h5 class="card-title">Members</h5>
+          <p class="card-text">People who accepted your invitations and now have access to do rate, post a challenge and comment on your announcements.</p>
+          <%= render "users/index" %>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Invitations</h5>
-        <p class="card-text">The invitations you sent, pending acceptance. Once accepted, they will become members.</p>
+    <div class="col-sm-6">
+      <div class="card bg-shadow">
+        <div class="card-body">
+          <h5 class="card-title">Invitations</h5>
+          <p class="card-text">The invitations you sent, pending acceptance. Once accepted, they will become members.</p>
 
-        <div id="invitations"></div>
+          <div id="invitations"></div>
 
-        <%= render @invitations %>
+          <%= render @invitations %>
+        </div>
       </div>
     </div>
   </div>
