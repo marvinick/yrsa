@@ -5,7 +5,7 @@
   <h4 class="card-title">
     <strong>Details</strong>
     <!-- <%= link_to "+ New", new_account_project_detail_path(current_account, @project, @detail), remote: true, class: "btn btn-success btn-sm detail-button" %> -->
-    <button href="#" id="new_detail" class="popover-toggle btn btn-sm btn-success"  title="Create new detail" data-container="body" data-placement="bottom" >New</button>
+    <button href="#" id="new_detail" class="popover-toggle btn btn-sm btn-primary"  title="Create new detail" data-container="body" data-placement="bottom" >New</button>
 
     <div id="new-detail" class="is-hidden" >
       <%= render "form" %>
@@ -22,7 +22,7 @@
   <% else %>
     <h5 class="font-weight-bold way-down-center text-center">Nothing yet</h5>
   <% end %>
-  
+
 </div>
 
 <div id="detail-modal" class="modal"></div>

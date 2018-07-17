@@ -6,7 +6,7 @@
 		<div class="card-body">
 			<h3 class="card-title font-weight-bold"><%= @project.title %></h3>
 			<p class="card-text grey-text"><%= @project.description %></p>
-			<%= link_to "edit", edit_account_project_path(current_account, @project), class: "btn btn-primary btn-sm", remote: true %>
+			<%= link_to "edit", edit_account_project_path(current_account, @project), class: "btn btn-primary", remote: true %>
 		</div>
 	</div>
 

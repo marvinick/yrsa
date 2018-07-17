@@ -5,7 +5,7 @@
 <div class="bottom-padding">
   <h4 class="card-title">
     <strong>Items</strong>
-    <%= link_to "+ New", new_account_project_item_path(current_account, @project, @item), class: " og-item-button btn btn-outline-info", remote: true %>
+    <%= link_to "New", new_account_project_item_path(current_account, @project, @item), class: " og-item-button btn btn-primary", remote: true %>
   </h4>
   <p class="card-text grey-text">With supporting text below as a natural lead-in to additional content.</p>
   <p class="card-text grey-text">back to <%= link_to @project.title, account_project_path(current_account, @project) %></p>
