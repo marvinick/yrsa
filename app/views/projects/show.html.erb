@@ -3,14 +3,18 @@
 	<br>
 
 	<div class="card w-50 centered text-center bg-shadow">
+
 		<div class="card-body">
+
 			<h3 class="card-title font-weight-bold"><%= @project.title %></h3>
 			<p class="card-text grey-text"><%= @project.description %></p>
-			<%= link_to "edit", edit_account_project_path(current_account, @project), class: "btn btn-primary", remote: true %>
 		</div>
 	</div>
 
-	<br>
+	<%= link_to edit_account_project_path(current_account, @project), remote: true do %>
+		<p class="no-margin text-center secondary-link "><i class="fas fa-ellipsis-h"></i></p>
+	<% end %>
+
 	<div class="row">
 		<% if @project.user_id == current_user.id %>
 			<div class="col-md-4">
@@ -109,6 +113,18 @@
 		</div>
 	</div>
 
+	<button class="dialog__trigger">Open Dialog</button>
+
+	<div class="dialog">
+	  <span class="dialog__close">&#x2715;</span>
+	  <h2 class="dialog__title">This is a title</h2>
+	  <p class="dialog__content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit necessitatibus illo deleniti doloremque culpa voluptas recusandae, sunt eligendi amet, ut modi voluptatibus ipsa quas voluptatem consectetur atque, velit reprehenderit debitis.</p>
+	  <button class="dialog__action">Read more &#8594;</button>
+	</div>
+
 
 	<%= render "footer" %>
 </div>
+
+
+<div id="project-modal" class="modal"></div>

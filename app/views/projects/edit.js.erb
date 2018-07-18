@@ -1,8 +1,2 @@
-$('form2').hide();
-$('div#<%= dom_id(@project) %>').replaceWith('<%= j render("form2") %>');
-
-$("#hide").click(function(){
-  $('#current-pane').replaceWith('<%= j render("header") %>')
-});
-
- 
+$("#project-modal").html("<%= escape_javascript(render "edit" ) %>")
+$("#project-modal").modal("show")

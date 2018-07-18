@@ -1,20 +1,14 @@
-<%= form_for([current_account, @project], remote: true) do |f| %>
-  <div class="formly" id="current-pane">
-    <%= render "shared/errors", obj: @project %>
-    <div class="control">
-      <%= f.text_field :title, placeholder: 'title', label: false, class: "input", :maxlength => 40 %>
-    </div>
-    <div class="control">
-      <%= f.text_area :description, placeholder: 'description', label: false, class: "extra-input", :maxlength => 280, :size => 40  %>
-    </div>
-    <div class="row">
-      <div class="pull-right">
-        <%= f.submit "add project", class:"btn btn-success" %>
-        <button href="#current-pane" class="btn btn-warning" data-dismiss="alert" aria-label="close" id="hide">
-          close
-        </button>
-      </idv>
-    </div>
 
+<%= form_for([current_account, @project], remote: true) do |f| %>
+
+  <%= render "shared/errors", obj: @project %>
+  <div class="control">
+    <%= f.text_field :title, placeholder: 'title', label: false, class: "input", :maxlength => 40 %>
   </div>
+  <div class="control">
+    <%= f.text_area :description, placeholder: 'description', label: false, class: "extra-input", :maxlength => 280, :size => 40  %>
+  </div>
+
+  <%= f.submit "submit", class:"btn btn-primary" %>
+
 <% end %>

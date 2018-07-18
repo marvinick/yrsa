@@ -36,10 +36,15 @@
  @import "challenge-desktop";
  @import "board-desktop";
  @import "buttons";
+ @import "dialog";
 
 
 .primary-link {
   color: #2cb1dd!important;
+}
+
+.secondary-link {
+  color: grey!important;
 }
 
  .modal-dialog {
@@ -85,6 +90,8 @@
  .navy-bg {
    background-color: #edf7fc!important;
    border: none;
+   padding-top: 3px!important;
+   padding-bottom: 3px!important;
  }
 
  .blue-bg {
@@ -97,7 +104,7 @@
 
 
 html, body {
-  font-family: Verdana, Geneva, sans-serif;
+  font-family: 'Cairo', sans-serif;
   background-color: white;
   margin-top: 0px;
   overflow-x:hidden!important;
