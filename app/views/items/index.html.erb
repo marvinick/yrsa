@@ -8,7 +8,7 @@
     <%= link_to "New", new_account_project_item_path(current_account, @project, @item), class: " og-item-button btn btn-primary", remote: true %>
   </h4>
   <p class="card-text grey-text">With supporting text below as a natural lead-in to additional content.</p>
-  <p class="card-text grey-text">back to <%= link_to @project.title, account_project_path(current_account, @project) %></p>
+  <p class="card-text grey-text">back to <%= link_to @project.title, account_project_path(current_account, @project), class:"primary-link" %></p>
   <hr>
   <div class="new-item-button"></div>
   <div class="my-items"></div>

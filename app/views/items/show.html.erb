@@ -9,13 +9,13 @@
       <div class="card-body">
         <h5 class="card-title">
           <strong><%= @item.name %></strong>
-          <%= link_to edit_account_project_item_path(current_account, @project, @item), remote: true do %>
+          <%= link_to edit_account_project_item_path(current_account, @project, @item), class:"primary-link", remote: true do %>
             <i class="fas fa-cog"></i>
           <% end %>
         </h5>
         <%= render "overall-rating" %>
         <p class="card-text"><%= sanitize @item.content %></p>
-        <p class="card-text"><small>back to <%= link_to "items", account_project_items_path(current_account, @project, @items) %></small></p>
+        <p class="card-text"><small>back to <%= link_to "items", account_project_items_path(current_account, @project, @items), class:"primary-link" %></small></p>
       </div>
     </div>
 

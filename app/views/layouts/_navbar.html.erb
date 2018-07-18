@@ -42,7 +42,7 @@
             <a class="dropdown-item"><%= current_user.email %></a>
             <a role="separator" class="divider"></a>
             <div class="dropdown-item">
-              <%= link_to "logout", destroy_user_session_path, method: :delete %>
+              <%= link_to "logout", destroy_user_session_path, class:"btn btn-sm btn-danger outline", method: :delete %>
             </div>
           <% else %>
             <p class="black-link"><%= link_to "sign in", new_user_session_path %></p>

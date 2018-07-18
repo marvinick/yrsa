@@ -3,10 +3,10 @@
 <br>
   <h4 class="card-title">
     <strong>Challenges</strong>
-    <%= link_to '+ New', new_account_project_challenge_path(current_account, @project, @challenge), class:"btn btn-success og-challenge-button", remote: true %>
+    <%= link_to 'New', new_account_project_challenge_path(current_account, @project, @challenge), class:"btn btn-primary btn-sm og-challenge-button", remote: true %>
   </h4>
   <h6 >With supporting text below as a natural lead-in to additional content.</h6>
-  <p class="card-text">back to <%= link_to @project.title, account_project_path(current_account, @project) %></p>
+  <p class="card-text">back to <%= link_to @project.title, account_project_path(current_account, @project), class:"primary-link" %></p>
 <hr>
 
 <div class="new-challenge-button"></div>
@@ -14,7 +14,7 @@
 <div id="challenges"></div>
 
 <% if @challenges.present? %>
-  <%= render @challenges %>  
+  <%= render @challenges %>
 <% else %>
   <h4 class="text-center way-down-center font-weight-bold">Nothing yet</h4>
 <% end %>
