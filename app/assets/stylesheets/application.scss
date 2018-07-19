@@ -38,6 +38,17 @@
  @import "buttons";
  @import "dialog";
 
+ .header-enhance {
+   text-decoration: underline;
+ }
+
+.modal-enhance {
+  -webkit-box-shadow: 7px 3px 67px -5px rgba(0,0,0,0.83);
+-moz-box-shadow: 7px 3px 67px -5px rgba(0,0,0,0.83);
+box-shadow: 7px 3px 67px -5px rgba(0,0,0,0.83);
+min-height: 400px;
+margin-top: 200px!important;
+}
 
 .primary-link {
   color: #2cb1dd!important;

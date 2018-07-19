@@ -1,5 +1,5 @@
 <div class="modal-dialog">
-  <div class="modal-content modal-styling">
+  <div class="modal-content modal-enhance">
     <div class="modal-body ">
       <% keys = [] %>
       <% values = [] %>
@@ -22,8 +22,8 @@
     <div class="modal-footer">
       <h6 class="text-left"><small><%= @review.user.email %> - <%= time_ago_in_words(@review.created_at) %> ago </small></h6>
       <% if current_user.id == @review.user_id %>
-        <%= link_to "edit", edit_account_project_item_review_path(current_account, @project, @item, @review), remote: true, class: "btn btn-xs btn-success" %>
-        <%= link_to "remove", [current_account, @project, @item, @review], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "btn btn-secondary btn-sm" %>
+        <%= link_to "edit", edit_account_project_item_review_path(current_account, @project, @item, @review), remote: true, class: "btn btn-primary" %>
+        <%= link_to "remove", [current_account, @project, @item, @review], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "btn btn-danger outline" %>
       <% end %>
     </div>
   </div>

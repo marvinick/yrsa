@@ -4,10 +4,13 @@
   <%= render "shared/errors", obj: @invitation %>
     <%= f.hidden_field :account_id %>
     <%= f.hidden_field :project_id, :value => @invitation.project_id %>
-    <%= f.text_field :email, class: "input", placeholder: "enter email to invite" %>
+    <h5 class="text-center font-weight-bold header-enhance">Invitation</h5>
     <br>
+    <div class="form-group">
+      <%= f.text_field :email, class: "form-control", placeholder: "enter email to invite" %>
+    </div>
     <br>
-    <%= f.submit "Invite User", class: "btn btn-default" %>
-      <button href="#current-pane" class="btn btn-default" data-dismiss="alert" aria-label="close" id="hide">close</button>
+    <%= f.submit "Invite User", class: "btn btn-primary" %>
+    <button href="#current-pane" class="btn btn-danger outline" data-dismiss="alert" aria-label="close" id="hide">close</button>
   <% end %> </div>
 </div>

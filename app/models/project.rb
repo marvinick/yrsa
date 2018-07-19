@@ -14,7 +14,7 @@ class Project < ApplicationRecord
       }
     }
 
-  validates_length_of :description, :maximum => 50, :allow_blank => true
+  validates_length_of :description, :minimum => 30
   belongs_to :account, optional: true
 
   has_many :user_projects

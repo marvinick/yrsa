@@ -1,5 +1,5 @@
 <div class="modal-dialog">
-  <div class="modal-content">
+  <div class="modal-content modal-enhance">
     <div class="modal-header">
       <h5 class="modal-title" id="exampleModalLongTitle"><strong>Rate and Review</strong></h5>
     </div>
@@ -13,16 +13,16 @@
         <%= f.fields_for :properties, OpenStruct.new(@review.properties) do |builder| %>
           <%= render "rating_field", f: builder %>
         <% end %>
-
-        <%= f.text_area :description, class: "input", placeholder: "write something to add more details" %>
-
+        <div class="form-group">
+          <%= f.text_area :description, class: "form-control", placeholder: "write something to add more details" %>
+        </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <%= f.submit "submit review", class: "btn btn-success " %>
+          <button type="button" class="btn btn-danger outline" data-dismiss="modal">Close</button>
+          <%= f.submit "submit review", class: "btn btn-primary " %>
         </div>
       <% end %>
     </div>
 
- 
+
   </div>
 </div>

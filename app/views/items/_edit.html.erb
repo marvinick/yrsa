@@ -1,17 +1,19 @@
-<div class="modal-dialog modal-lg ">
-  <div class="modal-content modal-styling">
-    <div class="modal-body">
+<div class="modal-dialog ">
+  <div class="modal-content modal-enhance">
+    <div class="modal-body ">
+      <h5 class="font-weight-bold text-center ">edit: <strong><%= @item.name %></strong></h5>
+      <br>
       <%= form_for([current_account, @project, @item], remote: true) do |f| %>
         <%= render "shared/errors", obj: @item %>
         <%= f.hidden_field :project_id %>
 
           <div class="form-group">
-            <label for="exampleInputEmail1">Name</label>
+
             <%= f.text_field :name, placeholder: 'name', label: false, autofocus: true, class: "form-control ", :maxlength => 25, :size => 40 %>
 
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Description</label>
+
             <%= f.text_area :content, placeholder: 'content', label: false, autofocus: true, class: "form-control", :maxlength => 280, :size => 40 %>
           </div>
           <%= f.file_field :image %>
@@ -30,11 +32,11 @@
               </div>
             <% end %>
           </div>
-        
+
 
         <div class="modal-footer">
-          <%= link_to "remove", [current_account, @project, @item], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "btn btn-danger" %>
-          <%= f.submit "edit item", class:"btn btn-success" %>
+          <%= link_to "remove", [current_account, @project, @item], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "btn btn-danger btn-sm outline" %>
+          <%= f.submit "edit item", class:"btn btn-primary btn-sm" %>
         </div>
       <% end %>
     </div>
