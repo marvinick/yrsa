@@ -36,7 +36,9 @@
  @import "challenge-desktop";
  @import "board-desktop";
  @import "buttons";
- @import "dialog";
+ @import "uikit/variables-theme.scss";
+ @import "uikit/mixins-theme.scss";
+ @import "uikit/uikit-theme.scss";
 
  .header-enhance {
    text-decoration: underline;

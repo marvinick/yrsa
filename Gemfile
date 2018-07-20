@@ -25,6 +25,7 @@ gem 'omniauth-google-oauth2'
 gem 'font-awesome-sass'
 gem 'will_paginate'
 gem 'bootstrap', '~> 4.1.1'
+gem "rails-uikit", git: 'git://github.com/nicbet/rails-uikit.git'
 
 #form
 gem 'simple_form'
