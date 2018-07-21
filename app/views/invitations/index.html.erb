@@ -1,16 +1,10 @@
 <% @title= @project.title + " - users"  %>
 
 <br>
-
-
-
-
-<br>
-
 <div class="bottom-padding">
   <h4 class="card-title">
     <strong>People</strong>
-    <%= link_to "Invite", new_account_project_invitation_path(current_account, @project, @invitation), class: "btn btn-primary btn-sm", remote: true %>
+    <%= link_to "Invite", new_account_project_invitation_path(current_account, @project, @invitation), class: "uk-button uk-button-primary uk-button-small", remote: true %>
   </h4>
   <h6 >With supporting text below as a natural lead-in to additional content.</h6>
   <p class="card-text">back to <%= link_to @project.title, account_project_path(current_account, @project), class:"primary-link" %></p>

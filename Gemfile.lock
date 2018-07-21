@@ -1,10 +1,4 @@
 GIT
-  remote: git://github.com/nicbet/rails-uikit.git
-  revision: 395e860901d67ffd832945a4edb6a60edc2d0304
-  specs:
-    rails-uikit (3.0.0.beta.40)
-
-GIT
   remote: https://github.com/rails/turbolinks.git
   revision: 80216ce9d89920bf073709405e3fce6d0a3ccd9a
   specs:
@@ -398,7 +392,6 @@ DEPENDENCIES
   puma (~> 3.0)
   rack
   rails (~> 5.1, >= 5.1.4)
-  rails-uikit!
   rails-ujs
   record_tag_helper (~> 1.0)
   responders

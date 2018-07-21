@@ -24,7 +24,6 @@
 //= require notifications
 //= require dropzone
 //= require subscriptions
-//= require uikit
 //= require_tree .
 
 
