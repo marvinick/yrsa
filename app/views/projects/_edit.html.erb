@@ -1,21 +1,19 @@
 
-  <div class="modal-dialog  ">
-    <div class="modal-content modal-enhance">
-      <div class="modal-body  ">
+  <div class="modal-dialog way-down-center  ">
+    <div class="modal-content modal-enhance  ">
+      <div class="modal-body    ">
         <h5 class="font-weight-bold text-center">edit <%= @project.title %></h5>
-
-
-        <br>
+        
         <%= form_for([current_account, @project], remote: true) do |f| %>
 
           <%= render "shared/errors", obj: @project %>
           <div class="form-group">
-            <%= f.text_field :title, placeholder: 'title', label: false, class: "form-control", :maxlength => 40 %>
+            <%= f.text_field :title, placeholder: 'title', label: false, class: "form-control" %>
           </div>
           <div class="form-group">
-            <%= f.text_area :description, placeholder: 'description', label: false, class: "form-control", :maxlength => 280, :size => 40  %>
+            <%= f.text_area :description, placeholder: 'description', label: false, class: "form-control"  %>
           </div>
-          <br>
+
           <p class="text-right"><%= f.submit "submit", class:"btn btn-primary" %></p>
         <% end %>
       </div>

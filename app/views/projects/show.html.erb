@@ -6,11 +6,7 @@
     <div class="uk-card uk-card-default uk-card-small uk-card-body">
         <h3 class="uk-card-title"><%= @project.title %></h3>
         <p><%= @project.description %></p>
-				<a class="uk-button uk-button-default" href="#modal-full" uk-toggle>Open</a>
-
-				<!-- <%= link_to edit_account_project_path(current_account, @project), remote: true do %>
-					<p class="no-margin text-center secondary-link "><i class="fas fa-ellipsis-h"></i></p>
-				<% end %> -->
+				<%= link_to "edit", edit_account_project_path(current_account, @project), class: "uk-button uk-button-default", remote: true %>
     </div>
   </div>
 	<br>
@@ -117,37 +113,4 @@
 	<%= render "footer" %>
 </div>
 
-<div id="modal-full" class="uk-modal-full" uk-modal>
-    <div class="uk-modal-dialog">
-        <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
-        <div class="uk-grid-collapse uk-child-width-expand@s uk-flex-middle" uk-grid>
-
-
-
-          <div class="uk-padding-large uk-box-shadow-large " uk-height-viewport >
-              <br>
-							<br>
-							<br>
-							<br>
-							<%= form_for([current_account, @project], remote: true) do |f| %>
-
-			          <%= render "shared/errors", obj: @project %>
-			          <div class="form-group">
-			            <%= f.text_field :title, placeholder: 'title', label: false, class: "form-control", :maxlength => 40 %>
-			          </div>
-			          <div class="form-group">
-			            <%= f.text_area :description, placeholder: 'description', label: false, class: "form-control", :maxlength => 280, :size => 40  %>
-			          </div>
-			          <br>
-			          <p class="text-right"><%= f.submit "submit", class:"btn btn-primary" %></p>
-			        <% end %>
-							<button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-          		<button class="uk-button uk-button-primary" type="button">Save</button>
-          </div>
-
-
-
-        </div>
-    </div>
-</div>
 <div id="project-modal" class="modal"></div>
