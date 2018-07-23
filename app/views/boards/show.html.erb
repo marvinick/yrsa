@@ -1,0 +1,26 @@
+<% @title= truncate(@board.note, length: 10) %>
+<div class="container bottom-padding">
+  <br>
+  <p class="card-text">back to <%= link_to "boards", account_project_boards_path(current_account, @project, @boards), class:"primary-link" %></p>
+  <div class="uk-text-center" uk-grid>
+
+      <div class="uk-width-expand@m">
+          <div class="uk-card uk-card-default uk-card-body uk-card-large">
+            <p><%= sanitize @board.note %></p>
+            <p class="uk-text-right">by <%= @board.user.email %></p>
+          </div>
+      </div>
+      <div class="uk-width-1-4@m">
+          <div class="uk-card uk-card-default uk-card-body ">
+
+            <p class=""><%= time_ago_in_words(@board.created_at) %> ago</p>
+            <% if current_user.id == @board.user_id %>
+              <%= link_to "edit", edit_account_project_board_path(current_account, @project, @board), remote: true, class: "uk-button uk-button-default uk-button-small " %>
+              <%= link_to "remove", [current_account, @project, @item, @board], method: :delete, data: { confirm: "Are you sure you want to remove this?"}, class: "uk-button uk-button-danger uk-button-small " %>
+            <% end %>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div id="board-modal" class="modal"></div>

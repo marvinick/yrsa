@@ -153,8 +153,8 @@ ul, li {
   -webkit-text-stroke: 0.5px;
 }
 
-a:link {
-  text-decoration: none;
+a {
+  text-decoration: none!important;
 }
 
 textarea:focus, input:focus{
