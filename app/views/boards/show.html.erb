@@ -5,12 +5,12 @@
   <div class="uk-text-center" uk-grid>
 
       <div class="uk-width-expand@m">
-          <div class="uk-card uk-card-default uk-card-body uk-card-large">
+          <div class="uk-card uk-card-default uk-card-body uk-card-sm">
             <p><%= sanitize @board.note %></p>
             <p class="uk-text-right">by <%= @board.user.email %></p>
           </div>
       </div>
-      <div class="uk-width-1-4@m">
+      <div class="uk-width-1-3@m">
           <div class="uk-card uk-card-default uk-card-body ">
 
             <p class=""><%= time_ago_in_words(@board.created_at) %> ago</p>

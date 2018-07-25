@@ -2,17 +2,20 @@
 	<% @title= @project.title %>
 
 <br>
-	<div>
-    <div class="uk-card uk-card-default uk-card-small uk-card-body text-center">
-        <h2 class="uk-card-title"><%= @project.title %>
-					<%= link_to "edit", edit_account_project_path(current_account, @project), class: "uk-button uk-button-default uk-button-small", remote: true %>
-				</h2>
-        <p><%= @project.description %></p>
+<br>
+	<div class=" text-center ">
+	    <h2 class="font-weight-bold"><%= @project.title %>
+				<% if creator? %>
+					<%= link_to edit_account_project_path(current_account, @project), remote: true do %>
+						<i uk-icon="pencil" class="uk-icon-link"></i>
+					<% end %>
+				<% end %>
+			</h2>
 
-    </div>
-  </div>
+	    <p><%= @project.description %></p>
+	</div>
+
 	<br>
-
 	<div class="row">
 		<% if @project.user_id == current_user.id %>
 			<div class="col-md-4">
@@ -20,9 +23,9 @@
 
 					<div class="card bg-shadow">
 
-					  <div class="card-body">
+					  <div class="card-body uk-padding-large">
 							<h6 class="font-weight-bold">Details</h6>
-							<p class="card-text grey-text font-weight-light">Build the categories of of which you want the item rated for.</p>
+							<p class="card-text grey-text font-weight-light ">Build the categories of of which you want the item rated for.</p>
 					    <h5 class="card-title "><%= details%></h5>
 							<p class="card-text">categories.</p>
 					    <!-- <%= render "details" %> -->
@@ -35,7 +38,7 @@
 					<div class="card bg-shadow">
 
 
-						<div class="card-body">
+						<div class="card-body uk-padding-large">
 							<h6 class="font-weight-bold">Items</h6>
 							<p class="card-text grey-text font-weight-light">	Here you can create the items and link them with the available categories</p>
 							<h5 class="card-title"><%= all_items %></h5>
@@ -50,8 +53,8 @@
 				<%= link_to account_project_invitations_path(current_account, @project, @invitations), class:"project-box-link" do %>
 				<div class="card bg-shadow">
 
-					<div class="card-body">
-						<h6 class="font-weight-bold">Invitations</h6>
+					<div class="card-body uk-padding-large">
+						<h6 class="font-weight-bold ">Invitations</h6>
 						<p class="card-text grey-text font-weight-light">Invite one person or 100 people. Decide who gets to rate the your product.</p>
 						<h5 class="card-title"><%= invitations %></h5>
 						<p class="card-text">invitations(s)</p>
@@ -65,7 +68,7 @@
 				<%= link_to account_project_boards_path(current_account, @project, @boards), class:"project-box-link" do %>
 					<div class="card bg-shadow">
 
-						<div class="card-body">
+						<div class="card-body uk-padding-large">
 							<h6 class="font-weight-bold">Announcement</h6>
 							<p class="card-text grey-text font-weight-light">Make your announcement surrounding your products.</p>
 							<h5 class="card-title"><%= announcements %></h5>
@@ -82,7 +85,7 @@
 			<%= link_to activities_path, class:"project-box-link" do %>
 				<div class="card bg-shadow">
 
-					<div class="card-body">
+					<div class="card-body uk-padding-large">
 						<h6 class=" font-weight-bold">Activities</h6>
 						<p class="card-text grey-text font-weight-light">See what's you and others have done so far.</p>
 						<h5 class="card-title"><%= details %></h5>
@@ -98,7 +101,7 @@
 			<%= link_to account_project_challenges_path(current_account, @project, @challenges), class:"project-box-link" do %>
 				<div class="card bg-shadow">
 
-					<div class="card-body">
+					<div class="card-body uk-padding-large">
 						<h6 class="font-weight-bold">Challenges</h6>
 						<p class="grey-text card-text font-weight-light">Think of this section as product request from your members. What they want you to make them in the future.</p>
 						<h5 class="card-title"><%= challenges %></h5>

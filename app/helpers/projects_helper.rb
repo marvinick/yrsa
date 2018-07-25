@@ -1,5 +1,9 @@
 module ProjectsHelper
 
+  def creator?
+    current_user.email == current_account.owner.email
+  end
+
   def project_reviewers
     reviewers = []
     @project.items.each do |item|
@@ -46,6 +50,6 @@ module ProjectsHelper
 
   def challenges
     @project.challenges.count
-  end 
+  end
 
 end

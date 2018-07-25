@@ -5,16 +5,12 @@
     <%= csrf_meta_tags %>
     <%= growlyflash_static_notices %>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <!-- UIkit CSS -->
-    
     <%= stylesheet_link_tag "jquery.barCharts" %>
     <%= javascript_include_tag "jquery.barChart.js", "data-turbolinks-track" => false %>
     <%= javascript_include_tag 'jquery.raty.js', "data-turbolinks-track": false %>
     <%= javascript_include_tag 'lookups.js', "data-turbolinks-track": false %>
-
     <%= javascript_pack_tag "application" %>
   </head>
   <body>
