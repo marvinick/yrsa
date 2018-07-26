@@ -3,6 +3,7 @@
 
   <div class="card bg-shadow">
     <div class="card-body">
+      <h3 class="font-weight-bold"><%= board.title %></h3>
       <h5 class="card-title"><%= board.user.email %></h5>
       <p class="card-text"><%= sanitize truncate(board.note, length: 100) %></p>
     </div>

@@ -1,7 +1,11 @@
 
 <%= form_for([current_account, @project, @board], remote: true) do |f| %>
   <div class="formly" id="current-pane">
-    <% f.hidden_field :project_id %>
+
+      <% f.hidden_field :project_id %>
+    <div class="form-group">
+      <%= f.text_field :title, placeholder: "title", class: "form-control" %>
+    </div>
     <%= f.hidden_field :note, placeholder: "enter", class: "input", id:"board-note" %>
     <trix-editor input= "board-note" class="trix-content"></trix-editor>
     <br>
@@ -10,7 +14,7 @@
     <div class="row">
 
         <%= f.button "add", class: "uk-button uk-button-default" %>
-        <button href="#current-pane" class="btn btn-default" data-dismiss="alert" aria-label="close" id="hide">close</button>
+        <button href="#current-pane" class="uk-button uk-button-secondary uk-button-small" data-dismiss="alert" aria-label="close" id="hide">close</button>
 
     </div>
   </div>

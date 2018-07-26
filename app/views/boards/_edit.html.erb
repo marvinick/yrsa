@@ -5,8 +5,10 @@
     </div>
     <%= form_for([current_account, @project, @board], remote: true) do |f| %>
       <div class="modal-body">
-
         <% f.hidden_field :project_id %>
+        <div class="form-group">
+          <%= f.text_field :title, placeholder: "title", class:"form-control" %>
+        </div>
         <%= f.hidden_field :note, placeholder: "enter", class: "input", id:"board-note" %>
         <trix-editor input= "board-note" class="trix-content"></trix-editor>
         <br>
@@ -14,7 +16,7 @@
         <br>
       </div>
       <div class="modal-footer">
-        <%= f.button "edit", class: "uk-button uk-button-default" %>
+        <%= f.button "edit", class: "uk-button uk-button-primary uk-button-small" %>
       </div>
     <% end %>
   </div>

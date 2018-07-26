@@ -1,4 +1,5 @@
 <% @title= truncate(@board.note, length: 10) %>
+
 <div class="container bottom-padding">
   <br>
   <p class="card-text">back to <%= link_to "boards", account_project_boards_path(current_account, @project, @boards), class:"primary-link" %></p>
@@ -6,6 +7,7 @@
 
       <div class="uk-width-expand@m">
           <div class="uk-card uk-card-default uk-card-body uk-card-sm">
+            <h3 class="font-weight-bold"><%= @board.title %></h3>
             <p><%= sanitize @board.note %></p>
             <p class="uk-text-right">by <%= @board.user.email %></p>
           </div>
