@@ -1,13 +1,16 @@
-<div class="card w-50 centered bg-shadow">
-  <div class="list-group-item list-group-item-action flex-column align-items-start">
-    <div class="d-flex w-100 justify-content-between">
-      <h6 class="mb-1"><strong><%= detail.name %></strong></h6>
-      <small><%= time_ago_in_words(detail.created_at) %> ago</small>
 
-    </div>
-    <p class="mb-1"><small><%= detail.description %>.</small></p>
-    <!-- <small><%= link_to "edit", edit_account_project_detail_path(current_account, @project, detail), remote: true %></small> -->
-    <button id="edit_detail_<%= detail.id %>" class="popover-toggle btn btn-sm btn-primary outline"  title="edit detail" data-placement="right" >Edit</button>
+
+<tr>
+    <td><%= detail.name %> </td>
+    <td><%= detail.description %></td>
+    <td>
+      <button id="edit_detail_<%= detail.id %>" class="popover-toggle btn btn-sm btn-primary outline"  title="edit detail" data-placement="right" >Edit</button>
+      <hr>
+      <%= link_to "remove", account_project_detail_path(current_account, @project, detail), class:"btn btn-sm btn-danger outline", method: :delete, data: {confirm: "Are you sure?"}, remote: true %>
+    </td>
+
+</tr>
+
 
     <div class="is-hidden" id="edit-detail_<%= detail.id %>" >
       <%= form_for([current_account, @project, detail]) do |f| %>
@@ -30,8 +33,3 @@
         });
       </script>
     </div>
-
-    <%= link_to "remove", account_project_detail_path(current_account, @project, detail), class:"btn btn-sm btn-danger outline", method: :delete, data: {confirm: "Are you sure?"}, remote: true %>
-
-  </div>
-</div>

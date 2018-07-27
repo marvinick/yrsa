@@ -13,14 +13,30 @@
     </div>
   </h4>
 
-
   <h6 >With supporting text below as a natural lead-in to additional content.</h6>
   <p class="card-text ">back to <%= link_to @project.title, account_project_path(current_account, @project), class: "primary-link" %></p>
+
   <hr>
+
 
   <div class="my-details"></div>
   <% if @details.present? %>
-      <%= render @details %>
+    <div class="uk-overflow-auto">
+      <table class="uk-table uk-table-middle uk-table-divider">
+        <thead>
+            <tr>
+                <th >Name</th>
+                <th >Description</th>
+                <th class="uk-width-small">Edit</th>
+
+            </tr>
+        </thead>
+        <tbody>
+          <%= render @details %>
+        </tbody>
+      </table>
+    </div>
+
   <% else %>
     <article class="uk-comment uk-comment-primary">
 
