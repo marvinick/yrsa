@@ -1,6 +1,8 @@
 <% @title = @project.title + " - Details" %>
 
 <br>
+
+
 <div class="bottom-padding">
   <h4 class="card-title">
     <strong>Details</strong>
@@ -20,7 +22,14 @@
   <% if @details.present? %>
       <%= render @details %>
   <% else %>
-    <h5 class="font-weight-bold way-down-center text-center">Nothing yet</h5>
+    <article class="uk-comment uk-comment-primary">
+
+      <div class="uk-comment-body">
+        <h5 class="font-weight-bold text-center">Nothing yet</h5>
+          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+      </div>
+    </article>
+
   <% end %>
 
 </div>

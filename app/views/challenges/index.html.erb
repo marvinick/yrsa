@@ -1,22 +1,30 @@
 <% @title= "Project: " + @project.title + " - challenges"  %>
 
 <br>
+<div class="bottom-padding">
   <h4 class="">
     <strong>Challenges</strong>
     <%= link_to 'New', new_account_project_challenge_path(current_account, @project, @challenge), class:"btn btn-primary btn-sm og-challenge-button", remote: true %>
   </h4>
   <h6 >With supporting text below as a natural lead-in to additional content.</h6>
   <p class="card-text">back to <%= link_to @project.title, account_project_path(current_account, @project), class:"primary-link" %></p>
-<hr>
+  <hr>
 
-<div class="new-challenge-button"></div>
+  <div class="new-challenge-button"></div>
 
-<div id="challenges"></div>
+  <div id="challenges"></div>
 
-<% if @challenges.present? %>
-  <%= render @challenges %>
-<% else %>
-  <h4 class="text-center way-down-center font-weight-bold">Nothing yet</h4>
-<% end %>
+  <% if @challenges.present? %>
+    <%= render @challenges %>
+  <% else %>
+  <article class="uk-comment uk-comment-primary way-down-center">
+
+    <div class="uk-comment-body ">
+      <h5 class="font-weight-bold text-center">Nothing yet</h5>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+    </div>
+  </article>
+
+  <% end %>
 
 </div>
