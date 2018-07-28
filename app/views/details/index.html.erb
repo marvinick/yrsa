@@ -2,15 +2,14 @@
 
 <br>
 
-
 <div class="bottom-padding">
   <h4 class="card-title">
     <strong>Details</strong>
-    <button href="#" id="new_detail" class="popover-toggle btn btn-sm btn-primary"  title="Create new detail" data-container="body" data-placement="bottom" >New</button>
+    <%= link_to "New", new_account_project_detail_path(current_account, @project, @detail), class: "btn btn-primary btn-sm", remote: true %>
 
-    <div id="new-detail" class="is-hidden" >
+    <!-- <div id="new-detail" class="is-hidden" >
       <%= render "form" %>
-    </div>
+    </div> -->
   </h4>
 
   <h6 >With supporting text below as a natural lead-in to additional content.</h6>
@@ -21,6 +20,7 @@
 
   <div class="my-details"></div>
   <% if @details.present? %>
+
     <div class="uk-overflow-auto">
       <table class="uk-table uk-table-middle uk-table-divider">
         <thead>

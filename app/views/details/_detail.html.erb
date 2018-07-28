@@ -1,18 +1,23 @@
 
 
 <tr>
-    <td><%= detail.name %> </td>
+    <td><h5 class="font-weight-bold"><%= detail.name %> </h5></td>
     <td><%= detail.description %></td>
     <td>
-      <button id="edit_detail_<%= detail.id %>" class="popover-toggle btn btn-sm btn-primary outline"  title="edit detail" data-placement="right" >Edit</button>
-      <hr>
-      <%= link_to "remove", account_project_detail_path(current_account, @project, detail), class:"btn btn-sm btn-danger outline", method: :delete, data: {confirm: "Are you sure?"}, remote: true %>
+      <%= link_to edit_account_project_detail_path(current_account, @project, detail), class:"black-link",  remote: true do %>
+        <span uk-icon="pencil" ></span>
+      <% end %>
+      <%= link_to account_project_detail_path(current_account, @project, detail), method: :delete, data: {confirm: "Are you sure?"}, remote: true do %>
+        <span uk-icon="trash" ></span>
+      <% end %>
     </td>
 
 </tr>
 
-
-    <div class="is-hidden" id="edit-detail_<%= detail.id %>" >
+<!-- <button id="edit_detail_<%= detail.id %>" class="popover-toggle btn btn-sm btn-primary outline"  title="edit detail" data-placement="right" >Edit</button>
+<hr>
+<%= link_to "remove", account_project_detail_path(current_account, @project, detail), class:"btn btn-sm btn-danger outline", method: :delete, data: {confirm: "Are you sure?"}, remote: true %> -->
+    <!-- <div class="is-hidden" id="edit-detail_<%= detail.id %>" >
       <%= form_for([current_account, @project, detail]) do |f| %>
         <% f.hidden_field :project_id %>
         <%= f.text_field :name, placeholder: 'name', class: 'input' %>
@@ -32,4 +37,4 @@
           });
         });
       </script>
-    </div>
+    </div> -->
