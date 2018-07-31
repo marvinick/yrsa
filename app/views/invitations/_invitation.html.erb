@@ -1,13 +1,6 @@
-
-
-  <p class="card-text"><%= invitation.email %></p>
-  <li class="dropdown text-right">
-    <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-      <span class="fa fa-ellipsis-h"></span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-right">
-      <p class="dropdown-item">
-        <%= link_to "Remove", account_project_invitation_path(current_account, @project, invitation), method: :delete, data: { confirm: "Are you sure you want to canceled invitation to #{invitation.email}?" } %>
-      </p>
-    </ul>
-  </li>
+<li>
+  <%= invitation.email %>
+  <%= link_to account_project_invitation_path(current_account, @project, invitation), method: :delete, data: { confirm: "Are you sure you want to canceled invitation to #{invitation.email}?" } do %>
+    <span uk-icon="trash"></span>
+  <% end %>
+</li>
