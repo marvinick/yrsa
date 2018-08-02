@@ -28,7 +28,10 @@
                 <input type="text" id="books-search-txt" autofocus>
                 <div class="results" id="books-search-results"></div>
               </div> -->
-              <%= link_to "search", lookups_path, remote: true, class: "nav-link"  %>
+              <%= link_to "search", lookups_path, id:"new_detail", class:"popover-toggle"  %>
+              <div id="new-detail" class="is-hidden" >
+                <%= render "lookups/index" %>
+              </div>
             </li>
             <% end %>
           </ul>
@@ -61,3 +64,16 @@
 </div>
 
 <div id="product-modal" class="modal"></div>
+
+<script>
+  $(function(){
+
+      $('#new_detail').popover({
+        html : true,
+        offset: '110px',
+        content: function() {
+          return $('#new-detail').html();
+        }
+    });
+  });
+</script>
