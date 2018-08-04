@@ -1,11 +1,11 @@
-<div class="modal-dialog">
-  <div class="modal-content">
+<div class="modal-dialog ">
+  <div class="modal-content modal-enhance">
     <div class="modal-body">
       <div class="books-search">
         <%= form_tag lookups_path, method: :get do %>
           <%= text_field_tag 'term', params[:term], id: "books-search-txt", autofocus: true %>
 
-          <%= submit_tag 'Search!', name: nil %>
+          <%= submit_tag 'Search!', name: nil, class: "uk-button uk-button-primary  " %>
           <div class="results" id="books-search-results"></div>
         <% end %>
       </div>

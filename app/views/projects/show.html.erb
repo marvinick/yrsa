@@ -4,15 +4,14 @@
 <br>
 <br>
 	<div class=" text-center ">
-	    <h2 class="uk-heading-primary"><%= @project.title %>
+	    <h2 class="font-weight-bold"><%= @project.title %>
 				<% if creator? %>
 					<%= link_to edit_account_project_path(current_account, @project), remote: true do %>
 						<i uk-icon="pencil" class="uk-icon-link"></i>
 					<% end %>
 				<% end %>
 			</h2>
-
-	    <p><%= @project.description %></p>
+	    <p class="grey-text"><%= @project.description %></p>
 	</div>
 
 	<br>
