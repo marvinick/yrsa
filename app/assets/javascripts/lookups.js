@@ -19,10 +19,10 @@ app.Lookups.prototype = {
 
   _render: function(ul, item) {
 
-    if (!item.name) {
+    if(!item.name) {
       item.name = '';
     }
-    if (!item.title) {
+    if(!item.title) {
       item.title = '';
     }
 

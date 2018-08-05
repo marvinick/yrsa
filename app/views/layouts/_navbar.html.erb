@@ -23,13 +23,19 @@
               <% end %>
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item dropdown">
               <!-- <div class="books-search">
                 <input type="text" id="books-search-txt" autofocus>
                 <div class="results" id="books-search-results"></div>
               </div> -->
-              <%= link_to "search", lookups_path, remote: true, class: "nav-link"  %>
-            
+              <!-- <%= link_to "search", lookups_path, remote: true, class: "nav-link"  %> -->
+              <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span uk-icon="search" class="uk-icon-link"></span>
+
+
+                <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item"><%= render "lookups/index" %></a>
+                </div>
             </li>
             <% end %>
           </ul>

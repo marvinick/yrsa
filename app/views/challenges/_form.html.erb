@@ -2,9 +2,9 @@
   <div class="formly" id="current-pane">
     <div class="row">
       <%= f.hidden_field :project_id %>
-      <%= f.text_field :name, placeholder: 'name the challenge', autofocus: true, label: false, class: "input ", :maxlength => 25, :size => 40 %>
+      <%= f.text_field :name, placeholder: 'name the challenge', autofocus: true, label: false, class: "input ", :size => 40 %>
       <br>
-      <%= f.text_field :description, placeholder: 'content', label: false, autofocus: true, class: "extra-input", :maxlength => 280, :size => 40  %>
+      <%= f.text_field :description, placeholder: 'content', label: false, autofocus: true, class: "extra-input", :size => 40  %>
       <br>
       <%= f.text_field :due_date, placeholder: "due dates" , id:"due-date", class: "extra-input" %>
       <br>
