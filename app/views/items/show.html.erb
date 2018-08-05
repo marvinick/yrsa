@@ -1,11 +1,16 @@
-
 <% @title = @project.title + " - " + @item.name %>
+
 <br>
+
 <div class="row bottom-padding">
 
   <div class="col-sm-3">
     <div class="card bg-shadow">
-      <%= image_tag @item.image, class: "img-fluid", id:"myImg" %>
+      <% if @item.image.present? %>
+        <%= image_tag @item.image, class: "img-fluid", id:"myImg" %>
+      <% else %>
+        <%= image_tag("missing.png") %>
+       <% end %>
       <div class="card-body">
         <h5 class="card-title">
           <strong><%= @item.name %></strong>

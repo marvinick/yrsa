@@ -1,6 +1,4 @@
-$('.new-detail-button').after('<%= j render('form') %>');
-$('.detail-button').hide();
-$("#hide").click(function(){
-    $("#current-pane").hide();
-    $('.detail-button').show();
-});
+
+
+$("#detail-modal").html("<%= escape_javascript(render 'form') %>")
+$("#detail-modal").modal("show")

@@ -1,11 +1,17 @@
-<%= form_for([current_account, @project, @detail]) do |f| %>
-    <% f.hidden_field :project_id %>
-    <%= f.text_field :name, placeholder: 'name', class: 'input' %>
-    <br>
-    <%= f.text_field :description, placeholder: 'description', class: 'extra-input' %>
-    <br>
-    <br>
-    <div >
-      <%= f.button 'add', class: 'btn btn-success btn-sm' %>
+<div class="modal-dialog ">
+  <div class="modal-content modal-enhance">
+    <div class="modal-body ">
+      <%= form_for([current_account, @project, @detail]) do |f| %>
+          <% f.hidden_field :project_id %>
+          <%= f.text_field :name, placeholder: 'name', class: 'input' %>
+          <br>
+          <%= f.text_field :description, placeholder: 'description', class: 'extra-input' %>
+          <br>
+          <br>
+          <div >
+            <%= f.button 'add', class: 'btn btn-success btn-sm' %>
+          </div>
+      <% end %>
     </div>
-<% end %>
+  </div>
+</div>
