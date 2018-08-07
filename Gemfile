@@ -41,6 +41,7 @@ gem 'stripe'
 gem 'money'
 
 #search / sorting
+gem 'ransack'
 gem 'pg_search'
 gem 'jquery-ui-rails'
 
