@@ -26,6 +26,7 @@
 //= require subscriptions
 //= require uikit.min
 //= require uikit-icons.min
+//= require jquery.easy-autocomplete
 //= require_tree .
 
 

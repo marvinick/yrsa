@@ -49,6 +49,12 @@ class AccountsController < ApplicationController
     respond_with(@projects)
   end
 
+  def search
+    @items = Item.ransack(params[:q]).result(distinct: true)
+    @projects = Project.ransack(params[:q]).result(distinct: true)
+    
+  end
+
   private
 
   def set_account

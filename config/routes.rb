@@ -72,6 +72,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get :search, controller: :accounts
   resources :lookups
 
   namespace :admin do
