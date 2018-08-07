@@ -1,35 +1,29 @@
+<div class="books-search">
+  <%= form_for lookups_path, method: :get do %>
+    <%= text_field_tag 'term', params[:term], id: "books-search-txt", autofocus: true, placeholder: "enter anything" %>
+    <!-- <%= submit_tag 'Go', class: "btn btn-success btn-xs " %> -->
+  <% end %>
+</div>
 
-      <div class="books-search">
-        <%= form_tag lookups_path, method: :get do %>
-          <%= text_field_tag 'term', params[:term], id: "books-search-txt", autofocus: true %>
+<div class="results" id="books-search-results"></div>
 
-          <%= submit_tag 'Search', name: nil, class: "uk-button uk-button-primary  " %>
+<!-- # <% if params[:term] %>
+#   <% if @pg_search_documents.present? %>
+#
+#     <% @pg_search_documents.each do |pg_search| %>
+#       <% if pg_search.searchable.respond_to?(:title) %>
+#         <li><%= link_to pg_search.searchable.title_path(current_account, @project) %> - project</li>
+#       <% elsif pg_search.searchable.respond_to?(:name)  %>
+#         <li><%= link_to pg_search.searchable.name %> (item)</li>
+#       <% end %>
+#     <% end %>
+#   <% else %>
+#     <li><%= "No results" %></li>
+#   <% end %>
+# <% end %> -->
 
-        <% end %>
-      </div>
-
-        <div class="results" id="books-search-results"></div>
-
-
-
-      <% if params[:term] %>
-          <% if @pg_search_documents.present? %>
-
-            <% @pg_search_documents.each do |pg_search| %>
-              <% if pg_search.searchable.respond_to?(:title) %>
-                <li><%= link_to pg_search.searchable.title %> (project)</li>
-              <% elsif pg_search.searchable.respond_to?(:name)  %>
-                <li><%= link_to pg_search.searchable.name %> (item)</li>
-              <% end %>
-            <% end %>
-          <% else %>
-
-          <% end %>
-
-      <% end %>
-
-  <script>
-    $(function() {
-      new app.Lookups;
-    });
-  </script>
+<script>
+  $(function() {
+    new app.Lookups;
+  });
+</script>
