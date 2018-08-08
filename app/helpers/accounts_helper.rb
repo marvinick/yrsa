@@ -1,5 +1,13 @@
 module AccountsHelper
 
+  def accounts
+    projects = []
+    current_user.all_accounts.each do |account|
+      projects << account.projects
+    end
+     projects
+  end
+
   def projects_in_account
     @account.projects.count
   end

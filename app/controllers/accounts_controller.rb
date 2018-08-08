@@ -50,12 +50,17 @@ class AccountsController < ApplicationController
   end
 
   def search
-    @items = Item.ransack(params[:q]).result(distinct: true)
-    @projects = Project.ransack(params[:q]).result(distinct: true)
+    @accounts = current_user.all_accounts
     
   end
 
   private
+
+  def set_project
+    current_user.all_accounts.each do |account|
+      account.projects.find(params[:id])
+    end
+  end
 
   def set_account
     @account = Account.find(params[:id])
@@ -74,7 +79,4 @@ class AccountsController < ApplicationController
     )
   end
 
-  def set_project
-    @account.projects.find_by slug: params[:project_id]
-  end
 end

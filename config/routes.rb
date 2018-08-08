@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  get :search, controller: :accounts
   root to: "accounts#index"
 
   devise_for :users
@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post "/accounts", to: "accounts#create", as: :accounts
 
   resources :accounts, :except => [:show] do
+
     get 'activities/index'
 
     get "/choose_plan",
@@ -72,7 +73,8 @@ Rails.application.routes.draw do
     end
   end
 
-  get :search, controller: :accounts
+
+
   resources :lookups
 
   namespace :admin do

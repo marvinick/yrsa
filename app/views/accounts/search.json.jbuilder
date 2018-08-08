@@ -11,3 +11,9 @@ json.items do
     json.url account_project_item_path(@account, @project, item)
   end
 end
+
+json.accounts do
+  json.array!(@accounts) do |account|
+    json.name account.name
+  end
+end
