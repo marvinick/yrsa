@@ -51,10 +51,24 @@ class AccountsController < ApplicationController
 
   def search
     @accounts = current_user.all_accounts
-    
+    @projects = projects_in_each_account
+    @items = items_in_each_project
   end
 
   private
+
+  def items_in_each_project
+    projects_in_each_account.each do |project|
+      project.id
+    end
+  end
+
+  def projects_in_each_account
+    current_user.all_accounts.each do |account|
+      account.projects
+    end
+  end
+
 
   def set_project
     current_user.all_accounts.each do |account|
