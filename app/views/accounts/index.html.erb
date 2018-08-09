@@ -1,7 +1,7 @@
 <% @title= "aetomata - Home" %>
 
 <br>
-<%= accounts %>
+
 <% if user_signed_in? %>
   <% current_user.all_accounts.uniq.each do |account| %>
 

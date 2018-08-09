@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get :autocomplete, controller: :accounts
+
   get :search, controller: :accounts
   root to: "accounts#index"
 

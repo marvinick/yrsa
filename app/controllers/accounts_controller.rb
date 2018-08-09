@@ -1,6 +1,7 @@
 class AccountsController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create]
   before_action :set_account, only: [:edit, :update, :show, :upgrade]
+  before_action :force_json, only: :autocomplete
   respond_to :html, :json
 
   def index; end
@@ -50,12 +51,24 @@ class AccountsController < ApplicationController
   end
 
   def search
-    @accounts = current_user.all_accounts
+    # @accounts = current_user.all_accounts.ransack(params[:a]).result(distinct: true)
+    @accounts = Account.ransack(name_cont: params[:q]).result(distinct: true)
+    @projects = projects_in_each_account
+    @items = items_in_each_project
+  end
+
+  def autocomplete
+    # @accounts = current_user.all_accounts.ransack(params[:a]).result(distinct: true)
+    @accounts = Account.ransack(name_cont: params[:q]).result(distinct: true).limit(5)
     @projects = projects_in_each_account
     @items = items_in_each_project
   end
 
   private
+
+  def force_json
+    request.format = :json
+  end
 
   def items_in_each_project
     projects_in_each_account.each do |project|
