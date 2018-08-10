@@ -1,6 +1,6 @@
 <div class="books-search">
   <%= form_for lookups_path, method: :get do %>
-    <%= text_field_tag 'term', params[:term], id: "books-search-txt", autofocus: true, placeholder: "enter anything" %>
+    <%= text_field_tag 'term', params[:term], id: "books-search-txt", autofocus: true, placeholder: "enter anything" data-behavior="autocomplete" %>
     <!-- <%= submit_tag 'Go', class: "btn btn-success btn-xs " %> -->
   <% end %>
 </div>
