@@ -50,6 +50,19 @@ class AccountsController < ApplicationController
     respond_with(@projects)
   end
 
+  # def search
+  #   @movies    = Movie.ransack(name_cont: params[:q]).result(distinct: true)
+  #   @directors = Director.ransack(name_cont: params[:q]).result(distinct: true)
+  #
+  #   respond_to do |format|
+  #     format.html {}
+  #     format.json {
+  #       @movies    = @movies.limit(5)
+  #       @directors = @directors.limit(5)
+  #     }
+  #   end
+  # end
+
   def search
     # @accounts = current_user.all_accounts.ransack(params[:a]).result(distinct: true)
     @accounts = Account.ransack(name_cont: params[:q]).result(distinct: true)
