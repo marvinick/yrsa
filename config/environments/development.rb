@@ -61,16 +61,6 @@ config.webpacker.check_yarn_integrity = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
-  ActionMailer::Base.smtp_settings =
-  {
-
-    :address            => 'smtp.gmail.com',
-    :port               => 587,
-    :domain             => 'gmail.com', #you can also use google.com
-    :authentication     => :plain,
-    :user_name          => 'marvkipi@@gmail.com',
-    :password           => 'delta8214!'
-  }
 
 
 end
